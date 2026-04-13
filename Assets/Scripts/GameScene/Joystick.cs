@@ -22,6 +22,8 @@ public class Joystick : MonoBehaviour,
     {
         _joystick = GetComponentsInChildren<Image>();
 
+        _backgroundRadius = _joystick[1].rectTransform.rect.width / 2;
+
         JoystickSetActiveFalse();
     }
 
@@ -37,6 +39,17 @@ public class Joystick : MonoBehaviour,
         _joystick[2].gameObject.SetActive(false);
     }
 
+    private void SetStickPos(Vector3 inputPos)
+    {
+        float distance = Vector2.Distance(_joystick[1].transform.position, inputPos);
+        Vector2 stickPos;
+
+        stickPos = _backgroundRadius > distance ? inputPos : _joystick[1].transform.position + (inputPos - _joystick[1].transform.position).normalized * _backgroundRadius;
+
+
+        _joystick[2].transform.position = stickPos;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         // 움직임 시작 
@@ -48,6 +61,8 @@ public class Joystick : MonoBehaviour,
         _joystick[2].rectTransform.position = _pointerDownPosition;
 
         OnTouchDown?.Invoke();
+
+        Debug.Log(_joystick[1].transform.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -62,7 +77,7 @@ public class Joystick : MonoBehaviour,
     public void OnDrag(PointerEventData eventData)
     {
         // 스틱 이동
-        _joystick[2].rectTransform.position = eventData.position;
+        SetStickPos(eventData.position);
 
         // 이동 방향
         _moveDir = ((Vector2)_joystick[2].rectTransform.position - _pointerDownPosition).normalized;
