@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -14,9 +15,22 @@ public class HeroSpriteController : SpriteControllerBase
         _spriteLibrary = GetComponent<SpriteLibrary>();
     }
 
+    //TODO 여기서 불러오도록 설정
     public void Init(SpriteLibraryAsset asset)
     {
         _spriteLibraryAsset = asset;
+
+        SetHeroSpriteLibraryAsset();
+    }
+
+    public void MoveStart()
+    {
+        _animator.SetBool("IsMove", true);
+    }
+
+    public void MoveFinish()
+    {
+        _animator.SetBool("IsMove", false);
     }
 
     private void SetHeroSpriteLibraryAsset()

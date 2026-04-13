@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,8 +9,14 @@ public class Joystick : MonoBehaviour,
     // [1]: Background, [2]: Stick
     private Image[] _joystick;
 
+    private Vector2 _pointerDownPosition;
+    private Vector2 _moveDir;
+
     private float _backgroundRadius;
-    private Vector2 _downPosition;
+
+    public event Action OnTouchDown;
+    public event Action OnTouchUp;
+    public event Action<Vector2> OnDragging;
 
     private void Awake()
     {
@@ -32,21 +39,34 @@ public class Joystick : MonoBehaviour,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _downPosition = eventData.position;
+        // 움직임 시작 
+        _pointerDownPosition = eventData.position;
 
         JoystickSetActiveTrue();
 
-        _joystick[1].rectTransform.position = _downPosition;
-        _joystick[2].rectTransform.position = _downPosition;
+        _joystick[1].rectTransform.position = _pointerDownPosition;
+        _joystick[2].rectTransform.position = _pointerDownPosition;
+
+        OnTouchDown?.Invoke();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        // 움직임 끝
         JoystickSetActiveFalse();
+        OnDragging?.Invoke(Vector2.zero);
+
+        OnTouchUp?.Invoke();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        // 스틱 이동
         _joystick[2].rectTransform.position = eventData.position;
+
+        // 이동 방향
+        _moveDir = ((Vector2)_joystick[2].rectTransform.position - _pointerDownPosition).normalized;
+
+        OnDragging?.Invoke(_moveDir);
     }
 }

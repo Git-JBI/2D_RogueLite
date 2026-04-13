@@ -3,19 +3,34 @@ using UnityEngine.U2D.Animation;
 
 public class HeroController : MonoBehaviour
 {
+    private RigidMovement _movement;
     private HeroSpriteController _spriteController;
-
-    private SpriteLibraryAsset _spriteLibraryAsset;
 
     private void Awake()
     {
-        _spriteController = GetComponent<HeroSpriteController>();
+        _movement = GetComponent<RigidMovement>();
+
+        _spriteController = GetComponentInChildren<HeroSpriteController>();
     }
 
     public void Init(SpriteLibraryAsset asset)
     {
-        _spriteLibraryAsset = asset;
+        _spriteController.Init(asset);
+    }
 
-        _spriteController.Init(_spriteLibraryAsset);
+    public void MoveStart()
+    {
+        _spriteController.MoveStart();
+    }
+
+    public void MoveFinish()
+    {
+        _spriteController.MoveFinish();
+    }
+
+    public void Move(Vector2 axis)
+    {
+        _movement.Move(axis, 2.0f);
+        _spriteController.SetFlipX(axis.x);
     }
 }
