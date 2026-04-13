@@ -61,8 +61,6 @@ public class Joystick : MonoBehaviour,
         _joystick[2].rectTransform.position = _pointerDownPosition;
 
         OnTouchDown?.Invoke();
-
-        Debug.Log(_joystick[1].transform.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -71,6 +69,7 @@ public class Joystick : MonoBehaviour,
         JoystickSetActiveFalse();
         OnDragging?.Invoke(Vector2.zero);
 
+        //TODO 마지막 터치 시 플립x방향 고정
         OnTouchUp?.Invoke();
     }
 
