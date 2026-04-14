@@ -30,6 +30,7 @@ public class HeroController : MonoBehaviour
 
     public void Move(Vector2 axis)
     {
+        //TODO 속도 고정값X
         _movement.Move(axis, 2.0f);
         _spriteController.SetFlipX(axis.x);
     }
