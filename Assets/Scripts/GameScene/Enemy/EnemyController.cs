@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class EnemyController : MonoBehaviour, IDamageable
 {
     private HeroController _target;
@@ -52,7 +55,11 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         _moveState.Init(_spriteController, _movement, _target, this);
         _damagedState.Init(this, _spriteController);
+        _deadState.Init(_spriteController);
+    }
 
+    private void Start()
+    {
         CurState = _moveState;
     }
 
@@ -69,19 +76,16 @@ public class EnemyController : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         _hp -= damage;
+        Debug.Log($"{damage}의 데미지를 입었다.");
 
         if (_hp <= 0)
         {
             //TODO 사망상태로 변화
             CurState = _deadState;
-            _spriteController.Dead();
-            Debug.Log("사망");
         }
         else
         {
-            //TODO 경직 필요, Damaged상태로 변화
             CurState = _damagedState;
-            Debug.Log($"{damage}의 데미지를 입었다.");
         }
     }
 }
