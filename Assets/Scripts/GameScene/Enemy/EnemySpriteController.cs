@@ -6,4 +6,9 @@ public class EnemySpriteController : SpriteControllerBase
     {
         _animator.SetTrigger("Damaged");
     }
+
+    public void Dead()
+    {
+        _animator.SetTrigger("Dead");
+    }
 }

@@ -15,7 +15,7 @@ public class BulletBase : MonoBehaviour
         {
             IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
 
-            idamageable.Damaged(_damage);
+            idamageable.TakeDamage(_damage);
         }
     }
 }
