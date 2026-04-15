@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IDamageable
 {
     private HeroController _target;
     private RigidMovement _movement;
@@ -26,5 +26,17 @@ public class EnemyController : MonoBehaviour
     private Vector2 DirToTarget()
     {
         return (_target.transform.position - transform.position).normalized;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            Debug.Log("Player");
+    }
+
+    public void Damaged(float damage)
+    {
+        _spriteController.Damaged();
+        Debug.Log($"{damage}의 데미지를 입었다.");
     }
 }
