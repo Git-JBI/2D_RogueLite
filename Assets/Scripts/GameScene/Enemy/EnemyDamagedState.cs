@@ -20,8 +20,6 @@ public class EnemyDamagedState : MonoBehaviour, IState
 
         // 경직 시간
         yield return new WaitForSeconds(0.2f);
-
-        _controller.CurState = _controller.MoveState;
     }
 
     public void OnStateEnter()

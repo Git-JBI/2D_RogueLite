@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyMoveState : MonoBehaviour, IState
+public class EnemyMoveState : IState
 {
     private EnemySpriteController _spriteController;
     private RigidMovement _movement;
@@ -12,11 +12,8 @@ public class EnemyMoveState : MonoBehaviour, IState
 
     private Coroutine _moveCoroutine;
 
-    public void Init(EnemySpriteController spriteController, RigidMovement movement, HeroController target, EnemyController enemyController)
+    public EnemyMoveState(EnemyController enemyController)
     {
-        _spriteController = spriteController;
-        _movement = movement;
-        _target = target;
         _controller = enemyController;
     }
 
@@ -39,14 +36,14 @@ public class EnemyMoveState : MonoBehaviour, IState
     {
         Debug.Log("MoveEnter");
         _isMoving = true;
-        _moveCoroutine = StartCoroutine(MoveCoroutine());
+        _moveCoroutine = _controller.StartCoroutine(MoveCoroutine());
     }
 
     public void OnStateExit()
     {
         Debug.Log("MoveExit");
         _isMoving = false;
-        StopCoroutine(_moveCoroutine);
+        _controller.StopCoroutine(_moveCoroutine);
         _movement.Move(Vector2.zero, 0.0f);
     }
 

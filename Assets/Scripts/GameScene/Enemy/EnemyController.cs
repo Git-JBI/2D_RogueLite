@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// 
-/// </summary>
 public class EnemyController : MonoBehaviour, IDamageable
 {
     private HeroController _target;
@@ -10,10 +7,6 @@ public class EnemyController : MonoBehaviour, IDamageable
     private EnemySpriteController _spriteController;
 
     private IState _curState;
-
-    private EnemyMoveState _moveState;
-    private EnemyDamagedState _damagedState;
-    private EnemyDeadState _deadState;
 
     private float _hp;
 
@@ -36,8 +29,6 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
     }
 
-    public EnemyMoveState MoveState => _moveState;
-
     private void Awake()
     {
         //TODO 추후 Init()쪽으로 이동
@@ -46,25 +37,17 @@ public class EnemyController : MonoBehaviour, IDamageable
         _movement = GetComponent<RigidMovement>();
         _spriteController = GetComponentInChildren<EnemySpriteController>();
 
-        _moveState = GetComponent<EnemyMoveState>();
-        _damagedState = GetComponent<EnemyDamagedState>();
-        _deadState = GetComponent<EnemyDeadState>();
-
         //TODO Hp여기서 안가져옴
         _hp = 24.0f;
-
-        _moveState.Init(_spriteController, _movement, _target, this);
-        _damagedState.Init(this, _spriteController);
-        _deadState.Init(_spriteController);
     }
 
     private void Start()
     {
-        CurState = _moveState;
     }
 
     private void Update()
     {
+        _curState.OnStateUpdate();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,12 +63,11 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         if (_hp <= 0)
         {
-            //TODO 사망상태로 변화
-            CurState = _deadState;
         }
         else
         {
-            CurState = _damagedState;
         }
     }
+
+
 }
