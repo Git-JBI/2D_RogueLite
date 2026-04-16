@@ -1,39 +1,32 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyDamagedState : MonoBehaviour, IState
+public class EnemyDamagedState : IState
 {
-    private EnemyController _controller;
-    private EnemySpriteController _spriteController;
+    private EnemyController _enemy;
 
-    private Coroutine _damagedCoroutine;
+    private float _timer;
 
-    public void Init(EnemyController controller, EnemySpriteController spriteController)
+    public EnemyDamagedState(EnemyController enemy)
     {
-        _controller = controller;
-        _spriteController = spriteController;
-    }
-
-    private IEnumerator DamagedCoroutine()
-    {
-        _spriteController.Damaged();
-
-        // 경직 시간
-        yield return new WaitForSeconds(0.2f);
+        _enemy = enemy;
     }
 
     public void OnStateEnter()
     {
-        Debug.Log("Damaged Enter");
-        _damagedCoroutine = StartCoroutine(DamagedCoroutine());
+        _enemy.SpriteController.Damaged();
     }
 
     public void OnStateExit()
     {
-        Debug.Log("Damaged Exit");
+        _timer = 0.0f;
     }
 
     public void OnStateUpdate()
     {
+        if (_timer < 0.5f)
+            _timer += Time.deltaTime;
+        else
+            _enemy.ChangeState(_enemy.MoveState);
     }
 }

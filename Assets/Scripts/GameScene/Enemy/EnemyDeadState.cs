@@ -1,55 +1,43 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyDeadState : MonoBehaviour, IState
+public class EnemyDeadState : IState
 {
-    private EnemySpriteController _spriteController;
+    private EnemyController _enemy;
 
-    private Rigidbody2D _rigidbody;
-    private Collider2D _collider;
+    private float _timer;
 
-    private void Awake()
+    public EnemyDeadState(EnemyController enemy)
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-
-        _collider = GetComponentInChildren<Collider2D>();
-    }
-
-    public void Init(EnemySpriteController spriteController)
-    {
-        _spriteController = spriteController;
-    }
-
-    private IEnumerator DeadCoroutine()
-    {
-        // 리지드바디 비활성화
-        _rigidbody.simulated = false;
-
-        // 콜라이더 비활성화
-        _collider.enabled = false;
-
-        // 죽음 애니메이션 트리거실행
-        _spriteController.Dead();
-
-        yield return new WaitForSeconds(0.5f);
-
-        Debug.Log("사망");
-        //TODO 추후 ObjectPooling으로 변환 시 수정
-        Destroy(gameObject);
+        _enemy = enemy;
     }
 
     public void OnStateEnter()
     {
-        Debug.Log("Dead Enter");
-        
-        StartCoroutine(DeadCoroutine());
+        // 리지드바디 비활성화
+        _enemy.SetRigidbodyActive(false);
+
+        // 콜라이더 비활성화
+        _enemy.SetColliderActive(false);
+
+        // 죽음 애니메이션 트리거실행
+        _enemy.SpriteController.Dead();
     }
 
     public void OnStateExit()
     {
+        _enemy.Die();
     }
 
     public void OnStateUpdate()
     {
+        if(_timer < 0.5f)
+        {
+            _timer += Time.deltaTime;
+        }
+        else
+        {
+            OnStateExit();
+        }
     }
 }
