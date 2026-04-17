@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// 적을 스폰
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]

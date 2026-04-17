@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-public class HeroController : MonoBehaviour
+public class HeroController : MonoBehaviour, IDamageable
 {
     private RigidMovement _movement;
+    private HeroModel _heromodel;
     private HeroSpriteController _spriteController;
 
     private void Awake()
     {
         _movement = GetComponent<RigidMovement>();
+        _heromodel = GetComponent<HeroModel>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
     }
@@ -34,4 +36,11 @@ public class HeroController : MonoBehaviour
         _movement.Move(axis, 2.0f);
         _spriteController.SetFlipX(axis.x);
     }
+
+    #region Interface
+    public void TakeDamage(float damage)
+    {
+        _heromodel.TakeDamage(damage);
+    }
+    #endregion
 }

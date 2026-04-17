@@ -85,7 +85,11 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            Debug.Log("Player");
+        {
+            IDamageable player = collision.gameObject.GetComponent<IDamageable>();
+            player.TakeDamage(4);
+        }
+
     }
 
     public void TakeDamage(float damage)
