@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class WeaponShovel : MonoBehaviour
 {
+    //TODO ResourceLoad·Î º¯°æ
     [SerializeField]private BulletBase _shovel;
 
     private int _level;

@@ -24,7 +24,7 @@ public class EnemyDamagedState : IState
 
     public void OnStateUpdate()
     {
-        if (_timer < 0.5f)
+        if (_timer < 0.2f)
             _timer += Time.deltaTime;
         else
             _enemy.ChangeState(_enemy.MoveState);
