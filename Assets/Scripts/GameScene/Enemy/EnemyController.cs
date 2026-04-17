@@ -3,15 +3,17 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable
 {
     private HeroController _target;
+    private EnemyModel _model;
     private RigidMovement _movement;
-    private EnemySpriteController _spriteController;
     private Rigidbody2D _rigidbody;
+    private EnemySpriteController _spriteController;
     private Collider2D _collider;
 
     public HeroController Target => _target;
+    public EnemyModel Model => _model;
     public RigidMovement Movement => _movement;
-    public EnemySpriteController SpriteController => _spriteController;
     public Rigidbody2D Rigidbody => _rigidbody;
+    public EnemySpriteController SpriteController => _spriteController;
     public Collider2D Collider => _collider;
 
     private IState _curState;
@@ -24,22 +26,17 @@ public class EnemyController : MonoBehaviour, IDamageable
     public EnemyDamagedState DamagedState => _damagedState;
     public EnemyDeadState DeadState => _deadState;
 
-    private float _hp;
-
-    private Vector2 _dirToTarget;
-
     private void Awake()
     {
         //TODO 추후 Init()쪽으로 이동
         _target = FindAnyObjectByType<HeroController>();
 
+        _model = GetComponent<EnemyModel>();
         _movement = GetComponent<RigidMovement>();
-        _spriteController = GetComponentInChildren<EnemySpriteController>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _collider = GetComponentInChildren<Collider2D>();
 
-        //TODO Hp여기서 안가져옴
-        _hp = 24.0f;
+        _spriteController = GetComponentInChildren<EnemySpriteController>();
+        _collider = GetComponentInChildren<Collider2D>();
 
         _moveState = new EnemyMoveState(this);
         _damagedState = new EnemyDamagedState(this);
@@ -66,14 +63,9 @@ public class EnemyController : MonoBehaviour, IDamageable
         _curState.OnStateEnter();
     }
 
-    public void SetRigidbodyActive(bool a)
+    public void SetColliderActive(bool x)
     {
-        _rigidbody.simulated = a;
-    }
-
-    public void SetColliderActive(bool a)
-    {
-        _collider.enabled = a;
+        _collider.enabled = x;
     }
 
     public void Die()
@@ -87,18 +79,17 @@ public class EnemyController : MonoBehaviour, IDamageable
         if (collision.gameObject.CompareTag("Player"))
         {
             IDamageable player = collision.gameObject.GetComponent<IDamageable>();
-            player.TakeDamage(4);
+            player.TakeDamage(_model.Damage);
         }
 
     }
 
     public void TakeDamage(float damage)
     {
-        //TODO Model사용
-        _hp -= damage;
+        _model.TakeDamage(damage);
         Debug.Log($"{damage}의 데미지를 입었다.");
 
-        if (_hp <= 0)
+        if (_model.CurHp <= 0)
         {
             ChangeState(_deadState);
         }

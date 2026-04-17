@@ -6,6 +6,7 @@ public class HeroController : MonoBehaviour, IDamageable
     private RigidMovement _movement;
     private HeroModel _heromodel;
     private HeroSpriteController _spriteController;
+    private HeroHud _heroHud;
 
     private void Awake()
     {
@@ -13,6 +14,9 @@ public class HeroController : MonoBehaviour, IDamageable
         _heromodel = GetComponent<HeroModel>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
+        _heroHud = GetComponentInChildren<HeroHud>();
+
+        _heromodel.OnChangeHp += _heroHud.SetHpBar;
     }
 
     public void Init(SpriteLibraryAsset asset)
@@ -32,8 +36,7 @@ public class HeroController : MonoBehaviour, IDamageable
 
     public void Move(Vector2 axis)
     {
-        //TODO 속도 고정값X
-        _movement.Move(axis, 2.0f);
+        _movement.Move(axis, _heromodel.MoveSpeed);
         _spriteController.SetFlipX(axis.x);
     }
 

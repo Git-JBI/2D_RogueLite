@@ -9,6 +9,11 @@ public class RigidMovement : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
     }
 
+    public void SetActive(bool x)
+    {
+        _rigid.simulated = x;
+    }
+
     public void Move(Vector2 inputAxis, float moveSpeed)
     {
         _rigid.linearVelocity = inputAxis * moveSpeed;

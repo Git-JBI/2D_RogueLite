@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HeroModel : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class HeroModel : MonoBehaviour
     public float CurHp => _curHp;
     public float Damage => _damage;
     public float MoveSpeed => _moveSpeed;
-
     public bool IsAlive => _curHp > 0;
+
+    public event UnityAction<float, float> OnChangeHp;
 
     private void Awake()
     {
@@ -26,5 +28,6 @@ public class HeroModel : MonoBehaviour
     {
         _curHp = Mathf.Clamp(_curHp - damage, 0, _maxHp);
         Debug.Log($"현재 체력 : {_curHp}");
+        OnChangeHp?.Invoke(_curHp, _maxHp);
     }
 }

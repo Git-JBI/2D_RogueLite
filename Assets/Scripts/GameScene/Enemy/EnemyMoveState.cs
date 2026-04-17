@@ -26,7 +26,7 @@ public class EnemyMoveState : IState
 
     public void OnStateUpdate()
     {
-        _enemy.Movement.Move(DirToTarget(), 1.0f);
+        _enemy.Movement.Move(DirToTarget(), _enemy.Model.MoveSpeed);
         _enemy.SpriteController.SetFlipX(DirToTarget().x);
     }
 }
