@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
@@ -9,6 +10,10 @@ public class EnemyController : MonoBehaviour, IDamageable
     private EnemySpriteController _spriteController;
     private Collider2D _collider;
 
+    private IState _curState;
+
+    public event UnityAction OnDead;
+
     public HeroController Target => _target;
     public EnemyModel Model => _model;
     public RigidMovement Movement => _movement;
@@ -16,7 +21,6 @@ public class EnemyController : MonoBehaviour, IDamageable
     public EnemySpriteController SpriteController => _spriteController;
     public Collider2D Collider => _collider;
 
-    private IState _curState;
 
     private EnemyMoveState _moveState;
     private EnemyDamagedState _damagedState;
@@ -70,6 +74,9 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        // 죽음 이벤트 실행
+        OnDead?.Invoke();
+
         //TODO 추후 ObjectPooling으로 변환 시 수정 필요
         Destroy(gameObject);
     }

@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour
     private EnemyController _enemyPrefab;   //TODO GameSceneManager에서 받아오기
     [SerializeField]
     private HeroController _hero;           //TODO GameSceneManager에서 받아오기
+    [SerializeField]
+    private HUD _hud;
+
 
     private void Start()
     {
@@ -20,7 +23,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
+            EnemyController enemy;
+
+            enemy = Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
+            enemy.OnDead += _hud.IncreaseDeadCount;
 
             yield return new WaitForSeconds(2.0f);
         }

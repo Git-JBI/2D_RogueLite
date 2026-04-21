@@ -3,7 +3,6 @@ using UnityEngine;
 public class Bullet_Gun : BulletBase
 {
     private float _moveSpeed;
-    private Vector2 _dir;
     private Vector2 _startPos;
 
     public void Init(Vector2 pos ,Vector2 dir, float movespeed)
