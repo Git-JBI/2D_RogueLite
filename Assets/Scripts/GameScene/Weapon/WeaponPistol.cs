@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -13,8 +15,9 @@ public class WeaponPistol : MonoBehaviour
     private int _bulletCount;
     private float _bulletSpeed;
     private float _detectRadius;
+    private Vector2 _targetPos;
+    private Vector2 _bulletDir;
 
-    private ContactFilter2D filter2D = new ContactFilter2D();
     private LayerMask _enemyMask;
 
     private Coroutine _shootRoutine;
@@ -23,41 +26,52 @@ public class WeaponPistol : MonoBehaviour
 
     private void Awake()
     {
-        _enemyMask = LayerMask.NameToLayer("Enemy");
-        filter2D.SetLayerMask(_enemyMask);
+        _enemyMask = LayerMask.GetMask("Enemy");
 
         _level = 0;
         _bulletCount = 0;
         _bulletSpeed = 1f;
-        _detectRadius = 50.0f;
+        _detectRadius = 5.0f;
     }
 
     //TODO 적 감지 구현 중
-    private void SelectTarget()
+    private Vector2 SetBulletDir()
     {
         List<Collider2D> enemies = new List<Collider2D>();
-        Debug.Log(enemies.Count);
-        Debug.Log(filter2D.layerMask.Equals(_enemyMask));
+        float distance = _detectRadius;
 
-        Physics2D.OverlapCircle(transform.position, _detectRadius, filter2D, enemies);
+        enemies = Physics2D.OverlapCircleAll(transform.position, _detectRadius, _enemyMask).ToList<Collider2D>();
+        
         if(enemies.Count > 0)
         {
             for(int i = 0; i < enemies.Count; i++)
             {
-                Debug.Log(enemies[i].name);
+                if(distance > Vector2.Distance(transform.position, enemies[i].transform.position))
+                {
+                    distance = Vector2.Distance(transform.position, enemies[i].transform.position);
+                    _targetPos = enemies[i].transform.position;
+                }
             }
         }
-        Debug.Log(enemies.Count);
+        else
+        {
+            _targetPos = Random.insideUnitCircle;
+        }
+
+        return (_targetPos - (Vector2)transform.position).normalized;
     }
 
     private IEnumerator ShootBullets()
     {
         while (_level > 0)
         {
+            Debug.Log("Start");
+            _bulletDir = SetBulletDir();
+
             for (int i = 0; i < _bulletCount; i++)
             {
                 Bullet_Gun bullet = Instantiate(_bullet);
-                // bullet.Init(transform.position, SelectTarget(), _bulletSpeed);
+                bullet.Init(transform.position, _bulletDir, _bulletSpeed);
                 yield return new WaitForSeconds(0.3f);
             }
             yield return new WaitForSeconds(2.0f);
@@ -66,16 +80,20 @@ public class WeaponPistol : MonoBehaviour
 
     public void LevelUp()
     {
-        SelectTarget();
-
         if (_level == 5)
             return;
-
-        if (_shootRoutine == null)
-            //_shootRoutine = StartCoroutine(ShootBullets());
 
         _level++;
         _bulletCount++;
         _bulletSpeed += 0.5f;
+
+        if (_shootRoutine == null)
+            _shootRoutine = StartCoroutine(ShootBullets());
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _detectRadius);
     }
 }
