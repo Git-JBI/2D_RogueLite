@@ -70,6 +70,7 @@ public class WeaponPistol : MonoBehaviour
 
             for (int i = 0; i < _bulletCount; i++)
             {
+                //TODO PoolManager »ç¿ë
                 Bullet_Gun bullet = Instantiate(_bullet);
                 bullet.Init(transform.position, _bulletDir, _bulletSpeed);
                 yield return new WaitForSeconds(0.3f);

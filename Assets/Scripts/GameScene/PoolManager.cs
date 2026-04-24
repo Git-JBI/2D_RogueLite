@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    private ResourseManager _resourceManager;
     private Dictionary<string, Pool> _poolMap = new();
 
     public Pool GetPool(string prefabPath, int poolSize = 20)
     {
         if(_poolMap.ContainsKey(prefabPath) == false)
         {
-            GameObject prefab = _resourceManager.GetPrefab(prefabPath);
+            GameObject prefab = GameManager.Instance.ResourceManager.GetPrefab(prefabPath);
 
             if (prefab == null)
                 return null;

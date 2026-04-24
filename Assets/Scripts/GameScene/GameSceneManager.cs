@@ -3,6 +3,7 @@ using UnityEngine.U2D.Animation;
 
 public class GameSceneManager : MonoBehaviour
 {
+    private ResourceManager _resourceManager;
     [SerializeField]
     private HeroController _heroController;
     [SerializeField]
@@ -12,8 +13,9 @@ public class GameSceneManager : MonoBehaviour
 
     private void Awake()
     {
-        //TODO 추후 다른곳에서 불러옴
-        _libraryAsset = Resources.Load<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
+        _resourceManager = GetComponent<ResourceManager>();
+
+        _libraryAsset = _resourceManager.GetPrefabOnce<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
     }
 
     private void Start()

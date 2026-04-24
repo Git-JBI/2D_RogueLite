@@ -11,7 +11,7 @@ public class EnemyModel : MonoBehaviour
     public float MoveSpeed => _moveSpeed;
     public float Damage => _damage;
 
-    private void Awake()
+    public void Init()
     {
         //TODO 값 따로 설정
         _maxHp = 30;

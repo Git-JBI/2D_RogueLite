@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pool : MonoBehaviour
+public class Pool
 {
     private Stack<GameObject> _pool;
     private GameObject _prefab;
@@ -28,7 +28,7 @@ public class Pool : MonoBehaviour
     private void CreateObject()
     {
         // 새 게임오브젝트 생성
-        GameObject go = Instantiate(_prefab);
+        GameObject go = Object.Instantiate(_prefab);
 
         // 게임오브젝트의 부모를 풀로 설정
         go.transform.SetParent(_parent);

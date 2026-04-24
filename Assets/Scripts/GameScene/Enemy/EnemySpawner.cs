@@ -24,10 +24,17 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            EnemyController enemy;
+            GameObject enemy;
 
-            enemy = Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
-            enemy.OnDead += EnemyDead;
+            //TODO PoolManager »ç¿ë
+            // enemy = Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
+
+            enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy");
+            
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+
+            enemyController.Init(RandomSpawnPosition());
+            enemyController.OnDead += EnemyDead;
 
             yield return new WaitForSeconds(2.0f);
         }

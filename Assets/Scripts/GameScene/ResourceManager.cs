@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ResourseManager : MonoBehaviour
+public class ResourceManager : MonoBehaviour
 {
     private Dictionary<string, GameObject> _prefabMap = new();
 
@@ -19,6 +20,17 @@ public class ResourseManager : MonoBehaviour
         else
         {
             _prefabMap[path] = prefab;
+        }
+        return prefab;
+    }
+
+    public T GetPrefabOnce<T>(string path) where T : Object
+    {
+        T prefab = Resources.Load<T>(path);
+
+        if(prefab == null)
+        {
+            Debug.Log($"{path} 경로에 프리팹이 없습니다.");
         }
         return prefab;
     }

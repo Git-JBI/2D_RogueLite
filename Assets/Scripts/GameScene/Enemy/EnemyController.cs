@@ -57,6 +57,12 @@ public class EnemyController : MonoBehaviour, IDamageable
         _curState.OnStateUpdate();
     }
     
+    public void Init(Vector2 spawnPos)
+    {
+        transform.position = spawnPos;
+        _model.Init();
+    }
+
     public void ChangeState(IState state)
     {
         if (_curState != null)
@@ -78,7 +84,9 @@ public class EnemyController : MonoBehaviour, IDamageable
         OnDead?.Invoke();
 
         //TODO 추후 ObjectPooling으로 변환 시 수정 필요
-        Destroy(gameObject);
+        PoolingObject poolOb = GetComponent<PoolingObject>();
+        poolOb.ReturnToPool();
+        // Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
