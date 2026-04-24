@@ -26,13 +26,13 @@ public class PoolManager : MonoBehaviour
         return _poolMap[prefabPath];
     }
     
-    public GameObject GetFromPool(string prefabPath)
+    public GameObject GetFromPool(string prefabPath, Transform parent)
     {
         Pool pool = GetPool(prefabPath);
 
         if (pool == null)
             return null;
 
-        return pool.Pop();
+        return pool.Pop(parent);
     }
 }

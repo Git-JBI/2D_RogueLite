@@ -8,9 +8,6 @@ using UnityEngine;
 
 public class WeaponPistol : MonoBehaviour
 {
-    //TODO ResourceLoad로 변경
-    [SerializeField] private Bullet_Gun _bullet;
-
     private int _level;
     private int _bulletCount;
     private float _bulletSpeed;
@@ -34,7 +31,6 @@ public class WeaponPistol : MonoBehaviour
         _detectRadius = 5.0f;
     }
 
-    //TODO 적 감지 구현 중
     private Vector2 SetBulletDir()
     {
         List<Collider2D> enemies = new List<Collider2D>();
@@ -65,14 +61,17 @@ public class WeaponPistol : MonoBehaviour
     {
         while (_level > 0)
         {
-            Debug.Log("Start");
             _bulletDir = SetBulletDir();
 
             for (int i = 0; i < _bulletCount; i++)
             {
-                //TODO PoolManager 사용
-                Bullet_Gun bullet = Instantiate(_bullet);
-                bullet.Init(transform.position, _bulletDir, _bulletSpeed);
+                GameObject bullet;
+
+                bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
+
+                Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
+
+                bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
                 yield return new WaitForSeconds(0.3f);
             }
             yield return new WaitForSeconds(2.0f);

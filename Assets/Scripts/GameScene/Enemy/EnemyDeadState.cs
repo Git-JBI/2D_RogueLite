@@ -14,6 +14,9 @@ public class EnemyDeadState : IState
 
     public void OnStateEnter()
     {
+        // 타이머 초기화
+        _timer = 0;
+
         // 리지드바디 비활성화
         _enemy.Movement.SetActive(false);
 

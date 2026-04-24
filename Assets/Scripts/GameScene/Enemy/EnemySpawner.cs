@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             //TODO PoolManager »ç¿ë
             // enemy = Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
 
-            enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy");
+            enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
             
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 

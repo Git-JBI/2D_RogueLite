@@ -59,6 +59,9 @@ public class EnemyController : MonoBehaviour, IDamageable
     
     public void Init(Vector2 spawnPos)
     {
+        ChangeState(_moveState);
+        _movement.SetActive(true);
+        SetColliderActive(true);
         transform.position = spawnPos;
         _model.Init();
     }
@@ -83,7 +86,13 @@ public class EnemyController : MonoBehaviour, IDamageable
         // 죽음 이벤트 실행
         OnDead?.Invoke();
 
-        //TODO 추후 ObjectPooling으로 변환 시 수정 필요
+        // 현재 상태 비우기
+        _curState = null;
+
+        // 이벤트 비우기
+        OnDead = null;
+
+        //TODO 추후 ObjectPooling으로 변환 시 수정 필요 > Util사용해서 더 확장필요
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
         // Destroy(gameObject);

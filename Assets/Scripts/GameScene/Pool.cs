@@ -56,7 +56,7 @@ public class Pool
     /// <summary>
     /// 풀에서 게임오브젝트를 내보내는 함수
     /// </summary>
-    public GameObject Pop()
+    public GameObject Pop(Transform parent)
     {
         // 풀에 남은 게임오브젝트가 없는 경우
         if (_pool.Count == 0)
@@ -64,6 +64,7 @@ public class Pool
 
         GameObject go = _pool.Pop();
         go.SetActive(true);
+        go.transform.SetParent(parent);
         return go;
     }
 

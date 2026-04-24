@@ -11,6 +11,7 @@ public class Bullet_Gun : BulletBase
         _startPos = pos;
         transform.up = dir;
         _moveSpeed = movespeed;
+        transform.SetParent(null);
     }
 
     private void FixedUpdate()
@@ -19,7 +20,10 @@ public class Bullet_Gun : BulletBase
 
         // 거리 멀어지면 총알 제거
         if(Vector2.Distance(transform.position, _startPos) > 10)
-            Destroy(gameObject);
+        {
+            PoolingObject poolOb = GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +34,8 @@ public class Bullet_Gun : BulletBase
 
             idamageable.TakeDamage(_damage);
 
-            Destroy(gameObject);
+            PoolingObject poolOb = GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
         }
     }
 }
