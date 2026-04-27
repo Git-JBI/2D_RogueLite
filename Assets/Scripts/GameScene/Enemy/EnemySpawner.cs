@@ -10,10 +10,14 @@ public class EnemySpawner : MonoBehaviour
     private EnemyController _enemyPrefab;   //TODO GameSceneManager에서 받아오기
     [SerializeField]
     private HeroController _hero;           //TODO GameSceneManager에서 받아오기
-    [SerializeField]
-    private UIManager _ui;
+    private UIManager _uiManager;
 
     private int _deadCount;
+
+    public void Init(UIManager ui)
+    {
+        _uiManager = ui;
+    }
 
     private void Start()
     {
@@ -25,9 +29,6 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             GameObject enemy;
-
-            //TODO PoolManager 사용
-            // enemy = Instantiate(_enemyPrefab, RandomSpawnPosition(), Quaternion.identity);
 
             enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
             
@@ -43,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     private void EnemyDead()
     {
         _deadCount++;
-        _ui.IncreaseDeadCount(_deadCount);
+        _uiManager.IncreaseDeadCount(_deadCount);
     }
 
     private Vector2 RandomSpawnPosition()

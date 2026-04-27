@@ -4,10 +4,10 @@ using UnityEngine.U2D.Animation;
 public class GameSceneManager : MonoBehaviour
 {
     private ResourceManager _resourceManager;
-    [SerializeField]
-    private HeroController _heroController;
-    [SerializeField]
-    private Joystick _joystick;
+    [SerializeField] private HeroController _heroController;
+    [SerializeField] private Joystick _joystick;
+    [SerializeField] private UIManager _ui;
+    [SerializeField] private EnemySpawner _enemySpawner;
 
     private SpriteLibraryAsset _libraryAsset;
 
@@ -25,7 +25,8 @@ public class GameSceneManager : MonoBehaviour
 
     private void Init()
     {
-        _heroController.Init(_libraryAsset);
+        _heroController.Init(_libraryAsset, _ui);
+        _enemySpawner.Init(_ui);
 
         _joystick.OnTouchDown += _heroController.MoveStart;
         _joystick.OnTouchUp += _heroController.MoveFinish;

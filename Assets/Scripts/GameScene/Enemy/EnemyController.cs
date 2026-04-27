@@ -92,10 +92,23 @@ public class EnemyController : MonoBehaviour, IDamageable
         // 이벤트 비우기
         OnDead = null;
 
-        //TODO 추후 ObjectPooling으로 변환 시 수정 필요 > Util사용해서 더 확장필요
+        SpawnExpItem();
+
+        //TODO 추후 Util사용해서 더 확장필요
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
         // Destroy(gameObject);
+    }
+
+    private void SpawnExpItem()
+    {
+        GameObject expItem;
+
+        expItem = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Item/Item_Exp", transform);
+
+        ExpItem item = expItem.GetComponent<ExpItem>();
+
+        item.Init(transform.position);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -105,7 +118,6 @@ public class EnemyController : MonoBehaviour, IDamageable
             IDamageable player = collision.gameObject.GetComponent<IDamageable>();
             player.TakeDamage(_model.Damage);
         }
-
     }
 
     public void TakeDamage(float damage)
