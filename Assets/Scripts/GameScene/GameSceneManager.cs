@@ -3,7 +3,6 @@ using UnityEngine.U2D.Animation;
 
 public class GameSceneManager : MonoBehaviour
 {
-    private ResourceManager _resourceManager;
     [SerializeField] private HeroController _heroController;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private UIManager _ui;
@@ -13,13 +12,14 @@ public class GameSceneManager : MonoBehaviour
 
     private void Awake()
     {
-        _resourceManager = GetComponent<ResourceManager>();
 
-        _libraryAsset = _resourceManager.GetPrefabOnce<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
     }
 
     private void Start()
     {
+        //TODO 메인씬에서 선택한 캐릭터로 불러오기
+        _libraryAsset = GameManager.Instance.ResourceManager.GetPrefabOnce<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
+
         Init();
     }
 

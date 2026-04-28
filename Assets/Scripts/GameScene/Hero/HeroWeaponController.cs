@@ -11,11 +11,12 @@ public class HeroWeaponController : MonoBehaviour
         _pistol = GetComponentInChildren<WeaponPistol>();
     }
 
+    //TODO 업그레이드쪽으로 이동
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _shovel.LevelUp();
+            _shovel.Upgrade();
         }
 
         else if(Input.GetKeyDown(KeyCode.Alpha2))

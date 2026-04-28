@@ -4,16 +4,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TextMeshProUGUI _countDeadEnemiesText;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private Image _expBar;
-
-    private void Awake()
-    {
-        //TODO 추후 수정 : 위치 다른곳으로
-        SetLevelText(1);
-        SetExpBar(0);
-    }
 
     public void IncreaseDeadCount(int count)
     {
@@ -25,8 +19,14 @@ public class UIManager : MonoBehaviour
         _levelText.text = $"Lv. {level}";
     }
 
-    public void SetExpBar(float amount)
+    public void SetExpBar(float curExp, float maxExp)
     {
-        _expBar.fillAmount = amount;
+        //TODO 부드러운 경험치 바 채워짐
+        _expBar.fillAmount = curExp / maxExp;
+    }
+
+    public void SetUpgradePanelActive(bool isActive)
+    {
+        _upgradePanel.SetActive(isActive);
     }
 }

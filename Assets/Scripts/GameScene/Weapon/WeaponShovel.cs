@@ -1,25 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponShovel : MonoBehaviour
+public class WeaponShovel : WeaponBase
 {
     //TODO ResourceLoad로 변경
     [SerializeField]private BulletBase _shovel;
 
-    private int _level;
-    private int _bulletCount;
+    private float _bulletCount;
     private float _rotSpeed;
     private float _radius;
 
     private List<BulletBase> _shovels = new();
 
-    public int Level => _level;
-
     private void Awake()
     {
-        _level = 0;
-        _bulletCount = 0;
-        _rotSpeed = 1;
+        //TODO 레벨 설정 방식 변경
+        _level = 1;
         _radius = 3;
     }
 
@@ -28,13 +24,10 @@ public class WeaponShovel : MonoBehaviour
         transform.Rotate(0, 0, _rotSpeed);
     }
 
-    public void LevelUp()
+    //TODO 여기부터 작업시작
+    public override void Upgrade()
     {
-        if (_level == 5)
-            return;
-        _level++;
-        _bulletCount++;
-        _rotSpeed += 0.5f;
+        base.Upgrade();
 
         RemoveBullets();
 
@@ -68,5 +61,11 @@ public class WeaponShovel : MonoBehaviour
             Destroy(bullet.gameObject);
         }
         _shovels.Clear();
+    }
+
+    protected override void CalculateStats()
+    {
+        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
+        _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level - 1);
     }
 }

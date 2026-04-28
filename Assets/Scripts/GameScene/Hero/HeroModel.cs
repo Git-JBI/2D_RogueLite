@@ -19,7 +19,9 @@ public class HeroModel : MonoBehaviour
     public float MoveSpeed => _moveSpeed;
     public bool IsAlive => _curHp > 0;
 
+    public event UnityAction<int> OnChangeLevel;
     public event UnityAction<float, float> OnChangeHp;
+    public event UnityAction<float, float> OnChangeExp;
 
     private void Awake()
     {
@@ -36,7 +38,6 @@ public class HeroModel : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _curHp = Mathf.Clamp(_curHp - damage, 0, _maxHp);
-        Debug.Log($"현재 체력 : {_curHp}");
         OnChangeHp?.Invoke(_curHp, _maxHp);
     }
 
@@ -48,6 +49,9 @@ public class HeroModel : MonoBehaviour
         {
             _level++;
             _curExp -= _maxExp;
+
+            OnChangeLevel?.Invoke(_level);
         }
+        OnChangeExp?.Invoke(_curExp, _maxExp);
     }
 }

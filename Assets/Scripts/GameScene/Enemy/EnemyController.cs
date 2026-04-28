@@ -123,7 +123,6 @@ public class EnemyController : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         _model.TakeDamage(damage);
-        Debug.Log($"{damage}의 데미지를 입었다.");
 
         if (_model.CurHp <= 0)
         {

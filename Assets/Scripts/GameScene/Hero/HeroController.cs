@@ -7,23 +7,35 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     private HeroModel _heromodel;
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
+    private UpgradeController _upgradeController;
+
     private UIManager _uiManager;
 
     private void Awake()
     {
         _movement = GetComponent<RigidMovement>();
         _heromodel = GetComponent<HeroModel>();
+        _upgradeController = GetComponent<UpgradeController>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
         _heroHud = GetComponentInChildren<HeroHud>();
 
         _heromodel.OnChangeHp += _heroHud.SetHpBar;
+        _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
     }
-
+    
     public void Init(SpriteLibraryAsset asset, UIManager ui)
     {
         _spriteController.Init(asset);
         _uiManager = ui;
+
+        _heromodel.OnChangeLevel += _uiManager.SetLevelText;
+        _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
+        _heromodel.OnChangeExp += _uiManager.SetExpBar;
+        _upgradeController.SetUpgradeActive += _uiManager.SetUpgradePanelActive;
+
+        _uiManager.SetLevelText(_heromodel.Level);
+        _uiManager.SetExpBar(_heromodel.CurExp, _heromodel.MaxExp);
     }
 
     public void MoveStart()
@@ -51,10 +63,6 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     public void GetExpItem(int amount)
     {
         _heromodel.IncreaseExp(amount);
-        Debug.Log(_heromodel.CurExp);
-        //TODO 이벤트로 바꿀까 생각
-        _uiManager.SetExpBar(_heromodel.CurExp / (float)_heromodel.MaxExp);
-        _uiManager.SetLevelText(_heromodel.Level);
     }
     #endregion
 }

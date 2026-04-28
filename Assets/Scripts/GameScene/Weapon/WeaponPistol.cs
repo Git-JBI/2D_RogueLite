@@ -1,9 +1,6 @@
-using JetBrains.Annotations;
-using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class WeaponPistol : MonoBehaviour
