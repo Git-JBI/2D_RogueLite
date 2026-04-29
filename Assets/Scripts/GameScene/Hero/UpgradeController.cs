@@ -17,8 +17,6 @@ public class UpgradeController : MonoBehaviour
     private void Awake()
     {
         _upgradables = GetComponentsInChildren<IUpgradable>(true);
-
-        Debug.Log(_upgradables.Length);
     }
 
     private void Start()
