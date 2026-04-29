@@ -12,10 +12,10 @@ public class WeaponShovel : WeaponBase
 
     private List<BulletBase> _shovels = new();
 
-    private void Awake()
+    protected override void Awake()
     {
-        //TODO 레벨 설정 방식 변경
-        _level = 1;
+        base.Awake();
+
         _radius = 3;
     }
 
@@ -24,7 +24,6 @@ public class WeaponShovel : WeaponBase
         transform.Rotate(0, 0, _rotSpeed);
     }
 
-    //TODO 여기부터 작업시작
     public override void Upgrade()
     {
         base.Upgrade();
@@ -65,6 +64,8 @@ public class WeaponShovel : WeaponBase
 
     protected override void CalculateStats()
     {
+        //TODO WeaponStatData의 GetValue에서 Max레벨 이상 락걸어둬서 괜찮은데 여기서도 제한 걸어둬야 함
+        _damage = _weaponData.GetStatValue(WeaponStatType.Damage, _level - 1);
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
         _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level - 1);
     }

@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -211,6 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fcfc03401eb07409e02162ba2d1714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 2076505101458926695}
+  _levelText: {fileID: 3530991411927615477}
+  _descTexc: {fileID: 5551639665617171865}
 --- !u!1 &8244907027181777037
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,8 +281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lv. 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}
+  m_sharedMaterial: {fileID: -5386956462497973009, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -415,8 +418,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: null
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}
+  m_sharedMaterial: {fileID: -5386956462497973009, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

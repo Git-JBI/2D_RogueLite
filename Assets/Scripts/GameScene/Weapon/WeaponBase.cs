@@ -2,7 +2,8 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour, IUpgradable
 {
-    protected WeaponData _weaponData;
+    //TODO 추후 불러오는방법 변경 SerializeField X
+    [SerializeField] protected WeaponData _weaponData;
 
     protected int _level;
     protected float _damage;
@@ -13,13 +14,22 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
 
     public string Desc => _weaponData.Descs[_level];
 
+    protected virtual void Awake()
+    {
+        _level = 0;
+    }
+
     protected abstract void CalculateStats();
 
     public virtual void Upgrade()
     {
-        _level++;
         if (!gameObject.activeInHierarchy)
             gameObject.SetActive(true);
+
+        if (_level == 5)
+            return;
+        _level++;
+        
         CalculateStats();
     }
 }

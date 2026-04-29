@@ -111,6 +111,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         item.Init(transform.position);
     }
 
+    //TODO 계속 플레이어와 맞닿아 있는 경우 데미지
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

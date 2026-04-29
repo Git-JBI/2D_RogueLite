@@ -30,7 +30,6 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         _uiManager = ui;
 
         _heromodel.OnChangeLevel += _uiManager.SetLevelText;
-        _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
         _heromodel.OnChangeExp += _uiManager.SetExpBar;
         _upgradeController.SetUpgradeActive += _uiManager.SetUpgradePanelActive;
 

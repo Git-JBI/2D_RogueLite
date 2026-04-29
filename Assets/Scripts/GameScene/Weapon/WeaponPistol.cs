@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class WeaponPistol : MonoBehaviour
+public class WeaponPistol : WeaponBase
 {
-    private int _level;
-    private int _bulletCount;
+    private float _bulletCount;
     private float _bulletSpeed;
+    private float _fireDelay;
+    private float _coolTime;
+
     private float _detectRadius;
     private Vector2 _targetPos;
     private Vector2 _bulletDir;
@@ -16,15 +18,12 @@ public class WeaponPistol : MonoBehaviour
 
     private Coroutine _shootRoutine;
 
-    private int Level => _level;
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _enemyMask = LayerMask.GetMask("Enemy");
 
-        _level = 0;
-        _bulletCount = 0;
-        _bulletSpeed = 1f;
         _detectRadius = 5.0f;
     }
 
@@ -69,20 +68,16 @@ public class WeaponPistol : MonoBehaviour
                 Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
 
                 bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
-                yield return new WaitForSeconds(0.3f);
+                // 총알 간격 시간
+                yield return new WaitForSeconds(_fireDelay);
             }
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(_coolTime);
         }
     }
 
-    public void LevelUp()
+    public override void Upgrade()
     {
-        if (_level == 5)
-            return;
-
-        _level++;
-        _bulletCount++;
-        _bulletSpeed += 0.5f;
+        base.Upgrade();
 
         if (_shootRoutine == null)
             _shootRoutine = StartCoroutine(ShootBullets());
@@ -92,5 +87,14 @@ public class WeaponPistol : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _detectRadius);
+    }
+
+    protected override void CalculateStats()
+    {
+        _damage = _weaponData.GetStatValue(WeaponStatType.Damage, _level - 1);
+        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
+        _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level - 1);
+        _fireDelay = _weaponData.GetStatValue(WeaponStatType.FireDelay, _level - 1);
+        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level - 1);
     }
 }

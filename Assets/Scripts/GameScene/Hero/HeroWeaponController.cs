@@ -7,8 +7,8 @@ public class HeroWeaponController : MonoBehaviour
 
     private void Awake()
     {
-        _shovel = GetComponentInChildren<WeaponShovel>();
-        _pistol = GetComponentInChildren<WeaponPistol>();
+        _shovel = GetComponentInChildren<WeaponShovel>(true);
+        _pistol = GetComponentInChildren<WeaponPistol>(true);
     }
 
     //TODO 업그레이드쪽으로 이동
@@ -21,7 +21,7 @@ public class HeroWeaponController : MonoBehaviour
 
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _pistol.LevelUp();
+            _pistol.Upgrade();
         }
     }
 }

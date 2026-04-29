@@ -8,9 +8,18 @@ public class UpgradeController : MonoBehaviour
 
     private UpgradeSelectionView _selectPrefab;
 
+    private IUpgradable[] _upgradables;
+
     private List<UpgradeSelectionView> _views = new List<UpgradeSelectionView>();
 
     public event UnityAction<bool> SetUpgradeActive;
+
+    private void Awake()
+    {
+        _upgradables = GetComponentsInChildren<IUpgradable>(true);
+
+        Debug.Log(_upgradables.Length);
+    }
 
     private void Start()
     {
@@ -26,6 +35,7 @@ public class UpgradeController : MonoBehaviour
         SelectStart();
     }
 
+    //TODO 더 이상 업그레이드 가능한 것이 없을 경우 어떻게 할 지 생각
     private void SelectStart()
     {
         // 게임 진행속도 0
@@ -34,15 +44,22 @@ public class UpgradeController : MonoBehaviour
         // 업그레이드 패널 활성화
         SetUpgradeActive?.Invoke(true);
 
-        UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
+        foreach(IUpgradable x in _upgradables)
+        {
+            if (x.Level < 5)
+            {
+                UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
 
-        //TODO 업그레이드 선택지 IUpgradable
-        // view.Init();
+                // 업그레이드 선택 뷰 초기화
+                view.Init(x);
 
-        // 리스트 추가
-        _views.Add(view);
+                // 선택 이벤트에 추가
+                view.OnSelect += EndSelect;
 
-        view.OnSelect += EndSelect;
+                // 리스트 추가
+                _views.Add(view);
+            }
+        }
     }
     
     private void EndSelect()

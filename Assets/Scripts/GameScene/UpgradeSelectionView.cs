@@ -14,19 +14,18 @@ public class UpgradeSelectionView : MonoBehaviour
 
     public event UnityAction OnSelect;
 
-    private void Awake()
-    {
-        _btn = GetComponent<Button>();
-    }
-
     public void Init(IUpgradable upgradable)
     {
+        _btn = GetComponent<Button>();
+
         _btn.onClick.AddListener(HandleOnClicked);
 
         _upgradable = upgradable;
 
+        OnSelect += _upgradable.Upgrade;
+
         _icon.sprite = _upgradable.IconSprite;
-        _levelText.text = _upgradable.Level.ToString();
+        _levelText.text = $"Lv. {_upgradable.Level} > {_upgradable.Level + 1}";
         _descTexc.text = _upgradable.Desc;
     }
 

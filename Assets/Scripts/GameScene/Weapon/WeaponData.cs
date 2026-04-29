@@ -15,7 +15,7 @@ public class WeaponData : ScriptableObject
 
     Dictionary<WeaponStatType, WeaponStatData> _statDataMap = new();
 
-    private void Awake()
+    private void OnEnable()
     {
         _statDataMap.Clear();
 

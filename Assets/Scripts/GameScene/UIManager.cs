@@ -14,11 +14,13 @@ public class UIManager : MonoBehaviour
         _countDeadEnemiesText.text = count.ToString();
     }
 
+    // TO
     public void SetLevelText(int level)
     {
         _levelText.text = $"Lv. {level}";
     }
 
+    //TODO 능력치 선택 전까지는 경험치 바 가득 참 상태
     public void SetExpBar(float curExp, float maxExp)
     {
         //TODO 부드러운 경험치 바 채워짐
