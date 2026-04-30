@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.U2D.Animation;
 
 public class HeroController : MonoBehaviour, IDamageable, Iitemable
@@ -8,8 +9,15 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
     private UpgradeController _upgradeController;
+    private PassiveController _passiveController;
 
     private UIManager _uiManager;
+
+    public event UnityAction<int> OnChangeLevel
+    {
+        add { _heromodel.OnChangeLevel += value; }
+        remove { _heromodel.OnChangeLevel -= value;}
+    }
 
     private void Awake()
     {
@@ -18,6 +26,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         _upgradeController = GetComponent<UpgradeController>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
+        _passiveController = GetComponentInChildren<PassiveController>();
         _heroHud = GetComponentInChildren<HeroHud>();
 
         _heromodel.OnChangeHp += _heroHud.SetHpBar;

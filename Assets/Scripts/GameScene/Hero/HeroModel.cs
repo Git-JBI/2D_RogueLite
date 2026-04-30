@@ -11,12 +11,53 @@ public class HeroModel : MonoBehaviour
     private float _damage;
     private float _moveSpeed;
 
+    private float _increaseDamagePercent;
+    private float _increaseMaxHpPercent;
+    private float _increaseMoveSpeedPercent;
+
     public int Level => _level;
     public float MaxExp => _maxExp;
     public float CurExp => _curExp;
+    public float MaxHp => _maxHp + _maxHp / 100 * _increaseMaxHpPercent;
     public float CurHp => _curHp;
-    public float Damage => _damage;
-    public float MoveSpeed => _moveSpeed;
+    public float Damage => _damage + _damage / 100 * _increaseDamagePercent;
+    public float MoveSpeed => _moveSpeed + _moveSpeed / 100 * _increaseMoveSpeedPercent;
+
+    public float IncreaseDamagePercent
+    {
+        get
+        {
+            return _increaseDamagePercent;
+        }
+        set
+        {
+            _increaseDamagePercent = value;
+        }
+    }
+    public float IncreaseMoveSpeedPercent
+    {
+        get
+        {
+            return _increaseMoveSpeedPercent;
+        }
+        set
+        {
+            _increaseMoveSpeedPercent = value;
+        }
+    }
+    public float IncreaseMaxHpPercent
+    {
+        get
+        {
+            return _increaseMaxHpPercent;
+        }
+        set
+        {
+            _increaseMaxHpPercent = value;
+            _curHp = _curHp + _curHp / 100 * _increaseMaxHpPercent;
+        }
+    }
+
     public bool IsAlive => _curHp > 0;
 
     public event UnityAction<int> OnChangeLevel;
@@ -37,8 +78,8 @@ public class HeroModel : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _curHp = Mathf.Clamp(_curHp - damage, 0, _maxHp);
-        OnChangeHp?.Invoke(_curHp, _maxHp);
+        _curHp = Mathf.Clamp(_curHp - damage, 0, MaxHp);
+        OnChangeHp?.Invoke(_curHp, MaxHp);
     }
 
     public void IncreaseExp(int exp)

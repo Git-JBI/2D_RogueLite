@@ -4,12 +4,12 @@ public class AbilityHeal : MonoBehaviour, IUpgradable
 {
     public Sprite IconSprite => throw new System.NotImplementedException();
 
-    public int Level => throw new System.NotImplementedException();
+    public int Level => 99;
 
-    public string Desc => throw new System.NotImplementedException();
+    public string Desc => "체력을 25% 회복";
 
     public void Upgrade()
     {
-        throw new System.NotImplementedException();
+
     }
 }

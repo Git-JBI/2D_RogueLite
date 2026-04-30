@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class AbilityGold : MonoBehaviour, IUpgradable
 {
-    public Sprite IconSprite => throw new System.NotImplementedException();
+    [SerializeField] private Sprite _goldSprite;
+
+    public Sprite IconSprite => _goldSprite;
 
     public int Level => 99;
 
-    public string Desc => throw new System.NotImplementedException();
+    public string Desc => "°ñµå¸¦ 50 È¹µæ";
 
     public void Upgrade()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
