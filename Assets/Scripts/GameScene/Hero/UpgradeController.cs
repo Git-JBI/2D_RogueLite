@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,15 +9,15 @@ public class UpgradeController : MonoBehaviour
 
     private UpgradeSelectionView _selectPrefab;
 
-    private IUpgradable[] _upgradables;
+    private List<IUpgradable> _upgradables = new();
 
     private List<UpgradeSelectionView> _views = new List<UpgradeSelectionView>();
 
-    public event UnityAction<bool> SetUpgradeActive;
+    public event UnityAction<bool> OnUpgradeActive;
 
     private void Awake()
     {
-        _upgradables = GetComponentsInChildren<IUpgradable>(true);
+        _upgradables = GetComponentsInChildren<IUpgradable>(true).ToList<IUpgradable>();
     }
 
     private void Start()
@@ -33,17 +34,23 @@ public class UpgradeController : MonoBehaviour
         SelectStart();
     }
 
-    //TODO 더 이상 업그레이드 가능한 것이 없을 경우 어떻게 할 지 생각
     private void SelectStart()
     {
         // 게임 진행속도 0
         Time.timeScale = 0.0f;
 
         // 업그레이드 패널 활성화
-        SetUpgradeActive?.Invoke(true);
+        OnUpgradeActive?.Invoke(true);
+
+        // 3종 랜덤으로 뽑기
+        // _upgradables 랜덤으로 섞기
+        Util.Shuffle<IUpgradable>(_upgradables);
 
         foreach(IUpgradable x in _upgradables)
         {
+            if (_views.Count == 3)
+                return;
+            // Level 5 미만일 경우(업그레이드 가능)
             if (x.Level < 5)
             {
                 UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
@@ -56,6 +63,27 @@ public class UpgradeController : MonoBehaviour
 
                 // 리스트 추가
                 _views.Add(view);
+            }
+        }
+
+        // 뽑을 경우가 없을 경우(금화, 체력회복의 Level을 99로 설정해 둠)
+        if (_views.Count == 0)
+        {
+            foreach(IUpgradable x in _upgradables)
+            {
+                if(x.Level == 99)
+                {
+                    UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
+
+                    // 업그레이드 선택 뷰 초기화
+                    view.Init(x);
+
+                    // 선택 이벤트에 추가
+                    view.OnSelect += EndSelect;
+
+                    // 리스트 추가
+                    _views.Add(view);
+                }
             }
         }
     }
@@ -73,6 +101,6 @@ public class UpgradeController : MonoBehaviour
         _views.Clear();
 
         // 업그레이드 패널 비활성화
-        SetUpgradeActive?.Invoke(false);
+        OnUpgradeActive?.Invoke(false);
     }
 }

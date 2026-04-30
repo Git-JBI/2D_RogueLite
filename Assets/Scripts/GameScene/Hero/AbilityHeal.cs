@@ -8,6 +8,8 @@ public class AbilityHeal : MonoBehaviour, IUpgradable
 
     public string Desc => "체력을 25% 회복";
 
+    public bool IsPermanentAbility => false;
+
     public void Upgrade()
     {
 

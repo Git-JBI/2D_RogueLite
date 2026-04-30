@@ -11,12 +11,22 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     private UpgradeController _upgradeController;
     private PassiveController _passiveController;
 
-    private UIManager _uiManager;
-
     public event UnityAction<int> OnChangeLevel
     {
         add { _heromodel.OnChangeLevel += value; }
         remove { _heromodel.OnChangeLevel -= value;}
+    }
+    public event UnityAction<float, float> OnChangeExp
+    {
+        add
+        { _heromodel.OnChangeExp += value; }
+        remove
+        { _heromodel.OnChangeExp -= value; }
+    }
+    public event UnityAction<bool> OnUpgradedActive
+    {
+        add { _upgradeController.OnUpgradeActive += value; }
+        remove { _upgradeController.OnUpgradeActive -= value; }
     }
 
     private void Awake()
@@ -30,20 +40,18 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         _heroHud = GetComponentInChildren<HeroHud>();
 
         _heromodel.OnChangeHp += _heroHud.SetHpBar;
-        _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
     }
     
-    public void Init(SpriteLibraryAsset asset, UIManager ui)
+    public void Init()
     {
-        _spriteController.Init(asset);
-        _uiManager = ui;
+        //TODO 추후 메인씬에서 선택한 캐릭터로 불러오기
+        SpriteLibraryAsset libraryAsset = GameManager.Instance.ResourceManager.GetPrefabOnce<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
 
-        _heromodel.OnChangeLevel += _uiManager.SetLevelText;
-        _heromodel.OnChangeExp += _uiManager.SetExpBar;
-        _upgradeController.SetUpgradeActive += _uiManager.SetUpgradePanelActive;
+        _spriteController.Init(libraryAsset);
+        _heromodel.Init();
+        _passiveController.Init(_heromodel);
 
-        _uiManager.SetLevelText(_heromodel.Level);
-        _uiManager.SetExpBar(_heromodel.CurExp, _heromodel.MaxExp);
+        _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
     }
 
     public void MoveStart()

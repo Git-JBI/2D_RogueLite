@@ -8,5 +8,7 @@ public interface IUpgradable
 
     string Desc { get; }
 
+    bool IsPermanentAbility { get; }
+
     void Upgrade();
 }

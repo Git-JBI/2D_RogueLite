@@ -6,7 +6,7 @@ public class HeroSpriteController : SpriteControllerBase
 {
     private SpriteLibrary _spriteLibrary;
 
-    private SpriteLibraryAsset _spriteLibraryAsset;
+    private SpriteLibraryAsset _heroSpriteLibraryAsset;
 
     protected override void Awake()
     {
@@ -18,7 +18,7 @@ public class HeroSpriteController : SpriteControllerBase
     //TODO 여기서 불러오도록 설정
     public void Init(SpriteLibraryAsset asset)
     {
-        _spriteLibraryAsset = asset;
+        _heroSpriteLibraryAsset = asset;
 
         SetHeroSpriteLibraryAsset();
     }
@@ -35,6 +35,6 @@ public class HeroSpriteController : SpriteControllerBase
 
     private void SetHeroSpriteLibraryAsset()
     {
-        _spriteLibrary.spriteLibraryAsset = _spriteLibraryAsset;
+        _spriteLibrary.spriteLibraryAsset = _heroSpriteLibraryAsset;
     }
 }

@@ -10,6 +10,8 @@ public class AbilityGold : MonoBehaviour, IUpgradable
 
     public string Desc => "°ñµå¸¦ 50 È¹µæ";
 
+    public bool IsPermanentAbility => false;
+
     public void Upgrade()
     {
         

@@ -15,6 +15,8 @@ public abstract class PassiveBase : MonoBehaviour, IUpgradable
 
     public string Desc => _passiveData.Desces[_level];
 
+    public bool IsPermanentAbility => true;
+
     public void Init(HeroModel model)
     {
         _model = model;

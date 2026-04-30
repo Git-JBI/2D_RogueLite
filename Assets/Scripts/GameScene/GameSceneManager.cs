@@ -3,33 +3,31 @@ using UnityEngine.U2D.Animation;
 
 public class GameSceneManager : MonoBehaviour
 {
+    //TODO 추후 Find로 변경
     [SerializeField] private HeroController _heroController;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private UIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
 
-    private SpriteLibraryAsset _libraryAsset;
-
     private void Awake()
     {
-
+        _joystick.OnTouchDown += _heroController.MoveStart;
+        _joystick.OnTouchUp += _heroController.MoveFinish;
+        _joystick.OnDragging += _heroController.Move;
     }
 
     private void Start()
     {
-        //TODO 메인씬에서 선택한 캐릭터로 불러오기
-        _libraryAsset = GameManager.Instance.ResourceManager.GetPrefabOnce<SpriteLibraryAsset>("SpriteLibrary/Hero/Hero00");
-
         Init();
     }
 
     private void Init()
     {
-        _heroController.Init(_libraryAsset, _ui);
-        _enemySpawner.Init(_ui);
+        _heroController.OnChangeLevel += _ui.SetLevelText;
+        _heroController.OnChangeExp += _ui.SetExpBar;
+        _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
 
-        _joystick.OnTouchDown += _heroController.MoveStart;
-        _joystick.OnTouchUp += _heroController.MoveFinish;
-        _joystick.OnDragging += _heroController.Move;
+        _heroController.Init();
+        _enemySpawner.Init(_ui);
     }
 }
