@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
         _countDeadEnemiesText.text = count.ToString();
     }
 
-    // TO
     public void SetLevelText(int level)
     {
         _levelText.text = $"Lv. {level}";

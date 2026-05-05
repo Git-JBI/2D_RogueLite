@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class AbilityHeal : MonoBehaviour, IUpgradable
 {
-    public Sprite IconSprite => throw new System.NotImplementedException();
+    [SerializeField] private Sprite _healSprite;
 
-    public int Level => 99;
+    public Sprite IconSprite => _healSprite;
+
+    public int Level => 0;
 
     public string Desc => "체력을 25% 회복";
 

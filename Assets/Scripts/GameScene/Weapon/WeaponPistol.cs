@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// 한 발씩 적을 정조준해서 쏘는 권총 무기
+/// </summary>
 public class WeaponPistol : WeaponBase
 {
-    private float _bulletCount;
     private float _bulletSpeed;
-    private float _fireDelay;
     private float _coolTime;
 
     private float _detectRadius;
@@ -59,18 +60,15 @@ public class WeaponPistol : WeaponBase
         {
             _bulletDir = SetBulletDir();
 
-            for (int i = 0; i < _bulletCount; i++)
-            {
-                GameObject bullet;
+            GameObject bullet;
 
-                bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
 
-                Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
+            Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
 
-                bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
-                // 총알 간격 시간
-                yield return new WaitForSeconds(_fireDelay);
-            }
+            bulletPrefab.Init(_heroModel, _damageMagnification);
+            bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
+
             yield return new WaitForSeconds(_coolTime);
         }
     }
@@ -91,10 +89,9 @@ public class WeaponPistol : WeaponBase
 
     protected override void CalculateStats()
     {
-        _damage = _weaponData.GetStatValue(WeaponStatType.Damage, _level - 1);
-        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
+        base.CalculateStats();
+
         _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level - 1);
-        _fireDelay = _weaponData.GetStatValue(WeaponStatType.FireDelay, _level - 1);
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level - 1);
     }
 }

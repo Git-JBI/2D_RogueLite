@@ -41,6 +41,10 @@ public class WeaponShovel : WeaponBase
         {
             BulletBase shovel = Instantiate(_shovel);
 
+            Bullet_Shovel bulletShovel = shovel.GetComponent<Bullet_Shovel>();
+
+            bulletShovel.Init(_heroModel, _damageMagnification);
+
             Vector2 dir = new Vector2(Mathf.Cos(i * angle * Mathf.Deg2Rad), Mathf.Sin(i * angle * Mathf.Deg2Rad));
 
             shovel.transform.up = dir;
@@ -65,7 +69,8 @@ public class WeaponShovel : WeaponBase
     protected override void CalculateStats()
     {
         //TODO WeaponStatData의 GetValue에서 Max레벨 이상 락걸어둬서 괜찮은데 여기서도 제한 걸어둬야 함
-        _damage = _weaponData.GetStatValue(WeaponStatType.Damage, _level - 1);
+        base.CalculateStats();
+
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
         _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level - 1);
     }

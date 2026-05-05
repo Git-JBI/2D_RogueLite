@@ -17,32 +17,18 @@ MonoBehaviour:
   _statDatas:
   - _statType: 0
     _value:
-    - 1
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
     - 2
-    - 3
-    - 4
-    - 5
-  - _statType: 2
-    _value:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
   - _statType: 1
     _value:
     - 2
-    - 2.3
-    - 2.6
-    - 2.9
-    - 3.2
-  - _statType: 4
-    _value:
-    - 0.3
-    - 0.3
-    - 0.25
-    - 0.25
-    - 0.2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
   - _statType: 3
     _value:
     - 2

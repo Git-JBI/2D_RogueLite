@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonBase : MonoBehaviour
+public abstract class ButtonBase : MonoBehaviour
 {
     protected Button _button;
 

@@ -8,6 +8,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     private HeroModel _heromodel;
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
+    private HeroWeaponController _weaponController;
     private UpgradeController _upgradeController;
     private PassiveController _passiveController;
 
@@ -36,6 +37,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         _upgradeController = GetComponent<UpgradeController>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
+        _weaponController = GetComponentInChildren<HeroWeaponController>();
         _passiveController = GetComponentInChildren<PassiveController>();
         _heroHud = GetComponentInChildren<HeroHud>();
 
@@ -49,6 +51,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
 
         _spriteController.Init(libraryAsset);
         _heromodel.Init();
+        _weaponController.Init(_heromodel);
         _passiveController.Init(_heromodel);
 
         _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;

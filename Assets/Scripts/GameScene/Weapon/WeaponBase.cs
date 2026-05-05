@@ -4,9 +4,10 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
 {
     //TODO 추후 불러오는방법 변경 SerializeField X
     [SerializeField] protected WeaponData _weaponData;
+    protected HeroModel _heroModel;
 
     protected int _level;
-    protected float _damage;
+    protected float _damageMagnification;
 
     public Sprite IconSprite => _weaponData.WeaponIcon;
 
@@ -21,7 +22,15 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
         _level = 0;
     }
 
-    protected abstract void CalculateStats();
+    public void Init(HeroModel model)
+    {
+        _heroModel = model;
+    }
+
+    protected virtual void CalculateStats()
+    {
+        _damageMagnification = _weaponData.GetStatValue(WeaponStatType.DamageMagnification, _level - 1);
+    }
 
     public virtual void Upgrade()
     {

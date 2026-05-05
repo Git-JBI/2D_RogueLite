@@ -68,6 +68,9 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public void ChangeState(IState state)
     {
+        if (_curState == _deadState)
+            return;
+
         if (_curState != null)
             _curState.OnStateExit();
 

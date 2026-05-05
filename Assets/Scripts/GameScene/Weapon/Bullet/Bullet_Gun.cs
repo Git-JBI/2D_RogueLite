@@ -5,7 +5,7 @@ public class Bullet_Gun : BulletBase
     private float _moveSpeed;
     private Vector2 _startPos;
 
-    public void Init(Vector2 pos ,Vector2 dir, float movespeed)
+    public void Init(Vector2 pos, Vector2 dir, float movespeed)
     {
         transform.position = pos;
         _startPos = pos;
@@ -32,7 +32,7 @@ public class Bullet_Gun : BulletBase
         {
             IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
 
-            idamageable.TakeDamage(_damage);
+            idamageable.TakeDamage(_model.Damage * _damageMagnification);
 
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();

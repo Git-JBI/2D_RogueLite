@@ -6,7 +6,7 @@ public class AbilityGold : MonoBehaviour, IUpgradable
 
     public Sprite IconSprite => _goldSprite;
 
-    public int Level => 99;
+    public int Level => 0;
 
     public string Desc => "°ñµå¸¦ 50 È¹µæ";
 

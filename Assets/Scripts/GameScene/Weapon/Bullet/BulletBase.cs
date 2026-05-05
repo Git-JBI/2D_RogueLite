@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {
-    protected float _damage;
+    protected HeroModel _model;
+    protected float _damageMagnification;
 
-    private void Awake()
+    public void Init(HeroModel model, float damageMagnification)
     {
-        _damage = 5.0f;
+        _model = model;
+        _damageMagnification = damageMagnification;
     }
 }

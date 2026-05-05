@@ -17,11 +17,11 @@ MonoBehaviour:
   _statDatas:
   - _statType: 0
     _value:
-    - 3
-    - 6
-    - 9
-    - 12
-    - 15
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2
   - _statType: 2
     _value:
     - 1
@@ -29,7 +29,7 @@ MonoBehaviour:
     - 3
     - 4
     - 5
-  - _statType: 5
+  - _statType: 6
     _value:
     - 1
     - 1.3

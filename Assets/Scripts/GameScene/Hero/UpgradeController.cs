@@ -50,8 +50,8 @@ public class UpgradeController : MonoBehaviour
         {
             if (_views.Count == 3)
                 return;
-            // Level 5 미만일 경우(업그레이드 가능)
-            if (x.Level < 5)
+            // Level 5 미만일 경우(업그레이드 가능), IsPermanentAbility가 True인 경우
+            if (x.Level < 5 && x.IsPermanentAbility)
             {
                 UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
 
@@ -66,12 +66,12 @@ public class UpgradeController : MonoBehaviour
             }
         }
 
-        // 뽑을 경우가 없을 경우(금화, 체력회복의 Level을 99로 설정해 둠)
+        // 뽑을 경우가 없을 경우(IsPermanentAbility가 False인 경우)
         if (_views.Count == 0)
         {
             foreach(IUpgradable x in _upgradables)
             {
-                if(x.Level == 99)
+                if(!x.IsPermanentAbility)
                 {
                     UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
 

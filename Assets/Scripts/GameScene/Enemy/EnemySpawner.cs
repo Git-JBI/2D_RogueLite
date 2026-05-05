@@ -37,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
             enemyController.Init(RandomSpawnPosition());
             enemyController.OnDead += EnemyDead;
 
-            yield return new WaitForSeconds(2.0f);
+            //TODO 적 생성시간 추후 수정
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
