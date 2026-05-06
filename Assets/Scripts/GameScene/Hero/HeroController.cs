@@ -29,6 +29,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         add { _upgradeController.OnUpgradeActive += value; }
         remove { _upgradeController.OnUpgradeActive -= value; }
     }
+    public event UnityAction OnDead;
 
     private void Awake()
     {
@@ -77,6 +78,12 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     public void TakeDamage(float damage)
     {
         _heromodel.TakeDamage(damage);
+
+        if(_heromodel.CurHp <= 0)
+        {
+            Time.timeScale = 0;
+            OnDead?.Invoke();
+        }
     }
 
     public void GetExpItem(int amount)

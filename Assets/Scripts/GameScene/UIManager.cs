@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _upgradePanel;
+    [SerializeField] private GameObject _gameoverPanel;
     [SerializeField] private TextMeshProUGUI _countDeadEnemiesText;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _timeText;
@@ -38,5 +39,10 @@ public class UIManager : MonoBehaviour
     public void SetUpgradePanelActive(bool isActive)
     {
         _upgradePanel.SetActive(isActive);
+    }
+
+    public void SetGameOverPanelActive()
+    {
+        _gameoverPanel.SetActive(true);
     }
 }

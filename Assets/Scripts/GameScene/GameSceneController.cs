@@ -34,6 +34,7 @@ public class GameSceneController : MonoBehaviour
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
         _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
+        _heroController.OnDead += _ui.SetGameOverPanelActive;
 
         _heroController.Init();
         _enemySpawner.Init(_ui);
