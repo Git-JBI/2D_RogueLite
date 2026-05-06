@@ -10,6 +10,7 @@ public class HeroData : ScriptableObject
 
     public string HeroName => _heroName;
     public Sprite HeroSprite => _heroSprite;
+    public HeroStatData StatData => _statData;
     public string Desc => _desc;
 
     public float GetStatValue()

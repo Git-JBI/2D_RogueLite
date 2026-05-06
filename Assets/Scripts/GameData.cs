@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GameData
 {
-    private string _selectHeroName;
+    private HeroData _heroData;
     private int _gold;
 
-    public string SelectHeroName
+    public HeroData HeroData
     {
-        get { return _selectHeroName; }
-        set { _selectHeroName = value; }
+        get { return _heroData; }
+        set { _heroData = value; }
     }
     public int Gold => _gold;
 

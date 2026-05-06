@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e187fd2a55585545b8de31488a5fb8f, type: 3}
   m_Name: HeroStatData03
   m_EditorClassIdentifier: 
-  _heroName: 
+  _heroName: 03
   _heroSprite: {fileID: 938132271, guid: 57a1443e67528144aa07582927559650, type: 3}
   _statData:
-    _statType: 2
+    _statType: 3
     _value: 10
-  _desc: "\uCD5C\uB300 \uCCB4\uB825 \uC99D\uAC00"
+  _desc: "\uCD5C\uB300 \uCCB4\uB825 \uC99D\uAC00(\uC608\uC815)"

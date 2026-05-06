@@ -26,6 +26,7 @@ public class HeroWeaponController : MonoBehaviour
         _rifle.Init(model);
         _shotgun.Init(model);
 
+        //TODO 캐릭터마다 다른 무기
         _shovel.Upgrade();
     }
 }

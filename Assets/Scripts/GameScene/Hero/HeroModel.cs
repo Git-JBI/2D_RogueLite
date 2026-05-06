@@ -82,6 +82,11 @@ public class HeroModel : MonoBehaviour
         OnChangeLevel?.Invoke(_level);
     }
 
+    //TODO !!!!캐릭터마다 다른 보너스 스텟 설정
+    private void SetHeroBonusData()
+    {
+    }
+
     public void TakeDamage(float damage)
     {
         _curHp = Mathf.Clamp(_curHp - damage, 0, MaxHp);

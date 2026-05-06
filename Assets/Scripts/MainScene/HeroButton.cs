@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HeroButton : ButtonBase
 {
     private Image _buttonImage;
 
-    private Sprite _heroSprite;
-    private string _heroName;
+    private HeroData _heroData;
+
+    public event UnityAction<Sprite> OnSpriteChange;
+    public event UnityAction<string> OnTextChange;
 
     protected override void Awake()
     {
@@ -15,18 +18,20 @@ public class HeroButton : ButtonBase
         _buttonImage = GetComponent<Image>();
     }
 
-    public void Init(Sprite sprite, string name)
+    public void Init(HeroData heroData)
     {
-        _heroSprite = sprite;
-        _heroName = name;
+        _heroData = heroData;
 
-        _buttonImage.sprite = _heroSprite;
+        _buttonImage.sprite = _heroData.HeroSprite;
 
         base.Init();
     }
 
+    //TODO 캐릭터마다 다른 기본무기, 캐릭터 고유 능력치 적용 필요
     protected override void ClickButton()
     {
-        GameManager.Instance.GameData.SelectHeroName = _heroName;
+        GameManager.Instance.GameData.HeroData = _heroData;
+        OnSpriteChange?.Invoke(_heroData.HeroSprite);
+        OnTextChange?.Invoke(_heroData.Desc);
     }
 }

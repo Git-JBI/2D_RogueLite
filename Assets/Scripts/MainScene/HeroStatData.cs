@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum HeroStatType
 {
+    None,
     Damage,
     MoveSpeed,
     MaxHp,
