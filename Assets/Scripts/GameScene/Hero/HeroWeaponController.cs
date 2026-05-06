@@ -17,21 +17,6 @@ public class HeroWeaponController : MonoBehaviour
         _shotgun = GetComponentInChildren<WeaponShotgun>(true);
     }
 
-    //TODO 업그레이드쪽으로 이동
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Debug.Log("1");
-            _shovel.Upgrade();
-        }
-
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _pistol.Upgrade();
-        }
-    }
-
     public void Init(HeroModel model)
     {
         _heromodel = model;
@@ -40,5 +25,7 @@ public class HeroWeaponController : MonoBehaviour
         _pistol.Init(model);
         _rifle.Init(model);
         _shotgun.Init(model);
+
+        _shovel.Upgrade();
     }
 }
