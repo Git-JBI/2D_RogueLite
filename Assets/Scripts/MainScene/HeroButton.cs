@@ -27,7 +27,7 @@ public class HeroButton : ButtonBase
         base.Init();
     }
 
-    //TODO 캐릭터마다 다른 기본무기, 캐릭터 고유 능력치 적용 필요
+    //TODO 캐릭터마다 캐릭터 고유 능력치 적용 필요
     protected override void ClickButton()
     {
         GameManager.Instance.GameData.HeroData = _heroData;

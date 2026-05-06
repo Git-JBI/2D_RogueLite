@@ -74,6 +74,8 @@ public class HeroModel : MonoBehaviour
         _maxExp = 100;
         _curExp = 0;
         _level = 1;
+
+        SetHeroBonusData();
     }
 
     public void Init()
@@ -82,9 +84,25 @@ public class HeroModel : MonoBehaviour
         OnChangeLevel?.Invoke(_level);
     }
 
-    //TODO !!!!캐릭터마다 다른 보너스 스텟 설정
+    /// <summary>
+    /// 캐릭터마다 다른 보너스 능력치 설정
+    /// </summary>
     private void SetHeroBonusData()
     {
+        switch(GameManager.Instance.GameData.HeroData.StatData.StatType)
+        {
+            case HeroStatType.None:
+                break;
+            case HeroStatType.Damage:
+                _damage += GameManager.Instance.GameData.HeroData.GetStatValue();
+                break;
+            case HeroStatType.MoveSpeed:
+                _moveSpeed += GameManager.Instance.GameData.HeroData.GetStatValue();
+                break;
+            case HeroStatType.MaxHp:
+                _maxHp += GameManager.Instance.GameData.HeroData.GetStatValue();
+                break;
+        }
     }
 
     public void TakeDamage(float damage)
