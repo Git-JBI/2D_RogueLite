@@ -1,16 +1,18 @@
 using UnityEngine;
-using UnityEngine.U2D.Animation;
 
-public class GameSceneManager : MonoBehaviour
+public class GameSceneController : MonoBehaviour
 {
     //TODO 추후 Find로 변경
     [SerializeField] private HeroController _heroController;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private UIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
+    private GameSceneModel _sceneModel;
 
     private void Awake()
     {
+        _sceneModel = GetComponent<GameSceneModel>();
+
         _joystick.OnTouchDown += _heroController.MoveStart;
         _joystick.OnTouchUp += _heroController.MoveFinish;
         _joystick.OnDragging += _heroController.Move;
@@ -19,6 +21,12 @@ public class GameSceneManager : MonoBehaviour
     private void Start()
     {
         Init();
+    }
+
+    private void Update()
+    {
+        _sceneModel.IncreaseStageTime(Time.deltaTime);
+        _ui.SetTimeText(_sceneModel.StageTime);
     }
 
     private void Init()
