@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector2 pos = _hero.transform.position;
 
-        pos += Random.insideUnitCircle.normalized * 5.0f;
+        pos += Random.insideUnitCircle.normalized * 10.0f;
 
         return pos;
     }
