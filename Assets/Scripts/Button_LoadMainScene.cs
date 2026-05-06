@@ -7,7 +7,12 @@ public class Button_LoadMainScene : ButtonBase
     {
         base.Awake();
 
-        _button.onClick.AddListener(LoadMainScene);
+        Init();
+    }
+
+    protected override void ClickButton()
+    {
+        LoadMainScene();
     }
 
     private void LoadMainScene()

@@ -9,4 +9,11 @@ public abstract class ButtonBase : MonoBehaviour
     {
         _button = GetComponent<Button>();
     }
+
+    public void Init()
+    {
+        _button.onClick.AddListener(ClickButton);
+    }
+
+    protected abstract void ClickButton();
 }
