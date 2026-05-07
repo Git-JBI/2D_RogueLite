@@ -86,6 +86,30 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
+    /// 8방향 총쏘기
+    /// </summary>
+    public void Shoot8Directions()
+    {
+        int bulletCount = 8;
+
+        for(int i = 0; i < bulletCount; i++)
+        {
+            float angle = i * 360 / bulletCount;
+
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+            Vector2 dir = rotation * Vector2.up;
+
+            GameObject bullet;
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy", transform);
+
+            EnemyBulletBase bulletBase = bullet.GetComponent<EnemyBulletBase>();
+
+            bulletBase.Init(_model, transform.position, dir, 5);
+        }
+    }
+
+    /// <summary>
     /// 텔레포트 코루틴
     /// </summary>
     /// <returns></returns>

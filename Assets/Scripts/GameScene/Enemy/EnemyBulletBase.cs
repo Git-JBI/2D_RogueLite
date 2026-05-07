@@ -3,24 +3,44 @@ using UnityEngine;
 public class EnemyBulletBase : MonoBehaviour
 {
     protected EnemyModel _enemyModel;
+    protected float _bulletSpeed;
+    protected float _timer;
 
-    protected Coroutine _shootCoroutine;
-
-    public void Init(EnemyModel model)
+    public void Init(EnemyModel model, Vector2 startPos, Vector2 dir, float bulletSpeed)
     {
         _enemyModel = model;
+        transform.position = startPos;
+        transform.up = dir;
+        _bulletSpeed = bulletSpeed;
+
+        transform.SetParent(null);
+        _timer = 0;
+    }
+
+    protected void FixedUpdate()
+    {
+        transform.Translate(Vector2.up * _bulletSpeed * Time.deltaTime);
+        _timer += Time.deltaTime;
+
+        // 3초 지날 시 총알 제거
+        if(_timer >= 3)
+        {
+            PoolingObject poolOb = GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            IDamageable idamageable = collision.gameObject.GetComponent<IDamageable>();
-
-            idamageable.TakeDamage(_enemyModel.Damage);
-
-            PoolingObject poolOb = GetComponent<PoolingObject>();
-            poolOb.ReturnToPool();
+            Debug.Log("Player");
+            // IDamageable idamageable = collision.gameObject.GetComponent<IDamageable>();
+            // 
+            // idamageable.TakeDamage(_enemyModel.Damage);
+            // 
+            // PoolingObject poolOb = GetComponent<PoolingObject>();
+            // poolOb.ReturnToPool();
         }
     }
 }
