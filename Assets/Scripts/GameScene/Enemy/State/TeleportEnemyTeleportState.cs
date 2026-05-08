@@ -16,6 +16,7 @@ public class TeleportEnemyTeleportState : IState
 
     public void OnStateExit()
     {
+        _controller.ShootSpiral8Directions();
         _controller.EndTeleport();
     }
 

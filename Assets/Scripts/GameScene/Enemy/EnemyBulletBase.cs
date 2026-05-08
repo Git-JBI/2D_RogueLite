@@ -13,7 +13,8 @@ public class EnemyBulletBase : MonoBehaviour
         transform.up = dir;
         _bulletSpeed = bulletSpeed;
 
-        transform.SetParent(null);
+        //TODO 추후 2가지로 나뉘도록 스크립트 변경(부모해제, 그대로)
+        // transform.SetParent(null);
         _timer = 0;
     }
 

@@ -110,6 +110,19 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
+    /// 8방향 회전하는 총쏘기
+    /// </summary>
+    public void ShootSpiral8Directions()
+    {
+        GameObject spiralBullet;
+        spiralBullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy_Spiral8Dir", transform);
+
+        Bullet_Spiral bullet = spiralBullet.GetComponent<Bullet_Spiral>();
+
+        bullet.Init(_model, transform.position);
+    }
+
+    /// <summary>
     /// 텔레포트 코루틴
     /// </summary>
     /// <returns></returns>
