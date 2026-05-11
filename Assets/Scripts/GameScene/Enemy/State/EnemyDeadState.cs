@@ -29,7 +29,7 @@ public class EnemyDeadState : IState
 
     public void OnStateExit()
     {
-        _enemy.Die();
+        _enemy.Dead();
     }
 
     public void OnStateUpdate()

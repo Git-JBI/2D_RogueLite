@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         _collider.enabled = x;
     }
 
-    public void Die()
+    public void Dead()
     {
         // 죽음 이벤트 실행
         OnDead?.Invoke();
@@ -95,12 +95,12 @@ public class EnemyController : MonoBehaviour, IDamageable
         // 이벤트 비우기
         OnDead = null;
 
+        // 아이템 스폰
         SpawnExpItem();
 
         //TODO 추후 Util사용해서 더 확장필요
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
-        // Destroy(gameObject);
     }
 
     private void SpawnExpItem()

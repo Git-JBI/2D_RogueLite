@@ -26,6 +26,8 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     public TeleportEnemyIdleState IdleState => _idleState;
     public TeleportEnemyTeleportState TeleportState => _teleportState;
 
+    public EnemySpriteController SpriteController => _spriteController;
+
     private void Awake()
     {
         _model = GetComponent<EnemyModel>();
@@ -37,6 +39,10 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         _idleState = new TeleportEnemyIdleState(this);
         _teleportState = new TeleportEnemyTeleportState(this);
         _deadState = new TeleportEnemyDeadState(this);
+
+        //TODO 추후 spawner에서
+        _model.Init();
+
         ChangeState(_idleState);
     }
 
@@ -63,6 +69,24 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
+    /// 리지드바디 활성화 설정
+    /// </summary>
+    /// <param name="x"></param>
+    public void SetRigidbodyActive(bool x)
+    {
+        _rigid.simulated = x;
+    }
+
+    /// <summary>
+    /// 콜라이더 활성화 설정
+    /// </summary>
+    /// <param name="x"></param>
+    public void SetColliderActive(bool x)
+    {
+        _collider.enabled = x;
+    }
+
+    /// <summary>
     /// 텔레포트 시작
     /// </summary>
     public void StartTeleport()
@@ -79,10 +103,30 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         StopCoroutine(_teleportCoroutine);
 
         // 리지드바디 켜기
-        _rigid.simulated = true;
+        SetRigidbodyActive(true);
 
         // 콜라이더 켜기
-        _collider.enabled = true;
+        SetColliderActive(true);
+    }
+
+    public void Dead()
+    {
+        // 죽음 이벤트 실행
+        OnDead?.Invoke();
+
+        // 현재 상태 비우기
+        _curState = null;
+
+        // 이벤트 비우기
+        OnDead = null;
+
+        // 제거
+        PoolingObject poolOb = GetComponent<PoolingObject>();
+
+        if (poolOb)
+            poolOb.ReturnToPool();
+        else
+            Destroy(gameObject);
     }
 
     /// <summary>
@@ -105,7 +149,6 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
 
             EnemyBullet_Normal_NoParent spiralBullet = bullet.GetComponent<EnemyBullet_Normal_NoParent>();
 
-            Debug.Log(_model.name);
             spiralBullet.Init(_model);
             spiralBullet.Init(transform.position, dir, 7);
         }
@@ -136,9 +179,9 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         // 텔레포트할 랜덤한 위치(플레이어 캐릭터 기준)
         Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_target.transform.position;
         // 리지드바디 끄기
-        _rigid.simulated = false;
+        SetRigidbodyActive(false);
         // 콜라이더 끄기
-        _collider.enabled = false;
+        SetColliderActive(false);
         // 본체 위치 상승
         _enemyBody.transform.localPosition = Vector3.up * 3;
         // 적 위치 변경
@@ -164,6 +207,16 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         //TODO 플레이어한테 데미지 입음
+        _model.TakeDamage(damage);
+
+        if(_model.CurHp <= 0)
+        {
+            ChangeState(_deadState);
+        }
+        else
+        {
+            _spriteController.Damaged();
+        }
     }
     #endregion
 }

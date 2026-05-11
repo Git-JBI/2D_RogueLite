@@ -4,6 +4,8 @@ public class TeleportEnemyDeadState : IState
 {
     private TeleportEnemyController _controller;
 
+    private float _timer;
+
     public TeleportEnemyDeadState(TeleportEnemyController controller)
     {
         _controller = controller;
@@ -11,16 +13,29 @@ public class TeleportEnemyDeadState : IState
 
     public void OnStateEnter()
     {
-        throw new System.NotImplementedException();
+        // 타이머 초기화
+        _timer = 0;
+
+        // 리지드바디 비활성화
+        _controller.SetRigidbodyActive(false);
+
+        // 콜라이더 비활성화
+        _controller.SetColliderActive(false);
+
+        // 죽음 애니메이션 실행
+        _controller.SpriteController.Dead();
     }
 
     public void OnStateExit()
     {
-        throw new System.NotImplementedException();
+        _controller.Dead();
     }
 
     public void OnStateUpdate()
     {
-        throw new System.NotImplementedException();
+        _timer += Time.deltaTime;
+
+        if (_timer > 0.5)
+            OnStateExit();
     }
 }
