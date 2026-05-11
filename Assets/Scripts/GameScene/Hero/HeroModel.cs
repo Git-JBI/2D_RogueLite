@@ -67,9 +67,9 @@ public class HeroModel : MonoBehaviour
     private void Awake()
     {
         // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화
-        _maxHp = 50;
+        _maxHp = 1000;
         _curHp = _maxHp;
-        _damage = 5;
+        _damage = 10;
         _moveSpeed = 2;
         _maxExp = 100;
         _curExp = 0;

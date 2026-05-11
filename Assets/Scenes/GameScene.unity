@@ -6923,7 +6923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &611943852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21177,6 +21177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639421936}
   - component: {fileID: 1639421938}
+  - component: {fileID: 1639421940}
   - component: {fileID: 1639421939}
   m_Layer: 6
   m_Name: TeleportEnemy
@@ -21243,6 +21244,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1639421940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639421935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6679f68abbc2c42428fe99f20a751ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1654112607
 GameObject:
   m_ObjectHideFlags: 0
@@ -21823,9 +21836,10 @@ GameObject:
   - component: {fileID: 1977793152}
   - component: {fileID: 1977793153}
   - component: {fileID: 1977793154}
+  - component: {fileID: 1977793155}
   m_Layer: 6
   m_Name: EnemyBody
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21946,6 +21960,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1977793155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977793151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9655ea9c5c8e4be4d88ca35cf6ed48ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2050316249
 GameObject:
   m_ObjectHideFlags: 0
@@ -21991,7 +22017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponData: {fileID: 11400000, guid: e4d3daaf25283a14791b82003834a329, type: 2}
-  _shovel: {fileID: 4373507000476390803, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
+  _shovel: {fileID: -7504902902279333237, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
 --- !u!1 &2114901360
 GameObject:
   m_ObjectHideFlags: 0

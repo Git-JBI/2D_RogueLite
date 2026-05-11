@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2829713540093509728}
   - component: {fileID: 2376414440342350179}
   - component: {fileID: 3834280190845615938}
-  - component: {fileID: 4373507000476390803}
+  - component: {fileID: -7504902902279333237}
   m_Layer: 0
   m_Name: Bullet_Shovel
   m_TagString: Untagged
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.3888889, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4373507000476390803
+--- !u!114 &-7504902902279333237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4206327295167875753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d619de80867484d9f3a863b0718624, type: 3}
+  m_Script: {fileID: 11500000, guid: 59c8755f9abd1284c82184dc153a5f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

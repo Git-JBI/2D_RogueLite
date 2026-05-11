@@ -101,11 +101,13 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
             Vector2 dir = rotation * Vector2.up;
 
             GameObject bullet;
-            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy", transform);
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy_NoParent", transform);
 
-            EnemyBulletBase bulletBase = bullet.GetComponent<EnemyBulletBase>();
+            EnemyBullet_Normal_NoParent spiralBullet = bullet.GetComponent<EnemyBullet_Normal_NoParent>();
 
-            bulletBase.Init(_model, transform.position, dir, 5);
+            Debug.Log(_model.name);
+            spiralBullet.Init(_model);
+            spiralBullet.Init(transform.position, dir, 7);
         }
     }
 
@@ -117,9 +119,10 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         GameObject spiralBullet;
         spiralBullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy_Spiral8Dir", transform);
 
-        Bullet_Spiral bullet = spiralBullet.GetComponent<Bullet_Spiral>();
+        EnemyBullet_Spiral bullet = spiralBullet.GetComponent<EnemyBullet_Spiral>();
 
-        bullet.Init(_model, transform.position);
+        bullet.Init(_model);
+        bullet.Init(transform.position);
     }
 
     /// <summary>

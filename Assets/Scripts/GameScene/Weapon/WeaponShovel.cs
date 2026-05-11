@@ -4,13 +4,13 @@ using UnityEngine;
 public class WeaponShovel : WeaponBase
 {
     //TODO ResourceLoad·Î º¯°æ
-    [SerializeField]private BulletBase _shovel;
+    [SerializeField]private PlayerBulletBase _shovel;
 
     private float _bulletCount;
     private float _rotSpeed;
     private float _radius;
 
-    private List<BulletBase> _shovels = new();
+    private List<PlayerBulletBase> _shovels = new();
 
     protected override void Awake()
     {
@@ -39,11 +39,9 @@ public class WeaponShovel : WeaponBase
 
         for(int i = 0; i < _bulletCount; i++)
         {
-            BulletBase shovel = Instantiate(_shovel);
+            PlayerBulletBase shovel = Instantiate(_shovel);
 
-            Bullet_Shovel bulletShovel = shovel.GetComponent<Bullet_Shovel>();
-
-            bulletShovel.Init(_heroModel, _damageMagnification);
+            shovel.Init(_heroModel, _damageMagnification);
 
             Vector2 dir = new Vector2(Mathf.Cos(i * angle * Mathf.Deg2Rad), Mathf.Sin(i * angle * Mathf.Deg2Rad));
 
@@ -59,7 +57,7 @@ public class WeaponShovel : WeaponBase
 
     private void RemoveBullets()
     {
-        foreach(BulletBase bullet in _shovels)
+        foreach(PlayerBulletBase bullet in _shovels)
         {
             Destroy(bullet.gameObject);
         }

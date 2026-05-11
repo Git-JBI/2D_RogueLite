@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet_Gun : BulletBase
+public class Bullet_Gun : PlayerBulletBase
 {
     private float _moveSpeed;
     private Vector2 _startPos;
@@ -18,6 +18,7 @@ public class Bullet_Gun : BulletBase
     {
         transform.Translate(Vector2.up * _moveSpeed * Time.fixedDeltaTime);
 
+        //TODO 거리 말고 지정한 시간이 지날 경우 총알 제거
         // 거리 멀어지면 총알 제거
         if(Vector2.Distance(transform.position, _startPos) > 10)
         {
@@ -30,10 +31,11 @@ public class Bullet_Gun : BulletBase
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
-
-            idamageable.TakeDamage(_model.Damage * _damageMagnification);
-
+            PoolingObject poolOb = GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
+        }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();
         }

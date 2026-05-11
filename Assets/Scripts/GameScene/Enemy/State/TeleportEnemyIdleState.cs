@@ -30,7 +30,7 @@ public class TeleportEnemyIdleState : IState
         if (_timer >= 2.5f && !_isAttackTime)
         {
             Debug.Log("2.5ÃÊ Áö³²");
-            // _controller.Shoot8Directions();
+            _controller.Shoot8Directions();
             _isAttackTime = true;
         }
         
