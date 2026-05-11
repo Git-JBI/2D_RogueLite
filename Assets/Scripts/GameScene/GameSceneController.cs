@@ -25,8 +25,18 @@ public class GameSceneController : MonoBehaviour
 
     private void Update()
     {
-        _sceneModel.IncreaseStageTime(Time.deltaTime);
-        _ui.SetTimeText(_sceneModel.StageTime);
+        if (_sceneModel.StageTime <= 60)
+        {
+            _sceneModel.IncreaseStageTime(Time.deltaTime);
+            _ui.SetTimeText(_sceneModel.StageTime);
+        }
+
+        //TODO 추후 보스 등장시간 변경
+        // 보스 등장
+        if(_sceneModel.StageTime > 60)
+        {
+            //TODO 여기부터
+        }
     }
 
     private void Init()
