@@ -160,7 +160,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     #region Interface
     public void TakeDamage(float damage)
     {
-        throw new System.NotImplementedException();
+        //TODO 플레이어한테 데미지 입음
     }
     #endregion
 }
