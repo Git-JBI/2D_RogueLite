@@ -7,7 +7,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     [SerializeField] private GameObject _enemyBody;
 
     //TODO 추후 스포너에서 받아오기
-    [SerializeField] private HeroController _target;
+    private Transform _target;
     private EnemyModel _model;
     private EnemySpriteController _spriteController;
     private Rigidbody2D _rigid;
@@ -49,6 +49,11 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     private void Update()
     {
         _curState.OnStateUpdate();
+    }
+
+    public void Init(Transform target)
+    {
+        _target = target;
     }
 
     /// <summary>

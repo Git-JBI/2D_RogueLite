@@ -13,28 +13,31 @@ public class EnemySpawner : MonoBehaviour
     private HeroController _hero;           //TODO GameSceneManager에서 받아오기
     [SerializeField]
     private TeleportEnemyController _boss;  //TODO 다른곳에서 받아오기
-    private UIManager _uiManager;
-
-    private int _deadCount;
 
     public event UnityAction OnEnemyDead;
+    public event UnityAction OnBossDead;
 
-    public void Init(UIManager ui)
-    {
-        _uiManager = ui;
-    }
+    private Coroutine _spawnRoutine;
 
     private void Start()
     {
-        StartCoroutine(SpawnCoroutine());
+        _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
     public void SpawnBoss()
     {
         // 일반 적 코루틴 정지
+        StopCoroutine(_spawnRoutine);
 
         // 보스 소환
-        // 보스 사망 시 이벤트 처리해야할 함수들 추가
+        TeleportEnemyController boss = Instantiate(_boss);
+
+        // 보스 초기화
+        boss.Init(_hero.transform);
+
+        // 보스 사망 시 이벤트 처리해야할 함수 추가
+        boss.OnDead += BossDead;
+
     }
 
     private IEnumerator SpawnCoroutine()
@@ -48,17 +51,27 @@ public class EnemySpawner : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             enemyController.Init(RandomSpawnPosition());
-            enemyController.OnDead += OnEnemyDead;
+            enemyController.OnDead += EnemyDead;
 
             //TODO 적 생성시간 추후 수정
             yield return new WaitForSeconds(0.5f);
         }
     }
 
+    /// <summary>
+    /// 적 사망 시 호출할 함수
+    /// </summary>
     private void EnemyDead()
     {
-        _deadCount++;
-        _uiManager.SetDeadCount(_deadCount);
+        OnEnemyDead?.Invoke();
+    }
+
+    /// <summary>
+    /// 보스 사망 시 호출할 함수
+    /// </summary>
+    private void BossDead()
+    {
+        OnBossDead?.Invoke();
     }
 
     private Vector2 RandomSpawnPosition()

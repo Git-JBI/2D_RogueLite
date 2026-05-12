@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameSceneController : MonoBehaviour
@@ -11,12 +12,14 @@ public class GameSceneController : MonoBehaviour
     private GameSceneModel _sceneModel;
 
     private bool _isBossTime = false;
+    private bool _isBossSpawn = false;
 
     private void Awake()
     {
         _sceneModel = GetComponent<GameSceneModel>();
 
         _enemySpawner.OnEnemyDead += EnemyDead;
+        _enemySpawner.OnBossDead += BossDead;
 
         _joystick.OnTouchDown += _heroController.MoveStart;
         _joystick.OnTouchUp += _heroController.MoveFinish;
@@ -36,16 +39,15 @@ public class GameSceneController : MonoBehaviour
             _ui.SetTimeText(_sceneModel.StageTime);
         }
 
-        //TODO 추후 보스 등장시간 변경
+        //TODO 추후 보스 등장시간 스테이지마다 다르도록 변경
         
-        if(_sceneModel.StageTime > 60)
+        if(_sceneModel.StageTime > 60 & !_isBossSpawn)
         {
             _isBossTime = true;
-            
+            _isBossSpawn = true;
+
             // 보스 등장
-
-            // 보스의 사망이벤트에 여러가지 추가
-
+            _enemySpawner.SpawnBoss();
         }
     }
 
@@ -54,12 +56,14 @@ public class GameSceneController : MonoBehaviour
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
         _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
-        _heroController.OnDead += _ui.SetGameOverPanelActive;
+        _heroController.OnDead += _ui.SetGameFinishPanelActive;
 
         _heroController.Init();
-        _enemySpawner.Init(_ui);
     }
 
+    /// <summary>
+    /// 적 사망 시 호출할 함수
+    /// </summary>
     private void EnemyDead()
     {
         // 적 사망 수 1 증가
@@ -67,5 +71,17 @@ public class GameSceneController : MonoBehaviour
         
         // 적 사망 텍스트 죽은 숫자로 적용
         _ui.SetDeadCount(_sceneModel.EnemyDeadCount);
+    }
+
+    /// <summary>
+    /// 보스 사망 시 호출할 함수
+    /// </summary>
+    private void BossDead()
+    {
+        // 시간 흐름 X
+        Time.timeScale = 0;
+
+        // 클리어 창 띄우기
+        _ui.SetGameFinishPanelActive();
     }
 }
