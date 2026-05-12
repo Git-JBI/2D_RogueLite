@@ -7,11 +7,16 @@ public class GameSceneController : MonoBehaviour
     [SerializeField] private Joystick _joystick;
     [SerializeField] private UIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
+
     private GameSceneModel _sceneModel;
+
+    private bool _isBossTime = false;
 
     private void Awake()
     {
         _sceneModel = GetComponent<GameSceneModel>();
+
+        _enemySpawner.OnEnemyDead += EnemyDead;
 
         _joystick.OnTouchDown += _heroController.MoveStart;
         _joystick.OnTouchUp += _heroController.MoveFinish;
@@ -25,17 +30,22 @@ public class GameSceneController : MonoBehaviour
 
     private void Update()
     {
-        if (_sceneModel.StageTime <= 60)
+        if (_sceneModel.StageTime <= 60 & !_isBossTime)
         {
             _sceneModel.IncreaseStageTime(Time.deltaTime);
             _ui.SetTimeText(_sceneModel.StageTime);
         }
 
         //TODO 추후 보스 등장시간 변경
-        // 보스 등장
+        
         if(_sceneModel.StageTime > 60)
         {
-            //TODO 여기부터
+            _isBossTime = true;
+            
+            // 보스 등장
+
+            // 보스의 사망이벤트에 여러가지 추가
+
         }
     }
 
@@ -48,5 +58,14 @@ public class GameSceneController : MonoBehaviour
 
         _heroController.Init();
         _enemySpawner.Init(_ui);
+    }
+
+    private void EnemyDead()
+    {
+        // 적 사망 수 1 증가
+        _sceneModel.IncreaseEnemyDeadCount(1);
+        
+        // 적 사망 텍스트 죽은 숫자로 적용
+        _ui.SetDeadCount(_sceneModel.EnemyDeadCount);
     }
 }

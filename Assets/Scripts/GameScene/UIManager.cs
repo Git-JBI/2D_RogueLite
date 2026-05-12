@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private Image _expBar;
 
-    public void IncreaseDeadCount(int count)
+    public void SetDeadCount(int count)
     {
         _countDeadEnemiesText.text = count.ToString();
     }

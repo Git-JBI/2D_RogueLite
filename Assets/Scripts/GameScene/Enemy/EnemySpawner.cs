@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 적을 스폰
@@ -10,9 +11,13 @@ public class EnemySpawner : MonoBehaviour
     private EnemyController _enemyPrefab;   //TODO GameSceneManager에서 받아오기
     [SerializeField]
     private HeroController _hero;           //TODO GameSceneManager에서 받아오기
+    [SerializeField]
+    private TeleportEnemyController _boss;  //TODO 다른곳에서 받아오기
     private UIManager _uiManager;
 
     private int _deadCount;
+
+    public event UnityAction OnEnemyDead;
 
     public void Init(UIManager ui)
     {
@@ -22,6 +27,14 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnCoroutine());
+    }
+
+    public void SpawnBoss()
+    {
+        // 일반 적 코루틴 정지
+
+        // 보스 소환
+        // 보스 사망 시 이벤트 처리해야할 함수들 추가
     }
 
     private IEnumerator SpawnCoroutine()
@@ -35,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             enemyController.Init(RandomSpawnPosition());
-            enemyController.OnDead += EnemyDead;
+            enemyController.OnDead += OnEnemyDead;
 
             //TODO 적 생성시간 추후 수정
             yield return new WaitForSeconds(0.5f);
@@ -45,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     private void EnemyDead()
     {
         _deadCount++;
-        _uiManager.IncreaseDeadCount(_deadCount);
+        _uiManager.SetDeadCount(_deadCount);
     }
 
     private Vector2 RandomSpawnPosition()
