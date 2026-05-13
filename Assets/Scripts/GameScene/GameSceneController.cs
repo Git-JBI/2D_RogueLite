@@ -78,6 +78,11 @@ public class GameSceneController : MonoBehaviour
     /// </summary>
     private void BossDead()
     {
+        //TODO 플레이어 경험치 획득, 아이템/장비 획득
+
+        // 스테이지 내에서 획득한 골드 추가
+        GameManager.Instance.GameData.AddGold(_sceneModel.StageGold);
+
         // 시간 흐름 X
         Time.timeScale = 0;
 

@@ -47,7 +47,6 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     
     public void Init()
     {
-        //TODO 추후 메인씬에서 선택한 캐릭터로 불러오기
         SpriteLibraryAsset libraryAsset = GameManager.Instance.ResourceManager.GetPrefabOnce<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero{GameManager.Instance.GameData.HeroData.HeroName}");
 
         _spriteController.Init(libraryAsset);

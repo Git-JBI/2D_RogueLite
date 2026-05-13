@@ -37,7 +37,6 @@ public class EnemySpawner : MonoBehaviour
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
         boss.OnDead += BossDead;
-
     }
 
     private IEnumerator SpawnCoroutine()
