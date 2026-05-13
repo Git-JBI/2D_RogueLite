@@ -6,7 +6,7 @@ public class GameSceneController : MonoBehaviour
     //TODO 추후 Find로 변경
     [SerializeField] private HeroController _heroController;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private UIManager _ui;
+    [SerializeField] private GameSceneUIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
 
     private GameSceneModel _sceneModel;
@@ -56,7 +56,7 @@ public class GameSceneController : MonoBehaviour
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
         _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
-        _heroController.OnDead += _ui.SetGameFinishPanelActive;
+        _heroController.OnDead += _ui.Fail;
 
         _heroController.Init();
     }
@@ -82,6 +82,6 @@ public class GameSceneController : MonoBehaviour
         Time.timeScale = 0;
 
         // 클리어 창 띄우기
-        _ui.SetGameFinishPanelActive();
+        _ui.Clear();
     }
 }

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class GameSceneUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TextMeshProUGUI _countDeadEnemiesText;
@@ -59,8 +59,15 @@ public class UIManager : MonoBehaviour
         _upgradePanel.SetActive(isActive);
     }
 
-    public void SetGameFinishPanelActive()
+    public void Fail()
     {
         _gameFinishPanel.gameObject.SetActive(true);
+        _gameFinishPanel.Fail();
+    }
+
+    public void Clear()
+    {
+        _gameFinishPanel.gameObject.SetActive(true);
+        _gameFinishPanel.Clear();
     }
 }
