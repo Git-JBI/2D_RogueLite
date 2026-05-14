@@ -20,5 +20,10 @@ public class HeroSelectController : MonoBehaviour
         HeroData herodata = GameManager.Instance.GameModel.HeroData;
 
         _viewer.Init(herodata.HeroSprite, herodata.Desc);
+
+        if (GameManager.Instance.GameModel.HeroData == null)
+            _viewer.Init(_heroDatas[0].HeroSprite, _heroDatas[0].Desc);
+        else
+            _viewer.Init(GameManager.Instance.GameModel.HeroData.HeroSprite, GameManager.Instance.GameModel.HeroData.Desc);
     }
 }
