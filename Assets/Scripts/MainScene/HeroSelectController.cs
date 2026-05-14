@@ -17,6 +17,8 @@ public class HeroSelectController : MonoBehaviour
             button.OnTextChange += _viewer.SetHereDescText;
         }
 
-        _viewer.Init(_heroDatas[0].HeroSprite, _heroDatas[0].Desc);
+        HeroData herodata = GameManager.Instance.GameModel.HeroData;
+
+        _viewer.Init(herodata.HeroSprite, herodata.Desc);
     }
 }

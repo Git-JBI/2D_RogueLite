@@ -89,18 +89,18 @@ public class HeroModel : MonoBehaviour
     /// </summary>
     private void SetHeroBonusData()
     {
-        switch(GameManager.Instance.GameData.HeroData.StatData.StatType)
+        switch(GameManager.Instance.GameModel.HeroData.StatData.StatType)
         {
             case HeroStatType.None:
                 break;
             case HeroStatType.Damage:
-                _damage += GameManager.Instance.GameData.HeroData.GetStatValue();
+                _damage += GameManager.Instance.GameModel.HeroData.GetStatValue();
                 break;
             case HeroStatType.MoveSpeed:
-                _moveSpeed += GameManager.Instance.GameData.HeroData.GetStatValue();
+                _moveSpeed += GameManager.Instance.GameModel.HeroData.GetStatValue();
                 break;
             case HeroStatType.MaxHp:
-                _maxHp += GameManager.Instance.GameData.HeroData.GetStatValue();
+                _maxHp += GameManager.Instance.GameModel.HeroData.GetStatValue();
                 break;
         }
     }

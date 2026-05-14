@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance => _instance;
 
-    private GameData _gameData;
+    private GameModel _gameModel;
     private PoolManager _poolManager;
     private ResourceManager _resourceManager;
 
-    public GameData GameData => _gameData;
+    public GameModel GameModel => _gameModel;
     public PoolManager PoolManager => _poolManager;
     public ResourceManager ResourceManager => _resourceManager;
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        _gameData = new GameData();
+        _gameModel = GetComponent<GameModel>();
         _poolManager = GetComponent<PoolManager>();
         _resourceManager = GetComponent<ResourceManager>();
     }

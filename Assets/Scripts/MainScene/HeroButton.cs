@@ -30,8 +30,9 @@ public class HeroButton : ButtonBase
     //TODO 캐릭터마다 캐릭터 고유 능력치 적용 필요
     protected override void ClickButton()
     {
-        GameManager.Instance.GameData.HeroData = _heroData;
+        GameManager.Instance.GameModel.HeroData = _heroData;
         OnSpriteChange?.Invoke(_heroData.HeroSprite);
         OnTextChange?.Invoke(_heroData.Desc);
+        GameManager.Instance.GameModel.SaveData();
     }
 }
