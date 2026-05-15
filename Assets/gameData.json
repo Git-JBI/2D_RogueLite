@@ -1,4 +1,9 @@
 {
-    "heroDataName": "HeroStatData02",
-    "gold": 0
+    "heroDataName": "03",
+    "gold": 0,
+    "upgradeLevel": [
+        4,
+        3,
+        6
+    ]
 }

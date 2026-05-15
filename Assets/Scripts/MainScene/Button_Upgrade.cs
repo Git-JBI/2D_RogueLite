@@ -1,0 +1,42 @@
+using TMPro;
+using UnityEngine;
+public enum UpgradeButtonType
+{
+    None,
+    Damage,
+    Hp,
+    Armor,
+}
+
+public class Button_Upgrade : ButtonBase
+{
+    private UpgradeManager _manager;
+
+    private UpgradeButtonType _upgradeType;
+    private TextMeshProUGUI[] _texts;           // 0.Title, 1.Level, 2.Money
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _texts = GetComponentsInChildren<TextMeshProUGUI>();
+    }
+
+    public void Init(UpgradeManager manager, UpgradeButtonType value)
+    {
+        _manager = manager;
+        _upgradeType = value;
+
+        base.Init();
+    }
+
+    public void SetText(int level)
+    {
+        _texts[1].text = $"Lv.{level + 1}";
+    }
+
+    protected override void ClickButton()
+    {
+        _manager.Upgrade(_upgradeType);
+    }
+}
