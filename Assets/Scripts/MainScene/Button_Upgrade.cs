@@ -30,9 +30,10 @@ public class Button_Upgrade : ButtonBase
         base.Init();
     }
 
-    public void SetText(int level)
+    public void SetText(int level, int cost)
     {
         _texts[1].text = $"Lv.{level + 1}";
+        _texts[2].text = $"{cost}";
     }
 
     protected override void ClickButton()
