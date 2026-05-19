@@ -10,6 +10,11 @@ public class HeroModel : MonoBehaviour
     private float _curHp;
     private float _damage;
     private float _moveSpeed;
+    private float _armor;
+
+    private float _upgradeDamage;
+    private float _upgradeHp;
+    private float _upgradeArmor;
 
     private float _increaseDamagePercent;
     private float _increaseMaxHpPercent;
@@ -18,10 +23,11 @@ public class HeroModel : MonoBehaviour
     public int Level => _level;
     public float MaxExp => _maxExp;
     public float CurExp => _curExp;
-    public float MaxHp => _maxHp + _maxHp / 100 * _increaseMaxHpPercent;
+    public float MaxHp => (_maxHp + _upgradeHp) + (_maxHp + _upgradeHp) * _increaseMaxHpPercent / 100;
     public float CurHp => _curHp;
-    public float Damage => _damage + _damage / 100 * _increaseDamagePercent;
-    public float MoveSpeed => _moveSpeed + _moveSpeed / 100 * _increaseMoveSpeedPercent;
+    public float Damage => (_damage + _upgradeDamage) + (_damage + _upgradeDamage) * _increaseDamagePercent / 100;
+    public float MoveSpeed => _moveSpeed + _moveSpeed * _increaseMoveSpeedPercent / 100;
+    public float Armor => _armor + _upgradeArmor;
 
     public float IncreaseDamagePercent
     {
@@ -66,7 +72,7 @@ public class HeroModel : MonoBehaviour
 
     private void Awake()
     {
-        // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화
+        // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화 >>>>> 필요없는 변수들이 있는 것 같음 기본값을 GameModel에서 설정 후 기본 값 설정 후 인게임 업그레이드 데이터를 적용하는 방식
         _maxHp = 1000;
         _curHp = _maxHp;
         _damage = 10;
@@ -74,6 +80,10 @@ public class HeroModel : MonoBehaviour
         _maxExp = 100;
         _curExp = 0;
         _level = 1;
+
+        _upgradeDamage = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataDamage").Value[GameManager.Instance.GameModel.UpgradeLevel[0]];
+        _upgradeHp = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataHp").Value[GameManager.Instance.GameModel.UpgradeLevel[1]];
+        _upgradeArmor = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataArmor").Value[GameManager.Instance.GameModel.UpgradeLevel[2]];
 
         SetHeroBonusData();
     }

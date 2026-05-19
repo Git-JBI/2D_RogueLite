@@ -294,7 +294,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1994839277}
+  m_TargetGraphic: {fileID: 203675193}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -428,7 +428,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1994839277}
+  m_TargetGraphic: {fileID: 212548967}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -986,7 +986,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1994839277}
+  m_TargetGraphic: {fileID: 542320405}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -2431,7 +2431,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1994839277}
+  m_TargetGraphic: {fileID: 1252097248}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -4089,6 +4089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d410267d9ff65bf4382642ad0b3a37aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _upgradeDatas: []
+  _buttons: []
 --- !u!1 &1892238601
 GameObject:
   m_ObjectHideFlags: 0

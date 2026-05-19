@@ -7,8 +7,6 @@ public class GameModel : MonoBehaviour
     [SerializeField] private GameData _gameData = new GameData();
     private HeroData _heroData;
 
-    public event UnityAction<int> OnAddGold;
-
     public HeroData HeroData
     {
         get { return _heroData; }
