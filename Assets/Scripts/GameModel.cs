@@ -43,6 +43,10 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    /// <summary>
+    /// ¿µ¿õ ¼±ÅÃ
+    /// </summary>
+    /// <param name="value"></param>
     public void SelectHero(HeroData value)
     {
         _heroData = value;

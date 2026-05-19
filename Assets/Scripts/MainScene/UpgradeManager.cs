@@ -43,25 +43,29 @@ public class UpgradeManager : MonoBehaviour
                 return;
             case UpgradeButtonType.Damage:
                 // 가격 체크 필요
+                if (_upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]] > _gameModel.Gold)
+                    return;
+                _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]]);
                 _gameModel.IncreaseUpgradeLevel(0);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 _buttons[0].SetText(_gameModel.UpgradeLevel[0], _upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]]);
                 break;
             case UpgradeButtonType.Hp:
+                if (_upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]] > _gameModel.Gold)
+                    return;
+                _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[1]]);
                 _gameModel.IncreaseUpgradeLevel(1);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 _buttons[1].SetText(_gameModel.UpgradeLevel[1], _upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]]);
                 break;
             case UpgradeButtonType.Armor:
+                if (_upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]] > _gameModel.Gold)
+                    return;
+                _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[2]]);
                 _gameModel.IncreaseUpgradeLevel(2);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 _buttons[2].SetText(_gameModel.UpgradeLevel[2], _upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]]);
                 break;
         }
-    }
-
-    void UpdateButton(UpgradeButtonType buttonType)
-    {
-
     }
 }

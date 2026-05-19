@@ -1,9 +1,9 @@
 {
     "heroDataName": "03",
-    "gold": 10000,
+    "gold": 0,
     "upgradeLevel": [
-        0,
-        0,
-        0
+        3,
+        10,
+        10
     ]
 }
