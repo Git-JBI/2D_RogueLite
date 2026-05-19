@@ -36,6 +36,12 @@ public class Button_Upgrade : ButtonBase
         _texts[2].text = $"{cost}";
     }
 
+    public void SetMaxLevel()
+    {
+        _texts[1].text = "MAX";
+        _texts[2].text = "-";
+    }
+
     protected override void ClickButton()
     {
         _manager.Upgrade(_upgradeType);
