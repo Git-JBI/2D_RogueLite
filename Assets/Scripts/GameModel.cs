@@ -13,19 +13,19 @@ public class GameModel : MonoBehaviour
         set
         {
             _heroData = value;
-            _gameData.heroDataName = value.name;
+            _gameData.HeroDataName = value.name;
         }
     }
 
     public int Gold
     {
-        get { return _gameData.gold; }
+        get { return _gameData.Gold; }
     }
 
     public int[] UpgradeLevel
     {
-        get { return _gameData.upgradeLevel; }
-        set { _gameData.upgradeLevel = value; }
+        get { return _gameData.UpgradeLevel; }
+        set { _gameData.UpgradeLevel = value; }
     }
 
     private void Awake()
@@ -37,7 +37,7 @@ public class GameModel : MonoBehaviour
 
     public void AddGold(int value)
     {
-        _gameData.gold += value;
+        _gameData.Gold += value;
         SaveData();
     }
 
@@ -48,7 +48,7 @@ public class GameModel : MonoBehaviour
     public void SelectHero(HeroData value)
     {
         _heroData = value;
-        _gameData.heroDataName = _heroData.HeroName;
+        _gameData.HeroDataName = _heroData.HeroName;
         SaveData();
     }
 
@@ -58,7 +58,18 @@ public class GameModel : MonoBehaviour
     /// <param name="value">업그레이드 레벨 종류</param>
     public void IncreaseUpgradeLevel(int value)
     {
-        _gameData.upgradeLevel[value]++;
+        _gameData.UpgradeLevel[value]++;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 아이템 획득
+    /// </summary>
+    /// <param name="value">아이템 키 값</param>
+    public void GetItem(int value)
+    {
+        //TODO 이 부분에서 각종 아이템의 저장 분류
+        _gameData.EquipItems.Add(value);
         SaveData();
     }
 
@@ -87,13 +98,13 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void InitModel()
     {
-        if (_gameData.heroDataName == null)
+        if (_gameData.HeroDataName == null)
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData00");
         }
         else
         {
-            _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.heroDataName}");
+            _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
     }
 }
