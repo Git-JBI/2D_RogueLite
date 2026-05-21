@@ -63,13 +63,12 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 아이템 획득
+    /// 장비 아이템 획득
     /// </summary>
-    /// <param name="value">아이템 키 값</param>
-    public void GetItem(int value)
+    /// <param name="value">장비 아이템 키 값</param>
+    public void GetEquipItem(string id)
     {
-        //TODO 이 부분에서 각종 아이템의 저장 분류
-        _gameData.EquipItems.Add(value);
+        _gameData.EquipItems.Add(id);
         SaveData();
     }
 

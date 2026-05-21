@@ -3,17 +3,15 @@ using UnityEngine.Events;
 
 public class Button_Gacha : ButtonBase
 {
-    private GachaManager _gachaManager;
-
-    public void Init(GachaManager manager)
-    {
-        _gachaManager = manager;
-
-        base.Init();
-    }
+    public event UnityAction OnButtonClicked;
 
     protected override void ClickButton()
     {
-        _gachaManager.Gacha();
+        ButtonClicked();
+    }
+
+    private void ButtonClicked()
+    {
+        OnButtonClicked?.Invoke();
     }
 }

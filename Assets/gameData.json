@@ -1,9 +1,11 @@
 {
-    "heroDataName": "02",
-    "gold": 328430,
-    "upgradeLevel": [
-        10,
-        10,
-        10
+    "HeroDataName": "02",
+    "Gold": 234320,
+    "UpgradeLevel": [
+        0,
+        0,
+        0
+    ],
+    "EquipItems": [
     ]
 }
