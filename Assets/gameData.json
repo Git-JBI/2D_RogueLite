@@ -1,11 +1,10 @@
 {
     "HeroDataName": "02",
-    "Gold": 234320,
+    "Gold": 0,
     "UpgradeLevel": [
         0,
         0,
         0
     ],
-    "EquipItems": [
-    ]
+    "EquipItems": []
 }

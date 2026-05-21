@@ -47,7 +47,7 @@ public class UpgradeManager : MonoBehaviour
         {
             case UpgradeButtonType.None:
                 return;
-            case UpgradeButtonType.Damage:
+            case UpgradeButtonType.Damage:          // 데미지 업그레이드
                 // 최대 레벨 도달했을 경우 리턴
                 if (_gameModel.UpgradeLevel[0] == _maxUpgradeLevel)
                     return;
@@ -63,13 +63,13 @@ public class UpgradeManager : MonoBehaviour
                 else
                     _buttons[0].SetText(_gameModel.UpgradeLevel[0], _upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]]);
                 break;
-            case UpgradeButtonType.Hp:
+            case UpgradeButtonType.Hp:              // Hp 업그레이드
                 // 최대 레벨 도달했을 경우 리턴
                 if (_gameModel.UpgradeLevel[1] == _maxUpgradeLevel)
                     return;
                 if (_upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]] > _gameModel.Gold)
                     return;
-                _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[1]]);
+                _gameModel.AddGold(-_upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]]);
                 _gameModel.IncreaseUpgradeLevel(1);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 if (_gameModel.UpgradeLevel[1] == _maxUpgradeLevel)
@@ -78,16 +78,16 @@ public class UpgradeManager : MonoBehaviour
                 else
                     _buttons[1].SetText(_gameModel.UpgradeLevel[1], _upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]]);
                 break;
-            case UpgradeButtonType.Armor:
+            case UpgradeButtonType.Armor:           // Armor 업그레이드
                 // 최대 레벨 도달했을 경우 리턴
                 if (_gameModel.UpgradeLevel[2] == _maxUpgradeLevel)
                     return;
                 if (_upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]] > _gameModel.Gold)
                     return;
-                _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[2]]);
+                _gameModel.AddGold(-_upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]]);
                 _gameModel.IncreaseUpgradeLevel(2);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
-                if (_gameModel.UpgradeLevel[0] == _maxUpgradeLevel)
+                if (_gameModel.UpgradeLevel[2] == _maxUpgradeLevel)
                     // 최대 레벨 도달 텍스트 표시
                     _buttons[2].SetMaxLevel();
                 else

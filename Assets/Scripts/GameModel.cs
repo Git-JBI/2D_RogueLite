@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class GameModel : MonoBehaviour
 {
-    [SerializeField] private GameData _gameData = new GameData();
+    [SerializeField] private GameData _gameData;
     private HeroData _heroData;
 
     public HeroData HeroData
@@ -13,7 +13,7 @@ public class GameModel : MonoBehaviour
         set
         {
             _heroData = value;
-            _gameData.HeroDataName = value.name;
+            _gameData.HeroDataName = value.HeroName;
         }
     }
 
@@ -78,6 +78,8 @@ public class GameModel : MonoBehaviour
     public void SaveData()
     {
         string gameDataToJson = JsonUtility.ToJson(_gameData, true);
+        //TODO 더이상 데이터를 직접 확인할 필요가 없을 때 persistentDataPath로 교체
+        //string path = Path.Combine(Application.persistentDataPath, "gameData.json");
         string path = Path.Combine(Application.dataPath, "gameData.json");
         File.WriteAllText(path, gameDataToJson);
     }
@@ -87,9 +89,22 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void LoadData()
     {
+        //TODO 더이상 데이터를 직접 확인할 필요가 없을 때 persistentDataPath로 교체
+        //string path = Path.Combine(Application.persistentDataPath, "gameData.json");
         string path = Path.Combine(Application.dataPath, "gameData.json");
-        string jsonToGameData = File.ReadAllText(path);
-        _gameData = JsonUtility.FromJson<GameData>(jsonToGameData);
+
+        // 세이브 파일 존재 여부 확인
+        if (File.Exists(path))
+        {
+            string jsonToGameData = File.ReadAllText(path);
+            _gameData = JsonUtility.FromJson<GameData>(jsonToGameData);
+        }
+        // 세이브 파일이 존재하지 않을 경우
+        else
+        {
+            _gameData = new GameData();
+            SaveData();
+        }
     }
 
     /// <summary>
