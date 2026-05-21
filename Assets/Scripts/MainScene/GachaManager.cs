@@ -1,8 +1,11 @@
-using System.Text;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GachaManager : MonoBehaviour
 {
+    //TODO 여기서 불러오는게 맞을까?
+    [SerializeField] private List<SO_ItemData> _totalItemDataPool;
+
     private Button_Gacha[] _button_Gachas;
 
     //TODO 추후 UI쪽에서 받아오기
@@ -33,78 +36,95 @@ public class GachaManager : MonoBehaviour
     /// </summary>
     public void Gacha()
     {
-        StringBuilder sb = new StringBuilder();
+        // 아이템 티어 결정
+        ItemTier itemTier = DetermineTier();
 
-        sb.Append("Equipment");
-        // 장비 종류 선택(1 ~ 6)
-        //itemKey += 10000 * Random.Range(1, 7);
+        // 아이템 레어리티 결정
+        ItemRarity itemRarity = DetermineRarity();
 
-        /*
-         * 
-         */
-        // 등급 선택
-        //int check = Random.Range(1, 101);
-        //if (check <= 60)
-        //    itemKey += 1000 * 1;
-        //else if (check <= 90)
-        //    itemKey += 1000 * 2;
-        //else if (check <= 99)
-        //    itemKey += 1000 * 3;
-        //else
-        //    itemKey += 1000 * 4;
-        //
-        //// 세부 설정
-        //itemKey += 1 * Random.Range(1, 7);
+        // 아이템 데이터 내에서 뽑기 타입에 따른 아이템 필터링
+        List<SO_ItemData> filteredPool = _totalItemDataPool.FindAll(item => item.itemType == ItemType.Equipment);
 
-        string itemId = sb.ToString();
+        // 데이터가 존재하지 않을 경우
+        if(filteredPool == null || filteredPool.Count == 0)
+        {
+            Debug.Log("filteredPool에 아무것도 존재하지 않습니다.");
+        }
 
-        // 아이템 저장
-        GameManager.Instance.GameModel.GetEquipItem(itemId);
+        // 필터링 장비중 아무거나 선택
+        SO_ItemData pickItem = filteredPool[Random.Range(0, filteredPool.Count)];
 
+        // 저장할 데이터 생성
+        UserItemSaveData userItem = new UserItemSaveData
+        {
+            instanceID = System.Guid.NewGuid().ToString(),
+            itemID = pickItem.id,
+            currentRarity = itemRarity,
+            rarityLevel = 0,
+            itemLevel = 1,
+            isEquipped = false
+        };
+
+        GameManager.Instance.GameModel.GetEquipItem(userItem);
         // 획득한 아이템 보여주기
-        _itemViewer.ShowOne(itemId);
+        // _itemViewer.ShowOne(itemId);
     }
 
     public void Gacha10()
     {
-        // 10번 뽑기용도 itemKey 배열
-        int[] itemKeys = new int[10];
-
-        // 기본 값 설정
-        for(int i = 0; i < itemKeys.Length; i++)
-        {
-            itemKeys[i] = 011000000;
-
-            // 장비 종류 선택(1 ~ 6)
-            itemKeys[i] += 10000 * Random.Range(1, 7);
-
-            // 등급 선택
-            int check = Random.Range(1, 101);
-            if (check <= 60)
-                itemKeys[i] += 1000 * 1;
-            else if (check <= 90)
-                itemKeys[i] += 1000 * 2;
-            else if (check <= 99)
-                itemKeys[i] += 1000 * 3;
-            else
-                itemKeys[i] += 1000 * 4;
-
-            // 세부 설정
-            itemKeys[i] += 1 * Random.Range(1, 7);
-
-            // 아이템 저장
-            // GameManager.Instance.GameModel.GetEquipItem(itemKeys[i]);
-        }
-
         // 획득한 아이템 보여주기
-        _itemViewer.ShowTen(itemKeys);
+        // _itemViewer.ShowTen(itemKeys);
     }
 
+    #region 가중치 계산 함수
     /// <summary>
     /// 아이템의 등급을 결정하는 함수
     /// </summary>
-    private void DetermineRarity()
+    private ItemRarity DetermineRarity()
     {
+        int[] rarityWeights = { 70, 20, 8, 2 };
+        int totalWeight = 0;
 
+        foreach(int w in rarityWeights)
+            totalWeight += w;
+
+        int randomValue = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+
+        for(int i = 0; i < rarityWeights.Length; i++)
+        {
+            cumulativeWeight += rarityWeights[i];
+            if(randomValue < cumulativeWeight)
+            {
+                return (ItemRarity)i;
+            }
+        }
+        return ItemRarity.Common;
     }
+
+    /// <summary>
+    /// 아이템의 티어를 결정하는 함수
+    /// </summary>
+    /// <returns></returns>
+    private ItemTier DetermineTier()
+    {
+        int[] tierWeights = { 90, 9, 1 };
+        int totalWeight = 0;
+        foreach(int w in tierWeights)
+            totalWeight += w;
+
+        int randomValue = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+
+        for(int i = 0; i < tierWeights.Length; i++)
+        {
+            cumulativeWeight += tierWeights[i];
+            if(randomValue < cumulativeWeight)
+            {
+                return (ItemTier)i; // 0.Default, 1. SClass, 2. SSClass
+            }
+        }
+        return ItemTier.Default;
+    }
+    #endregion
 }

@@ -6,5 +6,5 @@ public class GameData
     public string HeroDataName;
     public int Gold;
     public int[] UpgradeLevel = { 0, 0, 0 };
-    public List<string> EquipItems = new List<string>();
+    public List<UserItemSaveData> Items = new List<UserItemSaveData>();
 }

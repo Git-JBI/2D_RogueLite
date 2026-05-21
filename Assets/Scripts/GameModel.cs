@@ -66,9 +66,9 @@ public class GameModel : MonoBehaviour
     /// 장비 아이템 획득
     /// </summary>
     /// <param name="value">장비 아이템 키 값</param>
-    public void GetEquipItem(string id)
+    public void GetEquipItem(UserItemSaveData data)
     {
-        _gameData.EquipItems.Add(id);
+        _gameData.Items.Add(data);
         SaveData();
     }
 
