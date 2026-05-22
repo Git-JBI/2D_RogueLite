@@ -13,39 +13,39 @@ public class ItemViewer : MonoBehaviour
         _descText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void Init(int gradeValue, int desc)
+    public void Init(EquipmentItemData data)
     {
-        SetGradeColor(gradeValue);
-        SetDescText(desc);
+        SetGradeColor(data.Rarity);
+        SetDescText(data.Desc);
     }
 
-    private void SetGradeColor(int value)
+    private void SetGradeColor(ItemRarity rarity)
     {
-        switch(value)
+        switch(rarity)
         {
-            case 1:
+            case ItemRarity.Common:
                 _gradeImage.color = Color.gray;
                 break;
-            case 2:
+            case ItemRarity.UnCommon:
                 _gradeImage.color = Color.green;
                 break;
-            case 3:
+            case ItemRarity.Rare:
                 _gradeImage.color = Color.blue;
                 break;
-            case 4:
+            case ItemRarity.Unique:
                 _gradeImage.color = Color.magenta;
                 break;
-            case 5:
+            case ItemRarity.Epic:
                 _gradeImage.color = Color.yellow;
                 break;
-            case 6:
+            case ItemRarity.Legendary:
                 _gradeImage.color = Color.red;
                 break;
         }
     }
 
-    private void SetDescText(int value)
+    private void SetDescText(string desc)
     {
-        _descText.text = value.ToString();
+        _descText.text = desc;
     }
 }

@@ -16,6 +16,9 @@ public enum ItemRarity
     Special,
 }
 
+/// <summary>
+/// 아이템 티어(3종류)
+/// </summary>
 public enum ItemTier
 {
     Default,
@@ -23,16 +26,8 @@ public enum ItemTier
     SSClass,
 }
 
-public enum ItemType
-{
-    Equipment,
-    Consumable,
-    Ingredient,
-}
-
 public enum EquipmentType
 {
-    None,
     Weapon,
     Armor,
     Belt,
@@ -44,19 +39,19 @@ public enum EquipmentType
 [System.Serializable]
 public class RaritySkillInfo
 {
-    public ItemRarity rarity;
-    public int maxLevel;
-    public int baseStat;
-    public int statPerLevel;
+    public ItemRarity Rarity;
+    public int MaxLevel;
+    public int BaseStat;
+    public int StatPerLevel;
 }
 
 [CreateAssetMenu(menuName = "GameDatas/ItemData", fileName = "ItemData")]
-public class SO_ItemData : ScriptableObject
+public class SO_EquipmentItemData : ScriptableObject
 {
-    public string id;
-    public string itemName;
-    public ItemType itemType;
-    public EquipmentType equipmentType;
-    public Sprite iconSprite;
-    public List<RaritySkillInfo> raritySettings = new();
+    public string Id;
+    public string ItemName;
+    public EquipmentType EquipmentType;
+    public Sprite IconSprite;
+    public string Desc;
+    public List<RaritySkillInfo> RaritySettings = new();
 }

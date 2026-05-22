@@ -4,7 +4,7 @@ using UnityEngine;
 public class GachaManager : MonoBehaviour
 {
     //TODO 여기서 불러오는게 맞을까?
-    [SerializeField] private List<SO_ItemData> _totalItemDataPool;
+    [SerializeField] private List<SO_EquipmentItemData> _totalItemDataPool;
 
     private Button_Gacha[] _button_Gachas;
 
@@ -20,8 +20,8 @@ public class GachaManager : MonoBehaviour
             x.Init();
         }
 
-        _button_Gachas[0].OnButtonClicked += Gacha;
-        _button_Gachas[1].OnButtonClicked += Gacha10;
+        _button_Gachas[0].OnButtonClicked += GachaEquipmentItemOne;
+        _button_Gachas[1].OnButtonClicked += GachaEquipmentItemTen;
     }
     /*
      * 각 종류별 뽑기에 대한 등급별 확률로 등급 결정
@@ -34,7 +34,7 @@ public class GachaManager : MonoBehaviour
     /// <summary>
     /// 단일 장비 뽑기
     /// </summary>
-    public void Gacha()
+    public EquipmentItemData PickEquipmentItemOne()
     {
         // 아이템 티어 결정
         ItemTier itemTier = DetermineTier();
@@ -42,39 +42,81 @@ public class GachaManager : MonoBehaviour
         // 아이템 레어리티 결정
         ItemRarity itemRarity = DetermineRarity();
 
-        // 아이템 데이터 내에서 뽑기 타입에 따른 아이템 필터링
-        List<SO_ItemData> filteredPool = _totalItemDataPool.FindAll(item => item.itemType == ItemType.Equipment);
+        // 아이템 데이터 내에서 뽑기 타입에 따른 아이템 필터링기능 (현재는 필터링 필요 없음)
+        // List<SO_EquipmentItemData> filteredPool = _totalItemDataPool.FindAll(item => item.itemType == ItemType.Equipment);
+        List<SO_EquipmentItemData> filteredPool = _totalItemDataPool;
 
         // 데이터가 존재하지 않을 경우
         if(filteredPool == null || filteredPool.Count == 0)
         {
             Debug.Log("filteredPool에 아무것도 존재하지 않습니다.");
+            return null;
         }
 
         // 필터링 장비중 아무거나 선택
-        SO_ItemData pickItem = filteredPool[Random.Range(0, filteredPool.Count)];
+        SO_EquipmentItemData pickedItem = filteredPool[Random.Range(0, filteredPool.Count)];
 
         // 저장할 데이터 생성
-        UserItemSaveData userItem = new UserItemSaveData
+        EquipmentItemData saveEquipItem = new EquipmentItemData
         {
-            instanceID = System.Guid.NewGuid().ToString(),
-            itemID = pickItem.id,
-            currentRarity = itemRarity,
-            rarityLevel = 0,
-            itemLevel = 1,
-            isEquipped = false
+            InstanceID = System.Guid.NewGuid().ToString(),
+            ItemID = pickedItem.Id,
+            Rarity = itemRarity,
+            RarityLevel = 0,
+            ItemLevel = 1,
+            Desc = pickedItem.Desc,
         };
 
-        GameManager.Instance.GameModel.GetEquipItem(userItem);
-        // 획득한 아이템 보여주기
-        // _itemViewer.ShowOne(itemId);
+        return saveEquipItem;
     }
 
-    public void Gacha10()
+    public List<EquipmentItemData> PickEquipmentItemTen()
     {
+        List<EquipmentItemData> saveEquipItems = new();
+        for (int i = 0; i < 10; i++)
+        {
+            EquipmentItemData saveEquipItem = PickEquipmentItemOne();
+            if (saveEquipItem != null)
+            {
+                saveEquipItems.Add(saveEquipItem);
+            }
+        }
+        return saveEquipItems;
         // 획득한 아이템 보여주기
         // _itemViewer.ShowTen(itemKeys);
     }
+
+    public void GachaEquipmentItemOne()
+    {
+        // 금액 확인
+        // 없을 시 불가
+        // 있을 시 실행
+        EquipmentItemData equipmentItemData = PickEquipmentItemOne();
+
+        // 실행 했다면 뽑은 아이템 저장
+        GameManager.Instance.GameModel.GetEquipItem(equipmentItemData);
+
+        // 획득한 아이템 보여주기
+        _itemViewer.ShowOne(equipmentItemData);
+    }
+
+    public void GachaEquipmentItemTen()
+    {
+        // 금액 확인
+        // 없을 시 불가
+        // 있을 시 실행
+        List<EquipmentItemData> equipmentItemDatas = PickEquipmentItemTen();
+
+        // 실행 했다면 뽑은 아이템 저장
+        for(int i = 0; i < equipmentItemDatas.Count; i++)
+        {
+            GameManager.Instance.GameModel.GetEquipItem(equipmentItemDatas[i]);
+        }
+
+        // 획득한 아이템 보여주기
+        _itemViewer.ShowTen(equipmentItemDatas);
+    }
+    
 
     #region 가중치 계산 함수
     /// <summary>

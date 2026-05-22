@@ -66,9 +66,9 @@ public class GameModel : MonoBehaviour
     /// 장비 아이템 획득
     /// </summary>
     /// <param name="value">장비 아이템 키 값</param>
-    public void GetEquipItem(UserItemSaveData data)
+    public void GetEquipItem(EquipmentItemData data)
     {
-        _gameData.Items.Add(data);
+        _gameData.InventoryItems.Add(data);
         SaveData();
     }
 
@@ -79,8 +79,11 @@ public class GameModel : MonoBehaviour
     {
         string gameDataToJson = JsonUtility.ToJson(_gameData, true);
         //TODO 더이상 데이터를 직접 확인할 필요가 없을 때 persistentDataPath로 교체
-        //string path = Path.Combine(Application.persistentDataPath, "gameData.json");
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, "gameData.json");
+#else
+        string path = Path.Combine(Application.persistentDataPath, "gameData.json");
+#endif
         File.WriteAllText(path, gameDataToJson);
     }
 
@@ -89,9 +92,12 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void LoadData()
     {
-        //TODO 더이상 데이터를 직접 확인할 필요가 없을 때 persistentDataPath로 교체
-        //string path = Path.Combine(Application.persistentDataPath, "gameData.json");
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, "gameData.json");
+#else
+        string path = Path.Combine(Application.persistentDataPath, "gameData.json");
+#endif
+
 
         // 세이브 파일 존재 여부 확인
         if (File.Exists(path))
