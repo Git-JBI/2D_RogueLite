@@ -22,7 +22,13 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
     {
         gameObject.SetActive(true);
         _viewers[0].gameObject.SetActive(true);
-        _viewers[0].Init(data);
+
+        SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(data.ItemID);
+
+        ItemRarity rarity = data.Rarity;
+        string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
+
+        _viewers[0].Init(rarity, dataDesc);
     }
 
     public void ShowTen(List<EquipmentItemData> datas)
@@ -32,7 +38,13 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
         for(int i = 0; i < _viewers.Length; i++)
         {
             _viewers[i].gameObject.SetActive(true);
-            _viewers[i].Init(datas[i]);
+
+            SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(datas[i].ItemID);
+
+            ItemRarity rarity = datas[i].Rarity;
+            string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(datas[i].ItemID);
+
+            _viewers[i].Init(rarity, dataDesc);
         }
     }
 

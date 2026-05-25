@@ -14,13 +14,10 @@ public class ItemViewer : MonoBehaviour
         _descText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void Init(EquipmentItemData data)
+    public void Init(ItemRarity rarity, string desc)
     {
-        SetGradeColor(data.Rarity);
-
-        string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
-        
-        SetDescText(dataDesc);
+        SetGradeColor(rarity);
+        SetDescText(desc);
     }
 
     private void SetGradeColor(ItemRarity rarity)
