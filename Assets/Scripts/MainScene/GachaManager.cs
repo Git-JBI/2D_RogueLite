@@ -61,6 +61,7 @@ public class GachaManager : MonoBehaviour
         {
             InstanceID = System.Guid.NewGuid().ToString(),
             ItemID = pickedItem.Id,
+            EquipmentType = pickedItem.EquipmentType,
             Rarity = itemRarity,
             RarityLevel = 0,
             ItemLevel = 1,

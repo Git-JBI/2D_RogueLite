@@ -29,6 +29,9 @@ public class GameModel : MonoBehaviour
         set { _gameData.UpgradeLevel = value; }
     }
 
+    public IReadOnlyList<EquipmentItemData> InventoryItems => _gameData.InventoryItems;
+    public IReadOnlyList<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
+
     private void Awake()
     {
         LoadData();
@@ -66,10 +69,52 @@ public class GameModel : MonoBehaviour
     /// <summary>
     /// 장비 아이템 획득
     /// </summary>
-    /// <param name="value">장비 아이템 키 값</param>
+    /// <param name="value">장비 아이템 데이터</param>
     public void GetEquipItem(EquipmentItemData data)
     {
         _gameData.InventoryItems.Add(data);
+        SaveData();
+    }
+
+    public void EquipItem(string instanceId)
+    {
+        // 새로 장착할 아이템
+        EquipmentItemData item = _gameData.InventoryItems.Find(x => x.InstanceID == instanceId);
+
+        // 아이템이 없을 시 리턴
+        if (item == null)
+            return;
+
+        // 장착 중인 아이템
+        EquipmentItemData equippedItem = _gameData.EquippedItems.Find(x => x.EquipmentType == item.EquipmentType);
+
+        // 장착중인 아이템이 있을 시
+        if(equippedItem != null)
+        {
+            // 장비 아이템 벗은 후 인벤토리 추가
+            _gameData.EquippedItems.Remove(equippedItem);
+            _gameData.InventoryItems.Add(equippedItem);
+        }
+
+        // 아이템 장착
+        _gameData.InventoryItems.Remove(item);
+        _gameData.EquippedItems.Add(item);
+
+        // 저장
+        SaveData();
+    }
+
+    public void UnequipItem(EquipmentType type)
+    {
+        EquipmentItemData equippedItem = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
+
+        // 장착중인 장비가 없을 시 리턴
+        if(equippedItem == null)
+            return;
+
+        _gameData.EquippedItems.Remove(equippedItem);
+        _gameData.InventoryItems.Add(equippedItem);
+
         SaveData();
     }
 
