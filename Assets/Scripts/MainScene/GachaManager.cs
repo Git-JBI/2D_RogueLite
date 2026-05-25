@@ -9,7 +9,7 @@ public class GachaManager : MonoBehaviour
     private Button_Gacha[] _button_Gachas;
 
     //TODO 추후 UI쪽에서 받아오기
-    [SerializeField] private GetItemViewer _itemViewer;
+    [SerializeField] private ItemViewerManager _itemViewer;
 
     private void Awake()
     {
@@ -64,7 +64,6 @@ public class GachaManager : MonoBehaviour
             Rarity = itemRarity,
             RarityLevel = 0,
             ItemLevel = 1,
-            Desc = pickedItem.Desc,
         };
 
         return saveEquipItem;

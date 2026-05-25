@@ -1,5 +1,5 @@
 {
-    "HeroDataName": "02",
+    "HeroDataName": "01",
     "Gold": 0,
     "UpgradeLevel": [
         0,
@@ -8,2452 +8,284 @@
     ],
     "InventoryItems": [
         {
-            "InstanceID": "9ee93310-aecf-433a-9001-85b2c5066d9f",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "14c046cb-8fb7-468c-82ce-9eb6bc5541b9",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "03e0f244-b30d-48e9-baac-4aca8ad01f67",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "49f5d55a-317a-44a5-9569-56ef5acc782a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "e253a238-b084-460a-a44b-ec52446eeddf",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "11a33d99-4dec-410e-b932-3a9c0274529e",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "d2bf20c5-5908-4ed5-8ecb-e6662ba6211a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4b747cb8-a439-4863-81b8-3c0ec7b44ca2",
+            "InstanceID": "11953b60-7f26-4133-88af-32ae4086f323",
             "ItemID": "eq_weapon_03",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "e7542280-3ced-42cc-a2ab-4fe63541451f",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "636005fc-1fdb-4dd0-8c5f-e1f924e0e8fd",
+            "InstanceID": "363eeff6-39f3-4302-b586-57f310252e94",
             "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "f9c0b72a-2795-4893-95f6-412f9ac8b325",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "91242c45-c32d-4b3e-983a-8e8e6f9f5bce",
+            "InstanceID": "d53ad9d6-313e-4f21-8ab4-430a9b943bcb",
             "ItemID": "eq_weapon_02",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "c2fd9583-9b74-4e0f-a44c-a94e99c1003e",
+            "InstanceID": "bd0c6c51-ede5-4ddf-bc05-0a3b6aafebae",
             "ItemID": "eq_weapon_02",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "e8d40025-907a-4b26-85a5-864ff33fbcab",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
+            "InstanceID": "1da6c550-ecac-465a-b1b5-b75f4d20262e",
+            "ItemID": "eq_weapon_03",
+            "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "9392eb5f-192a-4fa7-8f1e-d83c1245c252",
+            "InstanceID": "53c52e2a-34ab-40a3-b275-b090e48ec0e3",
+            "ItemID": "eq_weapon_03",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "f1e94453-61d7-4b0d-99a7-3b0ecb065d27",
             "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "4093d44a-f7b8-41b5-b66c-8daec510652b",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cfdfe000-0b9a-4af2-84ca-176223498e7e",
+            "InstanceID": "c38ffd71-10bd-459c-90ba-6c4b8e8396de",
             "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "91745b9e-af4f-447a-9550-c28e030bec3a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "bf5d0793-43d1-4772-b6d1-62934c2661d8",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "054a0cec-fd4b-4eaf-9411-87fecffeb95b",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "35c4a392-8af3-483b-8431-6ebcd5f939c5",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "223d1559-901c-4a8b-a827-4e6dff9ac27f",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "5eb4d11c-7e2e-4d2c-a033-9c806985fee5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "a23c97c2-cc67-45b7-973e-68c8c59c0fba",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "178069b6-bc53-4918-8678-de2e29cf490b",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "47c4b410-0687-4323-9ec5-fc15272c4931",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "b3abb427-b1f7-4b05-8c07-629dcb54158e",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "3a91785b-b5f9-4720-a0a8-11afd8f3f434",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "54fe1307-854f-4f27-8022-ecc954c57dc6",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "137a4546-399c-4444-8ca7-645b14ad3118",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "d5f764fc-09bf-422f-99f3-fa57e858b76d",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "25770a19-6fa7-4b97-bbe6-536acf664e98",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "219e7bbc-b6e8-4ceb-bccf-9af33c4cf465",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "37e05f63-7c08-4e9d-9e54-7ec844db501d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "211ecd3a-2451-4a77-ae67-9e96ae97c120",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "aa4d1c23-1fc2-452a-92a8-2d6a35d68299",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "c9873194-6136-4e24-836d-310de6e00bc1",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "39cbcfc5-51fc-4dbc-8d4e-23449705ffc9",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "29b940e3-787a-4ced-b24f-4cab30c04caa",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "e9a1b629-a78a-4770-b4b0-b4bf0d3b00ab",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "7b9d1282-182d-4cae-97a9-7bac69bb57b4",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "65d6cec5-2b15-456f-9f54-e6651a153aaa",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8b819149-aca1-41c1-bf81-d424dbee42c1",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "9ee789a5-d688-40cd-887f-d3292bb2b466",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "7b4b8d8a-8e4e-4b66-9486-d79081a92340",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "3cb114f2-317d-42d5-ab5b-d3b44fffb6af",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "a32a3748-7aec-4819-ace8-b86d7512e695",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "2c6a573f-dea2-492c-bc9a-e5660792aa84",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "7017d06e-f7e8-4fff-962c-fc88122411fd",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "7ca64ad2-d4c6-4657-9689-c860d4951d11",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "57de2110-40a0-4f5a-bdbb-83364102e91b",
+            "InstanceID": "b2daf5c5-8e02-4c2e-a992-45fc4adddfb6",
             "ItemID": "eq_weapon_01",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "81603328-7fca-4579-ba17-a41910ef86f2",
+            "InstanceID": "73614cea-fb69-41db-8045-a93f6178a154",
             "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "c704e534-cbc3-45f2-8e99-cd9a8c62af85",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "ca4dcd4a-a0c6-49e3-b1b5-24f682ed2b7a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1a47a754-8447-425f-a166-593b0314fce4",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "e41066db-11a2-4b4c-bae9-cb06536b4727",
-            "ItemID": "eq_weapon_01",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "1464eb19-5a9a-4cd8-9853-25a359fa5e06",
+            "InstanceID": "d5c32ad2-ebf1-4589-92e1-6b2594d761ea",
             "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "c3680a74-5500-4d81-97b6-32b6dd9506c3",
+            "InstanceID": "217b37c3-5599-4d01-b927-b1230cf16fb7",
             "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "7569f459-9c50-4777-a552-b3b944ab518a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "db5254e4-ebc5-443a-b4a4-955cbfa0842d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "de8f0075-5905-497b-8705-a26c914e4a27",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "fc652828-a98e-463e-82d9-db703b7f5ea7",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "f6679371-23d2-42c8-a647-4f7898d006cd",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "28a7f041-8f4b-4bb0-9250-cc4fed58eca1",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "623bcb47-6843-4860-879d-de7275a37e50",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "fc4849a8-47f6-47e1-a570-45eb930785e4",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "e06da807-5c08-4660-afec-98a5a034554f",
+            "InstanceID": "6f6b47f9-c55b-4da9-9726-316d8fb8940d",
             "ItemID": "eq_weapon_03",
             "Rarity": 2,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "2d071a9c-7a56-4430-bee5-aa3c477c30fc",
+            "InstanceID": "1ed50993-f01d-409d-9c9b-397f65ed8483",
             "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "09f00905-dd48-495e-8287-05dedd09e5e4",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "efb8997d-8c99-4f84-be94-56930ba5575d",
+            "InstanceID": "95a2acf5-8376-4012-a4ed-21f92796e836",
             "ItemID": "eq_weapon_02",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "fed10b63-4e48-4314-8448-2d53f569b1d9",
+            "InstanceID": "9d599712-bc33-46ff-b592-fe520c1e4db4",
             "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "9ac7de83-c8b2-4da8-ad60-417416804e7e",
+            "InstanceID": "a472ab90-73f7-4103-8333-90cd29da8541",
+            "ItemID": "eq_weapon_01",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "4705f126-7604-46f3-a1a7-733e6078f1e5",
             "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "aca3e967-bc80-45dc-8615-5dcd1cfd71df",
+            "InstanceID": "e19d9e75-d886-4d10-9f76-e09c55efe98a",
+            "ItemID": "eq_weapon_01",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "9b7a74bd-89a8-44fe-b4e5-3035ca02ca55",
+            "ItemID": "eq_weapon_01",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "ed7adeaf-eb2c-4ced-a80f-054444328d30",
             "ItemID": "eq_weapon_02",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "fc234480-7c47-4430-9249-d6c7f4b09d1a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "fa3cf3cb-e119-450e-9902-82ef3fa41caf",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "5ccae5a7-22ef-4b98-b1ec-e63b1488a47d",
+            "InstanceID": "97795f48-d501-4b1c-bf2f-a2554b0ccfa7",
             "ItemID": "eq_weapon_02",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "22f0239b-3a16-45c0-9aa6-4ca746647675",
+            "InstanceID": "9f50683c-91d7-4a3d-b64c-13bdc23357b2",
             "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "747f8de3-e1c1-482a-8b73-ee6b9d02508f",
+            "InstanceID": "e9109020-f76a-4a04-8d76-68a52970428f",
+            "ItemID": "eq_weapon_02",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "f0c80f34-8d6b-4cc0-ab1f-edcc0cd7cbd1",
             "ItemID": "eq_weapon_02",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "d30d9b1e-3316-4672-992e-4b8785be3c1a",
+            "InstanceID": "e1ceb9ce-a877-42b0-88d7-bed78b144cf1",
+            "ItemID": "eq_weapon_02",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "38de62b8-bff5-45fc-acc2-c5a7c6229837",
             "ItemID": "eq_weapon_02",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "2838f70a-7549-40fc-95bf-3ff6bf7c4931",
+            "InstanceID": "ed806aa1-a155-42f7-bc5d-c7ebc2e86858",
             "ItemID": "eq_weapon_02",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "80581f05-fa85-497d-8417-13b2f35f75ef",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "0b3bee0e-2e09-4e72-8028-3402374b2051",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "e74a08c1-9d42-4e22-81ac-2c641d0ccb76",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "21e9d07f-3288-449e-aba5-3fb04ca2bd4c",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "dd4b164b-3424-4953-bfb2-70666987614a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "3fc99fa1-0eb4-4a8a-a52e-65fa8a98760d",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "162cd830-35d2-4209-92f3-1967ee6d5f15",
+            "InstanceID": "c137e079-a32c-4d9e-ab9a-186dbc7de387",
             "ItemID": "eq_weapon_01",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "398f520c-e932-4c11-86d8-6f677faf90fe",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cabf36cd-cef0-4d2a-b096-4e2fc8e3ee1c",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "4a0bd35a-36a6-40c8-9914-7fe8684c4593",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "0610719a-729b-47fb-a0cd-b8a45b368606",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "925ea9c0-f68d-49e1-b0e8-8fbb55853ff5",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "ace57773-47a1-4a2c-bb6c-3e8693c9158f",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "ceaf63bb-412b-45f5-a325-0eb2bfd6e6c5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "c27c7db5-c601-4770-a0c2-cbef834667ac",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "0900e8b7-961c-46e2-a153-ca908db2fb5b",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "afe1ff65-eb6b-4624-87dd-f2d1603995b2",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "9cd9dbb5-bcfd-47d9-a9ff-28ae3925b128",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8b53e57b-8ccb-4af3-bf9b-d8d6df28dbcd",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "fcd80967-916b-4781-9abd-0427c9a3d5aa",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "2387b6c1-6f26-4aed-b678-acaf52aa4877",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "be37a24e-4abe-4405-8913-cd814c8e1dee",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "3f99a30d-e6ae-4ebb-9aca-675e53c9d63a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "18172294-a11b-4c09-8a8f-e8c48dcdfff6",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8dad3f44-e763-498a-a06c-eb8635235502",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "0c8e835f-a170-4c8e-80aa-4819361198da",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "487dc371-2ebd-4270-a32f-2e0a84059f7e",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "aecb7fdf-ff35-4e4d-8be3-18ee0e49056c",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "cdc9f4c3-0890-412a-aedf-b558b59a2402",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "97df85f7-2827-415b-b5cb-bd05c3c573ba",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "a6e75ceb-da1f-4be3-880a-33ef6d4636b9",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "dd5bca1c-62cd-4b74-9120-7fa5a1dbf2f6",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "3484c792-da35-4939-9a07-4b83ce10b4c8",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "f99de8ec-446c-4028-9ecc-cf0ed96bb396",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "27cbc073-e88f-46d2-91de-b7ad9b4139fd",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "377b1d5e-e02e-440b-9c27-bb9000010c87",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "b328da18-a14c-477f-a8f1-2269f9e9f095",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "f905b31a-adbf-4b92-b180-d842b8a7c342",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "7e0fc8c5-b228-413a-b760-729dbcbfaef9",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "3d9418d0-a4b4-45c3-b251-8f5d8f2f862d",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "2cb536f2-d17e-4094-b6bc-84f314065458",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "f26f2a4a-6c53-49fc-a879-4cb8171a49df",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "f7e29e7e-d72e-4967-9a05-81a6fd856cdb",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "36fde857-cd2b-48aa-8a63-128ce2c02998",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8fb796fa-3e05-4c69-bb29-b84786b23575",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4a05bb11-a650-4191-bbd3-45b85c7a26c3",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "e4a5b48b-e231-44b3-9cdd-d30518c24ca3",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "8e35f4d1-d999-4737-953a-fa54e2143566",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "d9061af3-149d-4760-a818-b20959bf47d3",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b1790278-f51d-463c-8e3d-ef41f2d1a2d1",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "3a3b3963-1749-452e-b45b-91cd14ff1dfc",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "89a5240d-91ca-4c96-a4fc-0df01753b5a9",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d6364333-5a23-4370-8c8f-a9e9b188c6dc",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "fac018a2-b143-4017-b9b0-d5c5dda9587a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4f3c6321-96ce-4473-83b1-b160a23c133e",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "fba251e1-700d-4285-aa51-1a20af2d6c1a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cdd82a52-70ff-4733-8fd4-ec00a616118a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "713ad553-cab2-4b82-aedc-94060ef82d68",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "06f7a5c7-b6e5-446e-a3a3-b882a351f63d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "0ef25d8d-591f-464c-a526-557c35d4dda7",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "5b8db32f-d5b9-4f8a-9a61-2b54dea51945",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "610f99a1-3762-423a-98c1-d2c513bc368d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "f4e75bc4-d836-4752-b558-298eab353909",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4c82e9ac-43b0-4f1a-9394-053417b4b49d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "1cfcec58-8bb8-40d3-8292-ca3d4948a0f5",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "2292a249-0e4f-4559-b922-89e8bf79a72c",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "10457929-2ea3-40d8-beb8-776d2b704e66",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "18b664b9-e11f-49ab-b3ad-aeeabcae4858",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "ca341d99-2f86-45e6-bbd0-449fc6d59f85",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "a10e3686-fa6e-4356-bd68-e8353f0bbe6a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "142b2f04-9b44-4711-a7a7-01fe446fe149",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "b684389e-c5c7-448b-a52b-0e90fd7109db",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "c7f6f9c9-fe9f-4711-9c9e-1752a58cffd4",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "f56fc1ae-247c-4574-8850-d8222edbab16",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "318b2fdb-8c26-492a-9b3d-23a24d284130",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "6f9d8f2d-3af4-475a-8528-035608130111",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b8fb486a-68f3-4892-8c87-7b8559c0ba3c",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "f315c4b6-fd10-41fc-b49a-99d1ef27fa7b",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "1e4a8b05-b8d1-4eb5-bdcc-2b4d89701713",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "0a6d6967-f298-42ac-ba04-f3a5f9a2cf77",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4248e245-3404-43f3-9931-4f34e60764ae",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "4c42aa6b-bc8a-4071-9ca3-27d54beb980e",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8c713c77-81bf-4604-9180-b8126e93cdb3",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d84e88c8-13b8-4170-a153-c9afd51ef3a6",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "89f55933-aa3d-4208-8ba2-0bc66710a78f",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "538ee912-f45f-437f-bfb6-4a5322c89913",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "ba893ea2-ae98-44e4-a0fa-12ffcd767650",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "bd4eaa15-0b20-45e7-be39-48cae13bd136",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "f3c5fd36-f7f9-4620-b21e-c19a84bfe62e",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "0858950f-603c-4868-8cbb-89f73210b167",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "256ab65a-b7b3-4e2f-81b1-396e19d24338",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "9bb7ff9f-d9a4-412e-8290-d0af7a0b0562",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b111476a-aad9-40ee-b11b-c3ff85c01902",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "98ac1c74-3740-479a-b4b9-7e25cfcbc450",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cda26f36-a6e0-44c7-a94f-46428431918a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b43b7048-d4fa-4774-82d4-e54d9f7f5cc5",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "38375bc7-5f80-465b-900b-11a926fc97f6",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "739dedd2-7a74-4e8d-bb54-7ecd16816b8a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "c2331610-62b7-40cd-824c-574ba1f2bebd",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d7ad6658-faa5-41ba-a106-bd9620112f81",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cc237538-5412-49db-8617-343072ac0a36",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "657edb40-e5e1-4888-8718-d20fc1ec10d5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "ee4ddbd6-f5df-4787-a19c-b0acf8757da0",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "32394600-02f1-4d82-9fbf-fd1178d5bed5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d2b04296-0420-4349-8fcb-107a17c6ff16",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "7e29ef22-f85f-468f-99ab-0f6da0300aec",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "84c707b4-35f4-4e88-8313-3af1e837986c",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "863a16a1-a976-4c03-b4ce-7b0fb05c84cd",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "d87260a3-230f-4070-a2c6-6345a0d119ba",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "696c8ec7-c37d-428e-a8a6-c8957bb65ba2",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "621e4bf8-ce14-49c4-835c-d4ee62d6971f",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "ca9ea092-f0b6-4ed7-952c-eb638ee90f7c",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "e123e352-8827-4675-a584-feb1e2d87d96",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "39905ecd-9387-4ac7-969c-9fb6b9b206b4",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b06313f3-0f3d-4f9f-a724-d46d162bb668",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "b88e645f-a0ae-414d-9b97-7d60e4c4fac3",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "2a7c34d5-9125-4d27-826c-4373459b4d5b",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "98efd69c-9f13-4e5e-bad5-df7086c5e477",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "6a76d7ae-05ad-4d7c-8280-4668eff10d79",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "40d9ec79-d705-492a-835f-96ca503a9714",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "e1106c00-14e0-4461-901b-a72ae341f137",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4910549b-b9db-45bb-9973-e968853c03b7",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "685f0310-e679-4456-99ef-1a988cd434ce",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "e0610b49-d95e-4020-b664-f3665f8ba90a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "e0a27e3a-ba71-4b76-bd4e-2e9df002e5e0",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "bcac5976-1bc8-4f50-97f1-293ed44cd6b4",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "0e98de74-135f-4607-a98c-2f84d1911a56",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "cabeaf14-9de7-4b35-b37d-ab55f73028ee",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "7b4b2e78-abea-4bba-b04a-2c2d911a3549",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "bbd7006e-eefa-4ef6-a682-cb5bf562b165",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "b4372984-b4cd-4fad-b347-beb8fd588016",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "ecdf8f79-4174-45e3-b188-eb4fba3d0c28",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "41c52c37-980c-4034-a34d-9d857a647e29",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "adaeac13-75b0-4c9a-89af-7fd755dd3ced",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "457dcbbe-5505-4ca8-85b8-847bfd4ccb6f",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "5bd69cc9-14a0-4ffa-8cfc-9bb769ca3ee0",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1e9cd92b-e1c0-4ec1-acb6-444862e99d8f",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "869cffc6-d235-4b18-9db9-072e6e895217",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4f87d89f-3991-4b3d-ba43-31cc0b8eabdf",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "a2a9aa8d-3570-4abc-8874-9f8091b83930",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "03a5bd9e-32b1-4fc7-a91c-6f73c36780d1",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "84a499bf-e90c-49fa-a269-59f2b761c441",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4ba80494-8c61-4e73-b0c2-acabc246f489",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "73826263-b1fa-4dff-b299-10cd278977df",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "712d472b-7917-439a-8fe0-46e719f61a30",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b55fcc8e-461a-4d40-8e96-e0f596adab12",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "3f748086-66fa-44d8-ac37-d760d9e6c8cf",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "65587be2-8625-4b8a-a01f-bf8dc9383570",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "a761037e-750c-4e3f-b319-1c8eda5277f1",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1cef06f1-a7ee-4199-a839-e40a0e144d13",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "3d024a22-7e28-44c7-ad29-9128e102969b",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "2a4edef2-40fa-457c-9f45-10fc2b5d445a",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "6e258f50-211c-477d-88aa-04fd5f1c4e83",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "7791f799-43bb-42e6-b373-1b66626255e1",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "a37168ad-9ba1-41b1-bfd8-c82f8b25c814",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "129dc9d6-0901-44b9-8e9b-39563ec17965",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "8fbc3091-3a8a-4672-aa77-fa8cd8d1d2f4",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "fbeb7ace-b216-4b45-9baa-cc493f7c57dc",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "c0161951-b126-4d90-a875-68005d352d86",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "4ce3fb79-8f6b-46df-b93d-c8ce0419f31e",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "65b3c513-abb8-48fb-a26b-16fd1ddc4a27",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "258b6e9c-aab1-4f10-8685-8c57837c77b5",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1880786e-e7a3-4fec-ae8b-9d3cfd8949b5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "b9a013fd-4288-40f3-9392-95c91feb530a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "2b622a83-e28e-411f-9fed-690d6558c45c",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d34ca730-f420-4960-9fe1-65139d1ad73d",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "d732489a-01d1-4358-8d41-907b913f76ba",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "c5a9a143-1d56-4d35-847f-e4e7d053436e",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8ee6db50-cd69-42da-affc-60b646853b7d",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "ccd41885-720d-4b85-a8a8-7a5ab91f2eb0",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "887f9eac-f695-4754-aadb-29d795a7f9d0",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "8c8a4c59-ae5b-43fd-b1d2-8a155cb47939",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "ae494c28-a22b-439c-8c35-dfb7f123890e",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "f6f9a55a-4159-4259-bc3a-2c27f77b1a31",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "04a20e96-2d3e-4ef8-b8f6-4be6820ed356",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "0b23753f-7fda-409b-925d-8ac724c8c509",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "821badac-cfa3-4a72-b2db-6a4f760f0efc",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "44ce4654-8a43-41e4-8bf3-7ab05ec8deed",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "f365472f-eefe-4a7c-8506-c5ff60b54ccd",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "de289a9b-ee44-47f5-b4e3-367dec086e51",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "a88c4ba3-d407-4297-a8da-7f2f240b2ff5",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "004f175c-2e47-4156-b61b-684d4a0817d0",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "5236cb6e-a439-4441-bb9a-630849c53156",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "8a95eb58-cbb3-470d-832f-645b9c35e347",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "66907860-efcb-4d1d-923d-6c45a56680c6",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4270b366-1b18-4f25-a50c-e360883b2edc",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "a7b11492-3840-46c4-a1c4-3fe88dd2095a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "b79e094d-df8b-4d0e-aba3-87148f8ead1c",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "d704568a-93a9-45c9-9d57-ae034f616c36",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "11d37afb-0b4a-4b2e-914d-6c66958eefee",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "237b404d-9192-4310-bfdc-e2b4561e8d74",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "58d5dd70-ee21-4cc4-8acc-2d1122db999a",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "235684c0-2f18-469f-bb3b-181546d8d4a8",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "32c37366-a78a-41c5-95e8-46a91a315ffb",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "e495b19c-46d3-488c-a3d9-e282871a39a8",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "82bb881c-98df-402c-bd48-26d4bf294329",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1196f24c-0689-4d3a-8ca7-4ffcc14f1c70",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "69d69901-1198-41e9-9857-6ba4573b1248",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "81236c65-7f1e-4518-b8c1-30529d816155",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "7942afbb-dea1-4308-8ba4-1f80bc07e7c8",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "2062e07b-dcee-4b19-8721-a627702b64a0",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "c82c7f7b-bc90-4ec6-a0e9-e5ae539fac3d",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "8d5095f3-5bf1-4639-9b49-0fab7ef47652",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "4222ee38-ba27-4015-b19b-60f43c293bab",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "ca049b45-2a73-44a5-a8b7-dff220ccacbc",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "307ee842-5679-43e9-aee9-09480a2b15a2",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1449b943-1059-48e5-94c4-cfeabd9ff26a",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "63a20ed0-a77f-4e58-b47c-8f3717485d66",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "8a0186ba-9c65-4690-b963-3b68d5232e6b",
+            "InstanceID": "e861f6ab-3a06-4e5a-8c95-f74508f8ae15",
             "ItemID": "eq_weapon_03",
             "Rarity": 3,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "ef3ecda5-a5dc-4ef5-9ebe-47cf109ddd1f",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "4dfefc3d-c497-448c-8e8d-b69b03e465e6",
+            "InstanceID": "d68e09d7-ae67-43c3-9b4a-1646b842835d",
             "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "1fbdfa47-f851-4f33-81e0-098c2cab45fa",
-            "ItemID": "eq_weapon_03",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "74a5b441-5e02-414f-b020-68feac0003e2",
-            "ItemID": "eq_weapon_01",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
-        },
-        {
-            "InstanceID": "cdac2d1f-a45f-466a-8fca-0d823b13aad8",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "844b9d71-0139-40fc-abc1-2616ac72e124",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "f97c37ac-7229-4474-b9a2-d59f9c294c09",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "7785f884-ecc5-4b87-9a4a-176b65556ec0",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "4d474162-3f07-4231-bedc-20b812c6d77d",
-            "ItemID": "eq_weapon_03",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "03무기"
-        },
-        {
-            "InstanceID": "9bd132fb-d4cc-446e-aa85-8d5e337e62e7",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "5ff07d48-97a0-41a0-9ac8-e84f8e6038ff",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "94fc714a-8b92-43e1-9f00-0443c9640f3f",
+            "InstanceID": "a993dff7-b207-4b31-a96f-7c5b0dcd2183",
             "ItemID": "eq_weapon_01",
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "762fe30c-fbcf-4b0a-8ff2-8335af0cb644",
-            "ItemID": "eq_weapon_02",
+            "InstanceID": "525a6c51-da4a-40a3-8067-37926efa2b71",
+            "ItemID": "eq_weapon_03",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "a271eae4-f7ec-489d-bf7e-51bcc16c37b2",
-            "ItemID": "eq_weapon_02",
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
-        },
-        {
-            "InstanceID": "45f4588e-54b4-438b-8832-a90a599228eb",
+            "InstanceID": "98be1248-836a-4c16-aa7a-7af0249392ee",
             "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "a70ffc12-b173-47e1-9050-7aaea6ec1e5b",
+            "InstanceID": "2b23deaa-c4f7-4105-bbcf-a302c34d788e",
+            "ItemID": "eq_weapon_02",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "1ac879ce-8f05-47ed-84e4-0fb567402db8",
+            "ItemID": "eq_weapon_01",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "ecaefdf8-d2d1-4cd7-88aa-070a596f1d9e",
+            "ItemID": "eq_weapon_03",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "c493f9af-0122-4144-86c4-7d5a6774de72",
+            "ItemID": "eq_weapon_01",
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "60eda27b-0a09-44ed-9ea9-a3dc785199b6",
             "ItemID": "eq_weapon_01",
             "Rarity": 2,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "01무기"
+            "ItemLevel": 1
         },
         {
-            "InstanceID": "142a745f-77f2-40e4-a3db-8913ecffbcb3",
-            "ItemID": "eq_weapon_02",
+            "InstanceID": "f969df65-8911-469c-bfa6-30498900ff20",
+            "ItemID": "eq_weapon_01",
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1,
-            "Desc": "02무기"
+            "ItemLevel": 1
         }
     ],
     "EquippedItems": []

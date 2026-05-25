@@ -6,5 +6,4 @@ public class EquipmentItemData
     public ItemRarity Rarity;
     public int RarityLevel;
     public int ItemLevel;
-    public string Desc;
 }

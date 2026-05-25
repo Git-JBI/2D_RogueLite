@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,10 @@ public class ItemViewer : MonoBehaviour
     public void Init(EquipmentItemData data)
     {
         SetGradeColor(data.Rarity);
-        SetDescText(data.Desc);
+
+        string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
+        
+        SetDescText(dataDesc);
     }
 
     private void SetGradeColor(ItemRarity rarity)

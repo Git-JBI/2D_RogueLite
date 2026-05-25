@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GetItemViewer : MonoBehaviour, IPointerClickHandler
+public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
 {
     private ItemViewer[] _viewers;
 

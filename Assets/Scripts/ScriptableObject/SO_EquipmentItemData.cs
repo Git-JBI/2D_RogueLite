@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,6 +50,7 @@ public class SO_EquipmentItemData : ScriptableObject
     public string Id;
     public string ItemName;
     public EquipmentType EquipmentType;
+    public ItemTier ItemTier;
     public Sprite IconSprite;
     public string Desc;
     public List<RaritySkillInfo> RaritySettings = new();
