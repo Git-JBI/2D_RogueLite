@@ -11,6 +11,9 @@ public enum MenuNumber
 
 public class MenuController : MonoBehaviour
 {
+    //TODO 추후 개선 필요
+    [SerializeField] private EquipmentInventoryManager _invenManager;
+
     [SerializeField] private RectTransform _transform;
     private MenuButton[] _buttons;
     private MenuNumber _menuNumber;
@@ -29,6 +32,9 @@ public class MenuController : MonoBehaviour
             _buttons[i].Init(i);
             _buttons[i].Init();
             _buttons[i].OnMenuButtonClicked += MoveMenuPos;
+
+            if (i == 1)
+                _buttons[i].OnButtonClicked += _invenManager.Init;
         }
     }
 

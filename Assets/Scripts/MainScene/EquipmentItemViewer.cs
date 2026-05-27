@@ -4,23 +4,16 @@ using UnityEngine.UI;
 
 public class EquipmentItemViewer : MonoBehaviour
 {
-    private EquipmentItemData _equipItemData;
     private Image _image;
-    private TextMeshPro _text;
+    private TextMeshProUGUI _text;
 
-    private void Awake()
+    public void Init(ItemRarity rarity, string desc)
     {
-        _image = GetComponent<Image>();
-        _text = GetComponent<TextMeshPro>();
-    }
+        _image = GetComponentInChildren<Image>();
+        _text = GetComponentInChildren<TextMeshProUGUI>();
 
-    public void Init(EquipmentItemData data)
-    {
-        _equipItemData = data;
-
-        SetImage(data.Rarity);
-
-        string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
+        SetImage(rarity);
+        SetText(desc);
     }
 
     public void SetImage(ItemRarity rarity)
