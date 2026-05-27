@@ -1,22 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class Button_LoadGameScene : ButtonBase
+public class Button_LoadGameScene : MonoBehaviour
 {
-    protected override void Awake()
-    {
-        base.Awake();
+    private Button _button;
 
-        Init();
-    }
-
-    protected override void ClickButton()
+    private void Awake()
     {
-        LoadGameScene();
+        _button = GetComponent<Button>();
+
+        _button.onClick.AddListener(LoadGameScene);
     }
 
     private void LoadGameScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("GameScene");
     }
 }

@@ -1,18 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class Button_LoadMainScene : ButtonBase
+public class Button_LoadMainScene : MonoBehaviour
 {
-    protected override void Awake()
-    {
-        base.Awake();
+    private Button _button;
 
-        Init();
-    }
-
-    protected override void ClickButton()
+    private void Awake()
     {
-        LoadMainScene();
+        _button = GetComponent<Button>();
+
+        _button.onClick.AddListener(LoadMainScene);
     }
 
     private void LoadMainScene()
@@ -21,6 +19,6 @@ public class Button_LoadMainScene : ButtonBase
         Time.timeScale = 1.0f;
 
         // ∏ﬁ¿Œ æ¿∑ŒµÂ
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainScene");
     }
 }
