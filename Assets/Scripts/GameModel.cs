@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class GameModel : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     private HeroData _heroData;
+
+    private int _equipmentBonusAtk;
+    private int _equipmentBonusHp;
 
     public HeroData HeroData
     {

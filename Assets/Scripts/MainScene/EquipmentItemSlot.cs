@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
@@ -8,6 +9,8 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 
     // 슬롯이 가지고 있을 아이템 데이터
     private EquipmentItemData _itemData;
+
+    public event UnityAction<EquipmentItemData> OnItemSlotClicked;
 
     private void Awake()
     {
@@ -28,6 +31,6 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
     /// <param name="eventData"></param>
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
+        OnItemSlotClicked?.Invoke(_itemData);
     }
 }
