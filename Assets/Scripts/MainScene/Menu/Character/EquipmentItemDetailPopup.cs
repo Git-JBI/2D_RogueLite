@@ -14,6 +14,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     private EquipmentItemData _equipmentItemData;
     private EquipmentItemDetailPopupViewer _popupViewer;
 
+    public event UnityAction OnEquipped;
+    public event UnityAction OnUnEquipped;
     public event UnityAction OnPopupClosed;
 
     private void Awake()
@@ -34,6 +36,30 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         string itemName = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemName(data.ItemID);
         string itemDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
         _popupViewer.Init(itemName,_equipmentItemData.EquipmentType, _equipmentItemData.Rarity, _equipmentItemData.RarityLevel, _equipmentItemData.ItemLevel, itemDesc);
+    }
+
+    public void SetEquip()
+    {
+        _popupViewer.SetEquipText();
+        _equipButton.onClick.AddListener(Equip);
+    }
+
+    public void SetUnEquip()
+    {
+        _popupViewer.SetUnEquipText();
+        _equipButton.onClick.AddListener(UnEquip);
+    }
+
+    private void Equip()
+    {
+        GameManager.Instance.GameModel.EquipItem(_equipmentItemData.InstanceID);
+        PopupClosed();
+    }
+
+    private void UnEquip()
+    {
+        GameManager.Instance.GameModel.UnequipItem(_equipmentItemData.EquipmentType);
+        PopupClosed();
     }
 
     private void PopupClosed()

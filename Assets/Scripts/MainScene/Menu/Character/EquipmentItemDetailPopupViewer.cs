@@ -15,7 +15,7 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     아이템 설명
      */
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private Button _equipButton;
+    [SerializeField] private TextMeshProUGUI _equipButtonText;
 
     public void Init(string itemName, EquipmentType type, ItemRarity rarity, int rarityLevel, int itemLevel, string desc)
     {
@@ -27,5 +27,13 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
             $"Desc : {desc}";
     }
 
+    public void SetEquipText()
+    {
+        _equipButtonText.text = "장착";
+    }
 
+    public void SetUnEquipText()
+    {
+        _equipButtonText.text = "장착 해제";
+    }
 }
