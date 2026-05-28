@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +7,14 @@ public class ItemViewer : MonoBehaviour
     private Image _gradeImage;
     private TextMeshProUGUI _descText;
 
-    private void Awake()
-    {
-        _gradeImage = GetComponentInChildren<Image>();
-        _descText = GetComponentInChildren<TextMeshProUGUI>();
-    }
-
     public void Init(ItemRarity rarity, string desc)
     {
+        if(!_gradeImage)
+            GetComponentInChildren<Image>();
+        if(!_descText)
+            GetComponentInChildren<TextMeshProUGUI>();
+
+
         SetGradeColor(rarity);
         SetDescText(desc);
     }

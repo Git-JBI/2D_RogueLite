@@ -28,11 +28,11 @@ public enum ItemTier
 public enum EquipmentType
 {
     Weapon,
+    Necklace,
+    Gloves,
     Armor,
     Belt,
-    Gloves,
     Boots,
-    Necklace,
 }
 
 [System.Serializable]

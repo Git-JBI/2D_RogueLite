@@ -31,8 +31,8 @@ public class GameModel : MonoBehaviour
         set { _gameData.UpgradeLevel = value; }
     }
 
-    public IReadOnlyList<EquipmentItemData> InventoryItems => _gameData.InventoryItems;
-    public IReadOnlyList<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
+    public List<EquipmentItemData> InventoryItems => _gameData.InventoryItems;
+    public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
     private void Awake()
     {
@@ -78,6 +78,10 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    /// <summary>
+    /// 장비 아이템 장착
+    /// </summary>
+    /// <param name="instanceId"></param>
     public void EquipItem(string instanceId)
     {
         // 새로 장착할 아이템
@@ -106,6 +110,10 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    /// <summary>
+    /// 장비 아이템 탈착
+    /// </summary>
+    /// <param name="type"></param>
     public void UnequipItem(EquipmentType type)
     {
         EquipmentItemData equippedItem = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
@@ -126,7 +134,6 @@ public class GameModel : MonoBehaviour
     public void SaveData()
     {
         string gameDataToJson = JsonUtility.ToJson(_gameData, true);
-        //TODO 더이상 데이터를 직접 확인할 필요가 없을 때 persistentDataPath로 교체
 #if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, "gameData.json");
 #else

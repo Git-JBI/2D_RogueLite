@@ -4,21 +4,25 @@ using UnityEngine.EventSystems;
 
 public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    // 아이템 슬롯을 보여줄 뷰어
+    /// <summary>
+    /// 아이템 슬롯을 보여줄 뷰어
+    /// </summary>
     private EquipmentItemViewer _itemViewer;
-
-    // 슬롯이 가지고 있을 아이템 데이터
+    /// <summary>
+    /// 슬롯이 가지고 있을 아이템 데이터
+    /// </summary>
     private EquipmentItemData _itemData;
 
+    /// <summary>
+    /// 슬롯이 클릭될 시 실행될 이벤트
+    /// </summary>
     public event UnityAction<EquipmentItemData> OnItemSlotClicked;
-
-    private void Awake()
-    {
-        _itemViewer = GetComponent<EquipmentItemViewer>();
-    }
 
     public void Init(EquipmentItemData data)
     {
+        if(!_itemViewer)
+            _itemViewer = GetComponent<EquipmentItemViewer>();
+
         _itemData = data;
 
         string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);

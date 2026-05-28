@@ -43,4 +43,14 @@ public class EquipmentItemDatabase : MonoBehaviour
 
         return itemData.Desc;
     }
+
+    public string GetEquipmentItemName(string itemId)
+    {
+        SO_EquipmentItemData itemData = GetEquipmentItemData(itemId);
+
+        if (itemData == null)
+            return "";
+
+        return itemData.ItemName;
+    }
 }

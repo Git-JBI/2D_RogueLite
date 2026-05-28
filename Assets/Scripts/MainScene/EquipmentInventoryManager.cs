@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EquipmentInventoryManager : MonoBehaviour
@@ -9,15 +10,17 @@ public class EquipmentInventoryManager : MonoBehaviour
     [SerializeField] private EquipmentItemSlot _equipmentSlot;
 
     /// <summary>
+    /// 장비 아이템 세부내용을 보여줄 팝업
+    /// </summary>
+    [SerializeField] private EquipmentItemDetailPopup _popup;
+    /// <summary>
     /// 장비 아이템 슬롯 리스트
     /// </summary>
     private List<EquipmentItemSlot> _slots = new();
 
     /// <summary>
-    /// 선택된 아이템
+    /// 초기화 함수
     /// </summary>
-    [SerializeField]private EquipmentItemData _selectedItem;
-
     public void Init()
     {
         // 슬롯 리스트 내에 남아있을 경우
@@ -33,15 +36,17 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// </summary>
     private void InitSlots()
     {
-        foreach(EquipmentItemData x in GameManager.Instance.GameModel.InventoryItems)
+        // 리스트 복제본
+        var items = GameManager.Instance.GameModel.InventoryItems.OrderByDescending(i => i.Rarity).ToList();
+
+        foreach (EquipmentItemData x in items)
         {
             // 장비 아이템 슬롯 생성(이곳으로 부모 설정)
             EquipmentItemSlot slot = Instantiate(_equipmentSlot, transform);
             // 장비 아이템 슬롯 초기화
             slot.Init(x);
             // 슬롯 이벤트 추가
-            slot.OnItemSlotClicked += SetSelectedItem;
-
+            slot.OnItemSlotClicked += OpenPopup;
             // 슬롯 리스트에 슬롯 추가
             _slots.Add(slot);
         }
@@ -55,32 +60,16 @@ public class EquipmentInventoryManager : MonoBehaviour
         foreach(EquipmentItemSlot slot in _slots)
         {
             // 슬롯 리스트 내에 있는 슬롯 파괴
-            Destroy(slot);
+            Destroy(slot.gameObject);
         }
 
         // 슬롯 리스트 비우기
         _slots.Clear();
     }
 
-    /// <summary>
-    /// 선택된 아이템 설정
-    /// </summary>
-    /// <param name="item"></param>
-    private void SetSelectedItem(EquipmentItemData item)
-    {
-        _selectedItem = item;
-    }
-
-    /// <summary>
-    /// 선택된 아이템 비우기
-    /// </summary>
-    private void EmptySelectedItem()
-    {
-        _selectedItem = null;
-    }
-
     private void OpenPopup(EquipmentItemData data)
     {
-
+        _popup.gameObject.SetActive(true);
+        _popup.Init(data);
     }
 }
