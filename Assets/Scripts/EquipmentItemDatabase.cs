@@ -1,18 +1,27 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EquipmentItemDatabase : MonoBehaviour
 {
-    [SerializeField] private List<SO_EquipmentItemData> _equipmentItems;
+    /// <summary>
+    /// 장비 아이템 리스트
+    /// </summary>
+    private List<SO_EquipmentItemData> _equipmentItems;
 
     public IReadOnlyList<SO_EquipmentItemData> EquipmentItemDatas => _equipmentItems;
 
-    private Dictionary<string, SO_EquipmentItemData> _equipmentItemMap;
+    /// <summary>
+    /// 장비 아이템 딕셔너리
+    /// </summary>
+    private Dictionary<string, SO_EquipmentItemData> _equipmentItemMap = new();
 
     private void Awake()
     {
-        _equipmentItemMap = new Dictionary<string, SO_EquipmentItemData>();
+        // 장비 아이템데이터 Resources.LoadAll로 전부 불러오기
+        _equipmentItems = Resources.LoadAll<SO_EquipmentItemData>("GameDatas/ItemData").ToList();
 
+        // 장비 아이템 딕셔너리에 장비 아이템 데이터 추가
         foreach(SO_EquipmentItemData item in _equipmentItems)
         {
             if (item == null)

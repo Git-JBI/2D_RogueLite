@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Armor03
   m_EditorClassIdentifier: 
-  Id: eq_Armor_01
-  ItemName: Armor01
+  Id: eq_Armor_03
+  ItemName: Armor03
   EquipmentType: 3
   ItemTier: 0
   IconSprite: {fileID: 0}
-  Desc: "01\uAC11\uC637"
+  Desc: "03\uAC11\uC637"
   RaritySettings:
   - Rarity: 0
     MaxLevel: 10
