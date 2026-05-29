@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GachaManager : MonoBehaviour
@@ -42,9 +43,7 @@ public class GachaManager : MonoBehaviour
         // 아이템 레어리티 결정
         ItemRarity itemRarity = DetermineRarity();
 
-        // 아이템 데이터 내에서 뽑기 타입에 따른 아이템 필터링기능 (현재는 필터링 필요 없음)
-        // List<SO_EquipmentItemData> filteredPool = _totalItemDataPool.FindAll(item => item.itemType == ItemType.Equipment);
-        List<SO_EquipmentItemData> filteredPool = _totalItemDataPool;
+        List<SO_EquipmentItemData> filteredPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();
 
         // 데이터가 존재하지 않을 경우
         if(filteredPool == null || filteredPool.Count == 0)

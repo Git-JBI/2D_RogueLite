@@ -18,6 +18,11 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// </summary>
     private List<EquipmentItemSlot> _slots = new();
 
+    private void Awake()
+    {
+        _popup.OnPopupClosed += Init;
+    }
+
     /// <summary>
     /// 초기화 함수
     /// </summary>
@@ -36,8 +41,9 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// </summary>
     private void InitSlots()
     {
-        // 리스트 복제본
-        var items = GameManager.Instance.GameModel.InventoryItems.OrderByDescending(i => i.Rarity).ToList();
+        // 리스트 복제본을 생성 후 1. 장비 아이템 타입에 따라 정렬 2. 타입에 따른 종류에 따라 정렬 3. 레어리티에 따라 정렬
+        var items = GameManager.Instance.GameModel.InventoryItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
+
 
         foreach (EquipmentItemData x in items)
         {
@@ -71,5 +77,6 @@ public class EquipmentInventoryManager : MonoBehaviour
     {
         _popup.gameObject.SetActive(true);
         _popup.Init(data);
+        _popup.SetEquip();
     }
 }

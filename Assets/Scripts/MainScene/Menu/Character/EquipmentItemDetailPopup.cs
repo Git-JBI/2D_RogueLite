@@ -31,8 +31,6 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
         _equipmentItemData = data;
 
-        Debug.Log(data.ItemID);
-
         string itemName = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemName(data.ItemID);
         string itemDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
         _popupViewer.Init(itemName,_equipmentItemData.EquipmentType, _equipmentItemData.Rarity, _equipmentItemData.RarityLevel, _equipmentItemData.ItemLevel, itemDesc);
@@ -65,6 +63,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     private void PopupClosed()
     {
         OnPopupClosed?.Invoke();
+        _equipButton.onClick.RemoveAllListeners();
 
         gameObject.SetActive(false);
     }

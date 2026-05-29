@@ -5,6 +5,8 @@ public class EquipmentItemDatabase : MonoBehaviour
 {
     [SerializeField] private List<SO_EquipmentItemData> _equipmentItems;
 
+    public IReadOnlyList<SO_EquipmentItemData> EquipmentItemDatas => _equipmentItems;
+
     private Dictionary<string, SO_EquipmentItemData> _equipmentItemMap;
 
     private void Awake()

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
+    /// <summary>
+    /// 장비 아이템 세부내용을 보여줄 팝업
+    /// </summary>
     [SerializeField] private EquipmentItemDetailPopup _popup;
 
     /// <summary>
@@ -12,14 +15,31 @@ public class EquipmentManager : MonoBehaviour
     private void Awake()
     {
         _slots = GetComponentsInChildren<EquipmentItemSlot>();
+
+        _popup.OnPopupClosed += Refresh;
     }
 
     public void Refresh()
     {
         for (int i = 0; i < _slots.Length; i++)
         {
-            _slots[i].Init(GameManager.Instance.GameModel.EquippedItems.Find(x => x.EquipmentType == (EquipmentType)i));
+            EquipmentItemData itemdata = GameManager.Instance.GameModel.EquippedItems.Find(x => x.EquipmentType == (EquipmentType)i);
 
+            if (itemdata != null)
+            {
+                _slots[i].gameObject.SetActive(true);
+                _slots[i].Init(itemdata);
+                _slots[i].OnItemSlotClicked += OpenPopup;
+            }
+            else
+                _slots[i].gameObject.SetActive(false);
         }
+    }
+
+    private void OpenPopup(EquipmentItemData data)
+    {
+        _popup.gameObject.SetActive(true);
+        _popup.Init(data);
+        _popup.SetUnEquip();
     }
 }

@@ -10,35 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
-  m_Name: ItemData_Weapon3
+  m_Name: ItemData_Weapon01
   m_EditorClassIdentifier: 
-  Id: eq_weapon_03
-  ItemName: 03
+  Id: eq_weapon_01
+  ItemName: Weapon01
   EquipmentType: 0
+  ItemTier: 0
   IconSprite: {fileID: 0}
-  Desc: "03\uBB34\uAE30"
+  Desc: "01\uBB34\uAE30"
   RaritySettings:
   - Rarity: 0
     MaxLevel: 10
-    BaseStat: 0
-    StatPerLevel: 5
+    BaseStat: 10
+    StatPerLevel: 1
   - Rarity: 1
     MaxLevel: 20
-    BaseStat: 0
-    StatPerLevel: 10
+    BaseStat: 20
+    StatPerLevel: 2
   - Rarity: 2
     MaxLevel: 30
-    BaseStat: 0
-    StatPerLevel: 15
+    BaseStat: 30
+    StatPerLevel: 3
   - Rarity: 3
     MaxLevel: 40
-    BaseStat: 0
-    StatPerLevel: 20
+    BaseStat: 40
+    StatPerLevel: 4
   - Rarity: 4
     MaxLevel: 70
-    BaseStat: 0
-    StatPerLevel: 25
+    BaseStat: 70
+    StatPerLevel: 5
   - Rarity: 5
     MaxLevel: 110
-    BaseStat: 0
-    StatPerLevel: 30
+    BaseStat: 110
+    StatPerLevel: 6
