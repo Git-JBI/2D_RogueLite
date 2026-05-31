@@ -23,6 +23,8 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
         if(!_itemViewer)
             _itemViewer = GetComponent<EquipmentItemViewer>();
 
+        OnItemSlotClicked = null;
+
         _itemData = data;
 
         string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
