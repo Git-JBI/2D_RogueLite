@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GachaManager : MonoBehaviour
 {
-    //TODO 여기서 불러오는게 맞을까?
     [SerializeField] private List<SO_EquipmentItemData> _totalItemDataPool;
 
     private Button_Gacha[] _button_Gachas;
@@ -21,6 +20,7 @@ public class GachaManager : MonoBehaviour
             x.Init();
         }
 
+        _totalItemDataPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();
         _button_Gachas[0].OnButtonClicked += GachaEquipmentItemOne;
         _button_Gachas[1].OnButtonClicked += GachaEquipmentItemTen;
     }
@@ -43,10 +43,11 @@ public class GachaManager : MonoBehaviour
         // 아이템 레어리티 결정
         ItemRarity itemRarity = DetermineRarity();
 
-        List<SO_EquipmentItemData> filteredPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();
+        // 아이템 장비 종류별 필터(추후)
+        List<SO_EquipmentItemData> filteredPool = new List<SO_EquipmentItemData>(_totalItemDataPool);
 
         // 데이터가 존재하지 않을 경우
-        if(filteredPool == null || filteredPool.Count == 0)
+        if (filteredPool == null || filteredPool.Count == 0)
         {
             Debug.Log("filteredPool에 아무것도 존재하지 않습니다.");
             return null;
@@ -91,6 +92,9 @@ public class GachaManager : MonoBehaviour
         // 없을 시 불가
         // 있을 시 실행
         EquipmentItemData equipmentItemData = PickEquipmentItemOne();
+
+        if (equipmentItemData == null)
+            return;
 
         // 실행 했다면 뽑은 아이템 저장
         GameManager.Instance.GameModel.GetEquipItem(equipmentItemData);
