@@ -10,9 +10,9 @@ public class ItemViewer : MonoBehaviour
     public void Init(ItemRarity rarity, string desc)
     {
         if(!_gradeImage)
-            GetComponentInChildren<Image>();
+            _gradeImage = GetComponentInChildren<Image>();
         if(!_descText)
-            GetComponentInChildren<TextMeshProUGUI>();
+            _descText = GetComponentInChildren<TextMeshProUGUI>();
 
 
         SetGradeColor(rarity);
