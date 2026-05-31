@@ -43,7 +43,7 @@ public class GachaManager : MonoBehaviour
         // 아이템 레어리티 결정
         ItemRarity itemRarity = DetermineRarity();
 
-        // 아이템 장비 종류별 필터(추후)
+        // 아이템 장비 종류별 필터(추후 추가설정)
         List<SO_EquipmentItemData> filteredPool = new List<SO_EquipmentItemData>(_totalItemDataPool);
 
         // 데이터가 존재하지 않을 경우
