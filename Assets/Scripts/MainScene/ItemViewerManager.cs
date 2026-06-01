@@ -9,8 +9,8 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         _viewers = GetComponentsInChildren<ItemViewer>();
-    
-        foreach(ItemViewer x in _viewers)
+
+        foreach (ItemViewer x in _viewers)
         {
             x.gameObject.SetActive(false);
         }

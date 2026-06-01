@@ -28,6 +28,7 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// </summary>
     public void Init()
     {
+        Debug.Log("장비 인벤토리 초기화");
         // 슬롯 리스트 내에 남아있을 경우
         if (_slots.Count != 0)
             DestroySlots();
@@ -42,8 +43,7 @@ public class EquipmentInventoryManager : MonoBehaviour
     private void InitSlots()
     {
         // 리스트 복제본을 생성 후 1. 장비 아이템 타입에 따라 정렬 2. 타입에 따른 종류에 따라 정렬 3. 레어리티에 따라 정렬
-        var items = GameManager.Instance.GameModel.InventoryItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
-
+        var items = GameManager.Instance.GameModel.InventoryEquipmentItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
 
         foreach (EquipmentItemData x in items)
         {

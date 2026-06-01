@@ -14,17 +14,22 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     아이템 레벨
     아이템 설명
      */
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI _descText;
+    [SerializeField] private TextMeshProUGUI _itemLevelText;
     [SerializeField] private TextMeshProUGUI _equipButtonText;
+    [SerializeField] private TextMeshProUGUI _goldCostText;
+    [SerializeField] private TextMeshProUGUI _scrollCostText;
 
-    public void Init(string itemName, EquipmentType type, ItemRarity rarity, int rarityLevel, int itemLevel, string desc)
+    public void Init(string itemName, EquipmentType type, ItemRarity rarity, int rarityLevel, string desc, int requireGold, int requireScroll)
     {
-        _text.text = $"Name : {itemName}\n" +
+        _descText.text = $"Name : {itemName}\n" +
             $"Type : {type}\n" +
             $"Rarity : {rarity}\n" +
             $"RarityLevel : {rarityLevel}\n" +
-            $"Level : {itemLevel}\n" +
             $"Desc : {desc}";
+
+        SetGoldCostText(requireGold, GameManager.Instance.GameModel.Gold);
+        SetScrollCostText(requireScroll, GameManager.Instance.GameModel.UpgradeScroll[(int)type]);
     }
 
     public void SetEquipText()
@@ -35,5 +40,21 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     public void SetUnEquipText()
     {
         _equipButtonText.text = "장착 해제";
+    }
+
+    public void SetGoldCostText(int require, int haveGold)
+    {
+        string text = require.ToAbbreviatedString() + "/" + haveGold.ToAbbreviatedString();
+        _goldCostText.text = text;
+    }
+
+    public void SetScrollCostText(int require, int haveScroll)
+    {
+        _scrollCostText.text = $"{require} / {haveScroll}";
+    }
+
+    public void SetItemLevelText(int level, int maxLevel)
+    {
+        _itemLevelText.text = $"레벨: {level} / {maxLevel}";
     }
 }

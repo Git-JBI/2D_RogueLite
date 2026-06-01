@@ -31,7 +31,12 @@ public class GameModel : MonoBehaviour
         set { _gameData.UpgradeLevel = value; }
     }
 
-    public List<EquipmentItemData> InventoryItems => _gameData.InventoryItems;
+    public int[] UpgradeScroll
+    {
+        get { return _gameData.UpgradeScroll; }
+    }
+
+    public List<EquipmentItemData> InventoryEquipmentItems => _gameData.InventoryEquipmentItems;
     public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
     private void Awake()
@@ -41,9 +46,24 @@ public class GameModel : MonoBehaviour
         InitModel();
     }
 
+    /// <summary>
+    /// 골드 설정 함수
+    /// </summary>
+    /// <param name="value"></param>
     public void AddGold(int value)
     {
         _gameData.Gold += value;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 업그레이드 스크롤 설정 함수
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="value"></param>
+    public void AddUpgradeScroll(int type, int value)
+    {
+        _gameData.UpgradeScroll[type] += value;
         SaveData();
     }
 
@@ -74,7 +94,7 @@ public class GameModel : MonoBehaviour
     /// <param name="value">장비 아이템 데이터</param>
     public void GetEquipItem(EquipmentItemData data)
     {
-        _gameData.InventoryItems.Add(data);
+        _gameData.InventoryEquipmentItems.Add(data);
         SaveData();
     }
 
@@ -85,7 +105,7 @@ public class GameModel : MonoBehaviour
     public void EquipItem(string instanceId)
     {
         // 새로 장착할 아이템
-        EquipmentItemData item = _gameData.InventoryItems.Find(x => x.InstanceID == instanceId);
+        EquipmentItemData item = _gameData.InventoryEquipmentItems.Find(x => x.InstanceID == instanceId);
 
         // 아이템이 없을 시 리턴
         if (item == null)
@@ -99,11 +119,11 @@ public class GameModel : MonoBehaviour
         {
             // 장비 아이템 벗은 후 인벤토리 추가
             _gameData.EquippedItems.Remove(equippedItem);
-            _gameData.InventoryItems.Add(equippedItem);
+            _gameData.InventoryEquipmentItems.Add(equippedItem);
         }
 
         // 아이템 장착
-        _gameData.InventoryItems.Remove(item);
+        _gameData.InventoryEquipmentItems.Remove(item);
         _gameData.EquippedItems.Add(item);
 
         // 저장
@@ -123,7 +143,7 @@ public class GameModel : MonoBehaviour
             return;
 
         _gameData.EquippedItems.Remove(equippedItem);
-        _gameData.InventoryItems.Add(equippedItem);
+        _gameData.InventoryEquipmentItems.Add(equippedItem);
 
         SaveData();
     }

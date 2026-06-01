@@ -12,6 +12,6 @@ public class UI_Text_Gold : MonoBehaviour
 
     public void UpdateGoldText(int goldAmount)
     {
-        _goldText.text = $"{goldAmount}";
+        _goldText.text = goldAmount.ToAbbreviatedString();
     }
 }

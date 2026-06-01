@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class MainSceneUIManager : MonoBehaviour
 {
-    private UI_Text_Gold _goldText;
+    /// <summary>
+    /// 상단 골드 텍스트
+    /// </summary>
+    [SerializeField] private UI_Text_Gold _goldText;
 
     private HeroSelectViewer _heroSelectViewer;
     private MenuController _menuController;
@@ -10,8 +13,6 @@ public class MainSceneUIManager : MonoBehaviour
 
     private void Awake()
     {
-        _goldText = GetComponentInChildren<UI_Text_Gold>();
-
         _heroSelectViewer = GetComponentInChildren<HeroSelectViewer>();
         _menuController = GetComponentInChildren<MenuController>();
         _upgradeManager = GetComponentInChildren<UpgradeManager>();

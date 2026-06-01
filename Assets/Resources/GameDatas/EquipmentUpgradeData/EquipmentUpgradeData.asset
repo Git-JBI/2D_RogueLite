@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91e301dbeb06e34aa4dbecd4d2f0d81, type: 3}
+  m_Name: EquipmentUpgradeData
+  m_EditorClassIdentifier: 
+  CostList:
+  - Level: 1
+    GoldCost: 1000
+    ScrollCost: 1
+  - Level: 2
+    GoldCost: 2000
+    ScrollCost: 1
+  - Level: 3
+    GoldCost: 3000
+    ScrollCost: 1
+  - Level: 4
+    GoldCost: 4000
+    ScrollCost: 2
+  - Level: 5
+    GoldCost: 5000
+    ScrollCost: 2
+  - Level: 6
+    GoldCost: 6000
+    ScrollCost: 2
+  - Level: 7
+    GoldCost: 7000
+    ScrollCost: 3
+  - Level: 8
+    GoldCost: 8000
+    ScrollCost: 3
+  - Level: 9
+    GoldCost: 9000
+    ScrollCost: 3
+  - Level: 10
+    GoldCost: 10000
+    ScrollCost: 4
