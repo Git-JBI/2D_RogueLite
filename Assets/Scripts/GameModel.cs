@@ -149,6 +149,26 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
+    /// 장비 아이템 레벨 업
+    /// </summary>
+    /// <param name="data">장비 아이템</param>
+    /// <param name="levelupCount">레벨업 시킬 정도</param>
+    /// <param name="goldCost">쓰인 골드</param>
+    /// <param name="scrollType">쓰인 스크롤 타입</param>
+    /// <param name="scrollCost">쓰인 스크롤 갯수</param>
+    public void UpgradeEquipmentItemLevel(EquipmentItemData data, int levelupCount, int goldCost, int scrollType, int scrollCost)
+    {
+        // 골드 소모
+        _gameData.Gold -= goldCost;
+        // 스크롤 소모
+        _gameData.UpgradeScroll[scrollType] -= scrollCost;
+        // 레벨 증가
+        data.ItemLevel += levelupCount;
+        // 저장
+        SaveData();
+    }
+
+    /// <summary>
     /// 게임 데이터 저장
     /// </summary>
     public void SaveData()

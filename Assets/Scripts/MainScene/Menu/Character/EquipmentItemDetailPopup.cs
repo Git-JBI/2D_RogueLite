@@ -1,4 +1,3 @@
-using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +14,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private Button _equipButton;
     [SerializeField] private Button _levelUpButton;
+    [SerializeField] private Button _levelUpAllButton;
 
     private int _maxLevel;
 
@@ -33,6 +33,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         _outside.onClick.AddListener(PopupClosed);
         _closeButton.onClick.AddListener(PopupClosed);
         _levelUpButton.onClick.AddListener(ItemLevelUp);
+        _levelUpAllButton.onClick.AddListener(ItemLevelUpAll);
     }
 
     public void Init(EquipmentItemData data)
@@ -120,34 +121,69 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         // 필요 골드, 필요 스크롤 파악 부족하면 리턴
         if (gold < goldCost || scroll < scrollCost)
             return;
-        
-        // 골드 소모
-        GameManager.Instance.GameModel.AddGold(-goldCost);
-
-        // 재화 소모
-        GameManager.Instance.GameModel.AddUpgradeScroll((int)_equipmentItemData.EquipmentType, -scrollCost);
 
         // 아이템 레벨업
-        _equipmentItemData.ItemLevel++;
+        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(_equipmentItemData, 1, goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
 
-        // 보유 재료들 재설정
-        gold = GameManager.Instance.GameModel.Gold;
-        scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+        // 재 표기
+        RefreshLevelUpView();
+    }
 
-        // 필요 재료들 재설정
-        goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
-        scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
+    /// <summary>
+    /// 재화를 전부 소모한 아이템 레벨업
+    /// </summary>
+    private void ItemLevelUpAll()
+    {
+        int gold = GameManager.Instance.GameModel.Gold;
+        int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
-        // 소모된 재료들 재 표기(뷰어)
+        int totalGoldCost = 0;
+        int totalScrollCost = 0;
+        int levelUpCount = 0;
+
+        while (_equipmentItemData.ItemLevel < _maxLevel)
+        {
+            int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
+            int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
+
+            if (goldCost <= 0 && scrollCost <= 0)
+                break;
+
+            if (gold < goldCost || scroll < scrollCost)
+                break;
+
+            gold -= goldCost;
+            scroll -= scrollCost;
+
+            totalGoldCost += goldCost;
+            totalScrollCost += scrollCost;
+            levelUpCount++;
+
+            _equipmentItemData.ItemLevel++;
+        }
+
+        if (levelUpCount == 0)
+            return;
+
+        // 데이터 저장
+        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(_equipmentItemData, levelUpCount, totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
+
+        // 재 표기
+        RefreshLevelUpView();
+    }
+
+    private void RefreshLevelUpView()
+    {
+        int gold = GameManager.Instance.GameModel.Gold;
+        int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+
+        int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
+        int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
+
         _popupViewer.SetGoldCostText(goldCost, gold);
         _popupViewer.SetScrollCostText(scrollCost, scroll);
+        _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
 
-        // 아이템 레벨 재 표기(뷰어)
-        SO_EquipmentItemData itemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(_equipmentItemData.ItemID);
-        int maxLevel = itemData.RaritySettings[(int)_equipmentItemData.Rarity].MaxLevel;
-        _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, maxLevel);
-
-        // 상단바 골드 텍스트 재 표기
         _upperGoldText.UpdateGoldText(gold);
     }
 

@@ -10,8 +10,8 @@ public class UI_Text_Gold : MonoBehaviour
         _goldText = GetComponent<TextMeshProUGUI>();
     }
 
-    public void UpdateGoldText(int goldAmount)
+    public void UpdateGoldText(int value)
     {
-        _goldText.text = goldAmount.ToAbbreviatedString();
+        _goldText.text = value.ToAbbreviatedString();
     }
 }

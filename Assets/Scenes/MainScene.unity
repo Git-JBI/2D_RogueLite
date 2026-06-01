@@ -723,11 +723,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6d878f75e7849478a60ed730e957e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upperGoldText: {fileID: 0}
+  _upperGoldText: {fileID: 1273551919}
   _outside: {fileID: 2023591633}
   _closeButton: {fileID: 529048196}
   _equipButton: {fileID: 1414319227}
   _levelUpButton: {fileID: 797139683}
+  _levelUpAllButton: {fileID: 1551785146}
 --- !u!1 &189078019
 GameObject:
   m_ObjectHideFlags: 0

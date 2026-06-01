@@ -1,14 +1,14 @@
 {
     "HeroDataName": "00",
-    "Gold": 9627000,
+    "Gold": 9446000,
     "UpgradeLevel": [
         0,
         0,
         0
     ],
     "UpgradeScroll": [
-        937,
-        992,
+        915,
+        941,
         981,
         35,
         99,
@@ -261,7 +261,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 2
         },
         {
             "InstanceID": "b67ad5cb-fd2c-468d-a977-bb06a4f01e5f",
@@ -485,7 +485,7 @@
             "EquipmentType": 1,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 19
         },
         {
             "InstanceID": "54806a10-1ee2-49ca-84fe-76000152460e",
@@ -605,7 +605,7 @@
             "EquipmentType": 1,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 19
         },
         {
             "InstanceID": "dd54ce07-d251-4399-b715-926c755f23e9",
@@ -613,7 +613,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 3
         },
         {
             "InstanceID": "d8fbfdce-63bd-4cf3-a57a-18050399de3d",
@@ -637,7 +637,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 9
         },
         {
             "InstanceID": "a40f6bbb-cf4e-4df0-8808-8a5d353401da",
@@ -703,7 +703,7 @@
             "EquipmentType": 1,
             "Rarity": 3,
             "RarityLevel": 0,
-            "ItemLevel": 6
+            "ItemLevel": 40
         },
         {
             "InstanceID": "4cba3150-09c2-4934-b397-423d7672c59f",
