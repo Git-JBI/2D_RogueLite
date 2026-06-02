@@ -42,15 +42,25 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
         _equipButtonText.text = "ÀåÂø ÇØÁ¦";
     }
 
-    public void SetGoldCostText(int require, int haveGold)
+    public void SetGoldCostText(int haveGold, int require)
     {
-        string text = haveGold.ToAbbreviatedString() + "/" + require.ToAbbreviatedString();
+        string text;
+        if(require > haveGold)
+            text = "<color=red>" + haveGold.ToAbbreviatedString() + "</color>" + "/" + require.ToAbbreviatedString();
+        else
+            text = haveGold.ToAbbreviatedString() + "/" + require.ToAbbreviatedString();
         _goldCostText.text = text;
     }
 
-    public void SetScrollCostText(int require, int haveScroll)
+    public void SetScrollCostText(int haveScroll, int require)
     {
-        _scrollCostText.text = $"{haveScroll} / {require}";
+        string text;
+        if (require > haveScroll)
+            text = $"<color=red>{haveScroll}</color> / {require}";
+        else
+            text = $"{haveScroll} / {require}";
+
+        _scrollCostText.text = text;
     }
 
     public void SetItemLevelText(int level, int maxLevel)
