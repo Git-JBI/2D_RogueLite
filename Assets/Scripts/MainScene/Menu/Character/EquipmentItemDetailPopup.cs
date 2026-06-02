@@ -123,7 +123,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             return;
 
         // 아이템 레벨업
-        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(_equipmentItemData, 1, goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
+        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
 
         // 재 표기
         RefreshLevelUpView();
@@ -134,12 +134,15 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     /// </summary>
     private void ItemLevelUpAll()
     {
+        // 현재 보유한 골드
         int gold = GameManager.Instance.GameModel.Gold;
+        // 현재 선택된 장비 타입에 따른 스크롤 갯수
         int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
+        // 총 사용한 골드
         int totalGoldCost = 0;
+        // 총 사용한 스크롤
         int totalScrollCost = 0;
-        int levelUpCount = 0;
 
         while (_equipmentItemData.ItemLevel < _maxLevel)
         {
@@ -157,21 +160,20 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
             totalGoldCost += goldCost;
             totalScrollCost += scrollCost;
-            levelUpCount++;
 
             _equipmentItemData.ItemLevel++;
         }
 
-        if (levelUpCount == 0)
-            return;
-
-        // 데이터 저장
-        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(_equipmentItemData, levelUpCount, totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
+        // 사용한 재료들 데이터 저장
+        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
 
         // 재 표기
         RefreshLevelUpView();
     }
 
+    /// <summary>
+    /// 현재 데이터에 맞춰 정보를 재 표기하는 함수
+    /// </summary>
     private void RefreshLevelUpView()
     {
         int gold = GameManager.Instance.GameModel.Gold;
@@ -180,8 +182,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
         int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
-        _popupViewer.SetGoldCostText(goldCost, gold);
-        _popupViewer.SetScrollCostText(scrollCost, scroll);
+        _popupViewer.SetGoldCostText(gold, goldCost);
+        _popupViewer.SetScrollCostText(scroll, scrollCost);
         _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
 
         _upperGoldText.UpdateGoldText(gold);

@@ -28,8 +28,8 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
             $"RarityLevel : {rarityLevel}\n" +
             $"Desc : {desc}";
 
-        SetGoldCostText(requireGold, GameManager.Instance.GameModel.Gold);
-        SetScrollCostText(requireScroll, GameManager.Instance.GameModel.UpgradeScroll[(int)type]);
+        SetGoldCostText(GameManager.Instance.GameModel.Gold, requireGold);
+        SetScrollCostText(GameManager.Instance.GameModel.UpgradeScroll[(int)type], requireScroll);
     }
 
     public void SetEquipText()
@@ -44,13 +44,13 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
 
     public void SetGoldCostText(int require, int haveGold)
     {
-        string text = require.ToAbbreviatedString() + "/" + haveGold.ToAbbreviatedString();
+        string text = haveGold.ToAbbreviatedString() + "/" + require.ToAbbreviatedString();
         _goldCostText.text = text;
     }
 
     public void SetScrollCostText(int require, int haveScroll)
     {
-        _scrollCostText.text = $"{require} / {haveScroll}";
+        _scrollCostText.text = $"{haveScroll} / {require}";
     }
 
     public void SetItemLevelText(int level, int maxLevel)
