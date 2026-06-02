@@ -14,11 +14,30 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     아이템 레벨
     아이템 설명
      */
+    /// <summary>
+    /// 세부 사항 내용 텍스트
+    /// </summary>
     [SerializeField] private TextMeshProUGUI _descText;
+    /// <summary>
+    /// 아이템 레벨 텍스트
+    /// </summary>
     [SerializeField] private TextMeshProUGUI _itemLevelText;
+    /// <summary>
+    /// 장비 장착/탈착 버튼 텍스트
+    /// </summary>
     [SerializeField] private TextMeshProUGUI _equipButtonText;
+    /// <summary>
+    /// 업그레이드 시 필요한 골드 텍스트
+    /// </summary>
     [SerializeField] private TextMeshProUGUI _goldCostText;
+    /// <summary>
+    /// 업그레이드 시 필요한 스크롤 텍스트
+    /// </summary>
     [SerializeField] private TextMeshProUGUI _scrollCostText;
+    /// <summary>
+    /// 최대 레벨일 시 나타날 텍스트
+    /// </summary>
+    [SerializeField] private TextMeshProUGUI _maxUpgradeText;
 
     public void Init(string itemName, EquipmentType type, ItemRarity rarity, int rarityLevel, string desc, int requireGold, int requireScroll)
     {
@@ -61,6 +80,22 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
             text = $"{haveScroll} / {require}";
 
         _scrollCostText.text = text;
+    }
+
+    public void isMaxLevel(bool value)
+    {
+        if(value)
+        {
+            _goldCostText.gameObject.SetActive(!value);
+            _scrollCostText.gameObject.SetActive(!value);
+            _maxUpgradeText.gameObject.SetActive(value);
+        }
+        else
+        {
+            _goldCostText.gameObject.SetActive(value);
+            _scrollCostText.gameObject.SetActive(value);
+            _maxUpgradeText.gameObject.SetActive(!value);
+        }
     }
 
     public void SetItemLevelText(int level, int maxLevel)

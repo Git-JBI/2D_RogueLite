@@ -176,6 +176,16 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     /// </summary>
     private void RefreshLevelUpView()
     {
+        // 아이템 레벨이 최대 레벨일 시
+        // if (_equipmentItemData.ItemLevel == _upgradeTableMap[(int)_equipmentItemData.Rarity].Level)
+        // {
+        //     _popupViewer.isMaxLevel(true);
+        // }
+
+        // 아이템 레벨이 최대 레벨이 아닐 시
+        // else
+        // {
+        // _popupViewer.isMaxLevel(false);
         int gold = GameManager.Instance.GameModel.Gold;
         int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
@@ -187,6 +197,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
 
         _upperGoldText.UpdateGoldText(gold);
+        // }
     }
 
     /// <summary>
