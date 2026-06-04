@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -10,6 +11,12 @@ public class GameData
     /// 0. π´±‚ 1. ∏Ò∞…¿Ã 2. ¿Â∞© 3. ∞©ø  4. ∫ß∆Æ 5. Ω≈πﬂ
     /// </summary>
     public int[] UpgradeScroll = new int[6];
+
+    public string LastDailyResetDate;
+    public string LastWeeklyResetDate;
+
+    public List<AchievementProgressData> DailyAchievements = new();
+    public List<AchievementProgressData> WeeklyAchievements = new();
 
     public List<EquipmentItemData> InventoryEquipmentItems = new List<EquipmentItemData>();
     public List<EquipmentItemData> EquippedItems = new List<EquipmentItemData>();

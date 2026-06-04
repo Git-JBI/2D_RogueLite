@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -34,6 +35,17 @@ public class GameModel : MonoBehaviour
     public int[] UpgradeScroll
     {
         get { return _gameData.UpgradeScroll; }
+    }
+
+    public string LastDailyResetDate
+    {
+        get { return _gameData.LastDailyResetDate; }
+        set { _gameData.LastDailyResetDate = value; }
+    }
+    public string LastWeeklyResetDate
+    {
+        get { return _gameData.LastWeeklyResetDate; }
+        set { _gameData.LastWeeklyResetDate = value; }
     }
 
     public List<EquipmentItemData> InventoryEquipmentItems => _gameData.InventoryEquipmentItems;
@@ -216,6 +228,82 @@ public class GameModel : MonoBehaviour
         else
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
+        }
+    }
+
+    /// <summary>
+    /// 일일접속 체크
+    /// </summary>
+    private void CheckDailyDate()
+    {
+        string today = DateTime.Now.ToString("yyyy-MM-dd");
+
+        if(LastDailyResetDate == "")
+            LastDailyResetDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+        if (LastDailyResetDate == today)
+            return;
+
+        // 하루가 지났으므로
+        // 일일업적 목록 초기화
+        ResetDailyAchievements();
+
+        _gameData.LastDailyResetDate = today;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 월요일 00시 기준으로 주간 초기화 체크
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    private string GetWeekStartDateString(DateTime date)
+    {
+        int diff = ((int)date.DayOfWeek - (int)DayOfWeek.Monday + 7) % 7;
+        DateTime monday = date.Date.AddDays(-diff);
+
+        return monday.ToString("yyyy-MM-dd");
+    }
+
+    /// <summary>
+    /// 주간 초기화
+    /// </summary>
+    private void CheckWeeklyReset()
+    {
+        string thisWeek = GetWeekStartDateString(DateTime.Now);
+
+        if (_gameData.LastWeeklyResetDate == thisWeek)
+            return;
+
+        ResetWeeklyAchievements();
+
+        _gameData.LastWeeklyResetDate = thisWeek;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 일일 업적 초기화
+    /// </summary>
+    private void ResetDailyAchievements()
+    {
+        foreach (var achievement in _gameData.DailyAchievements)
+        {
+            achievement.Progress = 0;
+            achievement.IsRewardClaimed = false;
+            achievement.IsCompleted = false;
+        }
+    }
+
+    /// <summary>
+    /// 주간 업적 초기화
+    /// </summary>
+    private void ResetWeeklyAchievements()
+    {
+        foreach (var achievement in _gameData.WeeklyAchievements)
+        {
+            achievement.Progress = 0;
+            achievement.IsRewardClaimed = false;
+            achievement.IsCompleted = false;
         }
     }
 }
