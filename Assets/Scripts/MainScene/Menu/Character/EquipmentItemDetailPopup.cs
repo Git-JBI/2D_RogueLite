@@ -79,6 +79,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
         _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
         _popupViewer.Init(itemName,_equipmentItemData.EquipmentType, _equipmentItemData.Rarity, _equipmentItemData.RarityLevel, itemDesc, goldCost, scrollCost);
+        RefreshLevelUpView();
     }
 
     public void SetEquip()
@@ -144,6 +145,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         // 총 사용한 스크롤
         int totalScrollCost = 0;
 
+        //TODO 추후 수정 필요 범위 관련 or maxLevel값 다 채우기
         while (_equipmentItemData.ItemLevel < _maxLevel)
         {
             int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
@@ -152,6 +154,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             if (goldCost <= 0 && scrollCost <= 0)
                 break;
 
+            // 보유한 골드, 스크롤이 사용할 재화보다 적은 경우
             if (gold < goldCost || scroll < scrollCost)
                 break;
 
@@ -164,7 +167,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             _equipmentItemData.ItemLevel++;
         }
 
-        // 사용한 재료들 데이터 저장
+        // 사용한 재료들 데이터 저장(레벨은 바로 저장되기에 따로할 필요 없음)
         GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
 
         // 재 표기
@@ -176,28 +179,40 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     /// </summary>
     private void RefreshLevelUpView()
     {
+        int gold = GameManager.Instance.GameModel.Gold;
+        SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(_equipmentItemData.ItemID);
+
         // 아이템 레벨이 최대 레벨일 시
-        // if (_equipmentItemData.ItemLevel == _upgradeTableMap[(int)_equipmentItemData.Rarity].Level)
-        // {
-        //     _popupViewer.isMaxLevel(true);
-        // }
+        if (_equipmentItemData.ItemLevel == equipmentItemData.RaritySettings[(int)_equipmentItemData.Rarity].MaxLevel)
+        {
+            _popupViewer.isMaxLevel(true);
+            // 아이템 레벨 표시
+            _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+            // 레벨업 버튼들 숨김
+            _levelUpButton.gameObject.SetActive(false);
+            _levelUpAllButton.gameObject.SetActive(false);
+        }
 
         // 아이템 레벨이 최대 레벨이 아닐 시
-        // else
-        // {
-        // _popupViewer.isMaxLevel(false);
-        int gold = GameManager.Instance.GameModel.Gold;
-        int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+        else
+        {
+            _popupViewer.isMaxLevel(false);
+            int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
-        int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
-        int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
+            int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
+            int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
-        _popupViewer.SetGoldCostText(gold, goldCost);
-        _popupViewer.SetScrollCostText(scroll, scrollCost);
-        _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+            _popupViewer.SetGoldCostText(gold, goldCost);
+            _popupViewer.SetScrollCostText(scroll, scrollCost);
+            // 아이템 레벨 표시
+            _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+            // 레벨업 버튼들 표시
+            _levelUpButton.gameObject.SetActive(true);
+            _levelUpAllButton.gameObject.SetActive(true);
+        }
 
+        // 상단바 골드 표시
         _upperGoldText.UpdateGoldText(gold);
-        // }
     }
 
     /// <summary>

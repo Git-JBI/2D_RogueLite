@@ -92,9 +92,9 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
         }
         else
         {
-            _goldCostText.gameObject.SetActive(value);
-            _scrollCostText.gameObject.SetActive(value);
-            _maxUpgradeText.gameObject.SetActive(!value);
+            _goldCostText.gameObject.SetActive(!value);
+            _scrollCostText.gameObject.SetActive(!value);
+            _maxUpgradeText.gameObject.SetActive(value);
         }
     }
 

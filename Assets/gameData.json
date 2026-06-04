@@ -1,18 +1,18 @@
 {
     "HeroDataName": "00",
-    "Gold": 8932000,
+    "Gold": 8437000,
     "UpgradeLevel": [
         0,
         0,
         0
     ],
     "UpgradeScroll": [
-        889,
+        763,
         941,
-        937,
+        919,
         0,
-        41,
-        955
+        23,
+        919
     ],
     "InventoryEquipmentItems": [
         {
@@ -40,20 +40,12 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "6c6d8393-d38a-4789-a022-353c903068ce",
-            "ItemID": "eq_weapon_03",
-            "EquipmentType": 0,
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "9d00ef7a-6192-4896-bcfc-2cc004185c84",
             "ItemID": "eq_weapon_02",
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "b6a92c40-948e-46be-be4f-975e734f637d",
@@ -205,7 +197,7 @@
             "EquipmentType": 5,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "7d43d44a-f4e1-4526-87da-a3debb89fbb3",
@@ -269,7 +261,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "7e20bf7f-60fc-4763-92ca-91f28b9268bc",
@@ -285,7 +277,7 @@
             "EquipmentType": 5,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "bd89978e-3359-4be3-bb1e-6dc8c1079a85",
@@ -341,7 +333,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "22931cf9-6619-4734-a7eb-b8361bb5d4c5",
@@ -509,7 +501,7 @@
             "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "9b06dfa5-cffc-4635-970c-6bb575db2dac",
@@ -541,7 +533,7 @@
             "EquipmentType": 4,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "a2309e43-4f93-4fcb-81d6-29bbbd9d5dc1",
@@ -781,7 +773,7 @@
             "EquipmentType": 2,
             "Rarity": 0,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 10
         },
         {
             "InstanceID": "9182835e-8a9e-4cff-8d91-312aae003646",
@@ -792,25 +784,9 @@
             "ItemLevel": 11
         },
         {
-            "InstanceID": "67ee297a-75f0-4014-a61a-dc02b98a2f46",
-            "ItemID": "eq_weapon_02",
-            "EquipmentType": 0,
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "d18d0d17-d2f6-46fb-abfd-7ea90d560aeb",
             "ItemID": "eq_Necklace_03",
             "EquipmentType": 1,
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
-            "InstanceID": "4c8e33bd-292f-4aed-8cab-0c89a4542d96",
-            "ItemID": "eq_weapon_03",
-            "EquipmentType": 0,
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 1
@@ -926,6 +902,30 @@
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 1
+        },
+        {
+            "InstanceID": "0635081e-ab0a-4cac-85de-cfe506411d66",
+            "ItemID": "eq_weapon_01",
+            "EquipmentType": 0,
+            "Rarity": 1,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "6c6d8393-d38a-4789-a022-353c903068ce",
+            "ItemID": "eq_weapon_03",
+            "EquipmentType": 0,
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 10
+        },
+        {
+            "InstanceID": "67ee297a-75f0-4014-a61a-dc02b98a2f46",
+            "ItemID": "eq_weapon_02",
+            "EquipmentType": 0,
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 10
         }
     ],
     "EquippedItems": [
@@ -962,20 +962,20 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "0635081e-ab0a-4cac-85de-cfe506411d66",
-            "ItemID": "eq_weapon_01",
-            "EquipmentType": 0,
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "a4446c79-b8f0-4075-b107-baf9058bdc96",
             "ItemID": "eq_Armor_01",
             "EquipmentType": 3,
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 1
+        },
+        {
+            "InstanceID": "4c8e33bd-292f-4aed-8cab-0c89a4542d96",
+            "ItemID": "eq_weapon_03",
+            "EquipmentType": 0,
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 10
         }
     ]
 }

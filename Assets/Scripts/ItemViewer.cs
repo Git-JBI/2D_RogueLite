@@ -24,22 +24,22 @@ public class ItemViewer : MonoBehaviour
         switch(rarity)
         {
             case ItemRarity.Common:
-                _gradeImage.color = Color.gray;
+                _gradeImage.color = new Color(161, 165, 190);
                 break;
             case ItemRarity.UnCommon:
-                _gradeImage.color = Color.green;
+                _gradeImage.color = new Color(150, 255, 0);
                 break;
             case ItemRarity.Rare:
-                _gradeImage.color = Color.blue;
+                _gradeImage.color = new Color(0, 180, 255);
                 break;
             case ItemRarity.Unique:
-                _gradeImage.color = Color.magenta;
+                _gradeImage.color = new Color(203, 36, 254);
                 break;
             case ItemRarity.Epic:
-                _gradeImage.color = Color.yellow;
+                _gradeImage.color = new Color(255, 251, 6);
                 break;
             case ItemRarity.Legendary:
-                _gradeImage.color = Color.red;
+                _gradeImage.color = new Color(255, 89, 117);
                 break;
         }
     }
