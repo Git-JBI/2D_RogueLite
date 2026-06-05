@@ -48,6 +48,17 @@ public class GameModel : MonoBehaviour
         set { _gameData.LastWeeklyResetDate = value; }
     }
 
+    public List<AchievementProgressData> DailyAchievements
+    {
+        get { return _gameData.DailyAchievements; }
+        set { _gameData.DailyAchievements = value; }
+    }
+    public List<AchievementProgressData> WeeklyAchievements
+    {
+        get { return _gameData.WeeklyAchievements; }
+        set { _gameData.WeeklyAchievements = value; }
+    }
+
     public List<EquipmentItemData> InventoryEquipmentItems => _gameData.InventoryEquipmentItems;
     public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
@@ -221,6 +232,7 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void InitModel()
     {
+        // 플레이어 캐릭터 설정이 안되어 있을 시
         if (_gameData.HeroDataName == null)
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData00");
@@ -229,10 +241,43 @@ public class GameModel : MonoBehaviour
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
+        // 일일 업적 설정이 안되어 있을 시
+        if(DailyAchievements.Count == 0)
+        {
+            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
+
+            foreach(SO_AchievementData datas in achievementDatas)
+            {
+                AchievementProgressData data = new();
+
+                if (datas.Type == AchievementType.Daily)
+                {
+                    data.AchievementId = datas.AchievementId;
+                    DailyAchievements.Add(data);
+                }
+            }
+        }
+        // 주간 업적 설정이 안되어 있을 시
+        if(WeeklyAchievements.Count == 0)
+        {
+            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
+
+            foreach (SO_AchievementData datas in achievementDatas)
+            {
+                AchievementProgressData data = new();
+                
+                if(datas.Type == AchievementType.Weekley)
+                {
+                    data.AchievementId = datas.AchievementId;
+                    WeeklyAchievements.Add(data);
+                }
+            }
+        }
+
     }
 
     /// <summary>
-    /// 일일접속 체크
+    /// Daily 체크
     /// </summary>
     private void CheckDailyDate()
     {
@@ -253,7 +298,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 월요일 00시 기준으로 주간 초기화 체크
+    /// 월요일 00시 기준으로 주간 체크
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
@@ -266,7 +311,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 주간 초기화
+    /// Weekly 체크
     /// </summary>
     private void CheckWeeklyReset()
     {
@@ -286,7 +331,7 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void ResetDailyAchievements()
     {
-        foreach (var achievement in _gameData.DailyAchievements)
+        foreach (var achievement in DailyAchievements)
         {
             achievement.Progress = 0;
             achievement.IsRewardClaimed = false;
@@ -299,7 +344,7 @@ public class GameModel : MonoBehaviour
     /// </summary>
     private void ResetWeeklyAchievements()
     {
-        foreach (var achievement in _gameData.WeeklyAchievements)
+        foreach (var achievement in WeeklyAchievements)
         {
             achievement.Progress = 0;
             achievement.IsRewardClaimed = false;
