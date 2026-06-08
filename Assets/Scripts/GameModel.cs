@@ -25,7 +25,7 @@ public class GameModel : MonoBehaviour
     {
         get { return _gameData.Gold; }
     }
-
+    public int Emerald => _gameData.Emerald;
     public int[] UpgradeLevel
     {
         get { return _gameData.UpgradeLevel; }
@@ -76,6 +76,16 @@ public class GameModel : MonoBehaviour
     public void AddGold(int value)
     {
         _gameData.Gold += value;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 에메랄드 더하는 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void AddEmerald(int value)
+    {
+        _gameData.Emerald += value;
         SaveData();
     }
 
