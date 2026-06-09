@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameModel : MonoBehaviour
 {
+    /// <summary>
+    /// 저장되어야 할 게임데이터
+    /// </summary>
     [SerializeField] private GameData _gameData;
     private HeroData _heroData;
 
@@ -200,7 +203,7 @@ public class GameModel : MonoBehaviour
     /// <summary>
     /// 게임 데이터 저장
     /// </summary>
-    public void SaveData()
+    private void SaveData()
     {
         string gameDataToJson = JsonUtility.ToJson(_gameData, true);
 #if UNITY_EDITOR
@@ -221,8 +224,6 @@ public class GameModel : MonoBehaviour
 #else
         string path = Path.Combine(Application.persistentDataPath, "gameData.json");
 #endif
-
-
         // 세이브 파일 존재 여부 확인
         if (File.Exists(path))
         {
