@@ -1,57 +1,178 @@
-using System.IO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
-    [SerializeField] private DailyAchievementData _dailyAchievementData;
-    [SerializeField] private WeeklyAchievementData _weeklyAchievementData;
-    [SerializeField] private AchievementData _AchievementData;
+    private List<SO_AchievementData> _achievementDatas = new();
 
+    private void Awake()
+    {
+        _achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
+    }
+
+    private void Start()
+    {
+        CheckDailyDate();
+        CheckWeeklyDate();
+    }
 
     /// <summary>
-    /// 일일 업적 데이터 저장
+    /// 업적 내용 갱신
     /// </summary>
-    private void SaveDailyData()
+    /// <param name="conditionType"></param>
+    /// <param name="amount"></param>
+    public void Report(AchievementConditionType conditionType, int amount = 1)
     {
-        string gameDataToJson = JsonUtility.ToJson(_dailyAchievementData, true);
-#if UNITY_EDITOR
-        string path = Path.Combine(Application.dataPath, "DailyAchievementData.json");
-#else
-        string path = Path.Combine(Application.persistentDataPath, "DailyAchievementData.json");
-#endif
-        File.WriteAllText(path, gameDataToJson);
+        foreach (var achievement in _achievementDatas)
+        {
+            if (achievement.ConditionType != conditionType)
+                continue;
+
+            AchievementProgressData progress = GetProgress(achievement);
+
+            if (progress.IsRewardClaimed)
+                continue;
+
+            progress.Progress += amount;
+
+            if (progress.Progress >= achievement.TargetValue)
+            {
+                progress.Progress = achievement.TargetValue;
+                progress.IsCompleted = true;
+            }
+        }
+
+        GameManager.Instance.GameModel.SaveGameData();
     }
     /// <summary>
-    /// 주간 업적 데이터 저장
+    /// 업적 데이터 가져오기
     /// </summary>
-    private void SaveWeeklyData()
+    /// <param name="achievement"></param>
+    /// <returns></returns>
+    private AchievementProgressData GetProgress(SO_AchievementData achievement)
     {
-        string gameDataToJson = JsonUtility.ToJson(_weeklyAchievementData, true);
-#if UNITY_EDITOR
-        string path = Path.Combine(Application.dataPath, "WeeklyAchievementData.json");
-#else
-        string path = Path.Combine(Application.persistentDataPath, "WeeklyAchievementData.json");
-#endif
-        File.WriteAllText(path, gameDataToJson);
+        // 업적 Type에 따른 리스트를 가져온다(Daily, Weekly, Total)
+        List<AchievementProgressData> progressList = GetProgressList(achievement.Type);
+
+        // AchievementId에 맞는 업적을 가져온다
+        AchievementProgressData progress = progressList.Find(
+            x => x.AchievementId == achievement.AchievementId
+        );
+
+        // 해당 업적이 존재하지 않는다면
+        if (progress == null)
+        {
+            // 업적 생성
+            progress = new AchievementProgressData
+            {
+                AchievementId = achievement.AchievementId,
+                Progress = 0,
+                IsCompleted = false,
+                IsRewardClaimed = false
+            };
+
+            // 업적 추가
+            progressList.Add(progress);
+        }
+
+        return progress;
     }
     /// <summary>
-    /// 업적 데이터 저장
+    /// 업적 리스트 가져오기
     /// </summary>
-    private void SaveData()
+    /// <param name="type"></param>
+    /// <returns></returns>
+    private List<AchievementProgressData> GetProgressList(AchievementType type)
     {
-        string gameDataToJson = JsonUtility.ToJson(_AchievementData, true);
-#if UNITY_EDITOR
-        string path = Path.Combine(Application.dataPath, "AchievementData.json");
-#else
-        string path = Path.Combine(Application.persistentDataPath, "AchievementData.json");
-#endif
-        File.WriteAllText(path, gameDataToJson);
+        switch (type)
+        {
+            case AchievementType.Daily:
+                return GameManager.Instance.GameModel.DailyAchievements;
+
+            case AchievementType.Weekly:
+                return GameManager.Instance.GameModel.WeeklyAchievements;
+
+            case AchievementType.Total:
+                return GameManager.Instance.GameModel.TotalAchievements;
+
+            default:
+                return GameManager.Instance.GameModel.DailyAchievements;
+        }
     }
+
     /// <summary>
-    /// 업적 데이터 불러오기
+    /// Daily 체크
     /// </summary>
-    private void LoadData()
+    private void CheckDailyDate()
     {
-        // Daily, Weekly, Total
+        string today = DateTime.Now.ToString("yyyy-MM-dd");
+
+        if (GameManager.Instance.GameModel.LastDailyResetDate == "")
+            GameManager.Instance.GameModel.LastDailyResetDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+        if (GameManager.Instance.GameModel.LastDailyResetDate == today)
+            return;
+
+        ResetDailyAchievements();
+
+        GameManager.Instance.GameModel.LastDailyResetDate = today;
+        GameManager.Instance.GameModel.SaveGameData();
+    }
+
+    /// <summary>
+    /// 월요일 00시 기준으로 주간 체크
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    private string GetWeekStartDateString(DateTime date)
+    {
+        int diff = ((int)date.DayOfWeek - (int)DayOfWeek.Monday + 7) % 7;
+        DateTime monday = date.Date.AddDays(-diff);
+
+        return monday.ToString("yyyy-MM-dd");
+    }
+
+    /// <summary>
+    /// Weekly 체크
+    /// </summary>
+    private void CheckWeeklyDate()
+    {
+        string thisWeek = GetWeekStartDateString(DateTime.Now);
+
+        if (GameManager.Instance.GameModel.LastWeeklyResetDate == thisWeek)
+            return;
+
+        ResetWeeklyAchievements();
+
+        GameManager.Instance.GameModel.LastWeeklyResetDate = thisWeek;
+        GameManager.Instance.GameModel.SaveGameData();
+    }
+
+    /// <summary>
+    /// 일일 업적 초기화
+    /// </summary>
+    private void ResetDailyAchievements()
+    {
+        foreach (var achievement in GameManager.Instance.GameModel.DailyAchievements)
+        {
+            achievement.Progress = 0;
+            achievement.IsRewardClaimed = false;
+            achievement.IsCompleted = false;
+        }
+    }
+
+    /// <summary>
+    /// 주간 업적 초기화
+    /// </summary>
+    private void ResetWeeklyAchievements()
+    {
+        foreach (var achievement in GameManager.Instance.GameModel.WeeklyAchievements)
+        {
+            achievement.Progress = 0;
+            achievement.IsRewardClaimed = false;
+            achievement.IsCompleted = false;
+        }
     }
 }

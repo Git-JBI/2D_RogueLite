@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementId: Daily_LogIn
   Type: 0
+  ConditionType: 0
   AchievementName: "\uB85C\uADF8\uC778"
   TargetValue: 1
   RewardType: 2

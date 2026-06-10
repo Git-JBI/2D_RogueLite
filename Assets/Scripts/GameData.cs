@@ -17,6 +17,7 @@ public class GameData
 
     public List<AchievementProgressData> DailyAchievements = new();
     public List<AchievementProgressData> WeeklyAchievements = new();
+    public List<AchievementProgressData> TotalAchievements = new();
 
     public List<EquipmentItemData> InventoryEquipmentItems = new List<EquipmentItemData>();
     public List<EquipmentItemData> EquippedItems = new List<EquipmentItemData>();

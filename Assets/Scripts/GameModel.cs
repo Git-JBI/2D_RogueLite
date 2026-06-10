@@ -9,6 +9,7 @@ public class GameModel : MonoBehaviour
     /// 저장되어야 할 게임데이터
     /// </summary>
     [SerializeField] private GameData _gameData;
+
     private HeroData _heroData;
 
     private int _equipmentBonusAtk;
@@ -51,17 +52,9 @@ public class GameModel : MonoBehaviour
         set { _gameData.LastWeeklyResetDate = value; }
     }
 
-    public List<AchievementProgressData> DailyAchievements
-    {
-        get { return _gameData.DailyAchievements; }
-        set { _gameData.DailyAchievements = value; }
-    }
-    public List<AchievementProgressData> WeeklyAchievements
-    {
-        get { return _gameData.WeeklyAchievements; }
-        set { _gameData.WeeklyAchievements = value; }
-    }
-
+    public List<AchievementProgressData> DailyAchievements => _gameData.DailyAchievements;
+    public List<AchievementProgressData> WeeklyAchievements => _gameData.WeeklyAchievements;
+    public List<AchievementProgressData> TotalAchievements => _gameData.TotalAchievements;
     public List<EquipmentItemData> InventoryEquipmentItems => _gameData.InventoryEquipmentItems;
     public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
@@ -200,6 +193,11 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    public void SaveGameData()
+    {
+        SaveData();
+    }
+
     /// <summary>
     /// 게임 데이터 저장
     /// </summary>
@@ -252,114 +250,57 @@ public class GameModel : MonoBehaviour
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
-        // 일일 업적 설정이 안되어 있을 시
-        if(DailyAchievements.Count == 0)
+
+        // 일일 업적 데이터 값이 없을 경우
+        if (DailyAchievements.Count == 0)
         {
+            // 설정해둔 모든 업적의 종류
             SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
 
             foreach(SO_AchievementData datas in achievementDatas)
             {
                 AchievementProgressData data = new();
 
-                if (datas.Type == AchievementType.Daily)
+                if(datas.Type == AchievementType.Daily)
                 {
                     data.AchievementId = datas.AchievementId;
                     DailyAchievements.Add(data);
                 }
             }
         }
-        // 주간 업적 설정이 안되어 있을 시
-        if(WeeklyAchievements.Count == 0)
+        // 주간 업적 데이터값이 없을 경우
+        if (WeeklyAchievements.Count == 0)
         {
+            // 설정해둔 모든 업적의 종류
             SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
 
             foreach (SO_AchievementData datas in achievementDatas)
             {
                 AchievementProgressData data = new();
-                
-                if(datas.Type == AchievementType.Weekley)
+
+                if (datas.Type == AchievementType.Weekly)
                 {
                     data.AchievementId = datas.AchievementId;
                     WeeklyAchievements.Add(data);
                 }
             }
         }
-
-    }
-
-    /// <summary>
-    /// Daily 체크
-    /// </summary>
-    private void CheckDailyDate()
-    {
-        string today = DateTime.Now.ToString("yyyy-MM-dd");
-
-        if(LastDailyResetDate == "")
-            LastDailyResetDate = DateTime.Now.ToString("yyyy-MM-dd");
-
-        if (LastDailyResetDate == today)
-            return;
-
-        // 하루가 지났으므로
-        // 일일업적 목록 초기화
-        ResetDailyAchievements();
-
-        _gameData.LastDailyResetDate = today;
-        SaveData();
-    }
-
-    /// <summary>
-    /// 월요일 00시 기준으로 주간 체크
-    /// </summary>
-    /// <param name="date"></param>
-    /// <returns></returns>
-    private string GetWeekStartDateString(DateTime date)
-    {
-        int diff = ((int)date.DayOfWeek - (int)DayOfWeek.Monday + 7) % 7;
-        DateTime monday = date.Date.AddDays(-diff);
-
-        return monday.ToString("yyyy-MM-dd");
-    }
-
-    /// <summary>
-    /// Weekly 체크
-    /// </summary>
-    private void CheckWeeklyReset()
-    {
-        string thisWeek = GetWeekStartDateString(DateTime.Now);
-
-        if (_gameData.LastWeeklyResetDate == thisWeek)
-            return;
-
-        ResetWeeklyAchievements();
-
-        _gameData.LastWeeklyResetDate = thisWeek;
-        SaveData();
-    }
-
-    /// <summary>
-    /// 일일 업적 초기화
-    /// </summary>
-    private void ResetDailyAchievements()
-    {
-        foreach (var achievement in DailyAchievements)
+        // 토탈 업적 데이터값이 없을 경우
+        if (TotalAchievements.Count == 0)
         {
-            achievement.Progress = 0;
-            achievement.IsRewardClaimed = false;
-            achievement.IsCompleted = false;
-        }
-    }
+            // 설정해둔 모든 업적의 종류
+            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
 
-    /// <summary>
-    /// 주간 업적 초기화
-    /// </summary>
-    private void ResetWeeklyAchievements()
-    {
-        foreach (var achievement in WeeklyAchievements)
-        {
-            achievement.Progress = 0;
-            achievement.IsRewardClaimed = false;
-            achievement.IsCompleted = false;
+            foreach (SO_AchievementData datas in achievementDatas)
+            {
+                AchievementProgressData data = new();
+
+                if (datas.Type == AchievementType.Total)
+                {
+                    data.AchievementId = datas.AchievementId;
+                    TotalAchievements.Add(data);
+                }
+            }
         }
     }
 }

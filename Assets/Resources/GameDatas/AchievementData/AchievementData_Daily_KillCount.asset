@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementId: Daily_KillCount
   Type: 0
+  ConditionType: 1
   AchievementName: "\uC801 \uCC98\uCE58 \uC218"
   TargetValue: 100
   RewardType: 1

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementId: Daily_EquipmentLevelUp
   Type: 0
+  ConditionType: 3
   AchievementName: "\uC7A5\uBE44 \uB808\uBCA8\uC5C5"
   TargetValue: 1
   RewardType: 3
