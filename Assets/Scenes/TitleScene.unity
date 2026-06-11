@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 1924822232}
   - component: {fileID: 1924822231}
   - component: {fileID: 1924822234}
+  - component: {fileID: 1924822235}
   - component: {fileID: 1924822233}
   m_Layer: 0
   m_Name: GamaManager
@@ -802,8 +803,15 @@ MonoBehaviour:
   _gameData:
     HeroDataName: 
     Gold: 0
+    Emerald: 0
     UpgradeLevel: 000000000000000000000000
-    InventoryItems: []
+    UpgradeScroll: 000000000000000000000000000000000000000000000000
+    LastDailyResetDate: 
+    LastWeeklyResetDate: 
+    DailyAchievements: []
+    WeeklyAchievements: []
+    TotalAchievements: []
+    InventoryEquipmentItems: []
     EquippedItems: []
 --- !u!114 &1924822234
 MonoBehaviour:
@@ -815,6 +823,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ee77d52318d9d409397f0ccab66796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1924822235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924822228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4595710f38aab0645a89d5505235ad6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2117605424

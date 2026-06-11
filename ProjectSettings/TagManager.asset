@@ -8,6 +8,7 @@ TagManager:
   - Magnatic
   - Hero
   - Boss
+  - Background
   layers:
   - Default
   - TransparentFX

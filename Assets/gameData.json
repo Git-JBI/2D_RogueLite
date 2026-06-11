@@ -1,6 +1,7 @@
 {
     "HeroDataName": "00",
-    "Gold": 8437000,
+    "Gold": 8435000,
+    "Emerald": 0,
     "UpgradeLevel": [
         0,
         0,
@@ -8,12 +9,36 @@
     ],
     "UpgradeScroll": [
         763,
-        941,
+        939,
         919,
         0,
         23,
         919
     ],
+    "LastDailyResetDate": "2026-06-12",
+    "LastWeeklyResetDate": "2026-06-08",
+    "DailyAchievements": [
+        {
+            "AchievementId": "Daily_EquipmentLevelUp",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_KillCount",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_LogIn",
+            "Progress": 1,
+            "IsCompleted": true,
+            "IsRewardClaimed": false
+        }
+    ],
+    "WeeklyAchievements": [],
+    "TotalAchievements": [],
     "InventoryEquipmentItems": [
         {
             "InstanceID": "9a4efe32-a73b-4f8c-90f4-fd770e7a3ebe",
@@ -792,14 +817,6 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "56ee35cc-5608-4a66-bbc5-799dfdf633c8",
-            "ItemID": "eq_Necklace_01",
-            "EquipmentType": 1,
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "ffcabaac-312c-4fb6-8622-4c95a52d72cc",
             "ItemID": "eq_weapon_01",
             "EquipmentType": 0,
@@ -926,6 +943,14 @@
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 10
+        },
+        {
+            "InstanceID": "835e4c0a-f340-4239-8e10-52b713855168",
+            "ItemID": "eq_Necklace_01",
+            "EquipmentType": 1,
+            "Rarity": 2,
+            "RarityLevel": 0,
+            "ItemLevel": 1
         }
     ],
     "EquippedItems": [
@@ -936,14 +961,6 @@
             "Rarity": 3,
             "RarityLevel": 0,
             "ItemLevel": 11
-        },
-        {
-            "InstanceID": "835e4c0a-f340-4239-8e10-52b713855168",
-            "ItemID": "eq_Necklace_01",
-            "EquipmentType": 1,
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1
         },
         {
             "InstanceID": "e5d4c30f-98a2-46c3-a54b-2b267d36be00",
@@ -976,6 +993,14 @@
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 10
+        },
+        {
+            "InstanceID": "56ee35cc-5608-4a66-bbc5-799dfdf633c8",
+            "ItemID": "eq_Necklace_01",
+            "EquipmentType": 1,
+            "Rarity": 3,
+            "RarityLevel": 0,
+            "ItemLevel": 1
         }
     ]
 }

@@ -7,6 +7,8 @@ public class AchievementManager : MonoBehaviour
 {
     private List<SO_AchievementData> _achievementDatas = new();
 
+    public IReadOnlyList<SO_AchievementData> AchievementDatas => _achievementDatas;
+
     private void Awake()
     {
         _achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
@@ -16,6 +18,19 @@ public class AchievementManager : MonoBehaviour
     {
         CheckDailyDate();
         CheckWeeklyDate();
+
+        // 로그인 했는지 확인
+        CheckLogin();
+    }
+
+    /// <summary>
+    /// 설정 데이터 불러오기
+    /// </summary>
+    /// <param name="achievementId">업적 ID</param>
+    /// <returns></returns>
+    public SO_AchievementData GetAchievementData(string achievementId)
+    {
+        return _achievementDatas.Find(x => x.AchievementId == achievementId);
     }
 
     /// <summary>
@@ -84,7 +99,7 @@ public class AchievementManager : MonoBehaviour
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    private List<AchievementProgressData> GetProgressList(AchievementType type)
+    public List<AchievementProgressData> GetProgressList(AchievementType type)
     {
         switch (type)
         {
@@ -98,7 +113,7 @@ public class AchievementManager : MonoBehaviour
                 return GameManager.Instance.GameModel.TotalAchievements;
 
             default:
-                return GameManager.Instance.GameModel.DailyAchievements;
+                return null;
         }
     }
 
@@ -173,6 +188,27 @@ public class AchievementManager : MonoBehaviour
             achievement.Progress = 0;
             achievement.IsRewardClaimed = false;
             achievement.IsCompleted = false;
+        }
+    }
+    /// <summary>
+    /// 금일 로그인 체크
+    /// </summary>
+    private void CheckLogin()
+    {
+        // 일일업적 리스트 가져오기
+        List<AchievementProgressData> dailyAchievementList = GetProgressList(AchievementType.Daily);
+
+        // 일일업적 리스트 순회
+        foreach (AchievementProgressData data in dailyAchievementList)
+        {
+            if(data.AchievementId == "Daily_LogIn")
+            {
+                // 로그인을 하지 않았다면
+                if(data.Progress == 0)
+                {
+                    Report(AchievementConditionType.Login, 1);
+                }
+            }
         }
     }
 }

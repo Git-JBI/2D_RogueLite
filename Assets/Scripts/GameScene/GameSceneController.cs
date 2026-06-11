@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class GameSceneController : MonoBehaviour
@@ -82,6 +81,9 @@ public class GameSceneController : MonoBehaviour
 
         //TODO 스테이지 내에서 획득한 골드 추가
         // GameManager.Instance.GameData.AddGold(_sceneModel.StageGold);
+
+        // 업적 적용
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _sceneModel.EnemyDeadCount);
 
         // 시간 흐름 X
         Time.timeScale = 0;
