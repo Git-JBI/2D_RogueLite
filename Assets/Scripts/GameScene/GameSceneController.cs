@@ -61,12 +61,18 @@ public class GameSceneController : MonoBehaviour
         _heroController.Init();
     }
 
+    /// <summary>
+    /// 스테이지 클리어 시 호출할 함수
+    /// </summary>
     private void ClearStage()
     {
         // 최대 스테이지 +1 증가
         GameManager.Instance.GameModel.IncreaseMaxStage();
     }
 
+    /// <summary>
+    /// 플레이어 사망 시 호출할 함수
+    /// </summary>
     private void PlayerDead()
     {
         ReportKillCount();

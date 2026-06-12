@@ -146,6 +146,9 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    /// <summary>
+    /// 최대 스테이지 +1 증가 함수
+    /// </summary>
     public void IncreaseMaxStage()
     {
         _gameData.MaxStage++;

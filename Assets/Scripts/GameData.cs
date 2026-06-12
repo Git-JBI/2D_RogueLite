@@ -13,6 +13,9 @@ public class GameData
     /// </summary>
     public int[] UpgradeScroll = new int[6];
 
+    public int DailyAchievementScore;
+    public int WeeklyAchievementScore;
+
     public string LastDailyResetDate;
     public string LastWeeklyResetDate;
 

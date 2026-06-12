@@ -6,7 +6,6 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     private List<SO_AchievementData> _achievementDatas = new();
-    //TODO totalAchievement는 다른 ScriptableObject사용
 
     private void Awake()
     {
@@ -31,7 +30,6 @@ public class AchievementManager : MonoBehaviour
     {
         return _achievementDatas.Find(x => x.AchievementId == achievementId);
     }
-
     /// <summary>
     /// 업적 내용 갱신
     /// </summary>
@@ -115,7 +113,6 @@ public class AchievementManager : MonoBehaviour
                 return null;
         }
     }
-
     /// <summary>
     /// 업적 보상 받는 함수
     /// </summary>
@@ -169,7 +166,6 @@ public class AchievementManager : MonoBehaviour
         GameManager.Instance.GameModel.LastDailyResetDate = today;
         GameManager.Instance.GameModel.SaveGameData();
     }
-
     /// <summary>
     /// 월요일 00시 기준으로 주간 체크
     /// </summary>
@@ -182,7 +178,6 @@ public class AchievementManager : MonoBehaviour
 
         return monday.ToString("yyyy-MM-dd");
     }
-
     /// <summary>
     /// Weekly 체크
     /// </summary>
@@ -198,7 +193,6 @@ public class AchievementManager : MonoBehaviour
         GameManager.Instance.GameModel.LastWeeklyResetDate = thisWeek;
         GameManager.Instance.GameModel.SaveGameData();
     }
-
     /// <summary>
     /// 일일 업적 초기화
     /// </summary>
@@ -211,7 +205,6 @@ public class AchievementManager : MonoBehaviour
             achievement.IsCompleted = false;
         }
     }
-
     /// <summary>
     /// 주간 업적 초기화
     /// </summary>

@@ -24,7 +24,7 @@ public class AchievementSlotManager : MonoBehaviour
         // 업적 슬롯을 프리팹으로 가지고 있는다.
         _dateSlotPrefab = GameManager.Instance.ResourceManager.GetPrefabOnce<AchievementSlot>("Prefabs/Achievement/DateAchievement");
 
-        //TODO 0. 업적 진행 완료 > 미완료 > 보상 받음 순서로 업적슬롯리스트 갱신
+        //TODO 업적 진행 완료 > 미완료 > 보상 받음 순서로 업적슬롯리스트 갱신
 
         // 데일리 업적 갯수 파악 후 생성한다.
         foreach(AchievementProgressData data in GameManager.Instance.AchievementManager.GetProgressList(AchievementType.Daily))

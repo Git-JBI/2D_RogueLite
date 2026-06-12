@@ -1,12 +1,13 @@
 {
     "HeroDataName": "00",
-    "Gold": 8362400,
+    "Gold": 8362900,
     "Emerald": 50,
     "UpgradeLevel": [
         8,
         10,
         10
     ],
+    "MaxStage": 1,
     "UpgradeScroll": [
         764,
         939,
@@ -28,7 +29,7 @@
             "AchievementId": "Daily_KillCount",
             "Progress": 100,
             "IsCompleted": true,
-            "IsRewardClaimed": false
+            "IsRewardClaimed": true
         },
         {
             "AchievementId": "Daily_LogIn",

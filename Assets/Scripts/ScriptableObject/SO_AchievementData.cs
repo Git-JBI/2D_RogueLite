@@ -23,6 +23,7 @@ public enum AchievementRewardType
     Gold,
     Emerald,
     Scroll,
+    Score,
 }
 
 [CreateAssetMenu(menuName = "GameDatas/AchievementData", fileName = "AchievementData")]
