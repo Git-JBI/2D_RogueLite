@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
-  m_Name: 01AchievementData_Daily_KillCount
+  m_Name: AchievementData_Daily_KillCount
   m_EditorClassIdentifier: 
   AchievementId: Daily_KillCount
   Type: 0

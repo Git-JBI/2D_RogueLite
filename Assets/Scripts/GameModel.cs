@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -97,6 +96,36 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
+    /// 랜덤으로 정해진 숫자대로 스크롤을 더하는 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void AddRandomUpgradeScroll(int value)
+    {
+        System.Random random = new();
+        List<int> bars = new();
+
+        for(int i = 0; i < 5; i++)
+        {
+            bars.Add(random.Next(0, value));
+        }
+        bars.Sort();
+
+        // 0번 스크롤 추가
+        AddUpgradeScroll(0, bars[0]);
+
+        // 1~4번 스크롤 추가
+        for(int i = 1; i < 5; i++)
+        {
+            int scrollValue = bars[i] - bars[i - 1];
+            AddUpgradeScroll(i, scrollValue);
+        }
+
+        // 5번 스크롤 추가
+        int lastScrollValue = value - bars[bars.Count - 1];
+        AddUpgradeScroll(5, lastScrollValue);
+    }
+
+    /// <summary>
     /// 영웅 선택
     /// </summary>
     /// <param name="value"></param>
@@ -114,6 +143,12 @@ public class GameModel : MonoBehaviour
     public void IncreaseUpgradeLevel(int value)
     {
         _gameData.UpgradeLevel[value]++;
+        SaveData();
+    }
+
+    public void IncreaseMaxStage()
+    {
+        _gameData.MaxStage++;
         SaveData();
     }
 
@@ -193,6 +228,9 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
 
+    /// <summary>
+    /// 전역용도 게임 데이터 저장
+    /// </summary>
     public void SaveGameData()
     {
         SaveData();
@@ -250,13 +288,38 @@ public class GameModel : MonoBehaviour
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
-
-        // 일일 업적 데이터 값이 없을 경우
-        if (DailyAchievements.Count == 0)
+        // 최대 스테이지 설정값이 없을 경우
+        if(_gameData.MaxStage == 0)
         {
-            // 설정해둔 모든 업적의 종류
-            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
+            _gameData.MaxStage = 1;
+        }
 
+        // 설정해둔 모든 업적 설정 데이터
+        SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
+
+        // 각각업적 설정데이터 리스트
+        List<SO_AchievementData> dailyDatas = new();
+        List<SO_AchievementData> weeklyDatas = new();
+        List<SO_AchievementData> totalDatas = new();
+        foreach(SO_AchievementData data in achievementDatas)
+        {
+            switch(data.Type)
+            {
+                case AchievementType.Daily:
+                    dailyDatas.Add(data);
+                    break;
+                case AchievementType.Weekly:
+                    weeklyDatas.Add(data);
+                    break;
+                case AchievementType.Total:
+                    totalDatas.Add(data);
+                    break;
+            }
+        }
+
+        // 일일 업적 데이터길이가 설정데이터 길이와 다를 경우
+        if (DailyAchievements.Count != dailyDatas.Count)
+        {
             foreach(SO_AchievementData datas in achievementDatas)
             {
                 AchievementProgressData data = new();
@@ -269,11 +332,8 @@ public class GameModel : MonoBehaviour
             }
         }
         // 주간 업적 데이터값이 없을 경우
-        if (WeeklyAchievements.Count == 0)
+        if (WeeklyAchievements.Count != weeklyDatas.Count)
         {
-            // 설정해둔 모든 업적의 종류
-            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
-
             foreach (SO_AchievementData datas in achievementDatas)
             {
                 AchievementProgressData data = new();
@@ -286,11 +346,8 @@ public class GameModel : MonoBehaviour
             }
         }
         // 토탈 업적 데이터값이 없을 경우
-        if (TotalAchievements.Count == 0)
+        if (TotalAchievements.Count != totalDatas.Count)
         {
-            // 설정해둔 모든 업적의 종류
-            SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
-
             foreach (SO_AchievementData datas in achievementDatas)
             {
                 AchievementProgressData data = new();

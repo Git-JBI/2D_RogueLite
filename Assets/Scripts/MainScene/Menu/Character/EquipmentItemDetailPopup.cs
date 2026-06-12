@@ -126,6 +126,9 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         // 아이템 레벨업
         GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
 
+        // 업적 갱신
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.EquipmentLevelUp, 1);
+
         // 재 표기
         RefreshLevelUpView();
     }
@@ -140,6 +143,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         // 현재 선택된 장비 타입에 따른 스크롤 갯수
         int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
+        // 레벨업 한 횟수
+        int countLevelUp = 0;
         // 총 사용한 골드
         int totalGoldCost = 0;
         // 총 사용한 스크롤
@@ -165,7 +170,11 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             totalScrollCost += scrollCost;
 
             _equipmentItemData.ItemLevel++;
+            countLevelUp++;
+            
         }
+        // 업적 갱신
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.EquipmentLevelUp, countLevelUp);
 
         // 사용한 재료들 데이터 저장(레벨은 바로 저장되기에 따로할 필요 없음)
         GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
-  m_Name: 02AchievementData_Daily_EquipmentLevelUp
+  m_Name: AchievementData_Daily_LogIn
   m_EditorClassIdentifier: 
-  AchievementId: Daily_EquipmentLevelUp
+  AchievementId: Daily_LogIn
   Type: 0
-  ConditionType: 3
-  AchievementName: "\uC7A5\uBE44 \uB808\uBCA8\uC5C5"
+  ConditionType: 0
+  AchievementName: "\uAC8C\uC784 \uB85C\uADF8\uC778"
   TargetValue: 1
-  RewardType: 3
-  RewardValue: 10
+  RewardType: 2
+  RewardValue: 50

@@ -41,7 +41,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
         _weaponController = GetComponentInChildren<HeroWeaponController>();
         _passiveController = GetComponentInChildren<PassiveController>();
         _heroHud = GetComponentInChildren<HeroHud>();
-
+        
         _heromodel.OnChangeHp += _heroHud.SetHpBar;
     }
     

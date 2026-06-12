@@ -6,8 +6,7 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     private List<SO_AchievementData> _achievementDatas = new();
-
-    public IReadOnlyList<SO_AchievementData> AchievementDatas => _achievementDatas;
+    //TODO totalAchievement는 다른 ScriptableObject사용
 
     private void Awake()
     {
@@ -118,6 +117,41 @@ public class AchievementManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 업적 보상 받는 함수
+    /// </summary>
+    /// <param name="achievementId"></param>
+    public void GetAchievementReward(AchievementProgressData progressData)
+    {
+        // progressData가 없을 경우
+        if (progressData == null)
+            return;
+        // 업적을 완료하지 않았거나 보상을 받았을 경우
+        if (!progressData.IsCompleted || progressData.IsRewardClaimed)
+            return;
+        SO_AchievementData data = GetAchievementData(progressData.AchievementId);
+
+        // progressData의 id에 해당하는 SO_AchievementData가 없을 경우
+        if (data == null)
+            return;
+
+        switch(data.RewardType)
+        {
+            case AchievementRewardType.Gold:
+                GameManager.Instance.GameModel.AddGold(data.RewardValue);
+                break;
+            case AchievementRewardType.Emerald:
+                GameManager.Instance.GameModel.AddEmerald(data.RewardValue);
+                break;
+            case AchievementRewardType.Scroll:
+                GameManager.Instance.GameModel.AddRandomUpgradeScroll(data.RewardValue);
+                break;
+        }
+
+        progressData.IsRewardClaimed = true;
+        GameManager.Instance.GameModel.SaveGameData();
+    }
+
+    /// <summary>
     /// Daily 체크
     /// </summary>
     private void CheckDailyDate()
@@ -203,7 +237,7 @@ public class AchievementManager : MonoBehaviour
         {
             if(data.AchievementId == "Daily_LogIn")
             {
-                // 로그인을 하지 않았다면
+                // 금일 로그인을 하지 않았다면
                 if(data.Progress == 0)
                 {
                     Report(AchievementConditionType.Login, 1);

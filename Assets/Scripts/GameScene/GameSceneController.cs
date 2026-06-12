@@ -10,6 +10,7 @@ public class GameSceneController : MonoBehaviour
 
     private GameSceneModel _sceneModel;
 
+    private bool _isKillCountReported = false;
     private bool _isBossTime = false;
     private bool _isBossSpawn = false;
 
@@ -55,9 +56,21 @@ public class GameSceneController : MonoBehaviour
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
         _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
-        _heroController.OnDead += _ui.Fail;
+        _heroController.OnDead += PlayerDead;
 
         _heroController.Init();
+    }
+
+    private void ClearStage()
+    {
+        // 최대 스테이지 +1 증가
+        GameManager.Instance.GameModel.IncreaseMaxStage();
+    }
+
+    private void PlayerDead()
+    {
+        ReportKillCount();
+        _ui.Fail();
     }
 
     /// <summary>
@@ -83,12 +96,29 @@ public class GameSceneController : MonoBehaviour
         // GameManager.Instance.GameData.AddGold(_sceneModel.StageGold);
 
         // 업적 적용
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _sceneModel.EnemyDeadCount);
+        ReportKillCount();
+        ReportBossKillCount();
 
         // 시간 흐름 X
         Time.timeScale = 0;
 
         // 클리어 창 띄우기
         _ui.Clear();
+    }
+
+    private void ReportKillCount()
+    {
+        // killcount가 report되었는지 확인, 적 처치수가 0 이하인 경우는 할 필요가 없음
+        if (_isKillCountReported || _sceneModel.EnemyDeadCount <= 0)
+            return;
+        
+        _isKillCountReported = true;
+
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _sceneModel.EnemyDeadCount);
+    }
+
+    private void ReportBossKillCount()
+    {
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillBoss);
     }
 }

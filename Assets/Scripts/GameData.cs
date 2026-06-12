@@ -7,6 +7,7 @@ public class GameData
     public int Gold;
     public int Emerald;
     public int[] UpgradeLevel = new int[3];
+    public int MaxStage;
     /// <summary>
     /// 0. π´±‚ 1. ∏Ò∞…¿Ã 2. ¿Â∞© 3. ∞©ø  4. ∫ß∆Æ 5. Ω≈πﬂ
     /// </summary>
