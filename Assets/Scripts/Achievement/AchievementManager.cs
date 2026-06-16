@@ -156,15 +156,14 @@ public class AchievementManager : MonoBehaviour
         string today = DateTime.Now.ToString("yyyy-MM-dd");
 
         if (GameManager.Instance.GameModel.LastDailyResetDate == "")
-            GameManager.Instance.GameModel.LastDailyResetDate = DateTime.Now.ToString("yyyy-MM-dd");
+            GameManager.Instance.GameModel.SetLastDailyResetDate(DateTime.Now.ToString("yyyy-MM-dd"));
 
         if (GameManager.Instance.GameModel.LastDailyResetDate == today)
             return;
 
         ResetDailyAchievements();
 
-        GameManager.Instance.GameModel.LastDailyResetDate = today;
-        GameManager.Instance.GameModel.SaveGameData();
+        GameManager.Instance.GameModel.SetLastDailyResetDate(today);
     }
     /// <summary>
     /// 월요일 00시 기준으로 주간 체크
@@ -190,7 +189,7 @@ public class AchievementManager : MonoBehaviour
 
         ResetWeeklyAchievements();
 
-        GameManager.Instance.GameModel.LastWeeklyResetDate = thisWeek;
+        GameManager.Instance.GameModel.SetLastWeeklyResetDate(thisWeek);
         GameManager.Instance.GameModel.SaveGameData();
     }
     /// <summary>

@@ -26,24 +26,12 @@ public class GameModel : MonoBehaviour
 
     public int Gold => _gameData.Gold;
     public int Emerald => _gameData.Emerald;
-    public int[] UpgradeLevel
-    {
-        get { return _gameData.UpgradeLevel; }
-        set { _gameData.UpgradeLevel = value; }
-    }
+    public int[] UpgradeLevel => _gameData.UpgradeLevel;
     public int MaxStage => _gameData.MaxStage;
     public int SelectStage => _gameData.SelectStage;
     public int[] UpgradeScroll => _gameData.UpgradeScroll;
-    public string LastDailyResetDate
-    {
-        get { return _gameData.LastDailyResetDate; }
-        set { _gameData.LastDailyResetDate = value; }
-    }
-    public string LastWeeklyResetDate
-    {
-        get { return _gameData.LastWeeklyResetDate; }
-        set { _gameData.LastWeeklyResetDate = value; }
-    }
+    public string LastDailyResetDate => _gameData.LastDailyResetDate;
+    public string LastWeeklyResetDate => _gameData.LastWeeklyResetDate;
 
     public List<AchievementProgressData> DailyAchievements => _gameData.DailyAchievements;
     public List<AchievementProgressData> WeeklyAchievements => _gameData.WeeklyAchievements;
@@ -67,7 +55,6 @@ public class GameModel : MonoBehaviour
         _gameData.Gold += value;
         SaveData();
     }
-
     /// <summary>
     /// 에메랄드 추가 함수
     /// </summary>
@@ -77,7 +64,6 @@ public class GameModel : MonoBehaviour
         _gameData.Emerald += value;
         SaveData();
     }
-
     /// <summary>
     /// 업그레이드 스크롤 추가 함수
     /// </summary>
@@ -88,7 +74,6 @@ public class GameModel : MonoBehaviour
         _gameData.UpgradeScroll[type] += value;
         SaveData();
     }
-
     /// <summary>
     /// 랜덤으로 정해진 숫자대로 스크롤을 추가하는 함수
     /// </summary>
@@ -136,7 +121,24 @@ public class GameModel : MonoBehaviour
         _gameData.SelectStage = value;
         SaveData();
     }
-
+    /// <summary>
+    /// 최근 일일접속체크용 기록 설정 함수
+    /// </summary>
+    /// <param name="today"></param>
+    public void SetLastDailyResetDate(string today)
+    {
+        _gameData.LastDailyResetDate = today;
+        SaveData();
+    }
+    /// <summary>
+    /// 최근 주간접속체크용 기록 설정 함수
+    /// </summary>
+    /// <param name="week"></param>
+    public void SetLastWeeklyResetDate(string week)
+    {
+        _gameData.LastWeeklyResetDate = week;
+        SaveData();
+    }
     /// <summary>
     /// 영웅 선택
     /// </summary>
@@ -147,7 +149,6 @@ public class GameModel : MonoBehaviour
         _gameData.HeroDataName = _heroData.HeroName;
         SaveData();
     }
-
     /// <summary>
     /// 업그레이드 레벨 증가
     /// </summary>
@@ -157,7 +158,6 @@ public class GameModel : MonoBehaviour
         _gameData.UpgradeLevel[value]++;
         SaveData();
     }
-
     /// <summary>
     /// 최대 스테이지 +1 증가 함수
     /// </summary>
@@ -166,7 +166,6 @@ public class GameModel : MonoBehaviour
         _gameData.MaxStage++;
         SaveData();
     }
-
     /// <summary>
     /// 장비 아이템 획득
     /// </summary>
@@ -176,7 +175,6 @@ public class GameModel : MonoBehaviour
         _gameData.InventoryEquipmentItems.Add(data);
         SaveData();
     }
-
     /// <summary>
     /// 장비 아이템 장착
     /// </summary>
@@ -208,7 +206,6 @@ public class GameModel : MonoBehaviour
         // 저장
         SaveData();
     }
-
     /// <summary>
     /// 장비 아이템 탈착
     /// </summary>
@@ -226,7 +223,6 @@ public class GameModel : MonoBehaviour
 
         SaveData();
     }
-
     /// <summary>
     /// 장비 아이템 레벨 업
     /// </summary>
@@ -242,7 +238,6 @@ public class GameModel : MonoBehaviour
         // 저장
         SaveData();
     }
-
     /// <summary>
     /// 전역용도 게임 데이터 저장
     /// </summary>
@@ -250,7 +245,6 @@ public class GameModel : MonoBehaviour
     {
         SaveData();
     }
-
     /// <summary>
     /// 게임 데이터 저장
     /// </summary>
@@ -264,7 +258,6 @@ public class GameModel : MonoBehaviour
 #endif
         File.WriteAllText(path, gameDataToJson);
     }
-
     /// <summary>
     /// 게임 데이터 불러오기
     /// </summary>
@@ -288,7 +281,6 @@ public class GameModel : MonoBehaviour
             SaveData();
         }
     }
-
     /// <summary>
     /// 게임 최초 실행 시 없는 데이터들 적용
     /// </summary>
