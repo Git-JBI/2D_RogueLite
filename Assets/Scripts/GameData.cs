@@ -24,7 +24,7 @@ public class GameData
     public List<AchievementProgressData> WeeklyAchievements = new();
     public List<AchievementProgressData> TotalAchievements = new();
 
-    public List<EquipmentItemData> InventoryEquipmentItems = new List<EquipmentItemData>();
+    public List<EquipmentItemData> EquipmentItems = new List<EquipmentItemData>();
     public List<EquipmentItemData> EquippedItems = new List<EquipmentItemData>();
     //TODO 일반 아이템 리스트 따로 필요(ex. 뽑기용 열쇠, 장비 강화용 주문서 등등)
 }

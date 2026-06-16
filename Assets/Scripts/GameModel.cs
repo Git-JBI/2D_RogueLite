@@ -33,10 +33,13 @@ public class GameModel : MonoBehaviour
     public string LastDailyResetDate => _gameData.LastDailyResetDate;
     public string LastWeeklyResetDate => _gameData.LastWeeklyResetDate;
 
+    public int EquipmentBonusAtk => _equipmentBonusAtk;
+    public int EquipmentBonusHp => _equipmentBonusHp;
+
     public List<AchievementProgressData> DailyAchievements => _gameData.DailyAchievements;
     public List<AchievementProgressData> WeeklyAchievements => _gameData.WeeklyAchievements;
     public List<AchievementProgressData> TotalAchievements => _gameData.TotalAchievements;
-    public List<EquipmentItemData> InventoryEquipmentItems => _gameData.InventoryEquipmentItems;
+    public List<EquipmentItemData> EquipmentItems => _gameData.EquipmentItems;
     public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
     private void Awake()
@@ -167,14 +170,72 @@ public class GameModel : MonoBehaviour
         SaveData();
     }
     /// <summary>
-    /// 장비 아이템 획득
+    /// 장비 아이템 리스트에 추가하는 함수
     /// </summary>
-    /// <param name="value">장비 아이템 데이터</param>
-    public void GetEquipItem(EquipmentItemData data)
+    /// <param name="data"></param>
+    public void AddEquipmentList(EquipmentItemData data)
     {
-        _gameData.InventoryEquipmentItems.Add(data);
+        _gameData.EquipmentItems.Add(data);
         SaveData();
     }
+    /// <summary>
+    /// 장비 아이템 리스트에서 제거하는 함수
+    /// </summary>
+    /// <param name="data"></param>
+    public void RemoveEquipmentList(EquipmentItemData data)
+    {
+        _gameData.EquipmentItems.Remove(data);
+        SaveData();
+    }
+    /// <summary>
+    /// 장비 아이템 리스트에서 instancecId를 이용해 아이템을 찾는 함수
+    /// </summary>
+    /// <param name="instanceId">인스턴스 ID</param>
+    /// <returns></returns>
+    public EquipmentItemData FindEquipmentList(string instanceId)
+    {
+        EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
+        // 아이템을 찾지 못한 경우
+        if (item == null)
+            return null;
+        // 아이템을 찾은 경우
+        else
+            return item;
+    }
+    /// <summary>
+    /// 장착 중인 장비 아이템 리스트에 추가하는 함수
+    /// </summary>
+    /// <param name="data"></param>
+    public void AddEquippedItemList(EquipmentItemData data)
+    {
+        _gameData.EquippedItems.Add(data);
+        SaveData();
+    }
+    /// <summary>
+    /// 장착 중인 장비 아이템 리스트에서 제거하는 함수
+    /// </summary>
+    /// <param name="data"></param>
+    public void RemoveEquippedItemList(EquipmentItemData data)
+    {
+        _gameData.EquippedItems.Remove(data);
+        SaveData();
+    }
+    /// <summary>
+    /// 장착 중인 장비 아이템 리스트에서 EquipmentType을 이용해 아이템을 찾는 함수
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public EquipmentItemData FindEquippedItemList(EquipmentType type)
+    {
+        EquipmentItemData item = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
+        // 아이템을 찾지 못한 경우
+        if (item == null)
+            return null;
+        // 아이템을 찾은 경우
+        else
+            return item;
+    }
+
     /// <summary>
     /// 장비 아이템 장착
     /// </summary>
@@ -182,7 +243,7 @@ public class GameModel : MonoBehaviour
     public void EquipItem(string instanceId)
     {
         // 새로 장착할 아이템
-        EquipmentItemData item = _gameData.InventoryEquipmentItems.Find(x => x.InstanceID == instanceId);
+        EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
 
         // 아이템이 없을 시 리턴
         if (item == null)
@@ -194,14 +255,18 @@ public class GameModel : MonoBehaviour
         // 장착중인 아이템이 있을 시
         if(equippedItem != null)
         {
-            // 장비 아이템 벗은 후 인벤토리 추가
+            // 장착중인 장비리스트에서 제거
             _gameData.EquippedItems.Remove(equippedItem);
-            _gameData.InventoryEquipmentItems.Add(equippedItem);
+            // 보유중인 장비리스트에 추가
+            _gameData.EquipmentItems.Add(equippedItem);
+            // 적용되어있는 스텟 감소
         }
 
-        // 아이템 장착
-        _gameData.InventoryEquipmentItems.Remove(item);
+        // 보유중인 장비리스트에서 제거
+        _gameData.EquipmentItems.Remove(item);
+        // 장착중인 장비리스트에 추가
         _gameData.EquippedItems.Add(item);
+        // 적용되는 스텟 추가
 
         // 저장
         SaveData();
@@ -219,7 +284,7 @@ public class GameModel : MonoBehaviour
             return;
 
         _gameData.EquippedItems.Remove(equippedItem);
-        _gameData.InventoryEquipmentItems.Add(equippedItem);
+        _gameData.EquipmentItems.Add(equippedItem);
 
         SaveData();
     }

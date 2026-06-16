@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EquipmentManager : MonoBehaviour
+public class EquipmentItemManager : MonoBehaviour
 {
     /// <summary>
     /// 장비 아이템 세부내용을 보여줄 팝업

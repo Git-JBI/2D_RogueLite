@@ -25,6 +25,12 @@ public enum ItemTier
     SSClass,
 }
 
+public enum EquipmentStatType
+{
+    Attack,
+    Hp,
+}
+
 public enum EquipmentType
 {
     Weapon,
@@ -50,6 +56,7 @@ public class SO_EquipmentItemData : ScriptableObject
     public string Id;
     public string ItemName;
     public EquipmentType EquipmentType;
+    public EquipmentStatType EquipmentStatType;
     public ItemTier ItemTier;
     public Sprite IconSprite;
     public string Desc;

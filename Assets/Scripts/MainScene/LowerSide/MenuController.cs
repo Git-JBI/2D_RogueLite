@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
 {
     //TODO 추후 개선 필요
     [SerializeField] private EquipmentInventoryManager _invenManager;
-    [SerializeField] private EquipmentManager _equipManager;
+    [SerializeField] private EquipmentItemManager _equipManager;
 
     [SerializeField] private RectTransform _transform;
     private MenuButton[] _buttons;

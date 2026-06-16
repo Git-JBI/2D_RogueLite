@@ -97,7 +97,7 @@ public class GachaManager : MonoBehaviour
             return;
 
         // 실행 했다면 뽑은 아이템 저장
-        GameManager.Instance.GameModel.GetEquipItem(equipmentItemData);
+        GameManager.Instance.GameModel.AddEquipmentList(equipmentItemData);
 
         // 업적 실행
         GameManager.Instance.AchievementManager.Report(AchievementConditionType.Gacha);
@@ -116,7 +116,7 @@ public class GachaManager : MonoBehaviour
         // 실행 했다면 뽑은 아이템 저장
         for(int i = 0; i < equipmentItemDatas.Count; i++)
         {
-            GameManager.Instance.GameModel.GetEquipItem(equipmentItemDatas[i]);
+            GameManager.Instance.GameModel.AddEquipmentList(equipmentItemDatas[i]);
         }
 
         // 업적 실행
