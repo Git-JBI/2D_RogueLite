@@ -24,22 +24,16 @@ public class GameModel : MonoBehaviour
         }
     }
 
-    public int Gold
-    {
-        get { return _gameData.Gold; }
-    }
+    public int Gold => _gameData.Gold;
     public int Emerald => _gameData.Emerald;
     public int[] UpgradeLevel
     {
         get { return _gameData.UpgradeLevel; }
         set { _gameData.UpgradeLevel = value; }
     }
-
-    public int[] UpgradeScroll
-    {
-        get { return _gameData.UpgradeScroll; }
-    }
-
+    public int MaxStage => _gameData.MaxStage;
+    public int SelectStage => _gameData.SelectStage;
+    public int[] UpgradeScroll => _gameData.UpgradeScroll;
     public string LastDailyResetDate
     {
         get { return _gameData.LastDailyResetDate; }
@@ -65,7 +59,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 골드 설정 함수
+    /// 골드 추가 함수
     /// </summary>
     /// <param name="value"></param>
     public void AddGold(int value)
@@ -75,7 +69,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 에메랄드 더하는 함수
+    /// 에메랄드 추가 함수
     /// </summary>
     /// <param name="value"></param>
     public void AddEmerald(int value)
@@ -85,7 +79,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 업그레이드 스크롤 설정 함수
+    /// 업그레이드 스크롤 추가 함수
     /// </summary>
     /// <param name="type"></param>
     /// <param name="value"></param>
@@ -96,7 +90,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// 랜덤으로 정해진 숫자대로 스크롤을 더하는 함수
+    /// 랜덤으로 정해진 숫자대로 스크롤을 추가하는 함수
     /// </summary>
     /// <param name="value"></param>
     public void AddRandomUpgradeScroll(int value)
@@ -123,6 +117,24 @@ public class GameModel : MonoBehaviour
         // 5번 스크롤 추가
         int lastScrollValue = value - bars[bars.Count - 1];
         AddUpgradeScroll(5, lastScrollValue);
+    }
+    /// <summary>
+    /// 최대 스테이지 설정 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetMaxStage(int value)
+    {
+        _gameData.MaxStage = value;
+        SaveData();
+    }
+    /// <summary>
+    /// 선택한 스테이지 설정 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetSelectStage(int value)
+    {
+        _gameData.SelectStage = value;
+        SaveData();
     }
 
     /// <summary>
@@ -292,11 +304,15 @@ public class GameModel : MonoBehaviour
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
         // 최대 스테이지 설정값이 없을 경우
-        if(_gameData.MaxStage == 0)
+        if(MaxStage == 0)
         {
-            _gameData.MaxStage = 1;
+            SetMaxStage(1);
         }
-
+        // 선택한 스테이지 설정값이 없을 경우
+        if(SelectStage == 0)
+        {
+            SetSelectStage(1);
+        }
         // 설정해둔 모든 업적 설정 데이터
         SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
 

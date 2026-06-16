@@ -7,13 +7,11 @@ public class MainSceneUIManager : MonoBehaviour
     /// </summary>
     [SerializeField] private UI_Text_Gold _goldText;
 
-    private HeroSelectViewer _heroSelectViewer;
     private MenuController _menuController;
     private UpgradeManager _upgradeManager;
 
     private void Awake()
     {
-        _heroSelectViewer = GetComponentInChildren<HeroSelectViewer>();
         _menuController = GetComponentInChildren<MenuController>();
         _upgradeManager = GetComponentInChildren<UpgradeManager>();
 

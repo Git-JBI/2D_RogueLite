@@ -13,6 +13,7 @@ public class Joystick : MonoBehaviour,
     private Vector2 _moveDir;
 
     private float _backgroundRadius;
+    private bool _isMoving;
 
     public event Action OnTouchDown;
     public event Action OnTouchUp;
@@ -21,6 +22,8 @@ public class Joystick : MonoBehaviour,
     private void Awake()
     {
         _joystick = GetComponentsInChildren<Image>();
+
+        _isMoving = false;
 
         _backgroundRadius = _joystick[1].rectTransform.rect.width / 2;
 
@@ -59,8 +62,6 @@ public class Joystick : MonoBehaviour,
 
         _joystick[1].rectTransform.position = _pointerDownPosition;
         _joystick[2].rectTransform.position = _pointerDownPosition;
-
-        OnTouchDown?.Invoke();
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -71,10 +72,18 @@ public class Joystick : MonoBehaviour,
 
         //TODO 마지막 터치 시 플립x방향 고정
         OnTouchUp?.Invoke();
+
+        _isMoving = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if(!_isMoving)
+        {
+            OnTouchDown?.Invoke();
+            _isMoving = true;
+        }    
+
         // 스틱 이동
         SetStickPos(eventData.position);
 

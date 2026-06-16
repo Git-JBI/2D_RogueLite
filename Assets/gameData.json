@@ -1,13 +1,14 @@
 {
     "HeroDataName": "00",
-    "Gold": 8362900,
+    "Gold": 8361000,
     "Emerald": 50,
     "UpgradeLevel": [
-        8,
+        10,
         10,
         10
     ],
     "MaxStage": 1,
+    "SelectStage": 1,
     "UpgradeScroll": [
         764,
         939,
@@ -16,29 +17,134 @@
         23,
         842
     ],
-    "LastDailyResetDate": "2026-06-12",
-    "LastWeeklyResetDate": "2026-06-08",
+    "DailyAchievementScore": 0,
+    "WeeklyAchievementScore": 0,
+    "LastDailyResetDate": "2026-06-16",
+    "LastWeeklyResetDate": "2026-06-15",
     "DailyAchievements": [
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 1,
-            "IsCompleted": true,
-            "IsRewardClaimed": true
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Daily_KillCount",
             "Progress": 100,
             "IsCompleted": true,
-            "IsRewardClaimed": true
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Daily_LogIn",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": true
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EnterStage",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EquipmentLevelUp",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_KillCount",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_LogIn",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EnterStage",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EquipmentLevelUp",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_KillCount",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_LogIn",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EnterStage",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EquipmentLevelUp",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_KillCount",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_LogIn",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EnterStage",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_EquipmentLevelUp",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_KillCount",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
+        },
+        {
+            "AchievementId": "Daily_LogIn",
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
         }
     ],
-    "WeeklyAchievements": [],
+    "WeeklyAchievements": [
+        {
+            "AchievementId": "Weekly_Login",
+            "Progress": 5,
+            "IsCompleted": true,
+            "IsRewardClaimed": false
+        }
+    ],
     "TotalAchievements": [],
     "InventoryEquipmentItems": [
         {
@@ -1354,14 +1460,6 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "e91b9479-e60b-46d9-8bbf-152998571a17",
-            "ItemID": "eq_weapon_01",
-            "EquipmentType": 0,
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "82d46f19-9782-488e-94b9-2f4d62541802",
             "ItemID": "eq_Armor_01",
             "EquipmentType": 3,
@@ -1666,14 +1764,6 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "9c92c6b9-97ab-428c-813d-d9dd47c48c30",
-            "ItemID": "eq_Armor_03",
-            "EquipmentType": 3,
-            "Rarity": 2,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "2965d5be-4053-4ec0-a01d-c4b58fc64159",
             "ItemID": "eq_Boots_03",
             "EquipmentType": 5,
@@ -1784,6 +1874,22 @@
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 1
+        },
+        {
+            "InstanceID": "4c8e33bd-292f-4aed-8cab-0c89a4542d96",
+            "ItemID": "eq_weapon_03",
+            "EquipmentType": 0,
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 10
+        },
+        {
+            "InstanceID": "a4446c79-b8f0-4075-b107-baf9058bdc96",
+            "ItemID": "eq_Armor_01",
+            "EquipmentType": 3,
+            "Rarity": 0,
+            "RarityLevel": 0,
+            "ItemLevel": 1
         }
     ],
     "EquippedItems": [
@@ -1812,26 +1918,26 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "a4446c79-b8f0-4075-b107-baf9058bdc96",
-            "ItemID": "eq_Armor_01",
-            "EquipmentType": 3,
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
-            "InstanceID": "4c8e33bd-292f-4aed-8cab-0c89a4542d96",
-            "ItemID": "eq_weapon_03",
-            "EquipmentType": 0,
-            "Rarity": 0,
-            "RarityLevel": 0,
-            "ItemLevel": 10
-        },
-        {
             "InstanceID": "56ee35cc-5608-4a66-bbc5-799dfdf633c8",
             "ItemID": "eq_Necklace_01",
             "EquipmentType": 1,
             "Rarity": 3,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "e91b9479-e60b-46d9-8bbf-152998571a17",
+            "ItemID": "eq_weapon_01",
+            "EquipmentType": 0,
+            "Rarity": 3,
+            "RarityLevel": 0,
+            "ItemLevel": 1
+        },
+        {
+            "InstanceID": "9c92c6b9-97ab-428c-813d-d9dd47c48c30",
+            "ItemID": "eq_Armor_03",
+            "EquipmentType": 3,
+            "Rarity": 2,
             "RarityLevel": 0,
             "ItemLevel": 1
         }

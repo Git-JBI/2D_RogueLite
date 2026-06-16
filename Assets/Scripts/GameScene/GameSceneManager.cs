@@ -1,22 +1,29 @@
 using UnityEngine;
 
-public class GameSceneController : MonoBehaviour
+public class GameSceneManager : MonoBehaviour
 {
-    //TODO 추후 Find로 변경
-    [SerializeField] private HeroController _heroController;
-    [SerializeField] private Joystick _joystick;
-    [SerializeField] private GameSceneUIManager _ui;
-    [SerializeField] private EnemySpawner _enemySpawner;
+    private HeroController _heroController;
+    private Joystick _joystick;
+    private GameSceneUIManager _ui;
+    private EnemySpawner _enemySpawner;
 
     private GameSceneModel _sceneModel;
+    private SO_StageData _stageData;
 
+    private int _stage = GameManager.Instance.GameModel.SelectStage;
     private bool _isKillCountReported = false;
     private bool _isBossTime = false;
     private bool _isBossSpawn = false;
 
     private void Awake()
     {
+        _heroController = FindFirstObjectByType<HeroController>();
+        _joystick = FindFirstObjectByType<Joystick>();
+        _ui = FindFirstObjectByType<GameSceneUIManager>();
+        _enemySpawner = FindFirstObjectByType<EnemySpawner>();
+
         _sceneModel = GetComponent<GameSceneModel>();
+        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_stage}");
 
         _enemySpawner.OnEnemyDead += EnemyDead;
         _enemySpawner.OnBossDead += BossDead;

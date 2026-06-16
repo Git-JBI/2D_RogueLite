@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.U2D.Animation;
 
 public class HeroSpriteController : SpriteControllerBase
@@ -25,7 +23,8 @@ public class HeroSpriteController : SpriteControllerBase
 
     public void MoveStart()
     {
-        _animator.SetBool("IsMove", true);
+        if (_animator.GetBool("IsMove") == false)
+            _animator.SetBool("IsMove", true);
     }
 
     public void MoveFinish()

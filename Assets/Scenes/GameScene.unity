@@ -9850,10 +9850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6430a254811a3fe429a4ada5ad3b5fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 1654112608}
-  _joystick: {fileID: 209972107}
-  _ui: {fileID: 606005872}
-  _enemySpawner: {fileID: 611943852}
 --- !u!4 &725119764
 Transform:
   m_ObjectHideFlags: 0
@@ -21160,7 +21156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0

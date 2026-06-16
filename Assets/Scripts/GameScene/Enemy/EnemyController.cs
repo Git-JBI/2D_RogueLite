@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        //TODO 추후 Init()쪽으로 이동
+        //TODO 추후 Init()쪽으로 이동 (ObjectPooling 사용 시 OnEnabled이 아니라면 해제됨)
         _target = FindAnyObjectByType<HeroController>();
 
         _model = GetComponent<EnemyModel>();
