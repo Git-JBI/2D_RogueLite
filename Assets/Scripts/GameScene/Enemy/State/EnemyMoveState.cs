@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyMoveState : IState
@@ -13,7 +12,7 @@ public class EnemyMoveState : IState
     private Vector2 DirToTarget()
     {
         //TODO 추후 수정(GameScene>MainScene에서 문제 있는 듯)
-        return (_enemy.Target.transform.position - _enemy.transform.position).normalized;
+        return (_enemy.HeroTransform.transform.position - _enemy.transform.position).normalized;
     }
 
     public void OnStateEnter()

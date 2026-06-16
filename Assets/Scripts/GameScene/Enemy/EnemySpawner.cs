@@ -9,8 +9,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private EnemyController _enemyPrefab;   //TODO GameSceneManager에서 받아오기
-    [SerializeField]
-    private HeroController _hero;           //TODO GameSceneManager에서 받아오기
+    private Transform _playerTransform;
     [SerializeField]
     private TeleportEnemyController _boss;  //TODO 다른곳에서 받아오기
 
@@ -24,6 +23,11 @@ public class EnemySpawner : MonoBehaviour
         _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
+    public void Init(Transform transform)
+    {
+        _playerTransform = transform;
+    }
+
     public void SpawnBoss()
     {
         // 일반 적 코루틴 정지
@@ -33,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         TeleportEnemyController boss = Instantiate(_boss);
 
         // 보스 초기화
-        boss.Init(_hero.transform);
+        boss.Init(_playerTransform);
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
         boss.OnDead += BossDead;
@@ -49,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
             
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-            enemyController.Init(RandomSpawnPosition());
+            enemyController.Init(_playerTransform, RandomSpawnPosition());
             enemyController.OnDead += EnemyDead;
 
             //TODO 적 생성시간 추후 수정
@@ -75,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 RandomSpawnPosition()
     {
-        Vector2 pos = _hero.transform.position;
+        Vector2 pos = _playerTransform.position;
 
         pos += Random.insideUnitCircle.normalized * 10.0f;
 

@@ -66,6 +66,7 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnDead += PlayerDead;
 
         _heroController.Init();
+        _enemySpawner.Init(_heroController.transform);
     }
 
     /// <summary>

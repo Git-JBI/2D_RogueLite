@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
-    private HeroController _target;
+    private Transform _heroTransform;
     private EnemyModel _model;
     private RigidMovement _movement;
     private Rigidbody2D _rigidbody;
@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public event UnityAction OnDead;
 
-    public HeroController Target => _target;
+    public Transform HeroTransform => _heroTransform;
     public EnemyModel Model => _model;
     public RigidMovement Movement => _movement;
     public Rigidbody2D Rigidbody => _rigidbody;
@@ -32,9 +32,6 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        //TODO 추후 Init()쪽으로 이동 (ObjectPooling 사용 시 OnEnabled이 아니라면 해제됨)
-        _target = FindAnyObjectByType<HeroController>();
-
         _model = GetComponent<EnemyModel>();
         _movement = GetComponent<RigidMovement>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -57,8 +54,10 @@ public class EnemyController : MonoBehaviour, IDamageable
         _curState.OnStateUpdate();
     }
     
-    public void Init(Vector2 spawnPos)
+    public void Init(Transform target, Vector2 spawnPos)
     {
+        _heroTransform = target;
+
         ChangeState(_moveState);
         _movement.SetActive(true);
         SetColliderActive(true);
