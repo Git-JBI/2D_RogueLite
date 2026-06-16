@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
+    private int _equipmentBonusAtk;
+    private int _equipmentBonusHp;
+
+    public int EquipmentBonusAtk => _equipmentBonusAtk;
+    public int EquipmentBonusHp => _equipmentBonusHp;
+
     public void EquipItem(string instanceId)
     {
         GameModel gameModel = GameManager.Instance.GameModel;
@@ -29,5 +35,8 @@ public class EquipmentManager : MonoBehaviour
         // 장착중인 장비 리스트에 추가
         gameModel.AddEquippedItemList(equippedItem);
         // 장비 스텟 추가
+
+        // 저장
+        gameModel.SaveGameData();
     }
 }

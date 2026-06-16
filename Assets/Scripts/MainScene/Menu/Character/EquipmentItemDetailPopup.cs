@@ -96,7 +96,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
     private void Equip()
     {
-        GameManager.Instance.GameModel.EquipItem(_equipmentItemData.InstanceID);
+        GameManager.Instance.EquipmentManager.EquipItem(_equipmentItemData.InstanceID);
         PopupClosed();
     }
 
@@ -123,7 +123,10 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         if (gold < goldCost || scroll < scrollCost)
             return;
 
-        // 아이템 레벨업
+        // 아이템 레벨 업
+        _equipmentItemData.ItemLevel++;
+
+        // 아이템 레벨업 재료 소모
         GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
 
         // 업적 갱신

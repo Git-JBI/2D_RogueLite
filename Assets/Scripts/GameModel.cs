@@ -11,9 +11,6 @@ public class GameModel : MonoBehaviour
 
     private HeroData _heroData;
 
-    private int _equipmentBonusAtk;
-    private int _equipmentBonusHp;
-
     public HeroData HeroData
     {
         get { return _heroData; }
@@ -32,9 +29,6 @@ public class GameModel : MonoBehaviour
     public int[] UpgradeScroll => _gameData.UpgradeScroll;
     public string LastDailyResetDate => _gameData.LastDailyResetDate;
     public string LastWeeklyResetDate => _gameData.LastWeeklyResetDate;
-
-    public int EquipmentBonusAtk => _equipmentBonusAtk;
-    public int EquipmentBonusHp => _equipmentBonusHp;
 
     public List<AchievementProgressData> DailyAchievements => _gameData.DailyAchievements;
     public List<AchievementProgressData> WeeklyAchievements => _gameData.WeeklyAchievements;
@@ -169,6 +163,7 @@ public class GameModel : MonoBehaviour
         _gameData.MaxStage++;
         SaveData();
     }
+
     /// <summary>
     /// 장비 아이템 리스트에 추가하는 함수
     /// </summary>
@@ -176,7 +171,6 @@ public class GameModel : MonoBehaviour
     public void AddEquipmentList(EquipmentItemData data)
     {
         _gameData.EquipmentItems.Add(data);
-        SaveData();
     }
     /// <summary>
     /// 장비 아이템 리스트에서 제거하는 함수
@@ -185,7 +179,6 @@ public class GameModel : MonoBehaviour
     public void RemoveEquipmentList(EquipmentItemData data)
     {
         _gameData.EquipmentItems.Remove(data);
-        SaveData();
     }
     /// <summary>
     /// 장비 아이템 리스트에서 instancecId를 이용해 아이템을 찾는 함수
@@ -209,7 +202,6 @@ public class GameModel : MonoBehaviour
     public void AddEquippedItemList(EquipmentItemData data)
     {
         _gameData.EquippedItems.Add(data);
-        SaveData();
     }
     /// <summary>
     /// 장착 중인 장비 아이템 리스트에서 제거하는 함수
@@ -218,7 +210,6 @@ public class GameModel : MonoBehaviour
     public void RemoveEquippedItemList(EquipmentItemData data)
     {
         _gameData.EquippedItems.Remove(data);
-        SaveData();
     }
     /// <summary>
     /// 장착 중인 장비 아이템 리스트에서 EquipmentType을 이용해 아이템을 찾는 함수
