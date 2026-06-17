@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    private AchievementModel _achievementModel;
+
     private List<SO_AchievementData> _achievementDatas = new();
+
+    public IReadOnlyList<SO_AchievementData> AchievementDatas => _achievementDatas;
 
     private void Awake()
     {
+        _achievementModel = GameManager.Instance.GameModel.AchievementModel;
         _achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
     }
 
@@ -56,7 +61,7 @@ public class AchievementManager : MonoBehaviour
             }
         }
 
-        GameManager.Instance.GameModel.SaveGameData();
+        _achievementModel.SaveData();
     }
     /// <summary>
     /// 업적 데이터 가져오기
@@ -91,6 +96,7 @@ public class AchievementManager : MonoBehaviour
 
         return progress;
     }
+    //TODO 변경 필수 빨리
     /// <summary>
     /// 업적 리스트 가져오기
     /// </summary>
@@ -98,20 +104,8 @@ public class AchievementManager : MonoBehaviour
     /// <returns></returns>
     public List<AchievementProgressData> GetProgressList(AchievementType type)
     {
-        switch (type)
-        {
-            case AchievementType.Daily:
-                return GameManager.Instance.GameModel.DailyAchievements;
-
-            case AchievementType.Weekly:
-                return GameManager.Instance.GameModel.WeeklyAchievements;
-
-            case AchievementType.Total:
-                return GameManager.Instance.GameModel.TotalAchievements;
-
-            default:
-                return null;
-        }
+        List<AchievementProgressData> list = new();
+        return list;
     }
     /// <summary>
     /// 업적 보상 받는 함수
@@ -153,17 +147,21 @@ public class AchievementManager : MonoBehaviour
     /// </summary>
     private void CheckDailyDate()
     {
+        // 오늘 날짜
         string today = DateTime.Now.ToString("yyyy-MM-dd");
 
-        if (GameManager.Instance.GameModel.LastDailyResetDate == "")
-            GameManager.Instance.GameModel.SetLastDailyResetDate(DateTime.Now.ToString("yyyy-MM-dd"));
-
-        if (GameManager.Instance.GameModel.LastDailyResetDate == today)
+        // 오늘 기록된 접속날짜랑 동일한 경우 return
+        if (_achievementModel.LastDailyResetDate == today)
             return;
 
-        ResetDailyAchievements();
+        // 일일 업적 초기화
+        _achievementModel.ResetDailyAchievements();
 
-        GameManager.Instance.GameModel.SetLastDailyResetDate(today);
+        // 일일 접속 날짜 갱신
+        _achievementModel.SetLastDailyResetDate(today);
+
+        // 저장
+        _achievementModel.SaveData();
     }
     /// <summary>
     /// 월요일 00시 기준으로 주간 체크
@@ -184,37 +182,13 @@ public class AchievementManager : MonoBehaviour
     {
         string thisWeek = GetWeekStartDateString(DateTime.Now);
 
-        if (GameManager.Instance.GameModel.LastWeeklyResetDate == thisWeek)
+        if (_achievementModel.LastWeeklyResetDate == thisWeek)
             return;
 
-        ResetWeeklyAchievements();
+        _achievementModel.ResetWeeklyAchievements();
 
-        GameManager.Instance.GameModel.SetLastWeeklyResetDate(thisWeek);
-        GameManager.Instance.GameModel.SaveGameData();
-    }
-    /// <summary>
-    /// 일일 업적 초기화
-    /// </summary>
-    private void ResetDailyAchievements()
-    {
-        foreach (var achievement in GameManager.Instance.GameModel.DailyAchievements)
-        {
-            achievement.Progress = 0;
-            achievement.IsRewardClaimed = false;
-            achievement.IsCompleted = false;
-        }
-    }
-    /// <summary>
-    /// 주간 업적 초기화
-    /// </summary>
-    private void ResetWeeklyAchievements()
-    {
-        foreach (var achievement in GameManager.Instance.GameModel.WeeklyAchievements)
-        {
-            achievement.Progress = 0;
-            achievement.IsRewardClaimed = false;
-            achievement.IsCompleted = false;
-        }
+        _achievementModel.SetLastWeeklyResetDate(thisWeek);
+        _achievementModel.SaveData();
     }
     /// <summary>
     /// 금일 로그인 체크

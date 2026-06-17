@@ -42,10 +42,9 @@ public enum EquipmentType
 }
 
 [System.Serializable]
-public class RaritySkillInfo
+public class RarityStatInfo
 {
     public ItemRarity Rarity;
-    public int MaxLevel;
     public int BaseStat;
     public int StatPerLevel;
 }
@@ -60,5 +59,5 @@ public class SO_EquipmentItemData : ScriptableObject
     public ItemTier ItemTier;
     public Sprite IconSprite;
     public string Desc;
-    public List<RaritySkillInfo> RaritySettings = new();
+    public List<RarityStatInfo> RaritySettings = new();
 }

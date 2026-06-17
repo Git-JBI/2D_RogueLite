@@ -16,6 +16,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     [SerializeField] private Button _levelUpButton;
     [SerializeField] private Button _levelUpAllButton;
 
+    private GameModel _gameModel = GameManager.Instance.GameModel;
+
     private int _maxLevel;
 
     private EquipmentItemData _equipmentItemData;
@@ -73,7 +75,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         // 아이템 설명
         string itemDesc = itemData.Desc;
         // 아이템 레어리티에 맞는 아이템 최대 레벨
-        _maxLevel = itemData.RaritySettings[(int)_equipmentItemData.Rarity].MaxLevel;
+        _maxLevel = GameManager.Instance.EquipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData);
         int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
         int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
@@ -102,7 +104,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
     private void UnEquip()
     {
-        GameManager.Instance.GameModel.UnequipItem(_equipmentItemData.EquipmentType);
+        GameManager.Instance.EquipmentManager.UnequipItem(_equipmentItemData.EquipmentType);
         PopupClosed();
     }
 
@@ -111,8 +113,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     /// </summary>
     private void ItemLevelUp()
     {
-        int gold = GameManager.Instance.GameModel.Gold;
-        int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+        int gold = _gameModel.Gold;
+        int scroll = _gameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
         int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
         int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
         // 현재 가능한 최대 레벨일 경우 리턴
@@ -127,7 +129,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         _equipmentItemData.ItemLevel++;
 
         // 아이템 레벨업 재료 소모
-        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
+        _gameModel.UpgradeEquipmentItemLevel(goldCost, (int)_equipmentItemData.EquipmentType, scrollCost);
 
         // 업적 갱신
         GameManager.Instance.AchievementManager.Report(AchievementConditionType.EquipmentLevelUp, 1);
@@ -142,9 +144,9 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     private void ItemLevelUpAll()
     {
         // 현재 보유한 골드
-        int gold = GameManager.Instance.GameModel.Gold;
+        int gold = _gameModel.Gold;
         // 현재 선택된 장비 타입에 따른 스크롤 갯수
-        int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+        int scroll = _gameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
         // 레벨업 한 횟수
         int countLevelUp = 0;
@@ -180,7 +182,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         GameManager.Instance.AchievementManager.Report(AchievementConditionType.EquipmentLevelUp, countLevelUp);
 
         // 사용한 재료들 데이터 저장(레벨은 바로 저장되기에 따로할 필요 없음)
-        GameManager.Instance.GameModel.UpgradeEquipmentItemLevel(totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
+        _gameModel.UpgradeEquipmentItemLevel(totalGoldCost, (int)_equipmentItemData.EquipmentType, totalScrollCost);
 
         // 재 표기
         RefreshLevelUpView();
@@ -191,11 +193,11 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     /// </summary>
     private void RefreshLevelUpView()
     {
-        int gold = GameManager.Instance.GameModel.Gold;
+        int gold = _gameModel.Gold;
         SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(_equipmentItemData.ItemID);
 
         // 아이템 레벨이 최대 레벨일 시
-        if (_equipmentItemData.ItemLevel == equipmentItemData.RaritySettings[(int)_equipmentItemData.Rarity].MaxLevel)
+        if (_equipmentItemData.ItemLevel == GameManager.Instance.EquipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData))
         {
             _popupViewer.isMaxLevel(true);
             // 아이템 레벨 표시
@@ -209,7 +211,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         else
         {
             _popupViewer.isMaxLevel(false);
-            int scroll = GameManager.Instance.GameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
+            int scroll = _gameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType];
 
             int goldCost = GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
             int scrollCost = GetUpgradeScrollCost(_equipmentItemData.ItemLevel);

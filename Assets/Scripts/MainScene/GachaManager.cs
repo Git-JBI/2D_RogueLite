@@ -5,6 +5,8 @@ using UnityEngine;
 public class GachaManager : MonoBehaviour
 {
     [SerializeField] private List<SO_EquipmentItemData> _totalItemDataPool;
+    private AchievementManager _achievementManager = GameManager.Instance.AchievementManager;
+    private EquipmentModel _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
 
     private Button_Gacha[] _button_Gachas;
 
@@ -97,10 +99,13 @@ public class GachaManager : MonoBehaviour
             return;
 
         // 실행 했다면 뽑은 아이템 저장
-        GameManager.Instance.GameModel.AddEquipmentList(equipmentItemData);
+        _equipmentModel.AddEquipmentList(equipmentItemData);
 
         // 업적 실행
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.Gacha);
+        _achievementManager.Report(AchievementConditionType.Gacha);
+
+        // 저장
+        _equipmentModel.SaveData();
 
         // 획득한 아이템 보여주기
         _itemViewer.ShowOne(equipmentItemData);
@@ -116,11 +121,13 @@ public class GachaManager : MonoBehaviour
         // 실행 했다면 뽑은 아이템 저장
         for(int i = 0; i < equipmentItemDatas.Count; i++)
         {
-            GameManager.Instance.GameModel.AddEquipmentList(equipmentItemDatas[i]);
+            _equipmentModel.AddEquipmentList(equipmentItemDatas[i]);
         }
-
         // 업적 실행
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.Gacha, equipmentItemDatas.Count);
+        _achievementManager.Report(AchievementConditionType.Gacha, equipmentItemDatas.Count);
+
+        // 저장
+        _equipmentModel.SaveData();
 
         // 획득한 아이템 보여주기
         _itemViewer.ShowTen(equipmentItemDatas);

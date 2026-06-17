@@ -20,11 +20,9 @@ public class GameData
     public string LastDailyResetDate;
     public string LastWeeklyResetDate;
 
-    public List<AchievementProgressData> DailyAchievements = new();
-    public List<AchievementProgressData> WeeklyAchievements = new();
-    public List<AchievementProgressData> TotalAchievements = new();
+    public List<AchievementProgressData> Achievements = new();
 
-    public List<EquipmentItemData> EquipmentItems = new List<EquipmentItemData>();
-    public List<EquipmentItemData> EquippedItems = new List<EquipmentItemData>();
+    public List<EquipmentItemData> EquipmentItems = new();
+    public List<EquipmentItemData> EquippedItems = new();
     //TODO 일반 아이템 리스트 따로 필요(ex. 뽑기용 열쇠, 장비 강화용 주문서 등등)
 }

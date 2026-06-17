@@ -23,7 +23,7 @@ public class EquipmentItemManager : MonoBehaviour
     {
         for (int i = 0; i < _slots.Length; i++)
         {
-            EquipmentItemData itemdata = GameManager.Instance.GameModel.EquippedItems.Find(x => x.EquipmentType == (EquipmentType)i);
+            EquipmentItemData itemdata = GameManager.Instance.GameModel.EquipmentModel.FindEquippedItemList((EquipmentType)i);
 
             if (itemdata != null)
             {

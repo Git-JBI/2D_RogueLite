@@ -15,31 +15,26 @@ MonoBehaviour:
   Id: eq_Belt_01
   ItemName: Belt01
   EquipmentType: 4
+  EquipmentStatType: 1
   ItemTier: 0
   IconSprite: {fileID: 0}
   Desc: "01\uBCA8\uD2B8"
   RaritySettings:
   - Rarity: 0
-    MaxLevel: 10
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 1
-    MaxLevel: 20
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 2
-    MaxLevel: 30
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 3
-    MaxLevel: 40
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 4
-    MaxLevel: 70
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 5
-    MaxLevel: 110
     BaseStat: 0
     StatPerLevel: 0

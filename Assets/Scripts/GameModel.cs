@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameModel : MonoBehaviour
 {
     /// <summary>
-    /// 저장되어야 할 게임데이터
+    /// 게임 내에서 사용할 게임데이터
     /// </summary>
     [SerializeField] private GameData _gameData;
+    private EquipmentModel _equipmentModel;
+    private AchievementModel _achievementModel;
 
     private HeroData _heroData;
 
@@ -27,17 +29,15 @@ public class GameModel : MonoBehaviour
     public int MaxStage => _gameData.MaxStage;
     public int SelectStage => _gameData.SelectStage;
     public int[] UpgradeScroll => _gameData.UpgradeScroll;
-    public string LastDailyResetDate => _gameData.LastDailyResetDate;
-    public string LastWeeklyResetDate => _gameData.LastWeeklyResetDate;
 
-    public List<AchievementProgressData> DailyAchievements => _gameData.DailyAchievements;
-    public List<AchievementProgressData> WeeklyAchievements => _gameData.WeeklyAchievements;
-    public List<AchievementProgressData> TotalAchievements => _gameData.TotalAchievements;
-    public List<EquipmentItemData> EquipmentItems => _gameData.EquipmentItems;
-    public List<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
+    public EquipmentModel EquipmentModel => _equipmentModel;
+    public AchievementModel AchievementModel => _achievementModel;
 
     private void Awake()
     {
+        _equipmentModel = new EquipmentModel(_gameData, this);
+        _achievementModel = new AchievementModel(_gameData, this);
+
         LoadData();
 
         InitModel();
@@ -50,7 +50,6 @@ public class GameModel : MonoBehaviour
     public void AddGold(int value)
     {
         _gameData.Gold += value;
-        SaveData();
     }
     /// <summary>
     /// 에메랄드 추가 함수
@@ -59,7 +58,6 @@ public class GameModel : MonoBehaviour
     public void AddEmerald(int value)
     {
         _gameData.Emerald += value;
-        SaveData();
     }
     /// <summary>
     /// 업그레이드 스크롤 추가 함수
@@ -69,7 +67,6 @@ public class GameModel : MonoBehaviour
     public void AddUpgradeScroll(int type, int value)
     {
         _gameData.UpgradeScroll[type] += value;
-        SaveData();
     }
     /// <summary>
     /// 랜덤으로 정해진 숫자대로 스크롤을 추가하는 함수
@@ -107,7 +104,6 @@ public class GameModel : MonoBehaviour
     public void SetMaxStage(int value)
     {
         _gameData.MaxStage = value;
-        SaveData();
     }
     /// <summary>
     /// 선택한 스테이지 설정 함수
@@ -116,25 +112,6 @@ public class GameModel : MonoBehaviour
     public void SetSelectStage(int value)
     {
         _gameData.SelectStage = value;
-        SaveData();
-    }
-    /// <summary>
-    /// 최근 일일접속체크용 기록 설정 함수
-    /// </summary>
-    /// <param name="today"></param>
-    public void SetLastDailyResetDate(string today)
-    {
-        _gameData.LastDailyResetDate = today;
-        SaveData();
-    }
-    /// <summary>
-    /// 최근 주간접속체크용 기록 설정 함수
-    /// </summary>
-    /// <param name="week"></param>
-    public void SetLastWeeklyResetDate(string week)
-    {
-        _gameData.LastWeeklyResetDate = week;
-        SaveData();
     }
     /// <summary>
     /// 영웅 선택
@@ -144,7 +121,6 @@ public class GameModel : MonoBehaviour
     {
         _heroData = value;
         _gameData.HeroDataName = _heroData.HeroName;
-        SaveData();
     }
     /// <summary>
     /// 업그레이드 레벨 증가
@@ -153,7 +129,6 @@ public class GameModel : MonoBehaviour
     public void IncreaseUpgradeLevel(int value)
     {
         _gameData.UpgradeLevel[value]++;
-        SaveData();
     }
     /// <summary>
     /// 최대 스테이지 +1 증가 함수
@@ -161,123 +136,6 @@ public class GameModel : MonoBehaviour
     public void IncreaseMaxStage()
     {
         _gameData.MaxStage++;
-        SaveData();
-    }
-
-    /// <summary>
-    /// 장비 아이템 리스트에 추가하는 함수
-    /// </summary>
-    /// <param name="data"></param>
-    public void AddEquipmentList(EquipmentItemData data)
-    {
-        _gameData.EquipmentItems.Add(data);
-    }
-    /// <summary>
-    /// 장비 아이템 리스트에서 제거하는 함수
-    /// </summary>
-    /// <param name="data"></param>
-    public void RemoveEquipmentList(EquipmentItemData data)
-    {
-        _gameData.EquipmentItems.Remove(data);
-    }
-    /// <summary>
-    /// 장비 아이템 리스트에서 instancecId를 이용해 아이템을 찾는 함수
-    /// </summary>
-    /// <param name="instanceId">인스턴스 ID</param>
-    /// <returns></returns>
-    public EquipmentItemData FindEquipmentList(string instanceId)
-    {
-        EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
-        // 아이템을 찾지 못한 경우
-        if (item == null)
-            return null;
-        // 아이템을 찾은 경우
-        else
-            return item;
-    }
-    /// <summary>
-    /// 장착 중인 장비 아이템 리스트에 추가하는 함수
-    /// </summary>
-    /// <param name="data"></param>
-    public void AddEquippedItemList(EquipmentItemData data)
-    {
-        _gameData.EquippedItems.Add(data);
-    }
-    /// <summary>
-    /// 장착 중인 장비 아이템 리스트에서 제거하는 함수
-    /// </summary>
-    /// <param name="data"></param>
-    public void RemoveEquippedItemList(EquipmentItemData data)
-    {
-        _gameData.EquippedItems.Remove(data);
-    }
-    /// <summary>
-    /// 장착 중인 장비 아이템 리스트에서 EquipmentType을 이용해 아이템을 찾는 함수
-    /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
-    public EquipmentItemData FindEquippedItemList(EquipmentType type)
-    {
-        EquipmentItemData item = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
-        // 아이템을 찾지 못한 경우
-        if (item == null)
-            return null;
-        // 아이템을 찾은 경우
-        else
-            return item;
-    }
-
-    /// <summary>
-    /// 장비 아이템 장착
-    /// </summary>
-    /// <param name="instanceId"></param>
-    public void EquipItem(string instanceId)
-    {
-        // 새로 장착할 아이템
-        EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
-
-        // 아이템이 없을 시 리턴
-        if (item == null)
-            return;
-
-        // 장착 중인 아이템
-        EquipmentItemData equippedItem = _gameData.EquippedItems.Find(x => x.EquipmentType == item.EquipmentType);
-
-        // 장착중인 아이템이 있을 시
-        if(equippedItem != null)
-        {
-            // 장착중인 장비리스트에서 제거
-            _gameData.EquippedItems.Remove(equippedItem);
-            // 보유중인 장비리스트에 추가
-            _gameData.EquipmentItems.Add(equippedItem);
-            // 적용되어있는 스텟 감소
-        }
-
-        // 보유중인 장비리스트에서 제거
-        _gameData.EquipmentItems.Remove(item);
-        // 장착중인 장비리스트에 추가
-        _gameData.EquippedItems.Add(item);
-        // 적용되는 스텟 추가
-
-        // 저장
-        SaveData();
-    }
-    /// <summary>
-    /// 장비 아이템 탈착
-    /// </summary>
-    /// <param name="type"></param>
-    public void UnequipItem(EquipmentType type)
-    {
-        EquipmentItemData equippedItem = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
-
-        // 장착중인 장비가 없을 시 리턴
-        if(equippedItem == null)
-            return;
-
-        _gameData.EquippedItems.Remove(equippedItem);
-        _gameData.EquipmentItems.Add(equippedItem);
-
-        SaveData();
     }
     /// <summary>
     /// 장비 아이템 레벨 업
@@ -291,8 +149,6 @@ public class GameModel : MonoBehaviour
         _gameData.Gold -= goldCost;
         // 스크롤 소모
         _gameData.UpgradeScroll[scrollType] -= scrollCost;
-        // 저장
-        SaveData();
     }
     /// <summary>
     /// 전역용도 게임 데이터 저장
@@ -361,70 +217,6 @@ public class GameModel : MonoBehaviour
         {
             SetSelectStage(1);
         }
-        // 설정해둔 모든 업적 설정 데이터
-        SO_AchievementData[] achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData");
-
-        // 각각업적 설정데이터 리스트
-        List<SO_AchievementData> dailyDatas = new();
-        List<SO_AchievementData> weeklyDatas = new();
-        List<SO_AchievementData> totalDatas = new();
-        foreach(SO_AchievementData data in achievementDatas)
-        {
-            switch(data.Type)
-            {
-                case AchievementType.Daily:
-                    dailyDatas.Add(data);
-                    break;
-                case AchievementType.Weekly:
-                    weeklyDatas.Add(data);
-                    break;
-                case AchievementType.Total:
-                    totalDatas.Add(data);
-                    break;
-            }
-        }
-
-        // 일일 업적 데이터길이가 설정데이터 길이와 다를 경우
-        if (DailyAchievements.Count != dailyDatas.Count)
-        {
-            foreach(SO_AchievementData datas in achievementDatas)
-            {
-                AchievementProgressData data = new();
-
-                if(datas.Type == AchievementType.Daily)
-                {
-                    data.AchievementId = datas.AchievementId;
-                    DailyAchievements.Add(data);
-                }
-            }
-        }
-        // 주간 업적 데이터값이 없을 경우
-        if (WeeklyAchievements.Count != weeklyDatas.Count)
-        {
-            foreach (SO_AchievementData datas in achievementDatas)
-            {
-                AchievementProgressData data = new();
-
-                if (datas.Type == AchievementType.Weekly)
-                {
-                    data.AchievementId = datas.AchievementId;
-                    WeeklyAchievements.Add(data);
-                }
-            }
-        }
-        // 토탈 업적 데이터값이 없을 경우
-        if (TotalAchievements.Count != totalDatas.Count)
-        {
-            foreach (SO_AchievementData datas in achievementDatas)
-            {
-                AchievementProgressData data = new();
-
-                if (datas.Type == AchievementType.Total)
-                {
-                    data.AchievementId = datas.AchievementId;
-                    TotalAchievements.Add(data);
-                }
-            }
-        }
+        _achievementModel.Init();
     }
 }

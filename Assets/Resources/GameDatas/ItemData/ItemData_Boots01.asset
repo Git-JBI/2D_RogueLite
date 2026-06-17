@@ -15,31 +15,26 @@ MonoBehaviour:
   Id: eq_Boots_01
   ItemName: Boots01
   EquipmentType: 5
+  EquipmentStatType: 1
   ItemTier: 0
   IconSprite: {fileID: 0}
   Desc: "01\uC2E0\uBC1C"
   RaritySettings:
   - Rarity: 0
-    MaxLevel: 10
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 1
-    MaxLevel: 20
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 2
-    MaxLevel: 30
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 3
-    MaxLevel: 40
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 4
-    MaxLevel: 70
     BaseStat: 0
     StatPerLevel: 0
   - Rarity: 5
-    MaxLevel: 110
     BaseStat: 0
     StatPerLevel: 0
