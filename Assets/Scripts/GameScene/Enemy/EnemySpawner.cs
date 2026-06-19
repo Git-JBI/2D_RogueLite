@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,10 +9,12 @@ using UnityEngine.Events;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private EnemyController _enemyPrefab;   //TODO GameSceneManager에서 받아오기
+    private EnemyController _enemyPrefab;   //TODO GameSceneManager _stageData에서 받아오기
     private Transform _playerTransform;
     [SerializeField]
-    private TeleportEnemyController _boss;  //TODO 다른곳에서 받아오기
+    private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData에서 받아오기
+
+    private List<EnemyController> _normalEnemies = new();
 
     public event UnityAction OnEnemyDead;
     public event UnityAction OnBossDead;
@@ -56,7 +59,9 @@ public class EnemySpawner : MonoBehaviour
             enemyController.Init(_playerTransform, RandomSpawnPosition());
             enemyController.OnDead += EnemyDead;
 
-            //TODO 적 생성시간 추후 수정
+            _normalEnemies.Add(enemyController);
+
+            //TODO 적 생성시간 추후 수정(스테이지마다 다를지 고정으로 할지 생각)
             yield return new WaitForSeconds(0.5f);
         }
     }

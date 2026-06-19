@@ -8,6 +8,14 @@ public class AchievementModel
     private GameData _gameData;
     private GameModel _gameModel;
 
+    public bool IsTodayLogin
+    {
+        get
+        {
+            return (_gameData.Achievements.Find(x => x.AchievementId == "Daily_LogIn").Progress == 0 ? false : true);
+        }
+    }
+
     public string LastDailyResetDate => _gameData.LastDailyResetDate;
     public string LastWeeklyResetDate => _gameData.LastWeeklyResetDate;
 

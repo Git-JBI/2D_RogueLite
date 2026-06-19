@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class GameSceneModel : MonoBehaviour
+public class GameSceneModel
 {
     private int _enemyDeadCount;
     private int _stageGold;

@@ -90,7 +90,6 @@ public class Joystick : MonoBehaviour,
         // 이동 방향
         _moveDir = ((Vector2)_joystick[2].rectTransform.position - _pointerDownPosition).normalized;
 
-        //TODO 드래그가 이루어지지않아서 밀림현상 발생
         OnDragging?.Invoke(_moveDir);
     }
 }

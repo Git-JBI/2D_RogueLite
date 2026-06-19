@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -7,12 +7,11 @@ public class GameSceneManager : MonoBehaviour
     private GameSceneUIManager _ui;
     private EnemySpawner _enemySpawner;
 
-    private GameSceneModel _sceneModel;
+    private GameSceneModel _gameSceneModel;
     private SO_StageData _stageData;
-
+    
     private int _stage = GameManager.Instance.GameModel.SelectStage;
     private bool _isKillCountReported = false;
-    private bool _isBossTime = false;
     private bool _isBossSpawn = false;
 
     private void Awake()
@@ -22,7 +21,8 @@ public class GameSceneManager : MonoBehaviour
         _ui = FindFirstObjectByType<GameSceneUIManager>();
         _enemySpawner = FindFirstObjectByType<EnemySpawner>();
 
-        _sceneModel = GetComponent<GameSceneModel>();
+        _gameSceneModel = new GameSceneModel();
+
         _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_stage}");
 
         _enemySpawner.OnEnemyDead += EnemyDead;
@@ -40,20 +40,16 @@ public class GameSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (_sceneModel.StageTime <= 60 & !_isBossTime)
+        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit & !_isBossSpawn)
         {
-            _sceneModel.IncreaseStageTime(Time.deltaTime);
-            _ui.SetTimeText(_sceneModel.StageTime);
+            _gameSceneModel.IncreaseStageTime(Time.deltaTime);
+            _ui.SetTimeText(_gameSceneModel.StageTime);
         }
-
-        //TODO ÃßÈÄ º¸½º µîÀå½Ã°£ ½ºÅ×ÀÌÁö¸¶´Ù ´Ù¸£µµ·Ï º¯°æ
-        
-        if(_sceneModel.StageTime > 60 & !_isBossSpawn)
+        else
         {
-            _isBossTime = true;
             _isBossSpawn = true;
 
-            // º¸½º µîÀå
+            // ë³´ìŠ¤ ë“±ì¥
             _enemySpawner.SpawnBoss();
         }
     }
@@ -70,16 +66,16 @@ public class GameSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö Å¬¸®¾î ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void ClearStage()
     {
-        // ÃÖ´ë ½ºÅ×ÀÌÁö +1 Áõ°¡
+        // ìµœëŒ€ ìŠ¤í…Œì´ì§€ +1 ì¦ê°€
         GameManager.Instance.GameModel.IncreaseMaxStage();
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î »ç¸Á ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// í”Œë ˆì´ì–´ ì‚¬ë§ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void PlayerDead()
     {
@@ -88,47 +84,46 @@ public class GameSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Àû »ç¸Á ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// ì  ì‚¬ë§ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void EnemyDead()
     {
-        // Àû »ç¸Á ¼ö 1 Áõ°¡
-        _sceneModel.IncreaseEnemyDeadCount(1);
+        // ì  ì‚¬ë§ ìˆ˜ 1 ì¦ê°€
+        _gameSceneModel.IncreaseEnemyDeadCount(1);
         
-        // Àû »ç¸Á ÅØ½ºÆ® Á×Àº ¼ıÀÚ·Î Àû¿ë
-        _ui.SetDeadCount(_sceneModel.EnemyDeadCount);
+        // ì  ì‚¬ë§ í…ìŠ¤íŠ¸ ì£½ì€ ìˆ«ìë¡œ ì ìš©
+        _ui.SetDeadCount(_gameSceneModel.EnemyDeadCount);
     }
 
     /// <summary>
-    /// º¸½º »ç¸Á ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// ë³´ìŠ¤ ì‚¬ë§ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void BossDead()
     {
-        //TODO ÇÃ·¹ÀÌ¾î °æÇèÄ¡ È¹µæ, ¾ÆÀÌÅÛ/Àåºñ È¹µæ
+        //TODO í”Œë ˆì´ì–´ ê²½í—˜ì¹˜ íšë“, ì•„ì´í…œ/ì¥ë¹„ íšë“
 
-        //TODO ½ºÅ×ÀÌÁö ³»¿¡¼­ È¹µæÇÑ °ñµå Ãß°¡
-        // GameManager.Instance.GameData.AddGold(_sceneModel.StageGold);
+        GameManager.Instance.GameModel.AddGold(_gameSceneModel.StageGold);
 
-        // ¾÷Àû Àû¿ë
+        // ì—…ì  ì ìš©
         ReportKillCount();
         ReportBossKillCount();
 
-        // ½Ã°£ Èå¸§ X
+        // ì‹œê°„ íë¦„ X
         Time.timeScale = 0;
 
-        // Å¬¸®¾î Ã¢ ¶ç¿ì±â
+        // í´ë¦¬ì–´ ì°½ ë„ìš°ê¸°
         _ui.Clear();
     }
 
     private void ReportKillCount()
     {
-        // killcount°¡ reportµÇ¾ú´ÂÁö È®ÀÎ, Àû Ã³Ä¡¼ö°¡ 0 ÀÌÇÏÀÎ °æ¿ì´Â ÇÒ ÇÊ¿ä°¡ ¾øÀ½
-        if (_isKillCountReported || _sceneModel.EnemyDeadCount <= 0)
+        // killcountê°€ reportë˜ì—ˆëŠ”ì§€ í™•ì¸, ì  ì²˜ì¹˜ìˆ˜ê°€ 0 ì´í•˜ì¸ ê²½ìš°ëŠ” í•  í•„ìš”ê°€ ì—†ìŒ
+        if (_isKillCountReported || _gameSceneModel.EnemyDeadCount <= 0)
             return;
         
         _isKillCountReported = true;
 
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _sceneModel.EnemyDeadCount);
+        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _gameSceneModel.EnemyDeadCount);
     }
 
     private void ReportBossKillCount()

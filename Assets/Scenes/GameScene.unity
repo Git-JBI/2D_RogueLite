@@ -6849,7 +6849,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 2865483741860779955, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
-  _hero: {fileID: 1654112608}
   _boss: {fileID: 8454792514845497883, guid: 98a1a032fa7d31b49b3c499fa559e881, type: 3}
 --- !u!4 &611943853
 Transform:
@@ -9830,7 +9829,6 @@ GameObject:
   m_Component:
   - component: {fileID: 725119764}
   - component: {fileID: 725119763}
-  - component: {fileID: 725119765}
   m_Layer: 0
   m_Name: GameSceneManager
   m_TagString: Untagged
@@ -9865,18 +9863,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &725119765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725119762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e698e7fdc864e74c9180e42e8f08189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &859247956
 GameObject:
   m_ObjectHideFlags: 0

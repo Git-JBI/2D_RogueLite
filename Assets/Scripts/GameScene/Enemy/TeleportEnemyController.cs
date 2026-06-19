@@ -6,7 +6,6 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject _enemyBody;
 
-    //TODO 추후 스포너에서 받아오기
     private Transform _target;
     private EnemyModel _model;
     private EnemySpriteController _spriteController;
@@ -211,7 +210,6 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     #region Interface
     public void TakeDamage(float damage)
     {
-        //TODO 플레이어한테 데미지 입음
         _model.TakeDamage(damage);
 
         if(_model.CurHp <= 0)

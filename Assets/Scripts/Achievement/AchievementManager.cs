@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,14 +7,14 @@ public class AchievementManager : MonoBehaviour
 {
     private AchievementModel _achievementModel;
 
-    private List<SO_AchievementData> _achievementDatas = new();
+    private List<SO_AchievementData> _achievementConfigDatas = new();
 
-    public IReadOnlyList<SO_AchievementData> AchievementDatas => _achievementDatas;
+    public IReadOnlyList<SO_AchievementData> AchievementDatas => _achievementConfigDatas;
 
     private void Awake()
     {
         _achievementModel = GameManager.Instance.GameModel.AchievementModel;
-        _achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
+        _achievementConfigDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
     }
 
     private void Start()
@@ -22,32 +22,32 @@ public class AchievementManager : MonoBehaviour
         CheckDailyDate();
         CheckWeeklyDate();
 
-        // ·Î±×ÀÎ Çß´ÂÁö È®ÀÎ
+        // ê¸ˆì¼ ë¡œê·¸ì¸ í–ˆëŠ”ì§€ í™•ì¸
         CheckLogin();
     }
 
     /// <summary>
-    /// ¼³Á¤ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+    /// ì—…ì  ì„¤ì • ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
     /// </summary>
-    /// <param name="achievementId">¾÷Àû ID</param>
+    /// <param name="achievementId">ì—…ì  ID</param>
     /// <returns></returns>
     public SO_AchievementData GetAchievementData(string achievementId)
     {
-        return _achievementDatas.Find(x => x.AchievementId == achievementId);
+        return _achievementConfigDatas.Find(x => x.AchievementId == achievementId);
     }
     /// <summary>
-    /// ¾÷Àû ³»¿ë °»½Å
+    /// ì—…ì  ë‚´ìš© ê°±ì‹ 
     /// </summary>
     /// <param name="conditionType"></param>
     /// <param name="amount"></param>
     public void Report(AchievementConditionType conditionType, int amount = 1)
     {
-        foreach (var achievement in _achievementDatas)
+        foreach (var achievement in _achievementConfigDatas)
         {
             if (achievement.ConditionType != conditionType)
                 continue;
 
-            AchievementProgressData progress = GetProgress(achievement);
+            AchievementProgressData progress = _achievementModel.GetAchievementData(achievement.AchievementId);
 
             if (progress.IsRewardClaimed)
                 continue;
@@ -63,65 +63,22 @@ public class AchievementManager : MonoBehaviour
 
         _achievementModel.SaveData();
     }
+
     /// <summary>
-    /// ¾÷Àû µ¥ÀÌÅÍ °¡Á®¿À±â
-    /// </summary>
-    /// <param name="achievement"></param>
-    /// <returns></returns>
-    private AchievementProgressData GetProgress(SO_AchievementData achievement)
-    {
-        // ¾÷Àû Type¿¡ µû¸¥ ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù(Daily, Weekly, Total)
-        List<AchievementProgressData> progressList = GetProgressList(achievement.Type);
-
-        // AchievementId¿¡ ¸Â´Â ¾÷ÀûÀ» °¡Á®¿Â´Ù
-        AchievementProgressData progress = progressList.Find(
-            x => x.AchievementId == achievement.AchievementId
-        );
-
-        // ÇØ´ç ¾÷ÀûÀÌ Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é
-        if (progress == null)
-        {
-            // ¾÷Àû »ı¼º
-            progress = new AchievementProgressData
-            {
-                AchievementId = achievement.AchievementId,
-                Progress = 0,
-                IsCompleted = false,
-                IsRewardClaimed = false
-            };
-
-            // ¾÷Àû Ãß°¡
-            progressList.Add(progress);
-        }
-
-        return progress;
-    }
-    //TODO º¯°æ ÇÊ¼ö »¡¸®
-    /// <summary>
-    /// ¾÷Àû ¸®½ºÆ® °¡Á®¿À±â
-    /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
-    public List<AchievementProgressData> GetProgressList(AchievementType type)
-    {
-        List<AchievementProgressData> list = new();
-        return list;
-    }
-    /// <summary>
-    /// ¾÷Àû º¸»ó ¹Ş´Â ÇÔ¼ö
+    /// ì—…ì  ë³´ìƒ ë°›ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="achievementId"></param>
     public void GetAchievementReward(AchievementProgressData progressData)
     {
-        // progressData°¡ ¾øÀ» °æ¿ì
+        // progressDataê°€ ì—†ì„ ê²½ìš°
         if (progressData == null)
             return;
-        // ¾÷ÀûÀ» ¿Ï·áÇÏÁö ¾Ê¾Ò°Å³ª º¸»óÀ» ¹Ş¾ÒÀ» °æ¿ì
+        // ì—…ì ì„ ì™„ë£Œí•˜ì§€ ì•Šì•˜ê±°ë‚˜ ë³´ìƒì„ ë°›ì•˜ì„ ê²½ìš°
         if (!progressData.IsCompleted || progressData.IsRewardClaimed)
             return;
         SO_AchievementData data = GetAchievementData(progressData.AchievementId);
 
-        // progressDataÀÇ id¿¡ ÇØ´çÇÏ´Â SO_AchievementData°¡ ¾øÀ» °æ¿ì
+        // progressDataì˜ idì— í•´ë‹¹í•˜ëŠ” SO_AchievementDataê°€ ì—†ì„ ê²½ìš°
         if (data == null)
             return;
 
@@ -143,28 +100,28 @@ public class AchievementManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Daily Ã¼Å©
+    /// Daily ì²´í¬
     /// </summary>
     private void CheckDailyDate()
     {
-        // ¿À´Ã ³¯Â¥
+        // ì˜¤ëŠ˜ ë‚ ì§œ
         string today = DateTime.Now.ToString("yyyy-MM-dd");
 
-        // ¿À´Ã ±â·ÏµÈ Á¢¼Ó³¯Â¥¶û µ¿ÀÏÇÑ °æ¿ì return
+        // ì˜¤ëŠ˜ ê¸°ë¡ëœ ì ‘ì†ë‚ ì§œë‘ ë™ì¼í•œ ê²½ìš° return
         if (_achievementModel.LastDailyResetDate == today)
             return;
 
-        // ÀÏÀÏ ¾÷Àû ÃÊ±âÈ­
+        // ì¼ì¼ ì—…ì  ì´ˆê¸°í™”
         _achievementModel.ResetDailyAchievements();
 
-        // ÀÏÀÏ Á¢¼Ó ³¯Â¥ °»½Å
+        // ì¼ì¼ ì ‘ì† ë‚ ì§œ ê°±ì‹ 
         _achievementModel.SetLastDailyResetDate(today);
 
-        // ÀúÀå
+        // ì €ì¥
         _achievementModel.SaveData();
     }
     /// <summary>
-    /// ¿ù¿äÀÏ 00½Ã ±âÁØÀ¸·Î ÁÖ°£ Ã¼Å©
+    /// ì›”ìš”ì¼ 00ì‹œ ê¸°ì¤€ìœ¼ë¡œ ì£¼ê°„ ì²´í¬
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
@@ -176,7 +133,7 @@ public class AchievementManager : MonoBehaviour
         return monday.ToString("yyyy-MM-dd");
     }
     /// <summary>
-    /// Weekly Ã¼Å©
+    /// Weekly ì²´í¬
     /// </summary>
     private void CheckWeeklyDate()
     {
@@ -191,24 +148,14 @@ public class AchievementManager : MonoBehaviour
         _achievementModel.SaveData();
     }
     /// <summary>
-    /// ±İÀÏ ·Î±×ÀÎ Ã¼Å©
+    /// ê¸ˆì¼ ë¡œê·¸ì¸ ì²´í¬
     /// </summary>
     private void CheckLogin()
     {
-        // ÀÏÀÏ¾÷Àû ¸®½ºÆ® °¡Á®¿À±â
-        List<AchievementProgressData> dailyAchievementList = GetProgressList(AchievementType.Daily);
-
-        // ÀÏÀÏ¾÷Àû ¸®½ºÆ® ¼øÈ¸
-        foreach (AchievementProgressData data in dailyAchievementList)
+        // ê¸ˆì¼ ë¡œê·¸ì¸ì„ í•˜ì§€ ì•Šì•˜ë‹¤ë©´
+        if(!_achievementModel.IsTodayLogin)
         {
-            if(data.AchievementId == "Daily_LogIn")
-            {
-                // ±İÀÏ ·Î±×ÀÎÀ» ÇÏÁö ¾Ê¾Ò´Ù¸é
-                if(data.Progress == 0)
-                {
-                    Report(AchievementConditionType.Login, 1);
-                }
-            }
+            Report(AchievementConditionType.Login, 1);
         }
     }
 }
