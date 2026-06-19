@@ -35,6 +35,7 @@ public class GameModel : MonoBehaviour
 
     private void Awake()
     {
+        // 저장된 게임 데이터 불러오기
         LoadData();
 
         _equipmentModel = new EquipmentModel(_gameData, this);

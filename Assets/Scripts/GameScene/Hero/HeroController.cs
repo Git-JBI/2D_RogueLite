@@ -19,10 +19,8 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     }
     public event UnityAction<float, float> OnChangeExp
     {
-        add
-        { _heromodel.OnChangeExp += value; }
-        remove
-        { _heromodel.OnChangeExp -= value; }
+        add { _heromodel.OnChangeExp += value; }
+        remove { _heromodel.OnChangeExp -= value; }
     }
     public event UnityAction<bool> OnUpgradedActive
     {

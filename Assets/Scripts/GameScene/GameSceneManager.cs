@@ -71,6 +71,9 @@ public class GameSceneManager : MonoBehaviour
         _enemySpawner.Init(_heroController.transform);
     }
 
+    /// <summary>
+    /// 스테이지 시간진행 체크
+    /// </summary>
     private void CheckTime()
     {
         if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit & !_isBossSpawn)
