@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     public event UnityAction OnBossDead;
 
     private Coroutine _spawnRoutine;
+    private Coroutine _burstSpawnRoutine;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class EnemySpawner : MonoBehaviour
     public void Init(Transform transform)
     {
         _playerTransform = transform;
+    }
+
+    public void BurstSpawnEnemy(int count, int enemyCount)
+    {
+        _burstSpawnRoutine = StartCoroutine(BurstSpawnCoroutine(count, enemyCount));
     }
 
     public void SpawnBoss()
@@ -50,16 +56,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            GameObject enemy;
-
-            enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
-            
-            EnemyController enemyController = enemy.GetComponent<EnemyController>();
-
-            enemyController.Init(_playerTransform, RandomSpawnPosition());
-            enemyController.OnDead += EnemyDead;
-
-            _normalEnemies.Add(enemyController);
+            SpawnEnemy();
 
             //TODO 적 생성시간 추후 수정(스테이지마다 다를지 고정으로 할지 생각)
             yield return new WaitForSeconds(0.5f);
@@ -67,10 +64,45 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// 적을 생성하는 함수
+    /// </summary>
+    private void SpawnEnemy()
+    {
+        GameObject enemy;
+
+        enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
+
+        EnemyController enemyController = enemy.GetComponent<EnemyController>();
+
+        enemyController.Init(_playerTransform, RandomSpawnPosition());
+        enemyController.OnDead += EnemyDead;
+
+        _normalEnemies.Add(enemyController);
+    }
+
+    private IEnumerator BurstSpawnCoroutine(int count, int enemyCount)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            for(int j = 0; j < enemyCount; j++)
+            {
+                SpawnEnemy();
+            }
+
+            yield return new WaitForSeconds(3.0f);
+        }
+        StopCoroutine(_burstSpawnRoutine);
+    }
+
+    /// <summary>
     /// 적 사망 시 호출할 함수
     /// </summary>
-    private void EnemyDead()
+    private void EnemyDead(EnemyController enemyController)
     {
+        // 스폰된 적 리스트에서 제거
+        _normalEnemies.Remove(enemyController);
+
+        // 적 죽을 시 이벤트 발행
         OnEnemyDead?.Invoke();
     }
 
@@ -82,6 +114,10 @@ public class EnemySpawner : MonoBehaviour
         OnBossDead?.Invoke();
     }
 
+    /// <summary>
+    /// 플레이어 위치 기준으로 랜덤한 위치를 반환하는 함수
+    /// </summary>
+    /// <returns></returns>
     private Vector2 RandomSpawnPosition()
     {
         Vector2 pos = _playerTransform.position;

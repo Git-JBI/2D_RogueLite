@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class EnemyController : MonoBehaviour, IDamageable
 {
     private Transform _heroTransform;
@@ -12,7 +13,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private IState _curState;
 
-    public event UnityAction OnDead;
+    public event UnityAction<EnemyController> OnDead;
 
     public Transform HeroTransform => _heroTransform;
     public EnemyModel Model => _model;
@@ -86,7 +87,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     public void Dead()
     {
         // 죽음 이벤트 실행
-        OnDead?.Invoke();
+        OnDead?.Invoke(this);
 
         // 현재 상태 비우기
         _curState = null;

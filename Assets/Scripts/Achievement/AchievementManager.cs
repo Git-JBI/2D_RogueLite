@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    private GameModel _gameModel;
     private AchievementModel _achievementModel;
 
     private List<SO_AchievementData> _achievementConfigDatas = new();
@@ -13,7 +14,8 @@ public class AchievementManager : MonoBehaviour
 
     private void Awake()
     {
-        _achievementModel = GameManager.Instance.GameModel.AchievementModel;
+        _gameModel = GameManager.Instance.GameModel;
+        _achievementModel = _gameModel.AchievementModel;
         _achievementConfigDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
     }
 
@@ -85,18 +87,18 @@ public class AchievementManager : MonoBehaviour
         switch(data.RewardType)
         {
             case AchievementRewardType.Gold:
-                GameManager.Instance.GameModel.AddGold(data.RewardValue);
+                _gameModel.AddGold(data.RewardValue);
                 break;
             case AchievementRewardType.Emerald:
-                GameManager.Instance.GameModel.AddEmerald(data.RewardValue);
+                _gameModel.AddEmerald(data.RewardValue);
                 break;
             case AchievementRewardType.Scroll:
-                GameManager.Instance.GameModel.AddRandomUpgradeScroll(data.RewardValue);
+                _gameModel.AddRandomUpgradeScroll(data.RewardValue);
                 break;
         }
 
         progressData.IsRewardClaimed = true;
-        GameManager.Instance.GameModel.SaveGameData();
+        _gameModel.SaveGameData();
     }
 
     /// <summary>
@@ -121,7 +123,7 @@ public class AchievementManager : MonoBehaviour
         _achievementModel.SaveData();
     }
     /// <summary>
-    /// 월요일 00시 기준으로 주간 체크
+    /// 월요일 00시 기준으로 주간 시작점
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>

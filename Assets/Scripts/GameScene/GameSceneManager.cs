@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -7,12 +8,18 @@ public class GameSceneManager : MonoBehaviour
     private GameSceneUIManager _ui;
     private EnemySpawner _enemySpawner;
 
+    private GameModel _gameModel;
+    private AchievementManager _achievementManager;
+
     private GameSceneModel _gameSceneModel;
     private SO_StageData _stageData;
     
-    private int _stage = GameManager.Instance.GameModel.SelectStage;
-    private bool _isKillCountReported = false;
-    private bool _isBossSpawn = false;
+    private bool _isKillCountReported;
+    private bool _isBossSpawn;
+    private bool _isFirstBurstStarted;
+    private bool _isSecondBurstStarted;
+
+    public event UnityAction<int, int> OnBurstStarted;
 
     private void Awake()
     {
@@ -21,9 +28,18 @@ public class GameSceneManager : MonoBehaviour
         _ui = FindFirstObjectByType<GameSceneUIManager>();
         _enemySpawner = FindFirstObjectByType<EnemySpawner>();
 
-        _gameSceneModel = new GameSceneModel();
+        _gameModel = GameManager.Instance.GameModel;
+        _achievementManager = GameManager.Instance.AchievementManager;
 
-        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_stage}");
+        _gameSceneModel = new GameSceneModel();
+        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
+
+        _isKillCountReported = false;
+        _isBossSpawn = false;
+        _isFirstBurstStarted = false;
+        _isSecondBurstStarted = false;
+
+        OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
 
         _enemySpawner.OnEnemyDead += EnemyDead;
         _enemySpawner.OnBossDead += BossDead;
@@ -33,6 +49,7 @@ public class GameSceneManager : MonoBehaviour
         _joystick.OnDragging += _heroController.Move;
     }
 
+
     private void Start()
     {
         Init();
@@ -40,18 +57,7 @@ public class GameSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit & !_isBossSpawn)
-        {
-            _gameSceneModel.IncreaseStageTime(Time.deltaTime);
-            _ui.SetTimeText(_gameSceneModel.StageTime);
-        }
-        else
-        {
-            _isBossSpawn = true;
-
-            // 보스 등장
-            _enemySpawner.SpawnBoss();
-        }
+        CheckTime();
     }
 
     private void Init()
@@ -65,13 +71,47 @@ public class GameSceneManager : MonoBehaviour
         _enemySpawner.Init(_heroController.transform);
     }
 
+    private void CheckTime()
+    {
+        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit & !_isBossSpawn)
+        {
+            _gameSceneModel.IncreaseStageTime(Time.deltaTime);
+            _ui.SetTimeText(_gameSceneModel.StageTime);
+        }
+        else
+        {
+            _isBossSpawn = true;
+
+            // 보스 등장
+            _enemySpawner.SpawnBoss();
+        }
+
+        // 첫번째 물량 공세 체크
+        if(_gameSceneModel.StageTime >= _stageData.StageTimeLimit / 3 && !_isFirstBurstStarted)
+        {
+            _isFirstBurstStarted = true;
+            // 물량 공세 이벤트 발행
+            OnBurstStarted?.Invoke(3, 40);
+        }
+        // 두번째 물량 공세 체크
+        if(_gameSceneModel.StageTime >= _stageData.StageTimeLimit / 3 * 2 && !_isSecondBurstStarted)
+        {
+            _isSecondBurstStarted = true;
+            // 물량 공세 이벤트 발행
+            OnBurstStarted?.Invoke(3, 40);
+        }
+    }
+
     /// <summary>
     /// 스테이지 클리어 시 호출할 함수
     /// </summary>
     private void ClearStage()
     {
         // 최대 스테이지 +1 증가
-        GameManager.Instance.GameModel.IncreaseMaxStage();
+        _gameModel.IncreaseMaxStage();
+
+        // 저장
+        _gameModel.SaveGameData();
     }
 
     /// <summary>
@@ -102,7 +142,7 @@ public class GameSceneManager : MonoBehaviour
     {
         //TODO 플레이어 경험치 획득, 아이템/장비 획득
 
-        GameManager.Instance.GameModel.AddGold(_gameSceneModel.StageGold);
+        _gameModel.AddGold(_gameSceneModel.StageGold);
 
         // 업적 적용
         ReportKillCount();
@@ -113,6 +153,9 @@ public class GameSceneManager : MonoBehaviour
 
         // 클리어 창 띄우기
         _ui.Clear();
+
+        // 스테이지 클리어
+        ClearStage();
     }
 
     private void ReportKillCount()
@@ -123,11 +166,11 @@ public class GameSceneManager : MonoBehaviour
         
         _isKillCountReported = true;
 
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillEnemy, _gameSceneModel.EnemyDeadCount);
+        _achievementManager.Report(AchievementConditionType.KillEnemy, _gameSceneModel.EnemyDeadCount);
     }
 
     private void ReportBossKillCount()
     {
-        GameManager.Instance.AchievementManager.Report(AchievementConditionType.KillBoss);
+        _achievementManager.Report(AchievementConditionType.KillBoss);
     }
 }

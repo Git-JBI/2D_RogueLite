@@ -7,10 +7,12 @@ public class AchievementSlotManager : MonoBehaviour
     [SerializeField] private Transform _dailyContent;
     [SerializeField] private Transform _weeklyContent;
 
+    private AchievementManager _achievementManager;
+    private AchievementModel _achievementModel;
     private AchievementSlot _dateSlotPrefab;
 
     private List<AchievementSlot> _dailySlots = new();
-    private List<AchievementSlot> _weeklyslots = new();
+    private List<AchievementSlot> _weeklySlots = new();
 
     [SerializeField] private Button _background;
     [SerializeField] private Toggle _dailyToggle;
@@ -19,6 +21,9 @@ public class AchievementSlotManager : MonoBehaviour
 
     private void Awake()
     {
+        _achievementManager = GameManager.Instance.AchievementManager;
+        _achievementModel = GameManager.Instance.GameModel.AchievementModel;
+
         _background.onClick.AddListener(AchievementPopupClose);
 
         // 업적 슬롯을 프리팹으로 가지고 있는다.
@@ -26,36 +31,35 @@ public class AchievementSlotManager : MonoBehaviour
 
         //TODO 업적 진행 완료 > 미완료 > 보상 받음 순서로 업적슬롯리스트 갱신
 
-        // 데일리 업적 갯수 파악 후 생성한다.
-        foreach(AchievementProgressData data in GameManager.Instance.AchievementManager.GetProgressList(AchievementType.Daily))
+        // 일일 업적 리스트 생성
+        CreateSlots(AchievementType.Daily, _dailyContent, _dailySlots);
+
+        // 주간 업적 리스트 생성
+        CreateSlots(AchievementType.Weekly, _weeklyContent, _weeklySlots);
+    }
+
+    /// <summary>
+    /// 업적 타입에 따른 업적 슬롯 생성 기능
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="content"></param>
+    /// <param name="slotList"></param>
+    private void CreateSlots(AchievementType type, Transform content, List<AchievementSlot> slotList)
+    {
+        foreach (AchievementProgressData progressData in _achievementModel.Achievements)
         {
-            // data값에 맞는 설정 데이터 불러오기
-            SO_AchievementData achievementData = GameManager.Instance.AchievementManager.GetAchievementData(data.AchievementId);
+            SO_AchievementData achievementData = _achievementManager.GetAchievementData(progressData.AchievementId);
 
-            // 일일업적 슬롯 생성
-            AchievementSlot slot = Instantiate(_dateSlotPrefab, _dailyContent);
+            if (achievementData == null)
+                continue;
 
-            // 일일업적 슬롯 초기화
-            slot.Init(achievementData, data);
+            if (achievementData.Type != type)
+                continue;
 
-            // 일일업적 리스트에 추가
-            _dailySlots.Add(slot);
-        }
+            AchievementSlot slot = Instantiate(_dateSlotPrefab, content);
+            slot.Init(achievementData, progressData);
 
-        // 위클리 업적 갯수 파악 후 생성한다.
-        foreach (AchievementProgressData data in GameManager.Instance.AchievementManager.GetProgressList(AchievementType.Weekly))
-        {
-            // data값에 맞는 설정 데이터 불러오기
-            SO_AchievementData achievementData = GameManager.Instance.AchievementManager.GetAchievementData(data.AchievementId);
-
-            // 주간업적 슬롯 생성
-            AchievementSlot slot = Instantiate(_dateSlotPrefab, _weeklyContent);
-
-            // 주간업적 슬롯 초기화
-            slot.Init(achievementData, data);
-
-            // 주간업적 리스트에 추가
-            _weeklyslots.Add(slot);
+            slotList.Add(slot);
         }
     }
 
