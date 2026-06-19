@@ -35,7 +35,7 @@ public class EquipmentModel
     /// </summary>
     /// <param name="instanceId">인스턴스 ID</param>
     /// <returns></returns>
-    public EquipmentItemData FindEquipmentList(string instanceId)
+    public EquipmentItemData GetEquipmentItem(string instanceId)
     {
         EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
         // 아이템을 찾지 못한 경우
@@ -66,7 +66,7 @@ public class EquipmentModel
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    public EquipmentItemData FindEquippedItemList(EquipmentType type)
+    public EquipmentItemData GetEquippedItem(EquipmentType type)
     {
         EquipmentItemData item = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
         // 아이템을 찾지 못한 경우

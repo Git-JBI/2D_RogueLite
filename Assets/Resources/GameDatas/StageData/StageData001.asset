@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: StageData001
   m_EditorClassIdentifier: 
   Stage: 1
-  BossSpawnTime: 120
+  StageTimeLimit: 0
+  Enemies: []
+  Boss: []

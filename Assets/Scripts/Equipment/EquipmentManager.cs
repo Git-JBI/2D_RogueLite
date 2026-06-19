@@ -65,13 +65,13 @@ public class EquipmentManager : MonoBehaviour
     public void EquipItem(string instanceId)
     {
         // 장비 인벤토리에서 장착할 아이템을 찾기
-        EquipmentItemData item = _equipmentModel.FindEquipmentList(instanceId);
+        EquipmentItemData item = _equipmentModel.GetEquipmentItem(instanceId);
 
         // 장착할 아이템의 타입
         EquipmentType type = item.EquipmentType;
 
         // 장착 중인 아이템
-        EquipmentItemData equippedItem = _equipmentModel.FindEquippedItemList(type);
+        EquipmentItemData equippedItem = _equipmentModel.GetEquippedItem(type);
 
         // 장착 중인 아이템이 있을 시
         if(equippedItem != null)
@@ -96,7 +96,7 @@ public class EquipmentManager : MonoBehaviour
     /// <param name="type"></param>
     public void UnequipItem(EquipmentType type)
     {
-        EquipmentItemData equippedItem = _equipmentModel.FindEquippedItemList(type);
+        EquipmentItemData equippedItem = _equipmentModel.GetEquippedItem(type);
 
         // 장착중인 장비가 없을 시 리턴
         if (equippedItem == null)

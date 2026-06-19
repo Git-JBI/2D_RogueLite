@@ -35,10 +35,10 @@ public class GameModel : MonoBehaviour
 
     private void Awake()
     {
+        LoadData();
+
         _equipmentModel = new EquipmentModel(_gameData, this);
         _achievementModel = new AchievementModel(_gameData, this);
-
-        LoadData();
 
         InitModel();
     }

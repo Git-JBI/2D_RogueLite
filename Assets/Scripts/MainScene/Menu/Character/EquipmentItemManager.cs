@@ -21,10 +21,11 @@ public class EquipmentItemManager : MonoBehaviour
 
     public void Refresh()
     {
+        Debug.Log(GameManager.Instance.GameModel.EquipmentModel.EquippedItems.Count);
         for (int i = 0; i < _slots.Length; i++)
         {
-            EquipmentItemData itemdata = GameManager.Instance.GameModel.EquipmentModel.FindEquippedItemList((EquipmentType)i);
-
+            EquipmentItemData itemdata = GameManager.Instance.GameModel.EquipmentModel.GetEquippedItem((EquipmentType)i);
+            Debug.Log(itemdata.InstanceID);
             if (itemdata != null)
             {
                 _slots[i].gameObject.SetActive(true);
