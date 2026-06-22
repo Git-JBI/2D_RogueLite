@@ -8,8 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyController _enemyPrefab;   //TODO GameSceneManager _stageData에서 받아오기
+    private List<EnemyController> _enemyPrefabs;
     private Transform _playerTransform;
     [SerializeField]
     private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData에서 받아오기
@@ -27,9 +26,10 @@ public class EnemySpawner : MonoBehaviour
         _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
-    public void Init(Transform transform)
+    public void Init(Transform transform, List<EnemyController> enemyPrefabs)
     {
         _playerTransform = transform;
+        _enemyPrefabs = enemyPrefabs;
     }
 
     public void BurstSpawnEnemy(int count, int enemyCount)
@@ -80,6 +80,12 @@ public class EnemySpawner : MonoBehaviour
         _normalEnemies.Add(enemyController);
     }
 
+    /// <summary>
+    /// 순간적으로 적을 대량 생성하는 함수
+    /// </summary>
+    /// <param name="count"></param>
+    /// <param name="enemyCount"></param>
+    /// <returns></returns>
     private IEnumerator BurstSpawnCoroutine(int count, int enemyCount)
     {
         for(int i = 0; i < count; i++)

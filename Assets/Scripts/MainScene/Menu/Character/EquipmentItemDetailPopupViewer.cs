@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,16 +40,16 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     /// </summary>
     [SerializeField] private TextMeshProUGUI _maxUpgradeText;
 
-    public void Init(string itemName, EquipmentType type, ItemRarity rarity, int rarityLevel, string desc, int requireGold, int requireScroll)
+    public void Init(EquipmentItemData itemData, SO_EquipmentItemData itemConfigData, int requireGold, int requireScroll)
     {
-        _descText.text = $"Name : {itemName}\n" +
-            $"Type : {type}\n" +
-            $"Rarity : {rarity}\n" +
-            $"RarityLevel : {rarityLevel}\n" +
-            $"Desc : {desc}";
+        _descText.text = $"Name : {itemConfigData.ItemName}\n" +
+            $"Type : {itemData.EquipmentType}\n" +
+            $"Rarity : {itemData.Rarity}\n" +
+            $"RarityLevel : {itemData.RarityLevel}\n" +
+            $"Desc : {itemConfigData.Desc}";
 
         SetGoldCostText(GameManager.Instance.GameModel.Gold, requireGold);
-        SetScrollCostText(GameManager.Instance.GameModel.UpgradeScroll[(int)type], requireScroll);
+        SetScrollCostText(GameManager.Instance.GameModel.UpgradeScroll[(int)itemData.EquipmentType], requireScroll);
     }
 
     public void SetEquipText()
@@ -82,7 +83,7 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
         _scrollCostText.text = text;
     }
 
-    public void isMaxLevel(bool value)
+    public void CheckMaxLevel(bool value)
     {
         if(value)
         {

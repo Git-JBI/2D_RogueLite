@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
@@ -5,52 +6,62 @@ public class EquipmentManager : MonoBehaviour
     private int _equipmentBonusAtk;
     private int _equipmentBonusHp;
 
-    private EquipmentModel _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
+    private GameModel _gameModel;
+    private EquipmentModel _equipmentModel;
 
+    private SO_EquipmentUpgredeTable _upgradeTable;
+    private Dictionary<int, LevelUpCost> _upgradeTableMap = new();
+
+    /// <summary>
+    /// ì¥ë¹„ ì‹œ ë³´ë„ˆìŠ¤ ê³µê²©ë ¥
+    /// </summary>
     public int EquipmentBonusAtk
     {
         get
         {
             _equipmentBonusAtk = 0;
 
-            // ÀåÂøÁßÀÎ ¾ÆÀÌÅÛ ¸®½ºÆ® ¼øÈ¸
+            // ì¥ì°©ì¤‘ì¸ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ ìˆœíšŒ
             foreach(EquipmentItemData data in GameManager.Instance.GameModel.EquipmentModel.EquippedItems)
             {
-                // ¾ÆÀÌÅÛ ¼³Á¤ µ¥ÀÌÅÍ
+                // ì•„ì´í…œ ì„¤ì • ë°ì´í„°
                 SO_EquipmentItemData itemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(data.ItemID);
 
-                // Àåºñ ½ºÅİ Å¸ÀÔÀÌ °ø°İ·ÂÀÎ °æ¿ì
+                // ì¥ë¹„ ìŠ¤í…Ÿ íƒ€ì…ì´ ê³µê²©ë ¥ì¸ ê²½ìš°
                 if(itemData.EquipmentStatType == EquipmentStatType.Attack)
                 {
-                    // ÇöÀç ·¹¾î¸®Æ¼¿¡ ¸Â´Â º£ÀÌ½º½ºÅİ, ·¹º§´ç ½ºÅİ ºÒ·¯¿À±â
+                    // í˜„ì¬ ë ˆì–´ë¦¬í‹°ì— ë§ëŠ” ë² ì´ìŠ¤ìŠ¤í…Ÿ, ë ˆë²¨ë‹¹ ìŠ¤í…Ÿ ë¶ˆëŸ¬ì˜¤ê¸°
                     RarityStatInfo info = itemData.RaritySettings.Find(x => x.Rarity == data.Rarity);
 
-                    // º£ÀÌ½º ½ºÅİ + ·¹º§ ´ç ½ºÅİ * ¾ÆÀÌÅÛ ·¹º§
+                    // ë² ì´ìŠ¤ ìŠ¤í…Ÿ + ë ˆë²¨ ë‹¹ ìŠ¤í…Ÿ * ì•„ì´í…œ ë ˆë²¨
                     _equipmentBonusAtk = _equipmentBonusAtk + info.BaseStat + info.StatPerLevel * data.ItemLevel;
                 }
             }
             return _equipmentBonusAtk;
         }
     }
+    /// <summary>
+    /// ì¥ë¹„ ì‹œ ë³´ë„ˆìŠ¤ ì²´ë ¥
+    /// </summary>
     public int EquipmentBonusHp
     {
         get
         {
             _equipmentBonusHp = 0;
 
-            // ÀåÂøÁßÀÎ ¾ÆÀÌÅÛ ¸®½ºÆ® ¼øÈ¸
+            // ì¥ì°©ì¤‘ì¸ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ ìˆœíšŒ
             foreach (EquipmentItemData data in GameManager.Instance.GameModel.EquipmentModel.EquippedItems)
             {
-                // ¾ÆÀÌÅÛ ¼³Á¤ µ¥ÀÌÅÍ
+                // ì•„ì´í…œ ì„¤ì • ë°ì´í„°
                 SO_EquipmentItemData itemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(data.ItemID);
 
-                // Àåºñ ½ºÅİ Å¸ÀÔÀÌ HpÀÎ °æ¿ì
+                // ì¥ë¹„ ìŠ¤í…Ÿ íƒ€ì…ì´ Hpì¸ ê²½ìš°
                 if (itemData.EquipmentStatType == EquipmentStatType.Hp)
                 {
-                    // ÇöÀç ·¹¾î¸®Æ¼¿¡ ¸Â´Â º£ÀÌ½º½ºÅİ, ·¹º§´ç ½ºÅİ ºÒ·¯¿À±â
+                    // í˜„ì¬ ë ˆì–´ë¦¬í‹°ì— ë§ëŠ” ë² ì´ìŠ¤ìŠ¤í…Ÿ, ë ˆë²¨ë‹¹ ìŠ¤í…Ÿ ë¶ˆëŸ¬ì˜¤ê¸°
                     RarityStatInfo info = itemData.RaritySettings.Find(x => x.Rarity == data.Rarity);
 
-                    // º£ÀÌ½º ½ºÅİ + ·¹º§ ´ç ½ºÅİ * ¾ÆÀÌÅÛ ·¹º§
+                    // ë² ì´ìŠ¤ ìŠ¤í…Ÿ + ë ˆë²¨ ë‹¹ ìŠ¤í…Ÿ * ì•„ì´í…œ ë ˆë²¨
                     _equipmentBonusHp = _equipmentBonusHp + info.BaseStat + info.StatPerLevel * data.ItemLevel;
                 }
             }
@@ -58,96 +69,196 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        _upgradeTable = Resources.Load<SO_EquipmentUpgredeTable>("GameDatas/EquipmentUpgradeData/EquipmentUpgradeData");
+
+        foreach(LevelUpCost level in _upgradeTable.CostList)
+        {
+            _upgradeTableMap.Add(level.Level, level);
+        }
+    }
+
+    public void Init(GameModel gameModel)
+    {
+        _gameModel = gameModel;
+        _equipmentModel = gameModel.EquipmentModel;
+    }
+
     /// <summary>
-    /// Àåºñ ÀåÂø
+    /// ì¥ë¹„ ì¥ì°©
     /// </summary>
     /// <param name="instanceId"></param>
     public void EquipItem(string instanceId)
     {
-        // Àåºñ ÀÎº¥Åä¸®¿¡¼­ ÀåÂøÇÒ ¾ÆÀÌÅÛÀ» Ã£±â
+        // ì¥ë¹„ ì¸ë²¤í† ë¦¬ì—ì„œ ì¥ì°©í•  ì•„ì´í…œì„ ì°¾ê¸°
         EquipmentItemData item = _equipmentModel.GetEquipmentItem(instanceId);
 
-        // ÀåÂøÇÒ ¾ÆÀÌÅÛÀÇ Å¸ÀÔ
+        // ì¥ì°©í•  ì•„ì´í…œì˜ íƒ€ì…
         EquipmentType type = item.EquipmentType;
 
-        // ÀåÂø ÁßÀÎ ¾ÆÀÌÅÛ
+        // ì¥ì°© ì¤‘ì¸ ì•„ì´í…œ
         EquipmentItemData equippedItem = _equipmentModel.GetEquippedItem(type);
 
-        // ÀåÂø ÁßÀÎ ¾ÆÀÌÅÛÀÌ ÀÖÀ» ½Ã
+        // ì¥ì°© ì¤‘ì¸ ì•„ì´í…œì´ ìˆì„ ì‹œ
         if(equippedItem != null)
         {
-            // ÀåÂøÁßÀÎ Àåºñ ¸®½ºÆ®¿¡¼­ ÀåÂøÁßÀÎ Àåºñ Á¦°Å
+            // ì¥ì°©ì¤‘ì¸ ì¥ë¹„ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì¥ì°©ì¤‘ì¸ ì¥ë¹„ ì œê±°
             _equipmentModel.RemoveEquippedItemList(equippedItem);
-            // º¸À¯ÁßÀÎ Àåºñ ¸®½ºÆ®¿¡ ÀåÂøÁßÀÌ¿´´ø Àåºñ Ãß°¡
+            // ë³´ìœ ì¤‘ì¸ ì¥ë¹„ ë¦¬ìŠ¤íŠ¸ì— ì¥ì°©ì¤‘ì´ì˜€ë˜ ì¥ë¹„ ì¶”ê°€
             _equipmentModel.AddEquipmentList(equippedItem);
         }
 
-        // º¸À¯ÁßÀÎ Àåºñ ¸®½ºÆ®¿¡¼­ Á¦°Å
+        // ë³´ìœ ì¤‘ì¸ ì¥ë¹„ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
         _equipmentModel.RemoveEquipmentList(item);
-        // ÀåÂøÁßÀÎ Àåºñ ¸®½ºÆ®¿¡ Ãß°¡
-        _equipmentModel.AddEquippedItemList(equippedItem);
+        // ì¥ì°©ì¤‘ì¸ ì¥ë¹„ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+        _equipmentModel.AddEquippedItemList(item);
 
-        // ÀúÀå
+        // ì €ì¥
         _equipmentModel.SaveData();
     }
     /// <summary>
-    /// Àåºñ ÇØÁ¦
+    /// ì¥ë¹„ í•´ì œ
     /// </summary>
     /// <param name="type"></param>
     public void UnequipItem(EquipmentType type)
     {
         EquipmentItemData equippedItem = _equipmentModel.GetEquippedItem(type);
 
-        // ÀåÂøÁßÀÎ Àåºñ°¡ ¾øÀ» ½Ã ¸®ÅÏ
+        // ì¥ì°©ì¤‘ì¸ ì¥ë¹„ê°€ ì—†ì„ ì‹œ ë¦¬í„´
         if (equippedItem == null)
             return;
 
-        // Àåºñ ÀÎº¥Åä¸®¿¡ Ãß°¡
+        // ì¥ë¹„ ì¸ë²¤í† ë¦¬ì— ì¶”ê°€
         _equipmentModel.AddEquipmentList(equippedItem);
-        // ÀåÂø ÁßÀÎ ¸®½ºÆ®¿¡¼­ Á¦°Å
+        // ì¥ì°© ì¤‘ì¸ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
         _equipmentModel.RemoveEquippedItemList(equippedItem);
-        // ÀúÀå
+        // ì €ì¥
         _equipmentModel.SaveData();
     }
-
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ÃÖ´ë ·¹º§ ±¸ÇÏ´Â ÇÔ¼ö
+    /// ì¥ë¹„ ì•„ì´í…œ ìµœëŒ€ ë ˆë²¨ êµ¬í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
     public int GetEquipmentItemMaxLevel(EquipmentItemData data)
     {
-        int value = 0;
-
-        // ·¹¾î¸®Æ¼¿¡ µû¸¥ ÃÖ´ë·¹º§ ¼³Á¤
-        switch(data.Rarity)
+        int value = data.Rarity switch
         {
-            case ItemRarity.Common:
-                value += 10;
-                break;
-            case ItemRarity.UnCommon:
-                value += 20;
-                break;
-            case ItemRarity.Rare:
-                value += 30;
-                break;
-            case ItemRarity.Unique:
-                value += 40;
-                break;
-            case ItemRarity.Epic:
-                value += 70;
-                break;
-            case ItemRarity.Legendary:
-                value += 110;
-                break;
-            case ItemRarity.Special:
-                value += 200;
-                break;
-        }
+            ItemRarity.Common => 10,
+            ItemRarity.UnCommon => 20,
+            ItemRarity.Rare => 30,
+            ItemRarity.Unique => 40,
+            ItemRarity.Epic => 70,
+            ItemRarity.Legendary => 110,
+            ItemRarity.Special => 200,
+            _ => 10
+        };
 
-        // ·¹¾î¸®Æ¼ ·¹º§´ç ÃÖ´ë ·¹º§ 10 Áõ°¡
-        value = data.RarityLevel * 10;
+        value += data.RarityLevel * 10;
 
         return value;
     }
+
+    /// <summary>
+    /// ì•„ì´í…œ ë ˆë²¨ì—…ì— í•„ìš”í•œ ê³¨ë“œ í•¨ìˆ˜
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public int GetUpgradeGoldCost(int level)
+    {
+        if (_upgradeTableMap.TryGetValue(level, out LevelUpCost cost))
+            return cost.GoldCost;
+        return 0;
+    }
+    /// <summary>
+    /// ì•„ì´í…œ ë ˆë²¨ì—…ì— í•„ìš”í•œ ìŠ¤í¬ë¡¤ í•¨ìˆ˜
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public int GetUpgradeScrollCost(int level)
+    {
+        if(_upgradeTableMap.TryGetValue(level, out LevelUpCost cost))
+            return cost.ScrollCost;
+        return 0;
+    }
+    /// <summary>
+    /// ì•„ì´í…œ ë ˆë²¨ì—… í•¨ìˆ˜
+    /// </summary>
+    /// <param name="data"></param>
+    public void ItemLevelUp(EquipmentItemData data)
+    {
+        // í•„ìš”í•œ ê³¨ë“œ
+        int goldCost = GetUpgradeGoldCost(data.ItemLevel);
+        // í•„ìš”í•œ ìŠ¤í¬ë¡¤
+        int scrollCost = GetUpgradeScrollCost(data.ItemLevel);
+
+        // í•„ìš”í•œ ê³¨ë“œ ì½”ìŠ¤íŠ¸ì™€ ìŠ¤í¬ë¡¤ ì½”ìŠ¤íŠ¸ê°€ ì—†ì„ ì‹œ
+        if (goldCost <= 0 && scrollCost <= 0)
+            return;
+
+        // ê³¨ë“œë‚˜ ìŠ¤í¬ë¡¤ì´ ë¶€ì¡±í•  ì‹œ
+        if (_gameModel.Gold < goldCost || _gameModel.UpgradeScroll[(int)data.EquipmentType] < scrollCost)
+            return;
+
+        // ê³¨ë“œ ì°¨ê°
+        _gameModel.AddGold(-goldCost);
+        // ìŠ¤í¬ë¡¤ ì°¨ê°
+        _gameModel.AddUpgradeScroll((int)data.EquipmentType, -scrollCost);
+        // ì•„ì´í…œ ë ˆë²¨ì—…
+        data.ItemLevel++;
+        // ì €ì¥
+        _equipmentModel.SaveData();
+    }
+    public int ItemLevelUpAll(EquipmentItemData data)
+    {
+        // ë³´ìœ í•œ ê³¨ë“œ
+        int gold = _gameModel.Gold;
+        // ë³´ìœ í•œ ìŠ¤í¬ë¡¤
+        int scroll = _gameModel.UpgradeScroll[(int)data.EquipmentType];
+
+        // í•„ìš”í•œ ì´ ê³¨ë“œ
+        int totalGoldCost = 0;
+        // í•„ìš”í•œ ì´ ìŠ¤í¬ë¡¤
+        int totalScrollCost = 0;
+        // ì´ ë ˆë²¨ ì—…
+        int totalLevelUp = 0;
+
+        // ë ˆë²¨ì—… ê°€ëŠ¥í•œ ì •ë„ ê³„ì‚°
+        while(data.ItemLevel < GetEquipmentItemMaxLevel(data))
+        {
+            int goldCost = GetUpgradeGoldCost(data.ItemLevel);
+            int scrollCost = GetUpgradeScrollCost(data.ItemLevel);
+
+            if (goldCost <= 0 && scrollCost <= 0)
+                break;
+
+            if (gold < goldCost || scroll < scrollCost)
+                break;
+
+            // ê³¨ë“œ ê°ì†Œ
+            gold -= goldCost;
+            // ìŠ¤í¬ë¡¤ ê°ì†Œ
+            scroll -= scrollCost;
+
+            // ì´ ì†Œëª¨ ê³¨ë“œ ì¶”ê°€
+            totalGoldCost += goldCost;
+            // ì´ ì†Œëª¨ ìŠ¤í¬ë¡¤ ì¶”ê°€
+            totalScrollCost += scrollCost;
+
+            // ì•„ì´í…œ ë ˆë²¨ì—…
+            data.ItemLevel++;
+            // ì´ ë ˆë²¨ì—… ì¶”ê°€
+            totalLevelUp++;
+        }
+        // ê³¨ë“œ ì°¨ê°
+        _gameModel.AddGold(-totalGoldCost);
+
+        // ìŠ¤í¬ë¡¤ ì°¨ê°
+        _gameModel.AddUpgradeScroll((int)data.EquipmentType, -totalScrollCost);
+
+        // ì´ ìƒìŠ¹ ë ˆë²¨ ë¦¬í„´
+        return totalLevelUp;
+    }
+
 }

@@ -10,5 +10,5 @@ public class SO_StageData : ScriptableObject
 
     public List<EnemyController> Enemies = new();
     
-    public List<EnemyController> Boss = new();
+    public List<EnemyController> Bosses = new();
 }

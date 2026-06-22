@@ -5,8 +5,8 @@ using UnityEngine;
 public class GachaManager : MonoBehaviour
 {
     [SerializeField] private List<SO_EquipmentItemData> _totalItemDataPool;
-    private AchievementManager _achievementManager = GameManager.Instance.AchievementManager;
-    private EquipmentModel _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
+    private AchievementManager _achievementManager;
+    private EquipmentModel _equipmentModel;
 
     private Button_Gacha[] _button_Gachas;
 
@@ -15,6 +15,9 @@ public class GachaManager : MonoBehaviour
 
     private void Awake()
     {
+        _achievementManager = GameManager.Instance.AchievementManager;
+        _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
+
         _button_Gachas = GetComponentsInChildren<Button_Gacha>();
 
         foreach(Button_Gacha x in _button_Gachas)

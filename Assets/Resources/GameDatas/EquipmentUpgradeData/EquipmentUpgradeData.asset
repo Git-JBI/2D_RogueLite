@@ -43,3 +43,120 @@ MonoBehaviour:
   - Level: 10
     GoldCost: 10000
     ScrollCost: 4
+  - Level: 11
+    GoldCost: 10000
+    ScrollCost: 4
+  - Level: 12
+    GoldCost: 10000
+    ScrollCost: 4
+  - Level: 13
+    GoldCost: 10000
+    ScrollCost: 4
+  - Level: 14
+    GoldCost: 10000
+    ScrollCost: 4
+  - Level: 15
+    GoldCost: 15000
+    ScrollCost: 5
+  - Level: 16
+    GoldCost: 15000
+    ScrollCost: 5
+  - Level: 17
+    GoldCost: 15000
+    ScrollCost: 5
+  - Level: 18
+    GoldCost: 15000
+    ScrollCost: 5
+  - Level: 19
+    GoldCost: 15000
+    ScrollCost: 5
+  - Level: 20
+    GoldCost: 20000
+    ScrollCost: 10
+  - Level: 21
+    GoldCost: 20000
+    ScrollCost: 10
+  - Level: 22
+    GoldCost: 20000
+    ScrollCost: 10
+  - Level: 23
+    GoldCost: 20000
+    ScrollCost: 10
+  - Level: 24
+    GoldCost: 20000
+    ScrollCost: 10
+  - Level: 25
+    GoldCost: 25000
+    ScrollCost: 15
+  - Level: 26
+    GoldCost: 25000
+    ScrollCost: 15
+  - Level: 27
+    GoldCost: 25000
+    ScrollCost: 15
+  - Level: 28
+    GoldCost: 25000
+    ScrollCost: 15
+  - Level: 29
+    GoldCost: 25000
+    ScrollCost: 15
+  - Level: 30
+    GoldCost: 30000
+    ScrollCost: 20
+  - Level: 31
+    GoldCost: 30000
+    ScrollCost: 20
+  - Level: 32
+    GoldCost: 30000
+    ScrollCost: 20
+  - Level: 33
+    GoldCost: 30000
+    ScrollCost: 20
+  - Level: 34
+    GoldCost: 30000
+    ScrollCost: 20
+  - Level: 35
+    GoldCost: 35000
+    ScrollCost: 25
+  - Level: 36
+    GoldCost: 35000
+    ScrollCost: 25
+  - Level: 37
+    GoldCost: 35000
+    ScrollCost: 25
+  - Level: 38
+    GoldCost: 35000
+    ScrollCost: 25
+  - Level: 39
+    GoldCost: 35000
+    ScrollCost: 25
+  - Level: 40
+    GoldCost: 40000
+    ScrollCost: 30
+  - Level: 41
+    GoldCost: 40000
+    ScrollCost: 30
+  - Level: 42
+    GoldCost: 40000
+    ScrollCost: 30
+  - Level: 43
+    GoldCost: 40000
+    ScrollCost: 30
+  - Level: 44
+    GoldCost: 40000
+    ScrollCost: 30
+  - Level: 45
+    GoldCost: 45000
+    ScrollCost: 35
+  - Level: 46
+    GoldCost: 45000
+    ScrollCost: 35
+  - Level: 47
+    GoldCost: 45000
+    ScrollCost: 35
+  - Level: 48
+    GoldCost: 45000
+    ScrollCost: 35
+  - Level: 49
+    GoldCost: 45000
+    ScrollCost: 35

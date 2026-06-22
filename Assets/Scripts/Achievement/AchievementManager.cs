@@ -14,14 +14,17 @@ public class AchievementManager : MonoBehaviour
 
     private void Awake()
     {
-        _gameModel = GameManager.Instance.GameModel;
-        _achievementModel = _gameModel.AchievementModel;
         _achievementConfigDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
     }
 
-    private void Start()
+    public void Init(GameModel gameModel)
     {
+        _gameModel = gameModel;
+        _achievementModel = gameModel.AchievementModel;
+
+        // 일간 확인
         CheckDailyDate();
+        // 주간 확인
         CheckWeeklyDate();
 
         // 금일 로그인 했는지 확인
@@ -37,6 +40,7 @@ public class AchievementManager : MonoBehaviour
     {
         return _achievementConfigDatas.Find(x => x.AchievementId == achievementId);
     }
+
     /// <summary>
     /// 업적 내용 갱신
     /// </summary>
@@ -51,13 +55,16 @@ public class AchievementManager : MonoBehaviour
 
             AchievementProgressData progress = _achievementModel.GetAchievementData(achievement.AchievementId);
 
+            // 보상을 받았을 경우 continue
             if (progress.IsRewardClaimed)
                 continue;
 
             progress.Progress += amount;
 
+            // 현재 수치가 목표치보다 크거나 같을 경우
             if (progress.Progress >= achievement.TargetValue)
             {
+                // 현재 수치 = 목표치
                 progress.Progress = achievement.TargetValue;
                 progress.IsCompleted = true;
             }
@@ -122,6 +129,7 @@ public class AchievementManager : MonoBehaviour
         // 저장
         _achievementModel.SaveData();
     }
+
     /// <summary>
     /// 월요일 00시 기준으로 주간 시작점
     /// </summary>
@@ -134,6 +142,7 @@ public class AchievementManager : MonoBehaviour
 
         return monday.ToString("yyyy-MM-dd");
     }
+
     /// <summary>
     /// Weekly 체크
     /// </summary>
@@ -149,6 +158,8 @@ public class AchievementManager : MonoBehaviour
         _achievementModel.SetLastWeeklyResetDate(thisWeek);
         _achievementModel.SaveData();
     }
+
+    //TODO 로그인 체크를 여기서 할지
     /// <summary>
     /// 금일 로그인 체크
     /// </summary>

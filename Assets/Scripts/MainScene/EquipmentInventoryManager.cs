@@ -77,6 +77,6 @@ public class EquipmentInventoryManager : MonoBehaviour
     {
         _popup.gameObject.SetActive(true);
         _popup.Init(data);
-        _popup.SetEquip();
+        _popup.SetEquipmentItem();
     }
 }

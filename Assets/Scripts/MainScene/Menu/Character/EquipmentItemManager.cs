@@ -25,7 +25,7 @@ public class EquipmentItemManager : MonoBehaviour
         for (int i = 0; i < _slots.Length; i++)
         {
             EquipmentItemData itemdata = GameManager.Instance.GameModel.EquipmentModel.GetEquippedItem((EquipmentType)i);
-            Debug.Log(itemdata.InstanceID);
+
             if (itemdata != null)
             {
                 _slots[i].gameObject.SetActive(true);
@@ -41,6 +41,6 @@ public class EquipmentItemManager : MonoBehaviour
     {
         _popup.gameObject.SetActive(true);
         _popup.Init(data);
-        _popup.SetUnEquip();
+        _popup.SetEquippedItem();
     }
 }

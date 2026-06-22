@@ -115,6 +115,9 @@ public class AchievementModel
             data.IsRewardClaimed = false;
         }
     }
+    /// <summary>
+    /// 주간 업적 초기화
+    /// </summary>
     public void ResetWeeklyAchievements()
     {
         List<SO_AchievementData> achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();

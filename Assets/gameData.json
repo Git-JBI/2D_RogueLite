@@ -1,6 +1,6 @@
 {
     "HeroDataName": "00",
-    "Gold": 8361000,
+    "Gold": 8358000,
     "Emerald": 50,
     "UpgradeLevel": [
         10,
@@ -13,14 +13,14 @@
         764,
         939,
         965,
-        7,
+        5,
         23,
         842
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-06-19",
-    "LastWeeklyResetDate": "2026-06-15",
+    "LastDailyResetDate": "2026-06-22",
+    "LastWeeklyResetDate": "2026-06-22",
     "Achievements": [
         {
             "AchievementId": "Daily_EnterStage",
@@ -30,8 +30,8 @@
         },
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 0,
-            "IsCompleted": false,
+            "Progress": 1,
+            "IsCompleted": true,
             "IsRewardClaimed": false
         },
         {
@@ -460,7 +460,7 @@
             "EquipmentType": 3,
             "Rarity": 2,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 3
         },
         {
             "InstanceID": "65f63c38-096c-4574-9269-3471ac76e4df",

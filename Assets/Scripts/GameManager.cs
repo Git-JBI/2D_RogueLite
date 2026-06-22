@@ -39,6 +39,13 @@ public class GameManager : MonoBehaviour
         _poolManager = GetComponent<PoolManager>();
         _resourceManager = GetComponent<ResourceManager>();
         _achievementManager = GetComponent<AchievementManager>();
+        _equipmentManager = GetComponent<EquipmentManager>();
         _equipmentItemDatabase = GetComponent<EquipmentItemDatabase>();
+    }
+
+    private void Start()
+    {
+        _achievementManager.Init(_gameModel);
+        _equipmentManager.Init(_gameModel);
     }
 }
