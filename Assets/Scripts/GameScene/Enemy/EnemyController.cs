@@ -15,13 +15,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public event UnityAction<EnemyController> OnDead;
 
-    public Transform HeroTransform => _heroTransform;
-    public EnemyModel Model => _model;
-    public RigidMovement Movement => _movement;
-    public Rigidbody2D Rigidbody => _rigidbody;
     public EnemySpriteController SpriteController => _spriteController;
-    public Collider2D Collider => _collider;
-
 
     private EnemyMoveState _moveState;
     private EnemyDamagedState _damagedState;
@@ -79,11 +73,42 @@ public class EnemyController : MonoBehaviour, IDamageable
         _curState.OnStateEnter();
     }
 
+    /// <summary>
+    /// 플레이어의 방향을 구하는함수
+    /// </summary>
+    /// <returns>플레이어 방향 vector2</returns>
+    public Vector2 DirToTarget()
+    {
+        return (_heroTransform.position - transform.position).normalized;
+    }
+
+    /// <summary>
+    /// 리지드바디 상태 설정 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetRigidbodyActive(bool value)
+    {
+        _rigidbody.simulated = value;
+    }
+
+    /// <summary>
+    /// 콜라이더 상태 설정 함수
+    /// </summary>
+    /// <param name="x"></param>
     public void SetColliderActive(bool x)
     {
         _collider.enabled = x;
     }
 
+    public void Move()
+    {
+        _movement.Move(DirToTarget(), _model.MoveSpeed);
+        _spriteController.SetFlipX(DirToTarget().x);
+    }
+    public void Stop()
+    {
+        _movement.Move(Vector2.zero, 0);
+    }
     public void Dead()
     {
         // 죽음 이벤트 실행
@@ -103,6 +128,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         poolOb.ReturnToPool();
     }
 
+    //TODO 추후 expitem의 종류 다양
     private void SpawnExpItem()
     {
         GameObject expItem;

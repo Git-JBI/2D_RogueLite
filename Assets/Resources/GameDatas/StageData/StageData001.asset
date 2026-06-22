@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StageData001
   m_EditorClassIdentifier: 
   Stage: 1
-  StageTimeLimit: 0
+  StageTimeLimit: 60
   Enemies: []
-  Boss: []
+  Bosses: []

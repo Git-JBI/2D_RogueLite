@@ -18,7 +18,7 @@ public class EnemyDeadState : IState
         _timer = 0;
 
         // 리지드바디 비활성화
-        _enemy.Movement.SetActive(false);
+        _enemy.SetRigidbodyActive(false);
 
         // 콜라이더 비활성화
         _enemy.SetColliderActive(false);
