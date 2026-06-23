@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyBullet_Normal_HaveParent : EnemyBulletBase
 {
@@ -19,7 +19,7 @@ public class EnemyBullet_Normal_HaveParent : EnemyBulletBase
 
         _timer += Time.deltaTime;
 
-        //TODO ÃßÈÄ ÁöÁ¤ÇÑ ½Ã°£ÀÌ Áö³¯ °æ¿ì ÃÑ¾Ë Á¦°Å·Î º¯°æ
+        //TODO ì¶”í›„ ì§€ì •í•œ ì‹œê°„ì´ ì§€ë‚  ê²½ìš° ì´ì•Œ ì œê±°ë¡œ ë³€ê²½
         if (_timer > 3)
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();

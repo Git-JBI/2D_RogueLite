@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 
 [System.Serializable]
 public class GameData
@@ -10,7 +10,7 @@ public class GameData
     public int MaxStage;
     public int SelectStage;
     /// <summary>
-    /// 0. ¹«±â 1. ¸ñ°ÉÀÌ 2. Àå°© 3. °©¿Ê 4. º§Æ® 5. ½Å¹ß
+    /// 0. ë¬´ê¸° 1. ëª©ê±¸ì´ 2. ì¥ê°‘ 3. ê°‘ì˜· 4. ë²¨íŠ¸ 5. ì‹ ë°œ
     /// </summary>
     public int[] UpgradeScroll = new int[6];
 
@@ -24,5 +24,5 @@ public class GameData
 
     public List<EquipmentItemData> EquipmentItems = new();
     public List<EquipmentItemData> EquippedItems = new();
-    //TODO ÀÏ¹İ ¾ÆÀÌÅÛ ¸®½ºÆ® µû·Î ÇÊ¿ä(ex. »Ì±â¿ë ¿­¼è, Àåºñ °­È­¿ë ÁÖ¹®¼­ µîµî)
+    //TODO ì¼ë°˜ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ ë”°ë¡œ í•„ìš”(ex. ë½‘ê¸°ìš© ì—´ì‡ , ì¥ë¹„ ê°•í™”ìš© ì£¼ë¬¸ì„œ ë“±ë“±)
 }

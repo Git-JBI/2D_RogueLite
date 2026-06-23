@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
@@ -10,11 +10,11 @@ public class SO_MergeRuleData : ScriptableObject
 [System.Serializable]
 public class MergeRule
 {
-    [Header("# º£ÀÌ½º Ç×¸ñ")]
+    [Header("# ë² ì´ìŠ¤ í•­ëª©")]
     [SerializeField] private ItemRarity _baseitemRarity;
     [SerializeField] private int _baseitemRarityLevel;
 
-    [Header("# ÇÊ¿äÇÑ Ç×¸ñ")]
+    [Header("# í•„ìš”í•œ í•­ëª©")]
     [SerializeField] private ItemRarity _requireitemRarity;
     [SerializeField] private int _requireRarityLevel;
     [SerializeField] private int _requireCount;

@@ -76,7 +76,10 @@ public class GameSceneManager : MonoBehaviour
     /// </summary>
     private void CheckTime()
     {
-        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit & !_isBossSpawn)
+        if (_isBossSpawn)
+            return;
+
+        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit)
         {
             _gameSceneModel.IncreaseStageTime(Time.deltaTime);
             _ui.SetTimeText(_gameSceneModel.StageTime);

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
@@ -186,7 +186,7 @@ public class EquipmentManager : MonoBehaviour
     /// 아이템 레벨업 함수
     /// </summary>
     /// <param name="data"></param>
-    public void ItemLevelUp(EquipmentItemData data)
+    public bool ItemLevelUp(EquipmentItemData data)
     {
         // 필요한 골드
         int goldCost = GetUpgradeGoldCost(data.ItemLevel);
@@ -195,11 +195,11 @@ public class EquipmentManager : MonoBehaviour
 
         // 필요한 골드 코스트와 스크롤 코스트가 없을 시
         if (goldCost <= 0 && scrollCost <= 0)
-            return;
+            return false;
 
         // 골드나 스크롤이 부족할 시
         if (_gameModel.Gold < goldCost || _gameModel.UpgradeScroll[(int)data.EquipmentType] < scrollCost)
-            return;
+            return false;
 
         // 골드 차감
         _gameModel.AddGold(-goldCost);
@@ -209,6 +209,8 @@ public class EquipmentManager : MonoBehaviour
         data.ItemLevel++;
         // 저장
         _equipmentModel.SaveData();
+
+        return true;
     }
     public int ItemLevelUpAll(EquipmentItemData data)
     {

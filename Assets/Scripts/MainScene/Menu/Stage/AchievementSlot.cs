@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class AchievementSlot : MonoBehaviour
@@ -31,27 +31,27 @@ public class AchievementSlot : MonoBehaviour
     }
 
     /// <summary>
-    /// º¸»óÀ» ¹ŞÀ» ¼ö ÀÖ´ÂÁö ÆÇ´Ü
+    /// ë³´ìƒì„ ë°›ì„ ìˆ˜ ìˆëŠ”ì§€ íŒë‹¨
     /// </summary>
     private void CheckAchievement()
     {
-        // ÀÌ¹Ì º¸»óÀ» ¹ŞÀº °æ¿ì
+        // ì´ë¯¸ ë³´ìƒì„ ë°›ì€ ê²½ìš°
         if (_progressData.IsRewardClaimed)
             return;
 
-        // ¾È¹ŞÀº °æ¿ì
+        // ì•ˆë°›ì€ ê²½ìš°
         else
         {
-            // ¾÷Àû ¸ñÇ¥¸¦ ´Ş¼ºÇßÀ» °æ¿ì
+            // ì—…ì  ëª©í‘œë¥¼ ë‹¬ì„±í–ˆì„ ê²½ìš°
             if (_progressData.IsCompleted)
             {
-                // º¸»ó È¹µæ
+                // ë³´ìƒ íšë“
                 GameManager.Instance.AchievementManager.GetAchievementReward(_progressData);
-                // ¸®ÇÁ·¹½Ã
+                // ë¦¬í”„ë ˆì‹œ
                 Refresh();
             }
 
-            // ¾÷Àû ¸ñÇ¥¸¦ ´Ş¼ºÇÏÁö ¸øÇßÀ» °æ¿ì
+            // ì—…ì  ëª©í‘œë¥¼ ë‹¬ì„±í•˜ì§€ ëª»í–ˆì„ ê²½ìš°
             else
                 return;
         }

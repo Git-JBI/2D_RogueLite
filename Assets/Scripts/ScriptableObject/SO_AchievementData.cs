@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public enum AchievementType
 {
@@ -9,12 +9,12 @@ public enum AchievementType
 
 public enum AchievementConditionType
 {
-    Login,                  // ·Î±×ÀÎ
-    KillEnemy,              // Àû Ã³Ä¡
-    KillBoss,               // º¸½º Ã³Ä¡
-    EquipmentLevelUp,       // Àåºñ ·¹º§ ¾÷
-    Gacha,                  // °¡Ã­ È½¼ö
-    EnterStage,             // ½ºÅ×ÀÌÁö ÁøÀÔ
+    Login,                  // ë¡œê·¸ì¸
+    KillEnemy,              // ì  ì²˜ì¹˜
+    KillBoss,               // ë³´ìŠ¤ ì²˜ì¹˜
+    EquipmentLevelUp,       // ì¥ë¹„ ë ˆë²¨ ì—…
+    Gacha,                  // ê°€ì±  íšŸìˆ˜
+    EnterStage,             // ìŠ¤í…Œì´ì§€ ì§„ì…
 }
 
 public enum AchievementRewardType

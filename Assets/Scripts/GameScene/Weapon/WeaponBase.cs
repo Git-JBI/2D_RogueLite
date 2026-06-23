@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour, IUpgradable
 {
-    //TODO ÃßÈÄ ºÒ·¯¿À´Â¹æ¹ý º¯°æ SerializeField X
+    //TODO ì¶”í›„ ë¶ˆëŸ¬ì˜¤ëŠ”ë°©ë²• ë³€ê²½ SerializeField X
     [SerializeField] protected WeaponData _weaponData;
     protected HeroModel _heroModel;
 

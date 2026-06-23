@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -14,7 +14,7 @@ public class ResourceManager : MonoBehaviour
 
         if (prefab == null)
         {
-            Debug.Log($"{path} °æ·Î¿¡ ÇÁ¸®ÆÕÀÌ ¾ø½À´Ï´Ù.");
+            Debug.Log($"{path} ê²½ë¡œì— í”„ë¦¬íŒ¹ì´ ì—†ìŠµë‹ˆë‹¤.");
         }
         else
         {
@@ -29,7 +29,7 @@ public class ResourceManager : MonoBehaviour
 
         if(prefab == null)
         {
-            Debug.Log($"{path} °æ·Î¿¡ ÇÁ¸®ÆÕÀÌ ¾ø½À´Ï´Ù.");
+            Debug.Log($"{path} ê²½ë¡œì— í”„ë¦¬íŒ¹ì´ ì—†ìŠµë‹ˆë‹¤.");
         }
         return prefab;
     }

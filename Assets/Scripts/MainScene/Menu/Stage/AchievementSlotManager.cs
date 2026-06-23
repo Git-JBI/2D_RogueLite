@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,20 +26,20 @@ public class AchievementSlotManager : MonoBehaviour
 
         _background.onClick.AddListener(AchievementPopupClose);
 
-        // ¾÷Àû ½½·ÔÀ» ÇÁ¸®ÆÕÀ¸·Î °¡Áö°í ÀÖ´Â´Ù.
+        // ì—…ì  ìŠ¬ë¡¯ì„ í”„ë¦¬íŒ¹ìœ¼ë¡œ ê°€ì§€ê³  ìˆëŠ”ë‹¤.
         _dateSlotPrefab = GameManager.Instance.ResourceManager.GetPrefabOnce<AchievementSlot>("Prefabs/Achievement/DateAchievement");
 
-        //TODO ¾÷Àû ÁøÇà ¿Ï·á > ¹Ì¿Ï·á > º¸»ó ¹ŞÀ½ ¼ø¼­·Î ¾÷Àû½½·Ô¸®½ºÆ® °»½Å
+        //TODO ì—…ì  ì§„í–‰ ì™„ë£Œ > ë¯¸ì™„ë£Œ > ë³´ìƒ ë°›ìŒ ìˆœì„œë¡œ ì—…ì ìŠ¬ë¡¯ë¦¬ìŠ¤íŠ¸ ê°±ì‹ 
 
-        // ÀÏÀÏ ¾÷Àû ¸®½ºÆ® »ı¼º
+        // ì¼ì¼ ì—…ì  ë¦¬ìŠ¤íŠ¸ ìƒì„±
         CreateSlots(AchievementType.Daily, _dailyContent, _dailySlots);
 
-        // ÁÖ°£ ¾÷Àû ¸®½ºÆ® »ı¼º
+        // ì£¼ê°„ ì—…ì  ë¦¬ìŠ¤íŠ¸ ìƒì„±
         CreateSlots(AchievementType.Weekly, _weeklyContent, _weeklySlots);
     }
 
     /// <summary>
-    /// ¾÷Àû Å¸ÀÔ¿¡ µû¸¥ ¾÷Àû ½½·Ô »ı¼º ±â´É
+    /// ì—…ì  íƒ€ì…ì— ë”°ë¥¸ ì—…ì  ìŠ¬ë¡¯ ìƒì„± ê¸°ëŠ¥
     /// </summary>
     /// <param name="type"></param>
     /// <param name="content"></param>

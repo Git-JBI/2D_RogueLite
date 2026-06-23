@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,11 +28,11 @@ public class AchievementModel
     public IReadOnlyList<AchievementProgressData> Achievements => _gameData.Achievements;
 
     /// <summary>
-    /// ¾÷Àû °ü·Ã ÃÊ±âÈ­
+    /// ì—…ì  ê´€ë ¨ ì´ˆê¸°í™”
     /// </summary>
     public void Init()
     {
-        // ¼³Á¤ ³¯Â¥°¡ ¾ø´Â °æ¿ì
+        // ì„¤ì • ë‚ ì§œê°€ ì—†ëŠ” ê²½ìš°
         if (_gameData.LastDailyResetDate == "")
             SetLastDailyResetDate(DateTime.Now.ToString("yyyy-MM-dd"));
         if(_gameData.LastWeeklyResetDate == "")
@@ -42,14 +42,14 @@ public class AchievementModel
             SetLastWeeklyResetDate(monday.ToString("yyyy-MM-dd"));
         }
 
-        // ¸ğµç ¾÷Àû ¼³Á¤ µ¥ÀÌÅÍ ¸®½ºÆ®
+        // ëª¨ë“  ì—…ì  ì„¤ì • ë°ì´í„° ë¦¬ìŠ¤íŠ¸
         List<SO_AchievementData> achievementDatas = Resources.LoadAll<SO_AchievementData>("GameDatas/AchievementData").ToList();
-        // ¼³Á¤ µ¥ÀÌÅÍ ¸®½ºÆ®ÀÇ ±æÀÌ¿Í °ÔÀÓ µ¥ÀÌÅÍÀÇ ¾÷Àû ¸®½ºÆ®ÀÇ ±æÀÌ°¡ ´Ù¸¦ °æ¿ì
+        // ì„¤ì • ë°ì´í„° ë¦¬ìŠ¤íŠ¸ì˜ ê¸¸ì´ì™€ ê²Œì„ ë°ì´í„°ì˜ ì—…ì  ë¦¬ìŠ¤íŠ¸ì˜ ê¸¸ì´ê°€ ë‹¤ë¥¼ ê²½ìš°
         if (achievementDatas.Count != Achievements.Count)
         {
             foreach (SO_AchievementData configdata in achievementDatas)
             {
-                // ¾÷Àû ¸®½ºÆ®¿¡ ¾÷Àû ¼³Á¤ ¸®½ºÆ®¿Í ¸Â´Â Id°¡ ¾ø´Â °æ¿ì
+                // ì—…ì  ë¦¬ìŠ¤íŠ¸ì— ì—…ì  ì„¤ì • ë¦¬ìŠ¤íŠ¸ì™€ ë§ëŠ” Idê°€ ì—†ëŠ” ê²½ìš°
                 if (!Achievements.Any(data => data.AchievementId == configdata.AchievementId))
                 {
                     AchievementProgressData newData = new()
@@ -63,11 +63,11 @@ public class AchievementModel
                 }
             }
         }
-        // ÀúÀå
+        // ì €ì¥
         SaveData();
     }
     /// <summary>
-    /// ÃÖ±Ù ÀÏÀÏÁ¢¼ÓÃ¼Å©¿ë ±â·Ï ¼³Á¤ ÇÔ¼ö
+    /// ìµœê·¼ ì¼ì¼ì ‘ì†ì²´í¬ìš© ê¸°ë¡ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="today"></param>
     public void SetLastDailyResetDate(string today)
@@ -76,7 +76,7 @@ public class AchievementModel
     }
 
     /// <summary>
-    /// ÃÖ±Ù ÁÖ°£Á¢¼ÓÃ¼Å©¿ë ±â·Ï ¼³Á¤ ÇÔ¼ö
+    /// ìµœê·¼ ì£¼ê°„ì ‘ì†ì²´í¬ìš© ê¸°ë¡ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="week"></param>
     public void SetLastWeeklyResetDate(string week)
@@ -91,7 +91,7 @@ public class AchievementModel
     }
 
     /// <summary>
-    /// ÀÏÀÏ ¾÷Àû ÃÊ±âÈ­
+    /// ì¼ì¼ ì—…ì  ì´ˆê¸°í™”
     /// </summary>
     public void ResetDailyAchievements()
     {
@@ -99,14 +99,14 @@ public class AchievementModel
 
         List<SO_AchievementData> dailyDatas = new();
 
-        // ÀÏÀÏ¾÷Àû¿¡ ÇØ´çÇÏ´Â ¼³Á¤ µ¥ÀÌÅÍ ¸®½ºÆ® ¼³Á¤
+        // ì¼ì¼ì—…ì ì— í•´ë‹¹í•˜ëŠ” ì„¤ì • ë°ì´í„° ë¦¬ìŠ¤íŠ¸ ì„¤ì •
         foreach(SO_AchievementData configData in achievementDatas)
         {
             if(configData.Type == AchievementType.Daily)
                 dailyDatas.Add(configData);
         }
 
-        // ÀÏÀÏ¾÷Àû¿¡ ÇØ´çµÇ´Â ¾÷Àû ¸®½ºÆ® ³»¿ë ÃÊ±âÈ­
+        // ì¼ì¼ì—…ì ì— í•´ë‹¹ë˜ëŠ” ì—…ì  ë¦¬ìŠ¤íŠ¸ ë‚´ìš© ì´ˆê¸°í™”
         foreach(SO_AchievementData configData in dailyDatas)
         {
             AchievementProgressData data = _gameData.Achievements.Find(x => x.AchievementId == configData.AchievementId);
@@ -116,7 +116,7 @@ public class AchievementModel
         }
     }
     /// <summary>
-    /// ÁÖ°£ ¾÷Àû ÃÊ±âÈ­
+    /// ì£¼ê°„ ì—…ì  ì´ˆê¸°í™”
     /// </summary>
     public void ResetWeeklyAchievements()
     {
@@ -124,14 +124,14 @@ public class AchievementModel
 
         List<SO_AchievementData> weeklyDatas = new();
 
-        // ÁÖ°£¾÷Àû¿¡ ÇØ´çÇÏ´Â ¼³Á¤ µ¥ÀÌÅÍ ¸®½ºÆ® ¼³Á¤
+        // ì£¼ê°„ì—…ì ì— í•´ë‹¹í•˜ëŠ” ì„¤ì • ë°ì´í„° ë¦¬ìŠ¤íŠ¸ ì„¤ì •
         foreach (SO_AchievementData configData in achievementDatas)
         {
             if (configData.Type == AchievementType.Weekly)
                 weeklyDatas.Add(configData);
         }
 
-        // ÀÏÀÏ¾÷Àû¿¡ ÇØ´çµÇ´Â ¾÷Àû ¸®½ºÆ® ³»¿ë ÃÊ±âÈ­
+        // ì¼ì¼ì—…ì ì— í•´ë‹¹ë˜ëŠ” ì—…ì  ë¦¬ìŠ¤íŠ¸ ë‚´ìš© ì´ˆê¸°í™”
         foreach (SO_AchievementData configData in weeklyDatas)
         {
             AchievementProgressData data = _gameData.Achievements.Find(x => x.AchievementId == configData.AchievementId);
@@ -143,7 +143,7 @@ public class AchievementModel
 
 
     /// <summary>
-    /// ÀúÀå
+    /// ì €ì¥
     /// </summary>
     public void SaveData()
     {

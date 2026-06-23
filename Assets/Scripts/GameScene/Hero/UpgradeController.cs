@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,7 +22,7 @@ public class UpgradeController : MonoBehaviour
 
     private void Start()
     {
-        //TODO ÃßÈÄ GamaManager°¡ StartScene¿¡¼­ »ı¼ºµÉ ½Ã Start > Awake·Î ¼öÁ¤
+        //TODO ì¶”í›„ GamaManagerê°€ StartSceneì—ì„œ ìƒì„±ë  ì‹œ Start > Awakeë¡œ ìˆ˜ì •
         _selectPrefab = GameManager.Instance.ResourceManager.GetPrefabOnce<UpgradeSelectionView>("Prefabs/Ability");
     }
 
@@ -36,37 +36,37 @@ public class UpgradeController : MonoBehaviour
 
     private void SelectStart()
     {
-        // °ÔÀÓ ÁøÇà¼Óµµ 0
+        // ê²Œì„ ì§„í–‰ì†ë„ 0
         Time.timeScale = 0.0f;
 
-        // ¾÷±×·¹ÀÌµå ÆĞ³Î È°¼ºÈ­
+        // ì—…ê·¸ë ˆì´ë“œ íŒ¨ë„ í™œì„±í™”
         OnUpgradeActive?.Invoke(true);
 
-        // 3Á¾ ·£´ıÀ¸·Î »Ì±â
-        // _upgradables ·£´ıÀ¸·Î ¼¯±â
+        // 3ì¢… ëœë¤ìœ¼ë¡œ ë½‘ê¸°
+        // _upgradables ëœë¤ìœ¼ë¡œ ì„ê¸°
         Util.Shuffle<IUpgradable>(_upgradables);
 
         foreach(IUpgradable x in _upgradables)
         {
             if (_views.Count == 3)
                 return;
-            // Level 5 ¹Ì¸¸ÀÏ °æ¿ì(¾÷±×·¹ÀÌµå °¡´É), IsPermanentAbility°¡ TrueÀÎ °æ¿ì
+            // Level 5 ë¯¸ë§Œì¼ ê²½ìš°(ì—…ê·¸ë ˆì´ë“œ ê°€ëŠ¥), IsPermanentAbilityê°€ Trueì¸ ê²½ìš°
             if (x.Level < 5 && x.IsPermanentAbility)
             {
                 UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
 
-                // ¾÷±×·¹ÀÌµå ¼±ÅÃ ºä ÃÊ±âÈ­
+                // ì—…ê·¸ë ˆì´ë“œ ì„ íƒ ë·° ì´ˆê¸°í™”
                 view.Init(x);
 
-                // ¼±ÅÃ ÀÌº¥Æ®¿¡ Ãß°¡
+                // ì„ íƒ ì´ë²¤íŠ¸ì— ì¶”ê°€
                 view.OnSelect += EndSelect;
 
-                // ¸®½ºÆ® Ãß°¡
+                // ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
                 _views.Add(view);
             }
         }
 
-        // »ÌÀ» °æ¿ì°¡ ¾øÀ» °æ¿ì(IsPermanentAbility°¡ FalseÀÎ °æ¿ì)
+        // ë½‘ì„ ê²½ìš°ê°€ ì—†ì„ ê²½ìš°(IsPermanentAbilityê°€ Falseì¸ ê²½ìš°)
         if (_views.Count == 0)
         {
             foreach(IUpgradable x in _upgradables)
@@ -75,13 +75,13 @@ public class UpgradeController : MonoBehaviour
                 {
                     UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
 
-                    // ¾÷±×·¹ÀÌµå ¼±ÅÃ ºä ÃÊ±âÈ­
+                    // ì—…ê·¸ë ˆì´ë“œ ì„ íƒ ë·° ì´ˆê¸°í™”
                     view.Init(x);
 
-                    // ¼±ÅÃ ÀÌº¥Æ®¿¡ Ãß°¡
+                    // ì„ íƒ ì´ë²¤íŠ¸ì— ì¶”ê°€
                     view.OnSelect += EndSelect;
 
-                    // ¸®½ºÆ® Ãß°¡
+                    // ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
                     _views.Add(view);
                 }
             }
@@ -90,7 +90,7 @@ public class UpgradeController : MonoBehaviour
     
     private void EndSelect()
     {
-        // °ÔÀÓ ÁøÇà¼Óµµ 1
+        // ê²Œì„ ì§„í–‰ì†ë„ 1
         Time.timeScale = 1.0f;
 
         foreach(var views in _views)
@@ -100,7 +100,7 @@ public class UpgradeController : MonoBehaviour
 
         _views.Clear();
 
-        // ¾÷±×·¹ÀÌµå ÆĞ³Î ºñÈ°¼ºÈ­
+        // ì—…ê·¸ë ˆì´ë“œ íŒ¨ë„ ë¹„í™œì„±í™”
         OnUpgradeActive?.Invoke(false);
     }
 }

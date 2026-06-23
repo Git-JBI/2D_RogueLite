@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyBullet_Normal_NoParent : EnemyBullet_Normal_HaveParent
 {
@@ -6,7 +6,7 @@ public class EnemyBullet_Normal_NoParent : EnemyBullet_Normal_HaveParent
     {
         base.Init(pos, dir, bulletSpeed);
 
-        // ºÎ¸ð ÇØÁ¦
+        // ë¶€ëª¨ í•´ì œ
         transform.SetParent(null);
     }
 }

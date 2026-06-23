@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MoveTileMap : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class MoveTileMap : MonoBehaviour
         float distanceX = (transform.position.x - _target.transform.position.x);
         float distanceY = (transform.position.y - _target.transform.position.y);
 
-        // XÃà ÀÌµ¿
+        // Xì¶• ì´ë™
         if(Mathf.Abs(distanceX) > 18.0f)
         {
             if (transform.position.x - _target.transform.position.x > 0)
@@ -28,7 +28,7 @@ public class MoveTileMap : MonoBehaviour
                 transform.position = new Vector3(transform.position.x + 36.0f, transform.position.y, 0);
         }
 
-        // YÃà ÀÌµ¿
+        // Yì¶• ì´ë™
         if(Mathf.Abs(distanceY) > 30.0f)
         {
             if(transform.position.y - _target.transform.position.y > 0)

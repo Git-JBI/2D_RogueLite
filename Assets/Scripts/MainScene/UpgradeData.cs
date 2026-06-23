@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameDatas/UpgradeData", fileName = "UpgradeData")]
 public class UpgradeData : ScriptableObject

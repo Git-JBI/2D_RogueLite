@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponShovel : WeaponBase
 {
-    //TODO ResourceLoad·Î º¯°æ
+    //TODO ResourceLoadë¡œ ë³€ê²½
     [SerializeField]private PlayerBulletBase _shovel;
 
     private float _bulletCount;
@@ -66,7 +66,7 @@ public class WeaponShovel : WeaponBase
 
     protected override void CalculateStats()
     {
-        //TODO WeaponStatDataÀÇ GetValue¿¡¼­ Max·¹º§ ÀÌ»ó ¶ô°É¾îµÖ¼­ ±¦ÂúÀºµ¥ ¿©±â¼­µµ Á¦ÇÑ °É¾îµÖ¾ß ÇÔ
+        //TODO WeaponStatDataì˜ GetValueì—ì„œ Maxë ˆë²¨ ì´ìƒ ë½ê±¸ì–´ë‘¬ì„œ ê´œì°®ì€ë° ì—¬ê¸°ì„œë„ ì œí•œ ê±¸ì–´ë‘¬ì•¼ í•¨
         base.CalculateStats();
 
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);

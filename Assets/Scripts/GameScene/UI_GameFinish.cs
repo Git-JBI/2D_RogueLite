@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 
 public class UI_GameFinish : MonoBehaviour
@@ -7,13 +7,13 @@ public class UI_GameFinish : MonoBehaviour
 
     public void Clear()
     {
-        // ¼º°ø ÅØ½ºÆ®
-        _titleText.text = "Å¬¸®¾î ¼º°ø";
+        // ì„±ê³µ í…ìŠ¤íŠ¸
+        _titleText.text = "í´ë¦¬ì–´ ì„±ê³µ";
     }
 
     public void Fail()
     {
-        // ½ÇÆĞ ÅØ½ºÆ®
-        _titleText.text = "Å¬¸®¾î ½ÇÆĞ";
+        // ì‹¤íŒ¨ í…ìŠ¤íŠ¸
+        _titleText.text = "í´ë¦¬ì–´ ì‹¤íŒ¨";
     }
 }

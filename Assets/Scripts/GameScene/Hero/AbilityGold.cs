@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AbilityGold : MonoBehaviour, IUpgradable
 {
@@ -8,7 +8,7 @@ public class AbilityGold : MonoBehaviour, IUpgradable
 
     public int Level => 0;
 
-    public string Desc => "��带 50 ȹ��";
+    public string Desc => "골드를 50 획득";
 
     public bool IsPermanentAbility => false;
 

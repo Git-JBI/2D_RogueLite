@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public enum MenuNumber
@@ -11,7 +11,7 @@ public enum MenuNumber
 
 public class MenuController : MonoBehaviour
 {
-    //TODO ÃßÈÄ °³¼± ÇÊ¿ä
+    //TODO ì¶”í›„ ê°œì„  í•„ìš”
     [SerializeField] private EquipmentInventoryManager _invenManager;
     [SerializeField] private EquipmentItemManager _equipManager;
 

@@ -1,20 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 {
     /// <summary>
-    /// ¾ÆÀÌÅÛ ½½·ÔÀ» º¸¿©ÁÙ ºä¾î
+    /// ì•„ì´í…œ ìŠ¬ë¡¯ì„ ë³´ì—¬ì¤„ ë·°ì–´
     /// </summary>
     private EquipmentItemViewer _itemViewer;
     /// <summary>
-    /// ½½·ÔÀÌ °¡Áö°í ÀÖÀ» ¾ÆÀÌÅÛ µ¥ÀÌÅÍ
+    /// ìŠ¬ë¡¯ì´ ê°€ì§€ê³  ìˆì„ ì•„ì´í…œ ë°ì´í„°
     /// </summary>
     private EquipmentItemData _itemData;
 
     /// <summary>
-    /// ½½·ÔÀÌ Å¬¸¯µÉ ½Ã ½ÇÇàµÉ ÀÌº¥Æ®
+    /// ìŠ¬ë¡¯ì´ í´ë¦­ë  ì‹œ ì‹¤í–‰ë  ì´ë²¤íŠ¸
     /// </summary>
     public event UnityAction<EquipmentItemData> OnItemSlotClicked;
 
@@ -32,7 +32,7 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
     /// <summary>
-    /// ¹öÆ°À» ´­·¶À» ½Ã ½ÇÇàµÇ´Â ÇÔ¼ö
+    /// ë²„íŠ¼ì„ ëˆŒë €ì„ ì‹œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="eventData"></param>
     public void OnPointerClick(PointerEventData eventData)

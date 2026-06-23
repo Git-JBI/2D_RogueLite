@@ -1,27 +1,27 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EquipmentItemDatabase : MonoBehaviour
 {
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®
+    /// ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸
     /// </summary>
     private List<SO_EquipmentItemData> _equipmentItems;
 
     public IReadOnlyList<SO_EquipmentItemData> EquipmentItemDatas => _equipmentItems;
 
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ µñ¼Å³Ê¸®
+    /// ì¥ë¹„ ì•„ì´í…œ ë”•ì…”ë„ˆë¦¬
     /// </summary>
     private Dictionary<string, SO_EquipmentItemData> _equipmentItemMap = new();
 
     private void Awake()
     {
-        // Àåºñ ¾ÆÀÌÅÛµ¥ÀÌÅÍ Resources.LoadAll·Î ÀüºÎ ºÒ·¯¿À±â
+        // ì¥ë¹„ ì•„ì´í…œë°ì´í„° Resources.LoadAllë¡œ ì „ë¶€ ë¶ˆëŸ¬ì˜¤ê¸°
         _equipmentItems = Resources.LoadAll<SO_EquipmentItemData>("GameDatas/ItemData").ToList();
 
-        // Àåºñ ¾ÆÀÌÅÛ µñ¼Å³Ê¸®¿¡ Àåºñ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ Ãß°¡
+        // ì¥ë¹„ ì•„ì´í…œ ë”•ì…”ë„ˆë¦¬ì— ì¥ë¹„ ì•„ì´í…œ ë°ì´í„° ì¶”ê°€
         foreach(SO_EquipmentItemData item in _equipmentItems)
         {
             if (item == null)
@@ -29,7 +29,7 @@ public class EquipmentItemDatabase : MonoBehaviour
 
             if(_equipmentItemMap.ContainsKey(item.Id))
             {
-                Debug.Log($"Áßº¹µÈ ¾ÆÀÌÅÛ {item.Id}°¡ ÀÖ½À´Ï´Ù.");
+                Debug.Log($"ì¤‘ë³µëœ ì•„ì´í…œ {item.Id}ê°€ ìˆìŠµë‹ˆë‹¤.");
                 continue;
             }
             _equipmentItemMap.Add(item.Id, item);
@@ -41,7 +41,7 @@ public class EquipmentItemDatabase : MonoBehaviour
         if(_equipmentItemMap.TryGetValue(itemId, out SO_EquipmentItemData itemData))
             return itemData;
 
-        Debug.LogWarning($"{itemId}°¡ ¾ø½À´Ï´Ù.");
+        Debug.LogWarning($"{itemId}ê°€ ì—†ìŠµë‹ˆë‹¤.");
         return null;
     }
 

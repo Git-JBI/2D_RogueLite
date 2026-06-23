@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -26,7 +26,7 @@ public class UpgradeSelectionView : MonoBehaviour
 
         _icon.sprite = _upgradable.IconSprite;
 
-        // TODO ¾×Æ¼ºê/ÆĞ½Ãºê¸¦ Á¦¿ÜÇÑ ÈÄ ³ª¸ÓÁö ¼±ÅÃ ½Ã ÅØ½ºÆ® Ç¥±â ¼öÁ¤ ÇÊ¿ä?
+        // TODO ì•¡í‹°ë¸Œ/íŒ¨ì‹œë¸Œë¥¼ ì œì™¸í•œ í›„ ë‚˜ë¨¸ì§€ ì„ íƒ ì‹œ í…ìŠ¤íŠ¸ í‘œê¸° ìˆ˜ì • í•„ìš”?
         if(_upgradable.Level == 99)
         {
             _levelText.text = "";

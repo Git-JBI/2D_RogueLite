@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,10 +15,10 @@ public class Button_LoadMainScene : MonoBehaviour
 
     private void LoadMainScene()
     {
-        // °ÔÀÓ ¾À¿¡¼­ Á¤ÁöµÈ ½Ã°£ Á¤»óÈ­
+        // ê²Œì„ ì”¬ì—ì„œ ì •ì§€ëœ ì‹œê°„ ì •ìƒí™”
         Time.timeScale = 1.0f;
 
-        // ¸ŞÀÎ ¾À·Îµå
+        // ë©”ì¸ ì”¬ë¡œë“œ
         SceneManager.LoadScene("MainScene");
     }
 }

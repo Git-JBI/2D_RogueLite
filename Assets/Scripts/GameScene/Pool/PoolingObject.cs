@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PoolingObject : MonoBehaviour
 {
     /// <summary>
-    /// ÀÚ½ÅÀÌ ¼ÓÇÑ Ç®
+    /// ìì‹ ì´ ì†í•œ í’€
     /// </summary>
     private Pool _pool;
 
     /// <summary>
-    /// ÃÊ±âÈ­ ÇÔ¼ö
+    /// ì´ˆê¸°í™” í•¨ìˆ˜
     /// </summary>
     /// <param name="pool"></param>
     public void Init(Pool pool)
@@ -17,7 +17,7 @@ public class PoolingObject : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀÌ ¿ÀºêÁ§Æ®¸¦ Ç®·Î µÇµ¹¸®´Â ÇÔ¼ö
+    /// ì´ ì˜¤ë¸Œì íŠ¸ë¥¼ í’€ë¡œ ë˜ëŒë¦¬ëŠ” í•¨ìˆ˜
     /// </summary>
     public void ReturnToPool()
     {

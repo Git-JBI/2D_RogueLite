@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyModel : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class EnemyModel : MonoBehaviour
 
     public void Init()
     {
-        //TODO °ª µû·Î ¼³Á¤
+        //TODO ê°’ ë”°ë¡œ ì„¤ì •
         _maxHp = 30;
         _curHp = _maxHp;
         _moveSpeed = 1;

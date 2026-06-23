@@ -1,27 +1,27 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public static class Extensions
 {
-    // Á¤¼ö(int)¿ë È®Àå ¸Ş¼­µå
+    // ì •ìˆ˜(int)ìš© í™•ì¥ ë©”ì„œë“œ
     public static string ToAbbreviatedString(this int value)
     {
         return ((long)value).ToAbbreviatedString();
     }
 
-    // Å« ¼ıÀÚ(long)¿ë È®Àå ¸Ş¼­µå
+    // í° ìˆ«ì(long)ìš© í™•ì¥ ë©”ì„œë“œ
     public static string ToAbbreviatedString(this long value)
     {
-        // À½¼ö Ã³¸®
+        // ìŒìˆ˜ ì²˜ë¦¬
         bool isNegative = value < 0;
         long absValue = (long)Mathf.Abs(value);
 
         string result;
 
-        if (absValue >= 1000000000) // 1B (10¾ï)
+        if (absValue >= 1000000000) // 1B (10ì–µ)
         {
             result = (absValue / 1000000000f).ToString("F2") + "B";
         }
-        else if (absValue >= 1000000) // 1M (100¸¸)
+        else if (absValue >= 1000000) // 1M (100ë§Œ)
         {
             result = (absValue / 1000000f).ToString("F2") + "M";
         }
@@ -31,7 +31,7 @@ public static class Extensions
         }
         else
         {
-            result = absValue.ToString(); // 1000 ¹Ì¸¸Àº ±×´ë·Î Ç¥½Ã
+            result = absValue.ToString(); // 1000 ë¯¸ë§Œì€ ê·¸ëŒ€ë¡œ í‘œì‹œ
         }
 
         return isNegative ? "-" + result : result;

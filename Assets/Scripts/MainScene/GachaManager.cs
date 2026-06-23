@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class GachaManager : MonoBehaviour
 
     private Button_Gacha[] _button_Gachas;
 
-    //TODO ÃßÈÄ UIÂÊ¿¡¼­ ¹Ş¾Æ¿À±â
+    //TODO ì¶”í›„ UIìª½ì—ì„œ ë°›ì•„ì˜¤ê¸°
     [SerializeField] private ItemViewerManager _itemViewer;
 
     private void Awake()
@@ -30,38 +30,38 @@ public class GachaManager : MonoBehaviour
         _button_Gachas[1].OnButtonClicked += GachaEquipmentItemTen;
     }
     /*
-     * °¢ Á¾·ùº° »Ì±â¿¡ ´ëÇÑ µî±Şº° È®·ü·Î µî±Ş °áÁ¤
+     * ê° ì¢…ë¥˜ë³„ ë½‘ê¸°ì— ëŒ€í•œ ë“±ê¸‰ë³„ í™•ë¥ ë¡œ ë“±ê¸‰ ê²°ì •
        ->
-       ¼³Á¤ µ¥ÀÌÅÍ µñ¼Å³Ê¸®¿¡¼­ »ÌÈù µî±Ş¿¡ ÇØ´çÇÏ´Â ¾ÆÀÌÅÛ ¾ÆÀÌµğ ¸®½ºÆ®
+       ì„¤ì • ë°ì´í„° ë”•ì…”ë„ˆë¦¬ì—ì„œ ë½‘íŒ ë“±ê¸‰ì— í•´ë‹¹í•˜ëŠ” ì•„ì´í…œ ì•„ì´ë”” ë¦¬ìŠ¤íŠ¸
        ->
-       ±×Áß¿¡¼­ ·£´ıÇÏ°Ô ÇÏ³ª
+       ê·¸ì¤‘ì—ì„œ ëœë¤í•˜ê²Œ í•˜ë‚˜
      */
 
     /// <summary>
-    /// ´ÜÀÏ Àåºñ »Ì±â
+    /// ë‹¨ì¼ ì¥ë¹„ ë½‘ê¸°
     /// </summary>
     public EquipmentItemData PickEquipmentItemOne()
     {
-        // ¾ÆÀÌÅÛ Æ¼¾î °áÁ¤
+        // ì•„ì´í…œ í‹°ì–´ ê²°ì •
         ItemTier itemTier = DetermineTier();
 
-        // ¾ÆÀÌÅÛ ·¹¾î¸®Æ¼ °áÁ¤
+        // ì•„ì´í…œ ë ˆì–´ë¦¬í‹° ê²°ì •
         ItemRarity itemRarity = DetermineRarity();
 
-        // ¾ÆÀÌÅÛ Àåºñ Á¾·ùº° ÇÊÅÍ(ÃßÈÄ Ãß°¡¼³Á¤)
+        // ì•„ì´í…œ ì¥ë¹„ ì¢…ë¥˜ë³„ í•„í„°(ì¶”í›„ ì¶”ê°€ì„¤ì •)
         List<SO_EquipmentItemData> filteredPool = new List<SO_EquipmentItemData>(_totalItemDataPool);
 
-        // µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì
+        // ë°ì´í„°ê°€ ì¡´ì¬í•˜ì§€ ì•Šì„ ê²½ìš°
         if (filteredPool == null || filteredPool.Count == 0)
         {
-            Debug.Log("filteredPool¿¡ ¾Æ¹«°Íµµ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            Debug.Log("filteredPoolì— ì•„ë¬´ê²ƒë„ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
             return null;
         }
 
-        // ÇÊÅÍ¸µ ÀåºñÁß ¾Æ¹«°Å³ª ¼±ÅÃ
+        // í•„í„°ë§ ì¥ë¹„ì¤‘ ì•„ë¬´ê±°ë‚˜ ì„ íƒ
         SO_EquipmentItemData pickedItem = filteredPool[Random.Range(0, filteredPool.Count)];
 
-        // ÀúÀåÇÒ µ¥ÀÌÅÍ »ı¼º
+        // ì €ì¥í•  ë°ì´í„° ìƒì„±
         EquipmentItemData saveEquipItem = new EquipmentItemData
         {
             InstanceID = System.Guid.NewGuid().ToString(),
@@ -87,59 +87,59 @@ public class GachaManager : MonoBehaviour
             }
         }
         return saveEquipItems;
-        // È¹µæÇÑ ¾ÆÀÌÅÛ º¸¿©ÁÖ±â
+        // íšë“í•œ ì•„ì´í…œ ë³´ì—¬ì£¼ê¸°
         // _itemViewer.ShowTen(itemKeys);
     }
 
     public void GachaEquipmentItemOne()
     {
-        // ±İ¾× È®ÀÎ
-        // ¾øÀ» ½Ã ºÒ°¡
-        // ÀÖÀ» ½Ã ½ÇÇà
+        // ê¸ˆì•¡ í™•ì¸
+        // ì—†ì„ ì‹œ ë¶ˆê°€
+        // ìˆì„ ì‹œ ì‹¤í–‰
         EquipmentItemData equipmentItemData = PickEquipmentItemOne();
 
         if (equipmentItemData == null)
             return;
 
-        // ½ÇÇà Çß´Ù¸é »ÌÀº ¾ÆÀÌÅÛ ÀúÀå
+        // ì‹¤í–‰ í–ˆë‹¤ë©´ ë½‘ì€ ì•„ì´í…œ ì €ì¥
         _equipmentModel.AddEquipmentList(equipmentItemData);
 
-        // ¾÷Àû ½ÇÇà
+        // ì—…ì  ì‹¤í–‰
         _achievementManager.Report(AchievementConditionType.Gacha);
 
-        // ÀúÀå
+        // ì €ì¥
         _equipmentModel.SaveData();
 
-        // È¹µæÇÑ ¾ÆÀÌÅÛ º¸¿©ÁÖ±â
+        // íšë“í•œ ì•„ì´í…œ ë³´ì—¬ì£¼ê¸°
         _itemViewer.ShowOne(equipmentItemData);
     }
 
     public void GachaEquipmentItemTen()
     {
-        // ±İ¾× È®ÀÎ
-        // ¾øÀ» ½Ã ºÒ°¡
-        // ÀÖÀ» ½Ã ½ÇÇà
+        // ê¸ˆì•¡ í™•ì¸
+        // ì—†ì„ ì‹œ ë¶ˆê°€
+        // ìˆì„ ì‹œ ì‹¤í–‰
         List<EquipmentItemData> equipmentItemDatas = PickEquipmentItemTen();
 
-        // ½ÇÇà Çß´Ù¸é »ÌÀº ¾ÆÀÌÅÛ ÀúÀå
+        // ì‹¤í–‰ í–ˆë‹¤ë©´ ë½‘ì€ ì•„ì´í…œ ì €ì¥
         for(int i = 0; i < equipmentItemDatas.Count; i++)
         {
             _equipmentModel.AddEquipmentList(equipmentItemDatas[i]);
         }
-        // ¾÷Àû ½ÇÇà
+        // ì—…ì  ì‹¤í–‰
         _achievementManager.Report(AchievementConditionType.Gacha, equipmentItemDatas.Count);
 
-        // ÀúÀå
+        // ì €ì¥
         _equipmentModel.SaveData();
 
-        // È¹µæÇÑ ¾ÆÀÌÅÛ º¸¿©ÁÖ±â
+        // íšë“í•œ ì•„ì´í…œ ë³´ì—¬ì£¼ê¸°
         _itemViewer.ShowTen(equipmentItemDatas);
     }
     
 
-    #region °¡ÁßÄ¡ °è»ê ÇÔ¼ö
+    #region ê°€ì¤‘ì¹˜ ê³„ì‚° í•¨ìˆ˜
     /// <summary>
-    /// ¾ÆÀÌÅÛÀÇ µî±ŞÀ» °áÁ¤ÇÏ´Â ÇÔ¼ö
+    /// ì•„ì´í…œì˜ ë“±ê¸‰ì„ ê²°ì •í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private ItemRarity DetermineRarity()
     {
@@ -164,7 +164,7 @@ public class GachaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¾ÆÀÌÅÛÀÇ Æ¼¾î¸¦ °áÁ¤ÇÏ´Â ÇÔ¼ö
+    /// ì•„ì´í…œì˜ í‹°ì–´ë¥¼ ê²°ì •í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     private ItemTier DetermineTier()

@@ -1,4 +1,4 @@
-public class GameSceneModel
+﻿public class GameSceneModel
 {
     private int _enemyDeadCount;
     private int _stageGold;

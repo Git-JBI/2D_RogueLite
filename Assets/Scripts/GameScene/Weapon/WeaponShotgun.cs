@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -66,7 +66,7 @@ public class WeaponShotgun : WeaponBase
 
                 GameObject bullet;
 
-                //TODO ¼¦°ÇÂÊ ÃÑ¾Ë º¯°æ
+                //TODO ìƒ·ê±´ìª½ ì´ì•Œ ë³€ê²½
                 bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
 
                 Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();

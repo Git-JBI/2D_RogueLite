@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,27 +18,27 @@ public class GameSceneUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Àû Ã³Ä¡ ¼ö ÅØ½ºÆ® ¼³Á¤ ÇÔ¼ö
+    /// ì  ì²˜ì¹˜ ìˆ˜ í…ìŠ¤íŠ¸ ì„¤ì • í•¨ìˆ˜
     /// </summary>
-    /// <param name="count">Àû Ã³Ä¡ ¼ö</param>
+    /// <param name="count">ì  ì²˜ì¹˜ ìˆ˜</param>
     public void SetDeadCount(int count)
     {
         _countDeadEnemiesText.text = count.ToString();
     }
 
     /// <summary>
-    /// ·¹º§ ÅØ½ºÆ® ¼³Á¤ ÇÔ¼ö
+    /// ë ˆë²¨ í…ìŠ¤íŠ¸ ì„¤ì • í•¨ìˆ˜
     /// </summary>
-    /// <param name="level">·¹º§</param>
+    /// <param name="level">ë ˆë²¨</param>
     public void SetLevelText(int level)
     {
         _levelText.text = $"Lv. {level}";
     }
 
     /// <summary>
-    /// ½Ã°£ ÅØ½ºÆ® ¼³Á¤ ÇÔ¼ö
+    /// ì‹œê°„ í…ìŠ¤íŠ¸ ì„¤ì • í•¨ìˆ˜
     /// </summary>
-    /// <param name="time">ÃÊ(Seconds)</param>
+    /// <param name="time">ì´ˆ(Seconds)</param>
     public void SetTimeText(float time)
     {
         int minute = (int)(time / 60);
@@ -47,10 +47,10 @@ public class GameSceneUIManager : MonoBehaviour
         _timeText.text = $"{minute:D2} : {second:D2}";
     }
 
-    //TODO ´É·ÂÄ¡ ¼±ÅÃ Àü±îÁö´Â °æÇèÄ¡ ¹Ù °¡µæ Âü »óÅÂ
+    //TODO ëŠ¥ë ¥ì¹˜ ì„ íƒ ì „ê¹Œì§€ëŠ” ê²½í—˜ì¹˜ ë°” ê°€ë“ ì°¸ ìƒíƒœ
     public void SetExpBar(float curExp, float maxExp)
     {
-        //TODO ºÎµå·¯¿î °æÇèÄ¡ ¹Ù Ã¤¿öÁüÀ¸·Î º¯°æ
+        //TODO ë¶€ë“œëŸ¬ìš´ ê²½í—˜ì¹˜ ë°” ì±„ì›Œì§ìœ¼ë¡œ ë³€ê²½
         _expBar.fillAmount = curExp / maxExp;
     }
 

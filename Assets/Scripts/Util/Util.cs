@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// °ÔÀÓ ³»¿¡¼­ ¾îµğ¼­³ª ¾µ ¼ö ÀÖ´Â ÆíÀÇ ÇÔ¼ö
+/// ê²Œì„ ë‚´ì—ì„œ ì–´ë””ì„œë‚˜ ì“¸ ìˆ˜ ìˆëŠ” í¸ì˜ í•¨ìˆ˜
 /// </summary>
 public static class Util
 {
     public static void Shuffle<T>(List<T> list)
     {
-        // ¸®½ºÆ®ÀÇ ³»¿ë¹°ÀÌ ¾øÀ» °æ¿ì ¸®ÅÏ
+        // ë¦¬ìŠ¤íŠ¸ì˜ ë‚´ìš©ë¬¼ì´ ì—†ì„ ê²½ìš° ë¦¬í„´
         if (list.Count == 0)
             return;
 

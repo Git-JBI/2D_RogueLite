@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class TeleportEnemyDeadState : IState
 {
@@ -13,16 +13,16 @@ public class TeleportEnemyDeadState : IState
 
     public void OnStateEnter()
     {
-        // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+        // íƒ€ì´ë¨¸ ì´ˆê¸°í™”
         _timer = 0;
 
-        // ¸®Áöµå¹Ùµğ ºñÈ°¼ºÈ­
+        // ë¦¬ì§€ë“œë°”ë”” ë¹„í™œì„±í™”
         _controller.SetRigidbodyActive(false);
 
-        // Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
+        // ì½œë¼ì´ë” ë¹„í™œì„±í™”
         _controller.SetColliderActive(false);
 
-        // Á×À½ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+        // ì£½ìŒ ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
         _controller.SpriteController.Dead();
     }
 

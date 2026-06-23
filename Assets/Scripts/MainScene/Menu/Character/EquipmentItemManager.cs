@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EquipmentItemManager : MonoBehaviour
 {
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¼¼ºÎ³»¿ëÀ» º¸¿©ÁÙ ÆË¾÷
+    /// ì¥ë¹„ ì•„ì´í…œ ì„¸ë¶€ë‚´ìš©ì„ ë³´ì—¬ì¤„ íŒì—…
     /// </summary>
     [SerializeField] private EquipmentItemDetailPopup _popup;
 
     /// <summary>
-    /// 0. ¹«±â 1. ¸ñ°ÉÀÌ 2. Àå°© 3. °©¿Ê 4. º§Æ® 5. ½Å¹ß
+    /// 0. ë¬´ê¸° 1. ëª©ê±¸ì´ 2. ì¥ê°‘ 3. ê°‘ì˜· 4. ë²¨íŠ¸ 5. ì‹ ë°œ
     /// </summary>
     private EquipmentItemSlot[] _slots;
 

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.U2D.Animation;
 
@@ -45,7 +45,7 @@ public class HeroController : MonoBehaviour, IDamageable, Iitemable
     
     public void Init()
     {
-        //TODO ÃßÈÄ ¸ŞÀÎ¾À¿¡¼­ ¼±ÅÃÇÑ Ä³¸¯ÅÍ·Î ºÒ·¯¿À±â
+        //TODO ì¶”í›„ ë©”ì¸ì”¬ì—ì„œ ì„ íƒí•œ ìºë¦­í„°ë¡œ ë¶ˆëŸ¬ì˜¤ê¸°
         SpriteLibraryAsset libraryAsset = GameManager.Instance.ResourceManager.GetPrefabOnce<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero{GameManager.Instance.GameModel.HeroData.HeroName}");
 
         _spriteController.Init(libraryAsset);

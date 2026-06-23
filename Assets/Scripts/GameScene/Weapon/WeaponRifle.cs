@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// ÇÑ ¹ø ÀûÀ» Á¤Á¶ÁØ ÇØ¼­ ¿©·¯¹ß ½î´Â ¶óÀÌÇÃ ¹«±â
+/// í•œ ë²ˆ ì ì„ ì •ì¡°ì¤€ í•´ì„œ ì—¬ëŸ¬ë°œ ì˜ëŠ” ë¼ì´í”Œ ë¬´ê¸°
 /// </summary>
 public class WeaponRifle : WeaponBase
 {
@@ -67,7 +67,7 @@ public class WeaponRifle : WeaponBase
             {
                 GameObject bullet;
 
-                //TODO ¶óÀÌÇÃÂÊ ÃÑ¾Ë º¯°æ
+                //TODO ë¼ì´í”Œìª½ ì´ì•Œ ë³€ê²½
                 bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
 
                 Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
@@ -75,7 +75,7 @@ public class WeaponRifle : WeaponBase
                 bulletPrefab.Init(_heroModel, _damageMagnification);
                 bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
 
-                // ÃÑ¾Ë °£°İ ½Ã°£
+                // ì´ì•Œ ê°„ê²© ì‹œê°„
                 yield return new WaitForSeconds(_fireDelay);
             }
             yield return new WaitForSeconds(_coolTime);

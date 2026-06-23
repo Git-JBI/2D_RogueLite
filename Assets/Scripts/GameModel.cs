@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 public class GameModel : MonoBehaviour
 {
     /// <summary>
-    /// °ÔÀÓ ³»¿¡¼­ »ç¿ëÇÒ °ÔÀÓµ¥ÀÌÅÍ
+    /// ê²Œì„ ë‚´ì—ì„œ ì‚¬ìš©í•  ê²Œì„ë°ì´í„°
     /// </summary>
     [SerializeField] private GameData _gameData;
     private EquipmentModel _equipmentModel;
@@ -35,7 +35,7 @@ public class GameModel : MonoBehaviour
 
     private void Awake()
     {
-        // ÀúÀåµÈ °ÔÀÓ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+        // ì €ì¥ëœ ê²Œì„ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
         LoadData();
 
         _equipmentModel = new EquipmentModel(_gameData, this);
@@ -45,7 +45,7 @@ public class GameModel : MonoBehaviour
     }
 
     /// <summary>
-    /// °ñµå Ãß°¡ ÇÔ¼ö
+    /// ê³¨ë“œ ì¶”ê°€ í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void AddGold(int value)
@@ -53,7 +53,7 @@ public class GameModel : MonoBehaviour
         _gameData.Gold += value;
     }
     /// <summary>
-    /// ¿¡¸Ş¶öµå Ãß°¡ ÇÔ¼ö
+    /// ì—ë©”ë„ë“œ ì¶”ê°€ í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void AddEmerald(int value)
@@ -61,7 +61,7 @@ public class GameModel : MonoBehaviour
         _gameData.Emerald += value;
     }
     /// <summary>
-    /// ¾÷±×·¹ÀÌµå ½ºÅ©·Ñ Ãß°¡ ÇÔ¼ö
+    /// ì—…ê·¸ë ˆì´ë“œ ìŠ¤í¬ë¡¤ ì¶”ê°€ í•¨ìˆ˜
     /// </summary>
     /// <param name="type"></param>
     /// <param name="value"></param>
@@ -70,7 +70,7 @@ public class GameModel : MonoBehaviour
         _gameData.UpgradeScroll[type] += value;
     }
     /// <summary>
-    /// ·£´ıÀ¸·Î Á¤ÇØÁø ¼ıÀÚ´ë·Î ½ºÅ©·ÑÀ» Ãß°¡ÇÏ´Â ÇÔ¼ö
+    /// ëœë¤ìœ¼ë¡œ ì •í•´ì§„ ìˆ«ìëŒ€ë¡œ ìŠ¤í¬ë¡¤ì„ ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void AddRandomUpgradeScroll(int value)
@@ -84,22 +84,22 @@ public class GameModel : MonoBehaviour
         }
         bars.Sort();
 
-        // 0¹ø ½ºÅ©·Ñ Ãß°¡
+        // 0ë²ˆ ìŠ¤í¬ë¡¤ ì¶”ê°€
         AddUpgradeScroll(0, bars[0]);
 
-        // 1~4¹ø ½ºÅ©·Ñ Ãß°¡
+        // 1~4ë²ˆ ìŠ¤í¬ë¡¤ ì¶”ê°€
         for(int i = 1; i < 5; i++)
         {
             int scrollValue = bars[i] - bars[i - 1];
             AddUpgradeScroll(i, scrollValue);
         }
 
-        // 5¹ø ½ºÅ©·Ñ Ãß°¡
+        // 5ë²ˆ ìŠ¤í¬ë¡¤ ì¶”ê°€
         int lastScrollValue = value - bars[bars.Count - 1];
         AddUpgradeScroll(5, lastScrollValue);
     }
     /// <summary>
-    /// ÃÖ´ë ½ºÅ×ÀÌÁö ¼³Á¤ ÇÔ¼ö
+    /// ìµœëŒ€ ìŠ¤í…Œì´ì§€ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void SetMaxStage(int value)
@@ -107,7 +107,7 @@ public class GameModel : MonoBehaviour
         _gameData.MaxStage = value;
     }
     /// <summary>
-    /// ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö ¼³Á¤ ÇÔ¼ö
+    /// ì„ íƒí•œ ìŠ¤í…Œì´ì§€ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void SetSelectStage(int value)
@@ -115,7 +115,7 @@ public class GameModel : MonoBehaviour
         _gameData.SelectStage = value;
     }
     /// <summary>
-    /// ¿µ¿õ ¼±ÅÃ
+    /// ì˜ì›… ì„ íƒ
     /// </summary>
     /// <param name="value"></param>
     public void SelectHero(HeroData value)
@@ -124,42 +124,42 @@ public class GameModel : MonoBehaviour
         _gameData.HeroDataName = _heroData.HeroName;
     }
     /// <summary>
-    /// ¾÷±×·¹ÀÌµå ·¹º§ Áõ°¡
+    /// ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨ ì¦ê°€
     /// </summary>
-    /// <param name="value">¾÷±×·¹ÀÌµå ·¹º§ Á¾·ù</param>
+    /// <param name="value">ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨ ì¢…ë¥˜</param>
     public void IncreaseUpgradeLevel(int value)
     {
         _gameData.UpgradeLevel[value]++;
     }
     /// <summary>
-    /// ÃÖ´ë ½ºÅ×ÀÌÁö +1 Áõ°¡ ÇÔ¼ö
+    /// ìµœëŒ€ ìŠ¤í…Œì´ì§€ +1 ì¦ê°€ í•¨ìˆ˜
     /// </summary>
     public void IncreaseMaxStage()
     {
         _gameData.MaxStage++;
     }
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ·¹º§ ¾÷
+    /// ì¥ë¹„ ì•„ì´í…œ ë ˆë²¨ ì—…
     /// </summary>
-    /// <param name="goldCost">¾²ÀÎ °ñµå</param>
-    /// <param name="scrollType">¾²ÀÎ ½ºÅ©·Ñ Å¸ÀÔ</param>
-    /// <param name="scrollCost">¾²ÀÎ ½ºÅ©·Ñ °¹¼ö</param>
+    /// <param name="goldCost">ì“°ì¸ ê³¨ë“œ</param>
+    /// <param name="scrollType">ì“°ì¸ ìŠ¤í¬ë¡¤ íƒ€ì…</param>
+    /// <param name="scrollCost">ì“°ì¸ ìŠ¤í¬ë¡¤ ê°¯ìˆ˜</param>
     public void UpgradeEquipmentItemLevel(int goldCost, int scrollType, int scrollCost)
     {
-        // °ñµå ¼Ò¸ğ
+        // ê³¨ë“œ ì†Œëª¨
         _gameData.Gold -= goldCost;
-        // ½ºÅ©·Ñ ¼Ò¸ğ
+        // ìŠ¤í¬ë¡¤ ì†Œëª¨
         _gameData.UpgradeScroll[scrollType] -= scrollCost;
     }
     /// <summary>
-    /// Àü¿ª¿ëµµ °ÔÀÓ µ¥ÀÌÅÍ ÀúÀå
+    /// ì „ì—­ìš©ë„ ê²Œì„ ë°ì´í„° ì €ì¥
     /// </summary>
     public void SaveGameData()
     {
         SaveData();
     }
     /// <summary>
-    /// °ÔÀÓ µ¥ÀÌÅÍ ÀúÀå
+    /// ê²Œì„ ë°ì´í„° ì €ì¥
     /// </summary>
     private void SaveData()
     {
@@ -172,7 +172,7 @@ public class GameModel : MonoBehaviour
         File.WriteAllText(path, gameDataToJson);
     }
     /// <summary>
-    /// °ÔÀÓ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+    /// ê²Œì„ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
     /// </summary>
     private void LoadData()
     {
@@ -181,13 +181,13 @@ public class GameModel : MonoBehaviour
 #else
         string path = Path.Combine(Application.persistentDataPath, "gameData.json");
 #endif
-        // ¼¼ÀÌºê ÆÄÀÏ Á¸Àç ¿©ºÎ È®ÀÎ
+        // ì„¸ì´ë¸Œ íŒŒì¼ ì¡´ì¬ ì—¬ë¶€ í™•ì¸
         if (File.Exists(path))
         {
             string jsonToGameData = File.ReadAllText(path);
             _gameData = JsonUtility.FromJson<GameData>(jsonToGameData);
         }
-        // ¼¼ÀÌºê ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì
+        // ì„¸ì´ë¸Œ íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•Šì„ ê²½ìš°
         else
         {
             _gameData = new GameData();
@@ -195,11 +195,11 @@ public class GameModel : MonoBehaviour
         }
     }
     /// <summary>
-    /// °ÔÀÓ ÃÖÃÊ ½ÇÇà ½Ã ¾ø´Â µ¥ÀÌÅÍµé Àû¿ë
+    /// ê²Œì„ ìµœì´ˆ ì‹¤í–‰ ì‹œ ì—†ëŠ” ë°ì´í„°ë“¤ ì ìš©
     /// </summary>
     private void InitModel()
     {
-        // ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ ¼³Á¤ÀÌ ¾ÈµÇ¾î ÀÖÀ» ½Ã
+        // í”Œë ˆì´ì–´ ìºë¦­í„° ì„¤ì •ì´ ì•ˆë˜ì–´ ìˆì„ ì‹œ
         if (_gameData.HeroDataName == null)
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData00");
@@ -208,12 +208,12 @@ public class GameModel : MonoBehaviour
         {
             _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
         }
-        // ÃÖ´ë ½ºÅ×ÀÌÁö ¼³Á¤°ªÀÌ ¾øÀ» °æ¿ì
+        // ìµœëŒ€ ìŠ¤í…Œì´ì§€ ì„¤ì •ê°’ì´ ì—†ì„ ê²½ìš°
         if(MaxStage == 0)
         {
             SetMaxStage(1);
         }
-        // ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö ¼³Á¤°ªÀÌ ¾øÀ» °æ¿ì
+        // ì„ íƒí•œ ìŠ¤í…Œì´ì§€ ì„¤ì •ê°’ì´ ì—†ì„ ê²½ìš°
         if(SelectStage == 0)
         {
             SetSelectStage(1);

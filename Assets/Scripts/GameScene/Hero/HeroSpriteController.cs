@@ -1,4 +1,4 @@
-using UnityEngine.U2D.Animation;
+Ôªøusing UnityEngine.U2D.Animation;
 
 public class HeroSpriteController : SpriteControllerBase
 {
@@ -13,7 +13,7 @@ public class HeroSpriteController : SpriteControllerBase
         _spriteLibrary = GetComponent<SpriteLibrary>();
     }
 
-    //TODO ø©±‚º≠ ∫“∑Øø¿µµ∑œ º≥¡§
+    //TODO Ïó¨Í∏∞ÏÑú Î∂àÎü¨Ïò§ÎèÑÎ°ù ÏÑ§Ï†ï
     public void Init(SpriteLibraryAsset asset)
     {
         _heroSpriteLibraryAsset = asset;

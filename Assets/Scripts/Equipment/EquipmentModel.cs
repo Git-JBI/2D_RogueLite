@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 
 public class EquipmentModel
 {
@@ -15,7 +15,7 @@ public class EquipmentModel
     public IReadOnlyList<EquipmentItemData> EquippedItems => _gameData.EquippedItems;
 
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ Ãß°¡ÇÏ´Â ÇÔ¼ö
+    /// ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="data"></param>
     public void AddEquipmentList(EquipmentItemData data)
@@ -23,7 +23,7 @@ public class EquipmentModel
         _gameData.EquipmentItems.Add(data);
     }
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÏ´Â ÇÔ¼ö
+    /// ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="data"></param>
     public void RemoveEquipmentList(EquipmentItemData data)
@@ -31,22 +31,22 @@ public class EquipmentModel
         _gameData.EquipmentItems.Remove(data);
     }
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ instancecId¸¦ ÀÌ¿ëÇØ ¾ÆÀÌÅÛÀ» Ã£´Â ÇÔ¼ö
+    /// ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì—ì„œ instancecIdë¥¼ ì´ìš©í•´ ì•„ì´í…œì„ ì°¾ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="instanceId">ÀÎ½ºÅÏ½º ID</param>
+    /// <param name="instanceId">ì¸ìŠ¤í„´ìŠ¤ ID</param>
     /// <returns></returns>
     public EquipmentItemData GetEquipmentItem(string instanceId)
     {
         EquipmentItemData item = _gameData.EquipmentItems.Find(x => x.InstanceID == instanceId);
-        // ¾ÆÀÌÅÛÀ» Ã£Áö ¸øÇÑ °æ¿ì
+        // ì•„ì´í…œì„ ì°¾ì§€ ëª»í•œ ê²½ìš°
         if (item == null)
             return null;
-        // ¾ÆÀÌÅÛÀ» Ã£Àº °æ¿ì
+        // ì•„ì´í…œì„ ì°¾ì€ ê²½ìš°
         else
             return item;
     }
     /// <summary>
-    /// ÀåÂø ÁßÀÎ Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ Ãß°¡ÇÏ´Â ÇÔ¼ö
+    /// ì¥ì°© ì¤‘ì¸ ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="data"></param>
     public void AddEquippedItemList(EquipmentItemData data)
@@ -54,7 +54,7 @@ public class EquipmentModel
         _gameData.EquippedItems.Add(data);
     }
     /// <summary>
-    /// ÀåÂø ÁßÀÎ Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÏ´Â ÇÔ¼ö
+    /// ì¥ì°© ì¤‘ì¸ ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="data"></param>
     public void RemoveEquippedItemList(EquipmentItemData data)
@@ -62,17 +62,17 @@ public class EquipmentModel
         _gameData.EquippedItems.Remove(data);
     }
     /// <summary>
-    /// ÀåÂø ÁßÀÎ Àåºñ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ EquipmentTypeÀ» ÀÌ¿ëÇØ ¾ÆÀÌÅÛÀ» Ã£´Â ÇÔ¼ö
+    /// ì¥ì°© ì¤‘ì¸ ì¥ë¹„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì—ì„œ EquipmentTypeì„ ì´ìš©í•´ ì•„ì´í…œì„ ì°¾ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
     public EquipmentItemData GetEquippedItem(EquipmentType type)
     {
         EquipmentItemData item = _gameData.EquippedItems.Find(x => x.EquipmentType == type);
-        // ¾ÆÀÌÅÛÀ» Ã£Áö ¸øÇÑ °æ¿ì
+        // ì•„ì´í…œì„ ì°¾ì§€ ëª»í•œ ê²½ìš°
         if (item == null)
             return null;
-        // ¾ÆÀÌÅÛÀ» Ã£Àº °æ¿ì
+        // ì•„ì´í…œì„ ì°¾ì€ ê²½ìš°
         else
             return item;
     }

@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public enum PassiveStatType
 {
-    DamagePercent,      // µ¥¹ÌÁö Áõ°¡ ÆÛ¼¾Æ®
-    MoveSpeedPercent,   // ÀÌµ¿¼Óµµ Áõ°¡ ÆÛ¼¾Æ®
-    MaxHpPercent,       // ÃÖ´ë Ã¼·Â Áõ°¡ ÆÛ¼¾Æ®
+    DamagePercent,      // ë°ë¯¸ì§€ ì¦ê°€ í¼ì„¼íŠ¸
+    MoveSpeedPercent,   // ì´ë™ì†ë„ ì¦ê°€ í¼ì„¼íŠ¸
+    MaxHpPercent,       // ìµœëŒ€ ì²´ë ¥ ì¦ê°€ í¼ì„¼íŠ¸
 }
 
 [System.Serializable]
 public class PassiveStatData
 {
-    [SerializeField] private PassiveStatType _statType;     // ¾î¶² Á¾·ùÀÇ ½ºÅÝÀÎÁö
-    [SerializeField] private float[] _value;                // ½ºÅÝÀÇ °ª
+    [SerializeField] private PassiveStatType _statType;     // ì–´ë–¤ ì¢…ë¥˜ì˜ ìŠ¤í…Ÿì¸ì§€
+    [SerializeField] private float[] _value;                // ìŠ¤í…Ÿì˜ ê°’
 
     public int MaxLevel => _value.Length - 1;
 

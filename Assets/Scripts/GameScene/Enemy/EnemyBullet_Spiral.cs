@@ -1,29 +1,29 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyBullet_Spiral : EnemyBulletBase
 {
-    //TODO ´çÀå¿£ º¸½º¿¡¼­ »ç¿ëÇÒ ¿ëµµ¶ó ÀÌ·±µ¥ ÃßÈÄ ºÒ¸´¸ğµ¨À¸·Î ¹Ù²ğµí
+    //TODO ë‹¹ì¥ì—” ë³´ìŠ¤ì—ì„œ ì‚¬ìš©í•  ìš©ë„ë¼ ì´ëŸ°ë° ì¶”í›„ ë¶ˆë¦¿ëª¨ë¸ìœ¼ë¡œ ë°”ë€”ë“¯
     private EnemyModel _model;
-    // ½ºÆùµÉ À§Ä¡
+    // ìŠ¤í°ë  ìœ„ì¹˜
     private Vector2 _startPos;
-    // È¸Àü ¼Óµµ
+    // íšŒì „ ì†ë„
     private float _rotSpeed;
-    // »ç¿ëÇÒ ÃÑ¾Ë °¹¼ö
+    // ì‚¬ìš©í•  ì´ì•Œ ê°¯ìˆ˜
     private int _bulletCount;
-    // »ç¿ëÇÒ ÃÑ¾ËÀÇ ¼Óµµ
+    // ì‚¬ìš©í•  ì´ì•Œì˜ ì†ë„
     private float _bulletSpeed;
-    // Å¸ÀÌ¸Ó
+    // íƒ€ì´ë¨¸
     private float _timer;
 
     private void FixedUpdate()
     {
-        // È¸Àü
+        // íšŒì „
         transform.Rotate(0, 0, _rotSpeed);
 
-        // ½Ã°£ Èå¸£±â
+        // ì‹œê°„ íë¥´ê¸°
         _timer += Time.deltaTime;
 
-        //TODO ÃßÈÄ À¯Áö ½Ã°£ ¹Ş¾Æ¿Í¼­ Àû¿ë 
+        //TODO ì¶”í›„ ìœ ì§€ ì‹œê°„ ë°›ì•„ì™€ì„œ ì ìš© 
         if (_timer >= 3)
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();
@@ -33,27 +33,27 @@ public class EnemyBullet_Spiral : EnemyBulletBase
 
     public void Init(Vector2 startPos)
     {
-        // ½ÃÀÛ À§Ä¡ ¼³Á¤
+        // ì‹œì‘ ìœ„ì¹˜ ì„¤ì •
         transform.position = startPos;
-        // ºÎ¸ğ·ÎºÎÅÍ ±Í¼Ó ÇØÁ¦
+        // ë¶€ëª¨ë¡œë¶€í„° ê·€ì† í•´ì œ
         transform.SetParent(null);
-        // ÃÑ¾Ë °¹¼ö ¼³Á¤
+        // ì´ì•Œ ê°¯ìˆ˜ ì„¤ì •
         _bulletCount = 8;
-        // ÃÑ¾Ë ¼Óµµ ¼³Á¤
+        // ì´ì•Œ ì†ë„ ì„¤ì •
         _bulletSpeed = 7;
-        // È¸Àü ¼Óµµ ¼³Á¤
+        // íšŒì „ ì†ë„ ì„¤ì •
         _rotSpeed = 2;
-        // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+        // íƒ€ì´ë¨¸ ì´ˆê¸°í™”
         _timer = 0;
-        // ÃÑ¾Ë ¹ß»ç
+        // ì´ì•Œ ë°œì‚¬
         ShootBullets(_bulletCount, _bulletSpeed);
     }
 
     /// <summary>
-    /// ¿øÇÏ´Â ¼ö·®ÀÇ ÃÑ¾ËÀ» Á¤ÇØÁø ¼Óµµ·Î ¹æÇâÀ» ³ª´²¼­ ¹ß»ç
+    /// ì›í•˜ëŠ” ìˆ˜ëŸ‰ì˜ ì´ì•Œì„ ì •í•´ì§„ ì†ë„ë¡œ ë°©í–¥ì„ ë‚˜ëˆ ì„œ ë°œì‚¬
     /// </summary>
-    /// <param name="bulletCount">ÃÑ¾Ë °¹¼ö</param>
-    /// <param name="bulletSpeed">ÃÑ¾Ë ¼Óµµ</param>
+    /// <param name="bulletCount">ì´ì•Œ ê°¯ìˆ˜</param>
+    /// <param name="bulletSpeed">ì´ì•Œ ì†ë„</param>
     private void ShootBullets(int bulletCount, float bulletSpeed)
     {
         for(int i = 0; i < bulletCount; i++)

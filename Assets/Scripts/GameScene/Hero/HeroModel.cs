@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 
 public class HeroModel : MonoBehaviour
@@ -72,7 +72,7 @@ public class HeroModel : MonoBehaviour
 
     private void Awake()
     {
-        // TODO ÃßÈÄ ½Ì±ÛÅæ »ç¿ëÇÑ ÇÃ·¹ÀÌ¾î ½ºÅÝ¿¡¼­ °ª ÃÊ±âÈ­ >>>>> ÇÊ¿ä¾ø´Â º¯¼öµéÀÌ ÀÖ´Â °Í °°À½ ±âº»°ªÀ» GameModel¿¡¼­ ¼³Á¤ ÈÄ ±âº» °ª ¼³Á¤ ÈÄ ÀÎ°ÔÀÓ ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ¸¦ Àû¿ëÇÏ´Â ¹æ½Ä
+        // TODO ì¶”í›„ ì‹±ê¸€í†¤ ì‚¬ìš©í•œ í”Œë ˆì´ì–´ ìŠ¤í…Ÿì—ì„œ ê°’ ì´ˆê¸°í™” >>>>> í•„ìš”ì—†ëŠ” ë³€ìˆ˜ë“¤ì´ ìžˆëŠ” ê²ƒ ê°™ìŒ ê¸°ë³¸ê°’ì„ GameModelì—ì„œ ì„¤ì • í›„ ê¸°ë³¸ ê°’ ì„¤ì • í›„ ì¸ê²Œìž„ ì—…ê·¸ë ˆì´ë“œ ë°ì´í„°ë¥¼ ì ìš©í•˜ëŠ” ë°©ì‹
         _maxHp = 1000;
         _curHp = _maxHp;
         _damage = 10;
@@ -95,7 +95,7 @@ public class HeroModel : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä³¸¯ÅÍ¸¶´Ù ´Ù¸¥ º¸³Ê½º ´É·ÂÄ¡ ¼³Á¤
+    /// ìºë¦­í„°ë§ˆë‹¤ ë‹¤ë¥¸ ë³´ë„ˆìŠ¤ ëŠ¥ë ¥ì¹˜ ì„¤ì •
     /// </summary>
     private void SetHeroBonusData()
     {

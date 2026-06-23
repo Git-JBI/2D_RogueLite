@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// ÇÑ ¹ß¾¿ ÀûÀ» Á¤Á¶ÁØÇØ¼­ ½î´Â ±ÇÃÑ ¹«±â
+/// í•œ ë°œì”© ì ì„ ì •ì¡°ì¤€í•´ì„œ ì˜ëŠ” ê¶Œì´ ë¬´ê¸°
 /// </summary>
 public class WeaponPistol : WeaponBase
 {

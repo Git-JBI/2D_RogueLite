@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameDatas/WeaponData", fileName = "WeaponData")]
@@ -31,7 +31,7 @@ public class WeaponData : ScriptableObject
             return _statDataMap[type].GetValue(level);
         else
         {
-            Debug.Log($"{type}Á¾·ù ½ºÅİÀº {_weaponName} ¹«±â µ¥ÀÌÅÍ¿¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù.");
+            Debug.Log($"{type}ì¢…ë¥˜ ìŠ¤í…Ÿì€ {_weaponName} ë¬´ê¸° ë°ì´í„°ì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤.");
             return 0;
         }
     }

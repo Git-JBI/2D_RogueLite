@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
-/// Àåºñ ¾ÆÀÌÅÛ ¼¼ºÎ ³»¿ë ÆË¾÷
+/// ì¥ë¹„ ì•„ì´í…œ ì„¸ë¶€ ë‚´ìš© íŒì—…
 /// </summary>
 public class EquipmentItemDetailPopup : MonoBehaviour
 {
-    //TODO ÃßÈÄ MainSceneUIManager¿¡¼­
+    //TODO ì¶”í›„ MainSceneUIManagerì—ì„œ
     [SerializeField] private UI_Text_Gold _upperGoldText;
     [SerializeField] private Button _outside;
     [SerializeField] private Button _closeButton;
@@ -38,26 +38,26 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         _equipmentManager = GameManager.Instance.EquipmentManager;
         _dataBase = GameManager.Instance.EquipmentItemDatabase;
 
-        // ÆË¾÷ ¿ÜºÎ ÅÍÄ¡ ½Ã ÆË¾÷À» ´İ´Â ¹öÆ° ¼³Á¤
+        // íŒì—… ì™¸ë¶€ í„°ì¹˜ ì‹œ íŒì—…ì„ ë‹«ëŠ” ë²„íŠ¼ ì„¤ì •
         _outside.onClick.AddListener(PopupClosed);
-        // ÅÍÄ¡ ½Ã ÆË¾÷À» ´İ´Â ¹öÆ° ¼³Á¤
+        // í„°ì¹˜ ì‹œ íŒì—…ì„ ë‹«ëŠ” ë²„íŠ¼ ì„¤ì •
         _closeButton.onClick.AddListener(PopupClosed);
-        // ·¹º§ ¾÷ ¹öÆ° ¼³Á¤
+        // ë ˆë²¨ ì—… ë²„íŠ¼ ì„¤ì •
         _levelUpButton.onClick.AddListener(ItemLevelUp);
-        // °¡´ÉÇÑ ÀçÈ­¸¦ ¸ğµÎ »ç¿ëÇÑ ·¹º§ ¾÷ ¹öÆ° ¼³Á¤
+        // ê°€ëŠ¥í•œ ì¬í™”ë¥¼ ëª¨ë‘ ì‚¬ìš©í•œ ë ˆë²¨ ì—… ë²„íŠ¼ ì„¤ì •
         _levelUpAllButton.onClick.AddListener(ItemLevelUpAll);
     }
 
     public void Init(EquipmentItemData data)
     {
-        // ºä¾î°¡ Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì
+        // ë·°ì–´ê°€ ì¡´ì¬í•˜ì§€ ì•Šì„ ê²½ìš°
         if(!_popupViewer)
             _popupViewer = GetComponentInChildren<EquipmentItemDetailPopupViewer>();
 
         _equipmentItemData = data;
         _equipmentConfigData = _dataBase.GetEquipmentItemData(_equipmentItemData.ItemID);
 
-        // ¾ÆÀÌÅÛ ·¹¾î¸®Æ¼¿¡ ¸Â´Â ¾ÆÀÌÅÛ ÃÖ´ë ·¹º§
+        // ì•„ì´í…œ ë ˆì–´ë¦¬í‹°ì— ë§ëŠ” ì•„ì´í…œ ìµœëŒ€ ë ˆë²¨
         _maxLevel = _equipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData);
         int goldCost = _equipmentManager.GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
         int scrollCost = _equipmentManager.GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
@@ -92,69 +92,70 @@ public class EquipmentItemDetailPopup : MonoBehaviour
     }
 
     /// <summary>
-    /// ¾ÆÀÌÅÛ ·¹º§¾÷
+    /// ì•„ì´í…œ ë ˆë²¨ì—…
     /// </summary>
     private void ItemLevelUp()
     {
-        // ÇöÀç ¾ÆÀÌÅÛ ·¹º§ÀÌ ÃÖ´ë ·¹º§ÀÏ ½Ã
+        // í˜„ì¬ ì•„ì´í…œ ë ˆë²¨ì´ ìµœëŒ€ ë ˆë²¨ì¼ ì‹œ
         if (_equipmentItemData.ItemLevel == _equipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData))
             return;
 
-        // ¾ÆÀÌÅÛ ·¹º§ ¾÷
-        _equipmentManager.ItemLevelUp(_equipmentItemData);
+        // ì•„ì´í…œ ë ˆë²¨ ì—…
+        if (_equipmentManager.ItemLevelUp(_equipmentItemData) == false)
+            return;
 
-        // ¾÷Àû °»½Å
+        // ì—…ì  ê°±ì‹ 
         _achievementManager.Report(AchievementConditionType.EquipmentLevelUp, 1);
 
-        // Àç Ç¥±â
+        // ì¬ í‘œê¸°
         RefreshLevelUpView();
     }
 
     /// <summary>
-    /// ÀçÈ­¸¦ ÀüºÎ ¼Ò¸ğÇÑ ¾ÆÀÌÅÛ ·¹º§¾÷
+    /// ì¬í™”ë¥¼ ì „ë¶€ ì†Œëª¨í•œ ì•„ì´í…œ ë ˆë²¨ì—…
     /// </summary>
     private void ItemLevelUpAll()
     {
-        // ÇöÀç ¾ÆÀÌÅÛ ·¹º§ÀÌ ÃÖ´ë ·¹º§ÀÏ ½Ã
+        // í˜„ì¬ ì•„ì´í…œ ë ˆë²¨ì´ ìµœëŒ€ ë ˆë²¨ì¼ ì‹œ
         if (_equipmentItemData.ItemLevel == _equipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData))
             return;
 
-        // ÃÑ ·¹º§¾÷
+        // ì´ ë ˆë²¨ì—…
         int countLevelUp = _equipmentManager.ItemLevelUpAll(_equipmentItemData);
 
-        // ÃÑ ·¹º§¾÷ÀÌ 0ÀÏ½Ã
+        // ì´ ë ˆë²¨ì—…ì´ 0ì¼ì‹œ
         if (countLevelUp == 0)
             return;
 
-        // ¾÷Àû °»½Å
+        // ì—…ì  ê°±ì‹ 
         _achievementManager.Report(AchievementConditionType.EquipmentLevelUp, countLevelUp);
 
-        // ÀúÀå
+        // ì €ì¥
         _gameModel.SaveGameData();
 
-        // Àç Ç¥±â
+        // ì¬ í‘œê¸°
         RefreshLevelUpView();
     }
 
     /// <summary>
-    /// ÇöÀç µ¥ÀÌÅÍ¿¡ ¸ÂÃç Á¤º¸¸¦ Àç Ç¥±âÇÏ´Â ÇÔ¼ö
+    /// í˜„ì¬ ë°ì´í„°ì— ë§ì¶° ì •ë³´ë¥¼ ì¬ í‘œê¸°í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private void RefreshLevelUpView()
     {
         int gold = _gameModel.Gold;
 
-        // ¾ÆÀÌÅÛ ·¹º§ÀÌ ÃÖ´ë ·¹º§ÀÏ ½Ã
+        // ì•„ì´í…œ ë ˆë²¨ì´ ìµœëŒ€ ë ˆë²¨ì¼ ì‹œ
         if (_equipmentItemData.ItemLevel == _equipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData))
         {
             _popupViewer.CheckMaxLevel(true);
-            // ¾ÆÀÌÅÛ ·¹º§ Ç¥½Ã
+            // ì•„ì´í…œ ë ˆë²¨ í‘œì‹œ
             _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
-            // ·¹º§¾÷ ¹öÆ°µé ¼û±è
+            // ë ˆë²¨ì—… ë²„íŠ¼ë“¤ ìˆ¨ê¹€
             _levelUpButton.gameObject.SetActive(false);
             _levelUpAllButton.gameObject.SetActive(false);
         }
 
-        // ¾ÆÀÌÅÛ ·¹º§ÀÌ ÃÖ´ë ·¹º§ÀÌ ¾Æ´Ò ½Ã
+        // ì•„ì´í…œ ë ˆë²¨ì´ ìµœëŒ€ ë ˆë²¨ì´ ì•„ë‹ ì‹œ
         else
         {
             _popupViewer.CheckMaxLevel(false);
@@ -163,15 +164,15 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             int goldCost = _equipmentManager.GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
             int scrollCost = _equipmentManager.GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
-            // ÇÊ¿ä °ñµå Ç¥½Ã
+            // í•„ìš” ê³¨ë“œ í‘œì‹œ
             _popupViewer.SetGoldCostText(gold, goldCost);
-            // ÇÊ¿ä ½ºÅ©·Ñ Ç¥½Ã
+            // í•„ìš” ìŠ¤í¬ë¡¤ í‘œì‹œ
             _popupViewer.SetScrollCostText(scroll, scrollCost);
-            // ¾ÆÀÌÅÛ ·¹º§ Ç¥½Ã
+            // ì•„ì´í…œ ë ˆë²¨ í‘œì‹œ
             _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
         }
 
-        // »ó´Ü¹Ù °ñµå Ç¥½Ã
+        // ìƒë‹¨ë°” ê³¨ë“œ í‘œì‹œ
         _upperGoldText.UpdateGoldText(gold);
     }
 

@@ -1,26 +1,26 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EquipmentMergeManager : MonoBehaviour
 {
-    /* Common + Commom + Common = UnCommon (µ¿ÀÏ ¾ÆÀÌÅÛID)
-    // UnCommon + UnCommon + UnCommon = Rare (µ¿ÀÏ ¾ÆÀÌÅÛID)
-    // Rare + Rare + Rare = Unique (µ¿ÀÏ ¾ÆÀÌÅÛID)
-    // Unique + Unique = Unique+1 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Unique+1 + Unique + Unique = Unique+2 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Unique+2 + Unique+2 = Epic (µ¿ÀÏ ¾ÆÀÌÅÛID, µ¿ÀÏ µî±Ş, µ¿ÀÏ ·¹¾î¸®Æ¼ ·¹º§)
-    // Epic + Epic = Epic+1 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Epic+1 + Epic = Epic+2 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Epic+2 + Epic = Epic+3 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Epic+3 + Epic + Epic = Legendary (µ¿ÀÏ ¾ÆÀÌÅÛID, µ¿ÀÏ µî±Ş, ·¹¾î¸®Æ¼ ·¹º§ 0)
-    // Legendary + Legendary = Legendary+1 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Legendary+1 + Legendary = Legendary+2 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Legendary+2 + Legendary = Legendary+3 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)
-    // Legendary+3 + Legendary = Legendary+4 (µ¿ÀÏ ¾ÆÀÌÅÛ Å¸ÀÔ)*/
-    [Header("# ¼±ÅÃµÈ ¾ÆÀÌÅÛ ½½·Ô")]
+    /* Common + Commom + Common = UnCommon (ë™ì¼ ì•„ì´í…œID)
+    // UnCommon + UnCommon + UnCommon = Rare (ë™ì¼ ì•„ì´í…œID)
+    // Rare + Rare + Rare = Unique (ë™ì¼ ì•„ì´í…œID)
+    // Unique + Unique = Unique+1 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Unique+1 + Unique + Unique = Unique+2 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Unique+2 + Unique+2 = Epic (ë™ì¼ ì•„ì´í…œID, ë™ì¼ ë“±ê¸‰, ë™ì¼ ë ˆì–´ë¦¬í‹° ë ˆë²¨)
+    // Epic + Epic = Epic+1 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Epic+1 + Epic = Epic+2 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Epic+2 + Epic = Epic+3 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Epic+3 + Epic + Epic = Legendary (ë™ì¼ ì•„ì´í…œID, ë™ì¼ ë“±ê¸‰, ë ˆì–´ë¦¬í‹° ë ˆë²¨ 0)
+    // Legendary + Legendary = Legendary+1 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Legendary+1 + Legendary = Legendary+2 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Legendary+2 + Legendary = Legendary+3 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)
+    // Legendary+3 + Legendary = Legendary+4 (ë™ì¼ ì•„ì´í…œ íƒ€ì…)*/
+    [Header("# ì„ íƒëœ ì•„ì´í…œ ìŠ¬ë¡¯")]
     [SerializeField] private EquipmentItemSlot _selectedSlot;
-    [Header("# ¾÷±×·¹ÀÌµå µÉ ½Ã ¾ÆÀÌÅÛ ½½·Ô")]
+    [Header("# ì—…ê·¸ë ˆì´ë“œ ë  ì‹œ ì•„ì´í…œ ìŠ¬ë¡¯")]
     private EquipmentItemSlot _mergeSlotPrefab;
     private EquipmentModel _equipmentModel;
 
@@ -35,16 +35,16 @@ public class EquipmentMergeManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // ½½·Ô ³»¿ë¹°ÀÌ ³²¾ÆÀÖÀ» °æ¿ì ÀüºÎ ÆÄ±«
+        // ìŠ¬ë¡¯ ë‚´ìš©ë¬¼ì´ ë‚¨ì•„ìˆì„ ê²½ìš° ì „ë¶€ íŒŒê´´
         if (_slots.Count != 0)
             DestroySlots();
 
-        // ½½·Ô »ı¼º
+        // ìŠ¬ë¡¯ ìƒì„±
         InitSlots();
     }
 
     /// <summary>
-    /// ½½·Ô ¸®½ºÆ® »ı¼º ÇÔ¼ö
+    /// ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ìƒì„± í•¨ìˆ˜
     /// </summary>
     private void InitSlots()
     {
@@ -52,17 +52,17 @@ public class EquipmentMergeManager : MonoBehaviour
 
         foreach(EquipmentItemData item in items)
         {
-            // ·¹Àü´õ¸® +4ÀÏ °æ¿ì ¸®ÅÏ
+            // ë ˆì „ë”ë¦¬ +4ì¼ ê²½ìš° ë¦¬í„´
             if (item.Rarity == ItemRarity.Legendary && item.RarityLevel == 4)
                 continue;
 
-            // ¸ÓÁö ¾ÆÀÌÅÛ ½½·Ô »ı¼º
+            // ë¨¸ì§€ ì•„ì´í…œ ìŠ¬ë¡¯ ìƒì„±
             EquipmentItemSlot slot = Instantiate(_mergeSlotPrefab, transform);
 
-            // ÃÊ±âÈ­
+            // ì´ˆê¸°í™”
             slot.Init(item);
 
-            // ¸®½ºÆ®¿¡ Ãß°¡
+            // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
             _slots.Add(slot);
         }
     }
@@ -71,11 +71,11 @@ public class EquipmentMergeManager : MonoBehaviour
     {
         foreach(EquipmentItemSlot slot in _slots)
         {
-            // ½½·Ô ¸®½ºÆ® ³»ÀÇ ½½·Ô ÆÄ±«
+            // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë‚´ì˜ ìŠ¬ë¡¯ íŒŒê´´
             Destroy(slot.gameObject);
         }
 
-        // ½½·Ô ¸®½ºÆ® ºñ¿ì±â
+        // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë¹„ìš°ê¸°
         _slots.Clear();
     }
 }

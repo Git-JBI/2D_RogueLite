@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,11 +36,11 @@ public class AchievementSlotViewer : MonoBehaviour
         }
         else if(isCompleted && !isRewardClaimed)
         {
-            _buttonText.text = "ȹ��";
+            _buttonText.text = "획득";
         }
         else
         {
-            _buttonText.text = "�̿Ϸ�";
+            _buttonText.text = "미완료";
         }
     }
 }

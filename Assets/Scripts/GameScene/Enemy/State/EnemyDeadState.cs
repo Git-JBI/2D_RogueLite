@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class EnemyDeadState : IState
@@ -14,16 +14,16 @@ public class EnemyDeadState : IState
 
     public void OnStateEnter()
     {
-        // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+        // íƒ€ì´ë¨¸ ì´ˆê¸°í™”
         _timer = 0;
 
-        // ¸®Áöµå¹Ùµğ ºñÈ°¼ºÈ­
+        // ë¦¬ì§€ë“œë°”ë”” ë¹„í™œì„±í™”
         _enemy.SetRigidbodyActive(false);
 
-        // Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
+        // ì½œë¼ì´ë” ë¹„í™œì„±í™”
         _enemy.SetColliderActive(false);
 
-        // Á×À½ ¾Ö´Ï¸ŞÀÌ¼Ç Æ®¸®°Å½ÇÇà
+        // ì£½ìŒ ì• ë‹ˆë©”ì´ì…˜ íŠ¸ë¦¬ê±°ì‹¤í–‰
         _enemy.SpriteController.Dead();
     }
 

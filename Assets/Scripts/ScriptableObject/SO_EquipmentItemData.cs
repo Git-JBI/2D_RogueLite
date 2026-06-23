@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ¾ÆÀÌÅÛ µî±Ş (7Á¾·ù)
+/// ì•„ì´í…œ ë“±ê¸‰ (7ì¢…ë¥˜)
 /// </summary>
 public enum ItemRarity
 {
@@ -16,7 +16,7 @@ public enum ItemRarity
 }
 
 /// <summary>
-/// ¾ÆÀÌÅÛ Æ¼¾î(3Á¾·ù)
+/// ì•„ì´í…œ í‹°ì–´(3ì¢…ë¥˜)
 /// </summary>
 public enum ItemTier
 {

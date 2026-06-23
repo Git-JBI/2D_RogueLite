@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class UpgradeManager : MonoBehaviour
 {
     private int _maxUpgradeLevel;
-    //TODO MoneyÅØ½ºÆ® ±îÁö Àû¿ëÇÏµµ·Ï(UpgradeData ¹Ş¾Æ¿Í¼­ »ç¿ë) + Button_UpgradeÃß°¡ ÇÔ¼ö ÇÊ¿ä
+    //TODO Moneyí…ìŠ¤íŠ¸ ê¹Œì§€ ì ìš©í•˜ë„ë¡(UpgradeData ë°›ì•„ì™€ì„œ ì‚¬ìš©) + Button_Upgradeì¶”ê°€ í•¨ìˆ˜ í•„ìš”
     private GameModel _gameModel;
 
     [SerializeField] private List<UpgradeData> _upgradeDatas = new();
@@ -47,24 +47,24 @@ public class UpgradeManager : MonoBehaviour
         {
             case UpgradeButtonType.None:
                 return;
-            case UpgradeButtonType.Damage:          // µ¥¹ÌÁö ¾÷±×·¹ÀÌµå
-                // ÃÖ´ë ·¹º§ µµ´ŞÇßÀ» °æ¿ì ¸®ÅÏ
+            case UpgradeButtonType.Damage:          // ë°ë¯¸ì§€ ì—…ê·¸ë ˆì´ë“œ
+                // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬í–ˆì„ ê²½ìš° ë¦¬í„´
                 if (_gameModel.UpgradeLevel[0] == _maxUpgradeLevel)
                     return;
-                // °ñµå ºÎÁ·ÇÒ °æ¿ì ¸®ÅÏ
+                // ê³¨ë“œ ë¶€ì¡±í•  ê²½ìš° ë¦¬í„´
                 if (_upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]] > _gameModel.Gold)
                     return;
                 _gameModel.AddGold(-_upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]]);
                 _gameModel.IncreaseUpgradeLevel(0);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 if (_gameModel.UpgradeLevel[0] == _maxUpgradeLevel)
-                    // ÃÖ´ë ·¹º§ µµ´Ş ÅØ½ºÆ® Ç¥½Ã
+                    // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬ í…ìŠ¤íŠ¸ í‘œì‹œ
                     _buttons[0].SetMaxLevel();
                 else
                     _buttons[0].SetText(_gameModel.UpgradeLevel[0], _upgradeDatas[0].Price[_gameModel.UpgradeLevel[0]]);
                 break;
-            case UpgradeButtonType.Hp:              // Hp ¾÷±×·¹ÀÌµå
-                // ÃÖ´ë ·¹º§ µµ´ŞÇßÀ» °æ¿ì ¸®ÅÏ
+            case UpgradeButtonType.Hp:              // Hp ì—…ê·¸ë ˆì´ë“œ
+                // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬í–ˆì„ ê²½ìš° ë¦¬í„´
                 if (_gameModel.UpgradeLevel[1] == _maxUpgradeLevel)
                     return;
                 if (_upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]] > _gameModel.Gold)
@@ -73,13 +73,13 @@ public class UpgradeManager : MonoBehaviour
                 _gameModel.IncreaseUpgradeLevel(1);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 if (_gameModel.UpgradeLevel[1] == _maxUpgradeLevel)
-                    // ÃÖ´ë ·¹º§ µµ´Ş ÅØ½ºÆ® Ç¥½Ã
+                    // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬ í…ìŠ¤íŠ¸ í‘œì‹œ
                     _buttons[1].SetMaxLevel();
                 else
                     _buttons[1].SetText(_gameModel.UpgradeLevel[1], _upgradeDatas[1].Price[_gameModel.UpgradeLevel[1]]);
                 break;
-            case UpgradeButtonType.Armor:           // Armor ¾÷±×·¹ÀÌµå
-                // ÃÖ´ë ·¹º§ µµ´ŞÇßÀ» °æ¿ì ¸®ÅÏ
+            case UpgradeButtonType.Armor:           // Armor ì—…ê·¸ë ˆì´ë“œ
+                // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬í–ˆì„ ê²½ìš° ë¦¬í„´
                 if (_gameModel.UpgradeLevel[2] == _maxUpgradeLevel)
                     return;
                 if (_upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]] > _gameModel.Gold)
@@ -88,7 +88,7 @@ public class UpgradeManager : MonoBehaviour
                 _gameModel.IncreaseUpgradeLevel(2);
                 OnUpgradeLevelChanged?.Invoke(_gameModel.Gold);
                 if (_gameModel.UpgradeLevel[2] == _maxUpgradeLevel)
-                    // ÃÖ´ë ·¹º§ µµ´Ş ÅØ½ºÆ® Ç¥½Ã
+                    // ìµœëŒ€ ë ˆë²¨ ë„ë‹¬ í…ìŠ¤íŠ¸ í‘œì‹œ
                     _buttons[2].SetMaxLevel();
                 else
                     _buttons[2].SetText(_gameModel.UpgradeLevel[2], _upgradeDatas[2].Price[_gameModel.UpgradeLevel[2]]);

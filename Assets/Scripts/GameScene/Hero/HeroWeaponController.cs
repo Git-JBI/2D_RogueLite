@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class HeroWeaponController : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class HeroWeaponController : MonoBehaviour
         _rifle.Init(model);
         _shotgun.Init(model);
 
-        //TODO ƒ≥∏Ø≈Õ∏∂¥Ÿ ¥Ÿ∏• π´±‚
+        //TODO Ï∫êÎ¶≠ÌÑ∞ÎßàÎã§ Îã§Î•∏ Î¨¥Í∏∞
         _shovel.Upgrade();
     }
 }

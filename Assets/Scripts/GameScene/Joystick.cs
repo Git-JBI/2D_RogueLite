@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -55,7 +55,7 @@ public class Joystick : MonoBehaviour,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // ¿òÁ÷ÀÓ ½ÃÀÛ 
+        // ì›€ì§ì„ ì‹œì‘ 
         _pointerDownPosition = eventData.position;
 
         JoystickSetActiveTrue();
@@ -66,11 +66,11 @@ public class Joystick : MonoBehaviour,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        // ¿òÁ÷ÀÓ ³¡
+        // ì›€ì§ì„ ë
         JoystickSetActiveFalse();
         OnDragging?.Invoke(Vector2.zero);
 
-        //TODO ¸¶Áö¸· ÅÍÄ¡ ½Ã ÇÃ¸³x¹æÇâ °íÁ¤
+        //TODO ë§ˆì§€ë§‰ í„°ì¹˜ ì‹œ í”Œë¦½xë°©í–¥ ê³ ì •
         OnTouchUp?.Invoke();
 
         _isMoving = false;
@@ -84,10 +84,10 @@ public class Joystick : MonoBehaviour,
             _isMoving = true;
         }    
 
-        // ½ºÆ½ ÀÌµ¿
+        // ìŠ¤í‹± ì´ë™
         SetStickPos(eventData.position);
 
-        // ÀÌµ¿ ¹æÇâ
+        // ì´ë™ ë°©í–¥
         _moveDir = ((Vector2)_joystick[2].rectTransform.position - _pointerDownPosition).normalized;
 
         OnDragging?.Invoke(_moveDir);

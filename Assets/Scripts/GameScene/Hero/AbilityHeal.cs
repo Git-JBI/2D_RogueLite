@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class AbilityHeal : MonoBehaviour, IUpgradable
 {
@@ -8,7 +8,7 @@ public class AbilityHeal : MonoBehaviour, IUpgradable
 
     public int Level => 0;
 
-    public string Desc => "Ã¼·ÂÀ» 25% È¸º¹";
+    public string Desc => "ì²´ë ¥ì„ 25% íšŒë³µ";
 
     public bool IsPermanentAbility => false;
 

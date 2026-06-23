@@ -1,42 +1,42 @@
-using TMPro;
+ï»¿using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentItemDetailPopupViewer : MonoBehaviour
 {
-    //TODO ÃßÈÄ ÅØ½ºÆ®·Î ³ªÅ¸³»´Â°ÍÀÌ ¾Æ´Ô
+    //TODO ì¶”í›„ í…ìŠ¤íŠ¸ë¡œ ë‚˜íƒ€ë‚´ëŠ”ê²ƒì´ ì•„ë‹˜
     /*
-    ¾ÆÀÌÅÛ ÀÌ¸§
-    ¾ÆÀÌÅÛ Å¸ÀÔ
-    ¾ÆÀÌÅÛ Æ¼¾î 
-    ¾ÆÀÌÅÛ ·¹¾î¸®Æ¼
-    ¾ÆÀÌÅÛ ·¹¾î¸®Æ¼ ·¹º§
-    ¾ÆÀÌÅÛ ·¹º§
-    ¾ÆÀÌÅÛ ¼³¸í
+    ì•„ì´í…œ ì´ë¦„
+    ì•„ì´í…œ íƒ€ì…
+    ì•„ì´í…œ í‹°ì–´ 
+    ì•„ì´í…œ ë ˆì–´ë¦¬í‹°
+    ì•„ì´í…œ ë ˆì–´ë¦¬í‹° ë ˆë²¨
+    ì•„ì´í…œ ë ˆë²¨
+    ì•„ì´í…œ ì„¤ëª…
      */
     /// <summary>
-    /// ¼¼ºÎ »çÇ× ³»¿ë ÅØ½ºÆ®
+    /// ì„¸ë¶€ ì‚¬í•­ ë‚´ìš© í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _descText;
     /// <summary>
-    /// ¾ÆÀÌÅÛ ·¹º§ ÅØ½ºÆ®
+    /// ì•„ì´í…œ ë ˆë²¨ í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _itemLevelText;
     /// <summary>
-    /// Àåºñ ÀåÂø/Å»Âø ¹öÆ° ÅØ½ºÆ®
+    /// ì¥ë¹„ ì¥ì°©/íƒˆì°© ë²„íŠ¼ í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _equipButtonText;
     /// <summary>
-    /// ¾÷±×·¹ÀÌµå ½Ã ÇÊ¿äÇÑ °ñµå ÅØ½ºÆ®
+    /// ì—…ê·¸ë ˆì´ë“œ ì‹œ í•„ìš”í•œ ê³¨ë“œ í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _goldCostText;
     /// <summary>
-    /// ¾÷±×·¹ÀÌµå ½Ã ÇÊ¿äÇÑ ½ºÅ©·Ñ ÅØ½ºÆ®
+    /// ì—…ê·¸ë ˆì´ë“œ ì‹œ í•„ìš”í•œ ìŠ¤í¬ë¡¤ í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _scrollCostText;
     /// <summary>
-    /// ÃÖ´ë ·¹º§ÀÏ ½Ã ³ªÅ¸³¯ ÅØ½ºÆ®
+    /// ìµœëŒ€ ë ˆë²¨ì¼ ì‹œ ë‚˜íƒ€ë‚  í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private TextMeshProUGUI _maxUpgradeText;
 
@@ -54,12 +54,12 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
 
     public void SetEquipText()
     {
-        _equipButtonText.text = "ÀåÂø";
+        _equipButtonText.text = "ì¥ì°©";
     }
 
     public void SetUnEquipText()
     {
-        _equipButtonText.text = "ÀåÂø ÇØÁ¦";
+        _equipButtonText.text = "ì¥ì°© í•´ì œ";
     }
 
     public void SetGoldCostText(int haveGold, int require)
@@ -101,6 +101,6 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
 
     public void SetItemLevelText(int level, int maxLevel)
     {
-        _itemLevelText.text = $"·¹º§: {level} / {maxLevel}";
+        _itemLevelText.text = $"ë ˆë²¨: {level} / {maxLevel}";
     }
 }

@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public enum WeaponStatType
 {
-    DamageMagnification,        // µ¥¹ÌÁö ¹èÀ²
-    BulletSpeed,                // ÃÑ¾Ë ¼Óµµ
-    BulletCount,                // ÇÑ ¹ø ÄðÅ¸ÀÓ¿¡ ¹ß»çÇÏ´Â ÃÑ¾Ë °¹¼ö
-    Cooltime,                   // °ø°Ý ÄðÅ¸ÀÓ
-    FireDelay,                  // ÃÑ¾Ë ÇÑ¹ß »çÀÌÀÇ µô·¹ÀÌ
-    SpreadAngle,                // Åº ÆÛÁü ¹üÀ§
-    RotSpeed,                   // È¸Àü ¼Óµµ
+    DamageMagnification,        // ë°ë¯¸ì§€ ë°°ìœ¨
+    BulletSpeed,                // ì´ì•Œ ì†ë„
+    BulletCount,                // í•œ ë²ˆ ì¿¨íƒ€ìž„ì— ë°œì‚¬í•˜ëŠ” ì´ì•Œ ê°¯ìˆ˜
+    Cooltime,                   // ê³µê²© ì¿¨íƒ€ìž„
+    FireDelay,                  // ì´ì•Œ í•œë°œ ì‚¬ì´ì˜ ë”œë ˆì´
+    SpreadAngle,                // íƒ„ í¼ì§ ë²”ìœ„
+    RotSpeed,                   // íšŒì „ ì†ë„
 }
 
 [System.Serializable]
 public class WeaponStatData
 {
-    [SerializeField] private WeaponStatType _statType;          // ¾î¶² Á¾·ùÀÇ ½ºÅÝÀÎÁö
-    [SerializeField] private float[] _value;                    // ½ºÅÝÀÇ °ª
+    [SerializeField] private WeaponStatType _statType;          // ì–´ë–¤ ì¢…ë¥˜ì˜ ìŠ¤í…Ÿì¸ì§€
+    [SerializeField] private float[] _value;                    // ìŠ¤í…Ÿì˜ ê°’
 
     public int MaxLevel => _value.Length - 1;
 

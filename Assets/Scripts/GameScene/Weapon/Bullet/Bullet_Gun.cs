@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Bullet_Gun : PlayerBulletBase
 {
@@ -18,8 +18,8 @@ public class Bullet_Gun : PlayerBulletBase
     {
         transform.Translate(Vector2.up * _moveSpeed * Time.fixedDeltaTime);
 
-        //TODO °Å¸® ¸»°í ÁöÁ¤ÇÑ ½Ã°£ÀÌ Áö³¯ °æ¿ì ÃÑ¾Ë Á¦°Å
-        // °Å¸® ¸Ö¾îÁö¸é ÃÑ¾Ë Á¦°Å
+        //TODO ê±°ë¦¬ ë§ê³  ì§€ì •í•œ ì‹œê°„ì´ ì§€ë‚  ê²½ìš° ì´ì•Œ ì œê±°
+        // ê±°ë¦¬ ë©€ì–´ì§€ë©´ ì´ì•Œ ì œê±°
         if(Vector2.Distance(transform.position, _startPos) > 10)
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();

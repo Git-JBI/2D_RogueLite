@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class Pool
@@ -8,7 +8,7 @@ public class Pool
     private Transform _parent;
 
     /// <summary>
-    /// Pool »ı¼ºÀÚ
+    /// Pool ìƒì„±ì
     /// </summary>
     /// <param name="prefab"></param>
     /// <param name="parent"></param>
@@ -27,40 +27,40 @@ public class Pool
 
     private void CreateObject()
     {
-        // »õ °ÔÀÓ¿ÀºêÁ§Æ® »ı¼º
+        // ìƒˆ ê²Œì„ì˜¤ë¸Œì íŠ¸ ìƒì„±
         GameObject go = Object.Instantiate(_prefab);
 
-        // °ÔÀÓ¿ÀºêÁ§Æ®ÀÇ ºÎ¸ğ¸¦ Ç®·Î ¼³Á¤
+        // ê²Œì„ì˜¤ë¸Œì íŠ¸ì˜ ë¶€ëª¨ë¥¼ í’€ë¡œ ì„¤ì •
         go.transform.SetParent(_parent);
 
-        // ºñÈ°¼ºÈ­
+        // ë¹„í™œì„±í™”
         go.SetActive(false);
 
-        // °ÔÀÓ ¿ÀºêÁ§Æ®¿¡¼­ PoolingObject ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // ê²Œì„ ì˜¤ë¸Œì íŠ¸ì—ì„œ PoolingObject ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         PoolingObject poolObject = go.GetComponent<PoolingObject>();
 
-        // ¿ÀºêÁ§Æ®³»¿¡ PoolingObject¾øÀ» °æ¿ì
+        // ì˜¤ë¸Œì íŠ¸ë‚´ì— PoolingObjectì—†ì„ ê²½ìš°
         if(poolObject == null)
         {
-            // PoolingObject »ı¼º
+            // PoolingObject ìƒì„±
             poolObject = go.AddComponent<PoolingObject>();
         }
 
-        // PoolObjectÃÊ±âÈ­
+        // PoolObjectì´ˆê¸°í™”
         poolObject.Init(this);
 
-        // °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ½ºÅÃ¿¡ Ãß°¡
+        // ê²Œì„ ì˜¤ë¸Œì íŠ¸ë¥¼ ìŠ¤íƒì— ì¶”ê°€
         _pool.Push(go);
     }
     
     /// <summary>
-    /// Ç®¿¡¼­ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ ³»º¸³»´Â ÇÔ¼ö
+    /// í’€ì—ì„œ ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ ë‚´ë³´ë‚´ëŠ” í•¨ìˆ˜
     /// </summary>
     public GameObject Pop(Transform parent)
     {
-        // Ç®¿¡ ³²Àº °ÔÀÓ¿ÀºêÁ§Æ®°¡ ¾ø´Â °æ¿ì
+        // í’€ì— ë‚¨ì€ ê²Œì„ì˜¤ë¸Œì íŠ¸ê°€ ì—†ëŠ” ê²½ìš°
         if (_pool.Count == 0)
-            CreateObject();             // »õ °ÔÀÓ¿ÀºêÁ§Æ® »ı¼º
+            CreateObject();             // ìƒˆ ê²Œì„ì˜¤ë¸Œì íŠ¸ ìƒì„±
 
         GameObject go = _pool.Pop();
         go.SetActive(true);
@@ -69,7 +69,7 @@ public class Pool
     }
 
     /// <summary>
-    /// °ÔÀÓ¿ÀºêÁ§Æ®¸¦ Ç®·Î µÇµ¹¸®´Â ÇÔ¼ö
+    /// ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ í’€ë¡œ ë˜ëŒë¦¬ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="go"></param>
     public void Push(GameObject go)

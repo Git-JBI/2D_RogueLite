@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
@@ -74,16 +74,16 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâÀ» ±¸ÇÏ´ÂÇÔ¼ö
+    /// í”Œë ˆì´ì–´ì˜ ë°©í–¥ì„ êµ¬í•˜ëŠ”í•¨ìˆ˜
     /// </summary>
-    /// <returns>ÇÃ·¹ÀÌ¾î ¹æÇâ vector2</returns>
+    /// <returns>í”Œë ˆì´ì–´ ë°©í–¥ vector2</returns>
     public Vector2 DirToTarget()
     {
         return (_heroTransform.position - transform.position).normalized;
     }
 
     /// <summary>
-    /// ¸®Áöµå¹Ùµğ »óÅÂ ¼³Á¤ ÇÔ¼ö
+    /// ë¦¬ì§€ë“œë°”ë”” ìƒíƒœ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="value"></param>
     public void SetRigidbodyActive(bool value)
@@ -92,7 +92,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// Äİ¶óÀÌ´õ »óÅÂ ¼³Á¤ ÇÔ¼ö
+    /// ì½œë¼ì´ë” ìƒíƒœ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     /// <param name="x"></param>
     public void SetColliderActive(bool x)
@@ -111,24 +111,24 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
     public void Dead()
     {
-        // Á×À½ ÀÌº¥Æ® ½ÇÇà
+        // ì£½ìŒ ì´ë²¤íŠ¸ ì‹¤í–‰
         OnDead?.Invoke(this);
 
-        // ÇöÀç »óÅÂ ºñ¿ì±â
+        // í˜„ì¬ ìƒíƒœ ë¹„ìš°ê¸°
         _curState = null;
 
-        // ÀÌº¥Æ® ºñ¿ì±â
+        // ì´ë²¤íŠ¸ ë¹„ìš°ê¸°
         OnDead = null;
 
-        // ¾ÆÀÌÅÛ ½ºÆù
+        // ì•„ì´í…œ ìŠ¤í°
         SpawnExpItem();
 
-        //TODO ÃßÈÄ Util»ç¿ëÇØ¼­ ´õ È®ÀåÇÊ¿ä
+        //TODO ì¶”í›„ Utilì‚¬ìš©í•´ì„œ ë” í™•ì¥í•„ìš”
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
     }
 
-    //TODO ÃßÈÄ expitemÀÇ Á¾·ù ´Ù¾ç
+    //TODO ì¶”í›„ expitemì˜ ì¢…ë¥˜ ë‹¤ì–‘
     private void SpawnExpItem()
     {
         GameObject expItem;
@@ -140,7 +140,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         item.Init(transform.position);
     }
 
-    //TODO °è¼Ó ÇÃ·¹ÀÌ¾î¿Í ¸Â´ê¾Æ ÀÖ´Â °æ¿ì µ¥¹ÌÁö
+    //TODO ê³„ì† í”Œë ˆì´ì–´ì™€ ë§ë‹¿ì•„ ìˆëŠ” ê²½ìš° ë°ë¯¸ì§€
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

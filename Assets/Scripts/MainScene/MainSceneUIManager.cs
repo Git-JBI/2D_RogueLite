@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MainSceneUIManager : MonoBehaviour
 {
     /// <summary>
-    /// »ó´Ü °ñµå ÅØ½ºÆ®
+    /// ìƒë‹¨ ê³¨ë“œ í…ìŠ¤íŠ¸
     /// </summary>
     [SerializeField] private UI_Text_Gold _goldText;
 

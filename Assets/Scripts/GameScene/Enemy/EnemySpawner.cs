@@ -1,17 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// ÀûÀ» ½ºÆù
+/// ì ì„ ìŠ¤í°
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     private List<EnemyController> _enemyPrefabs;
     private Transform _playerTransform;
     [SerializeField]
-    private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData¿¡¼­ ¹Ş¾Æ¿À±â
+    private TeleportEnemyController _boss;  //TODO GameSceneManager _stageDataì—ì„œ ë°›ì•„ì˜¤ê¸°
 
     private List<EnemyController> _normalEnemies = new();
 
@@ -39,16 +39,16 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnBoss()
     {
-        // ÀÏ¹İ Àû ÄÚ·çÆ¾ Á¤Áö
+        // ì¼ë°˜ ì  ì½”ë£¨í‹´ ì •ì§€
         StopCoroutine(_spawnRoutine);
 
-        // º¸½º ¼ÒÈ¯
+        // ë³´ìŠ¤ ì†Œí™˜
         TeleportEnemyController boss = Instantiate(_boss);
 
-        // º¸½º ÃÊ±âÈ­
+        // ë³´ìŠ¤ ì´ˆê¸°í™”
         boss.Init(_playerTransform);
 
-        // º¸½º »ç¸Á ½Ã ÀÌº¥Æ® Ã³¸®ÇØ¾ßÇÒ ÇÔ¼ö Ãß°¡
+        // ë³´ìŠ¤ ì‚¬ë§ ì‹œ ì´ë²¤íŠ¸ ì²˜ë¦¬í•´ì•¼í•  í•¨ìˆ˜ ì¶”ê°€
         boss.OnDead += BossDead;
     }
 
@@ -58,13 +58,13 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
 
-            //TODO Àû »ı¼º½Ã°£ ÃßÈÄ ¼öÁ¤(½ºÅ×ÀÌÁö¸¶´Ù ´Ù¸¦Áö °íÁ¤À¸·Î ÇÒÁö »ı°¢)
+            //TODO ì  ìƒì„±ì‹œê°„ ì¶”í›„ ìˆ˜ì •(ìŠ¤í…Œì´ì§€ë§ˆë‹¤ ë‹¤ë¥¼ì§€ ê³ ì •ìœ¼ë¡œ í• ì§€ ìƒê°)
             yield return new WaitForSeconds(0.5f);
         }
     }
 
     /// <summary>
-    /// ÀûÀ» »ı¼ºÇÏ´Â ÇÔ¼ö
+    /// ì ì„ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private void SpawnEnemy()
     {
@@ -81,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼ø°£ÀûÀ¸·Î ÀûÀ» ´ë·® »ı¼ºÇÏ´Â ÇÔ¼ö
+    /// ìˆœê°„ì ìœ¼ë¡œ ì ì„ ëŒ€ëŸ‰ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="count"></param>
     /// <param name="enemyCount"></param>
@@ -101,19 +101,19 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Àû »ç¸Á ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// ì  ì‚¬ë§ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void EnemyDead(EnemyController enemyController)
     {
-        // ½ºÆùµÈ Àû ¸®½ºÆ®¿¡¼­ Á¦°Å
+        // ìŠ¤í°ëœ ì  ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
         _normalEnemies.Remove(enemyController);
 
-        // Àû Á×À» ½Ã ÀÌº¥Æ® ¹ßÇà
+        // ì  ì£½ì„ ì‹œ ì´ë²¤íŠ¸ ë°œí–‰
         OnEnemyDead?.Invoke();
     }
 
     /// <summary>
-    /// º¸½º »ç¸Á ½Ã È£ÃâÇÒ ÇÔ¼ö
+    /// ë³´ìŠ¤ ì‚¬ë§ ì‹œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     private void BossDead()
     {
@@ -121,7 +121,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î À§Ä¡ ±âÁØÀ¸·Î ·£´ıÇÑ À§Ä¡¸¦ ¹İÈ¯ÇÏ´Â ÇÔ¼ö
+    /// í”Œë ˆì´ì–´ ìœ„ì¹˜ ê¸°ì¤€ìœ¼ë¡œ ëœë¤í•œ ìœ„ì¹˜ë¥¼ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     private Vector2 RandomSpawnPosition()

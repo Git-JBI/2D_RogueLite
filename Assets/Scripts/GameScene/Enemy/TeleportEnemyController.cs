@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,7 +39,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         _teleportState = new TeleportEnemyTeleportState(this);
         _deadState = new TeleportEnemyDeadState(this);
 
-        //TODO ÃßÈÄ spawner¿¡¼­
+        //TODO ì¶”í›„ spawnerì—ì„œ
         _model.Init();
 
         ChangeState(_idleState);
@@ -56,9 +56,9 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// »óÅÂº¯È­ ÇÔ¼ö
+    /// ìƒíƒœë³€í™” í•¨ìˆ˜
     /// </summary>
-    /// <param name="state">¼³Á¤ÇÒ »óÅÂ</param>
+    /// <param name="state">ì„¤ì •í•  ìƒíƒœ</param>
     public void ChangeState(IState state)
     {
         if (_curState == _deadState)
@@ -73,7 +73,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ¸®Áöµå¹Ùµğ È°¼ºÈ­ ¼³Á¤
+    /// ë¦¬ì§€ë“œë°”ë”” í™œì„±í™” ì„¤ì •
     /// </summary>
     /// <param name="x"></param>
     public void SetRigidbodyActive(bool x)
@@ -82,7 +82,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// Äİ¶óÀÌ´õ È°¼ºÈ­ ¼³Á¤
+    /// ì½œë¼ì´ë” í™œì„±í™” ì„¤ì •
     /// </summary>
     /// <param name="x"></param>
     public void SetColliderActive(bool x)
@@ -91,7 +91,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ÅÚ·¹Æ÷Æ® ½ÃÀÛ
+    /// í…”ë ˆí¬íŠ¸ ì‹œì‘
     /// </summary>
     public void StartTeleport()
     {
@@ -99,32 +99,32 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ÅÚ·¹Æ÷Æ® ³¡
+    /// í…”ë ˆí¬íŠ¸ ë
     /// </summary>
     public void EndTeleport()
     {
-        // ÅÚ·¹Æ÷Æ® ÄÚ·çÆ¾ ³¡³»±â
+        // í…”ë ˆí¬íŠ¸ ì½”ë£¨í‹´ ëë‚´ê¸°
         StopCoroutine(_teleportCoroutine);
 
-        // ¸®Áöµå¹Ùµğ ÄÑ±â
+        // ë¦¬ì§€ë“œë°”ë”” ì¼œê¸°
         SetRigidbodyActive(true);
 
-        // Äİ¶óÀÌ´õ ÄÑ±â
+        // ì½œë¼ì´ë” ì¼œê¸°
         SetColliderActive(true);
     }
 
     public void Dead()
     {
-        // Á×À½ ÀÌº¥Æ® ½ÇÇà
+        // ì£½ìŒ ì´ë²¤íŠ¸ ì‹¤í–‰
         OnDead?.Invoke();
 
-        // ÇöÀç »óÅÂ ºñ¿ì±â
+        // í˜„ì¬ ìƒíƒœ ë¹„ìš°ê¸°
         _curState = null;
 
-        // ÀÌº¥Æ® ºñ¿ì±â
+        // ì´ë²¤íŠ¸ ë¹„ìš°ê¸°
         OnDead = null;
 
-        // Á¦°Å
+        // ì œê±°
         PoolingObject poolOb = GetComponent<PoolingObject>();
 
         if (poolOb)
@@ -134,7 +134,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// 8¹æÇâ ÃÑ½î±â
+    /// 8ë°©í–¥ ì´ì˜ê¸°
     /// </summary>
     public void Shoot8Directions()
     {
@@ -159,7 +159,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// 8¹æÇâ È¸ÀüÇÏ´Â ÃÑ½î±â
+    /// 8ë°©í–¥ íšŒì „í•˜ëŠ” ì´ì˜ê¸°
     /// </summary>
     public void ShootSpiral8Directions()
     {
@@ -173,25 +173,25 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ÅÚ·¹Æ÷Æ® ÄÚ·çÆ¾
+    /// í…”ë ˆí¬íŠ¸ ì½”ë£¨í‹´
     /// </summary>
     /// <returns></returns>
     private IEnumerator TeleportRoutine()
     {
         float downSpeed = 1;
         float timer = 0;
-        // ÅÚ·¹Æ÷Æ®ÇÒ ·£´ıÇÑ À§Ä¡(ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ ±âÁØ)
+        // í…”ë ˆí¬íŠ¸í•  ëœë¤í•œ ìœ„ì¹˜(í”Œë ˆì´ì–´ ìºë¦­í„° ê¸°ì¤€)
         Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_target.transform.position;
-        // ¸®Áöµå¹Ùµğ ²ô±â
+        // ë¦¬ì§€ë“œë°”ë”” ë„ê¸°
         SetRigidbodyActive(false);
-        // Äİ¶óÀÌ´õ ²ô±â
+        // ì½œë¼ì´ë” ë„ê¸°
         SetColliderActive(false);
-        // º»Ã¼ À§Ä¡ »ó½Â
+        // ë³¸ì²´ ìœ„ì¹˜ ìƒìŠ¹
         _enemyBody.transform.localPosition = Vector3.up * 3;
-        // Àû À§Ä¡ º¯°æ
+        // ì  ìœ„ì¹˜ ë³€ê²½
         transform.position = teleportPos;
 
-        // ÀÏÁ¤ ½Ã°£µ¿¾È º»Ã¼ ÇÏ°­
+        // ì¼ì • ì‹œê°„ë™ì•ˆ ë³¸ì²´ í•˜ê°•
         while(timer < 1)
         {
             timer += Time.deltaTime;
@@ -200,10 +200,10 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
             yield return null;
         }
         
-        // º»Ã¼ÀÇ À§Ä¡ 0,0,0À¸·Î Á¶Á¤
+        // ë³¸ì²´ì˜ ìœ„ì¹˜ 0,0,0ìœ¼ë¡œ ì¡°ì •
         _enemyBody.transform.localPosition = Vector3.zero;
 
-        // Idle»óÅÂ ÁøÀÔ
+        // Idleìƒíƒœ ì§„ì…
         ChangeState(_idleState);
     }
 

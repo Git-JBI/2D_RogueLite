@@ -1,20 +1,20 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EquipmentInventoryManager : MonoBehaviour
 {
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ½½·Ô ÇÁ¸®Æé
+    /// ì¥ë¹„ ì•„ì´í…œ ìŠ¬ë¡¯ í”„ë¦¬í©
     /// </summary>
     [SerializeField] private EquipmentItemSlot _equipmentSlot;
 
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ¼¼ºÎ³»¿ëÀ» º¸¿©ÁÙ ÆË¾÷
+    /// ì¥ë¹„ ì•„ì´í…œ ì„¸ë¶€ë‚´ìš©ì„ ë³´ì—¬ì¤„ íŒì—…
     /// </summary>
     [SerializeField] private EquipmentItemDetailPopup _popup;
     /// <summary>
-    /// Àåºñ ¾ÆÀÌÅÛ ½½·Ô ¸®½ºÆ®
+    /// ì¥ë¹„ ì•„ì´í…œ ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸
     /// </summary>
     private List<EquipmentItemSlot> _slots = new();
 
@@ -24,52 +24,52 @@ public class EquipmentInventoryManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÃÊ±âÈ­ ÇÔ¼ö
+    /// ì´ˆê¸°í™” í•¨ìˆ˜
     /// </summary>
     public void Init()
     {
-        Debug.Log("Àåºñ ÀÎº¥Åä¸® ÃÊ±âÈ­");
-        // ½½·Ô ¸®½ºÆ® ³»¿¡ ³²¾ÆÀÖÀ» °æ¿ì
+        Debug.Log("ì¥ë¹„ ì¸ë²¤í† ë¦¬ ì´ˆê¸°í™”");
+        // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë‚´ì— ë‚¨ì•„ìˆì„ ê²½ìš°
         if (_slots.Count != 0)
             DestroySlots();
 
-        // ½½·Ô ¸®½ºÆ® ÃÊ±âÈ­
+        // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
         InitSlots();
     }
 
     /// <summary>
-    /// ½½·Ô ¸®½ºÆ® ÃÊ±âÈ­ ÇÔ¼ö
+    /// ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™” í•¨ìˆ˜
     /// </summary>
     private void InitSlots()
     {
-        // ¸®½ºÆ® º¹Á¦º»À» »ı¼º ÈÄ 1. Àåºñ ¾ÆÀÌÅÛ Å¸ÀÔ¿¡ µû¶ó Á¤·Ä 2. Å¸ÀÔ¿¡ µû¸¥ Á¾·ù¿¡ µû¶ó Á¤·Ä 3. ·¹¾î¸®Æ¼¿¡ µû¶ó Á¤·Ä
+        // ë¦¬ìŠ¤íŠ¸ ë³µì œë³¸ì„ ìƒì„± í›„ 1. ì¥ë¹„ ì•„ì´í…œ íƒ€ì…ì— ë”°ë¼ ì •ë ¬ 2. íƒ€ì…ì— ë”°ë¥¸ ì¢…ë¥˜ì— ë”°ë¼ ì •ë ¬ 3. ë ˆì–´ë¦¬í‹°ì— ë”°ë¼ ì •ë ¬
         var items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
 
         foreach (EquipmentItemData x in items)
         {
-            // Àåºñ ¾ÆÀÌÅÛ ½½·Ô »ı¼º(ÀÌ°÷À¸·Î ºÎ¸ğ ¼³Á¤)
+            // ì¥ë¹„ ì•„ì´í…œ ìŠ¬ë¡¯ ìƒì„±(ì´ê³³ìœ¼ë¡œ ë¶€ëª¨ ì„¤ì •)
             EquipmentItemSlot slot = Instantiate(_equipmentSlot, transform);
-            // Àåºñ ¾ÆÀÌÅÛ ½½·Ô ÃÊ±âÈ­
+            // ì¥ë¹„ ì•„ì´í…œ ìŠ¬ë¡¯ ì´ˆê¸°í™”
             slot.Init(x);
-            // ½½·Ô ÀÌº¥Æ® Ãß°¡
+            // ìŠ¬ë¡¯ ì´ë²¤íŠ¸ ì¶”ê°€
             slot.OnItemSlotClicked += OpenPopup;
-            // ½½·Ô ¸®½ºÆ®¿¡ ½½·Ô Ãß°¡
+            // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ì— ìŠ¬ë¡¯ ì¶”ê°€
             _slots.Add(slot);
         }
     }
 
     /// <summary>
-    /// ½½·Ô ¸®½ºÆ® ºñ¿ì´Â ÇÔ¼ö
+    /// ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë¹„ìš°ëŠ” í•¨ìˆ˜
     /// </summary>
     private void DestroySlots()
     {
         foreach(EquipmentItemSlot slot in _slots)
         {
-            // ½½·Ô ¸®½ºÆ® ³»¿¡ ÀÖ´Â ½½·Ô ÆÄ±«
+            // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë‚´ì— ìˆëŠ” ìŠ¬ë¡¯ íŒŒê´´
             Destroy(slot.gameObject);
         }
 
-        // ½½·Ô ¸®½ºÆ® ºñ¿ì±â
+        // ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸ ë¹„ìš°ê¸°
         _slots.Clear();
     }
 
