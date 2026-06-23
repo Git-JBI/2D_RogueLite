@@ -1,7 +1,7 @@
 {
     "HeroDataName": "00",
-    "Gold": 8358000,
-    "Emerald": 50,
+    "Gold": 8178000,
+    "Emerald": 100,
     "UpgradeLevel": [
         10,
         10,
@@ -11,15 +11,15 @@
     "SelectStage": 1,
     "UpgradeScroll": [
         764,
-        939,
-        965,
-        5,
-        23,
-        842
+        941,
+        966,
+        1,
+        24,
+        784
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-06-22",
+    "LastDailyResetDate": "2026-06-23",
     "LastWeeklyResetDate": "2026-06-22",
     "Achievements": [
         {
@@ -32,7 +32,7 @@
             "AchievementId": "Daily_EquipmentLevelUp",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": false
+            "IsRewardClaimed": true
         },
         {
             "AchievementId": "Daily_KillCount",
@@ -44,11 +44,11 @@
             "AchievementId": "Daily_LogIn",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": false
+            "IsRewardClaimed": true
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 1,
+            "Progress": 2,
             "IsCompleted": false,
             "IsRewardClaimed": false
         }
@@ -143,14 +143,6 @@
             "ItemLevel": 1
         },
         {
-            "InstanceID": "be28f229-b935-478e-ad20-a70c6cf20c74",
-            "ItemID": "eq_Boots_03",
-            "EquipmentType": 5,
-            "Rarity": 1,
-            "RarityLevel": 0,
-            "ItemLevel": 1
-        },
-        {
             "InstanceID": "438e54b7-a272-4a2a-ac43-e85f9744a30f",
             "ItemID": "eq_Gloves_03",
             "EquipmentType": 2,
@@ -212,7 +204,7 @@
             "EquipmentType": 3,
             "Rarity": 1,
             "RarityLevel": 0,
-            "ItemLevel": 1
+            "ItemLevel": 5
         },
         {
             "InstanceID": "f71291c7-25ec-4d33-9349-911368f106a5",
@@ -533,17 +525,17 @@
             "Rarity": 0,
             "RarityLevel": 0,
             "ItemLevel": 1
+        },
+        {
+            "InstanceID": "be28f229-b935-478e-ad20-a70c6cf20c74",
+            "ItemID": "eq_Boots_03",
+            "EquipmentType": 5,
+            "Rarity": 1,
+            "RarityLevel": 0,
+            "ItemLevel": 20
         }
     ],
     "EquippedItems": [
-        {
-            "InstanceID": "a2a5962c-82e3-4582-9a16-614bfeb361ae",
-            "ItemID": "eq_Boots_03",
-            "EquipmentType": 5,
-            "Rarity": 3,
-            "RarityLevel": 0,
-            "ItemLevel": 11
-        },
         {
             "InstanceID": "e5d4c30f-98a2-46c3-a54b-2b267d36be00",
             "ItemID": "eq_Belt_02",
@@ -583,6 +575,14 @@
             "Rarity": 2,
             "RarityLevel": 0,
             "ItemLevel": 1
+        },
+        {
+            "InstanceID": "a2a5962c-82e3-4582-9a16-614bfeb361ae",
+            "ItemID": "eq_Boots_03",
+            "EquipmentType": 5,
+            "Rarity": 3,
+            "RarityLevel": 0,
+            "ItemLevel": 11
         }
     ]
 }
