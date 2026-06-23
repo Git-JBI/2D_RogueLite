@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -40,10 +39,13 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
         // 팝업 외부 터치 시 팝업을 닫는 버튼 설정
         _outside.onClick.AddListener(PopupClosed);
+
         // 터치 시 팝업을 닫는 버튼 설정
         _closeButton.onClick.AddListener(PopupClosed);
+
         // 레벨 업 버튼 설정
         _levelUpButton.onClick.AddListener(ItemLevelUp);
+
         // 가능한 재화를 모두 사용한 레벨 업 버튼 설정
         _levelUpAllButton.onClick.AddListener(ItemLevelUpAll);
     }

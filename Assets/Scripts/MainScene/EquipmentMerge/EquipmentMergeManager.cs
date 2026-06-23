@@ -20,9 +20,12 @@ public class EquipmentMergeManager : MonoBehaviour
     // Legendary+3 + Legendary = Legendary+4 (동일 아이템 타입)*/
     [Header("# 선택된 아이템 슬롯")]
     [SerializeField] private EquipmentItemSlot _selectedSlot;
-    [Header("# 업그레이드 될 시 아이템 슬롯")]
+
+    [Header("# 업그레이드 결과 아이템 슬롯")]
     private EquipmentItemSlot _mergeSlotPrefab;
     private EquipmentModel _equipmentModel;
+
+    private List<EquipmentItemData> _items;
 
     private List<EquipmentItemSlot> _slots = new();
 
@@ -48,23 +51,44 @@ public class EquipmentMergeManager : MonoBehaviour
     /// </summary>
     private void InitSlots()
     {
-        IReadOnlyList<EquipmentItemData> items = _equipmentModel.EquipmentItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
+        _items = _equipmentModel.EquipmentItems.
+            Where(i => !(i.Rarity == ItemRarity.Legendary && i.RarityLevel == 4)).OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
 
-        foreach(EquipmentItemData item in items)
+        CreateBaseSlots(_items);
+    }
+
+    private void CreateBaseSlots(IReadOnlyList<EquipmentItemData> items)
+    {
+        DestroySlots();
+        foreach (EquipmentItemData item in items)
         {
-            // 레전더리 +4일 경우 리턴
-            if (item.Rarity == ItemRarity.Legendary && item.RarityLevel == 4)
-                continue;
-
             // 머지 아이템 슬롯 생성
             EquipmentItemSlot slot = Instantiate(_mergeSlotPrefab, transform);
 
             // 초기화
             slot.Init(item);
 
+            // 슬롯 클릭 시 이벤트 추가
+            slot.OnItemSlotClicked += SetBaseItem;
+
             // 리스트에 추가
             _slots.Add(slot);
         }
+    }
+
+    public void FilterSlots(EquipmentType equipmentType, ItemRarity itemRarity)
+    {
+        List<EquipmentItemData> items = _items.Where(i => i.Rarity == itemRarity && i.EquipmentType == equipmentType).ToList();
+        CreateBaseSlots(items);
+    }
+    public void FilterSlots(EquipmentType equipmentType, ItemRarity itemRarity, string itemId)
+    {
+        List<EquipmentItemData> items = _items.Where(i => i.EquipmentType == equipmentType && i.Rarity == itemRarity && i.ItemID == itemId).ToList();
+    }
+
+    private void SetBaseItem(EquipmentItemData data)
+    {
+        FilterSlots(data.EquipmentType, data.Rarity);
     }
 
     private void DestroySlots()
