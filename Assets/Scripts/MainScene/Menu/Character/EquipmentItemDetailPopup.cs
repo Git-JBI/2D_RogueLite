@@ -123,7 +123,7 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             return;
 
         // 총 레벨업
-        int countLevelUp = _equipmentManager.ItemLevelUpAll(_equipmentItemData);
+        int countLevelUp = _equipmentManager.ItemLevelUpPossible(_equipmentItemData);
 
         // 총 레벨업이 0일시
         if (countLevelUp == 0)

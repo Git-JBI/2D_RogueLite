@@ -4,7 +4,17 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class SO_MergeRuleData : ScriptableObject
 {
-    public List<MergeRule> mergeRules;
+    [SerializeField] private List<MergeRule> _mergeRules;
+
+    public MergeRule GetMergeRule(ItemRarity rarity, int rarityLevel)
+    {
+        foreach(MergeRule x in _mergeRules)
+        {
+            if (x.BaseitemRarity == rarity && x.BaseitemRarityLevel == rarityLevel)
+                return x;
+        }
+        return null;
+    }
 }
 
 [System.Serializable]

@@ -212,7 +212,12 @@ public class EquipmentManager : MonoBehaviour
 
         return true;
     }
-    public int ItemLevelUpAll(EquipmentItemData data)
+    /// <summary>
+    /// 아이템 최대 레벨업 함수
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
+    public int ItemLevelUpPossible(EquipmentItemData data)
     {
         // 보유한 골드
         int gold = _gameModel.Gold;
@@ -262,5 +267,4 @@ public class EquipmentManager : MonoBehaviour
         // 총 상승 레벨 리턴
         return totalLevelUp;
     }
-
 }

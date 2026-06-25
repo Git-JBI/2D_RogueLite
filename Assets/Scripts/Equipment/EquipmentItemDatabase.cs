@@ -47,6 +47,9 @@ public class EquipmentItemDatabase : MonoBehaviour
 
     public string GetEquipmentItemDesc(string itemId)
     {
+        if (itemId == "")
+            return "";
+
         SO_EquipmentItemData itemData = GetEquipmentItemData(itemId);
 
         if (itemData == null)

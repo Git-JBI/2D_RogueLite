@@ -19,7 +19,7 @@
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-06-23",
+    "LastDailyResetDate": "2026-06-25",
     "LastWeeklyResetDate": "2026-06-22",
     "Achievements": [
         {
@@ -30,9 +30,9 @@
         },
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 1,
-            "IsCompleted": true,
-            "IsRewardClaimed": true
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Daily_KillCount",
@@ -44,11 +44,11 @@
             "AchievementId": "Daily_LogIn",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": true
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 2,
+            "Progress": 4,
             "IsCompleted": false,
             "IsRewardClaimed": false
         }
