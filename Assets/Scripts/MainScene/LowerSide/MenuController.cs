@@ -1,14 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum MenuNumber
-{
-    Shop,
-    Character,
-    Stage,
-    Upgrade,
-}
-
 public class MenuController : MonoBehaviour
 {
     //TODO 추후 개선 필요

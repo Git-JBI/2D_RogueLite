@@ -63,14 +63,14 @@ public class GachaManager : MonoBehaviour
 
         // 저장할 데이터 생성
         EquipmentItemData saveEquipItem = new EquipmentItemData
-        {
-            InstanceID = System.Guid.NewGuid().ToString(),
-            ItemID = pickedItem.Id,
-            EquipmentType = pickedItem.EquipmentType,
-            Rarity = itemRarity,
-            RarityLevel = 0,
-            ItemLevel = 1,
-        };
+        (
+            System.Guid.NewGuid().ToString(),
+            pickedItem.Id,
+            pickedItem.EquipmentType,
+            itemRarity,
+            0,
+            1
+        );
 
         return saveEquipItem;
     }

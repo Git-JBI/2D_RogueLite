@@ -100,8 +100,13 @@ public class EquipmentManager : MonoBehaviour
         // 장착 중인 아이템
         EquipmentItemData equippedItem = _equipmentModel.GetEquippedItem(type);
 
+        // 장착 중인 아이템이 없을 시
+        if(equippedItem == null)
+        {
+            _equipmentModel.AddEquippedItemList(item);
+        }
         // 장착 중인 아이템이 있을 시
-        if(equippedItem != null)
+        else
         {
             // 장착중인 장비 리스트에서 장착중인 장비 제거
             _equipmentModel.RemoveEquippedItemList(equippedItem);

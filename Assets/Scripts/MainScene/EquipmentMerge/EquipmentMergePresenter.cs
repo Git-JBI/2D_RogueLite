@@ -40,6 +40,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     [Header("# 재료가 두 개 필요할 시 쓰는 GameObject")]
     [SerializeField] private GameObject _requireTwo;
 
+    private int _requireCount;
+    private List<EquipmentItemSlot> _requireItems = new();
+
     /// <summary>
     /// 생성해 줄 아이템 슬롯
     /// </summary>
@@ -59,17 +62,21 @@ public class EquipmentMergePresenter : MonoBehaviour
 
     private void Awake()
     {
+        _requireCount = 0;
+
         _mergeSlotPrefab = Resources.Load<EquipmentItemSlot>("Prefabs/Slots/ItemSlot");
         _mergeRule = Resources.Load<SO_MergeRuleData>("GameDatas/MergeRuleData/MergeRuleData");
-        _items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems;
 
         _mergeState = MergeState.None;
     }
 
     // 합성 창 입장 시 장비아이템 리스트 표시(아이템을 누르면 "_selectedSlot"의 활성화와 그 아이템이 띄워지도록, 아이템 슬롯 리스트 필터 정렬)
-    // 
+    
     private void OnEnable()
     {
+        // 장비 리스트 설정
+        _items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems;
+
         // 장비 리스트 기본 정렬
         InitSlots();
 
@@ -77,6 +84,19 @@ public class EquipmentMergePresenter : MonoBehaviour
         CreateSlots(_items);
     }
 
+    private void OnDisable()
+    {
+        if(_selectedSlot.gameObject.activeSelf)
+            _selectedSlot.gameObject.SetActive(false);
+        if(_upgradedSlot.gameObject.activeSelf)
+            _upgradedSlot.gameObject.SetActive(false);
+        if(_requireOne.activeSelf)
+            _requireOne.gameObject.SetActive(false);
+        if(_requireTwo.activeSelf)
+            _requireTwo.gameObject.SetActive(false);
+    }
+
+    // 뒤로 가기를 눌렀을 때 모든 설정된것들 비활성화
     /// <summary>
     /// 장비 아이템 기본 정렬 함수
     /// </summary>
@@ -111,14 +131,23 @@ public class EquipmentMergePresenter : MonoBehaviour
         }
     }
 
-    public void CreateFilterSlots(EquipmentType equipmentType, ItemRarity itemRarity)
+    public void CreateFilterSlots(EquipmentItemData data)
     {
-        List<EquipmentItemData> items = _items.Where(i => i.Rarity == itemRarity && i.EquipmentType == equipmentType).ToList();
+        List<EquipmentItemData> items = new();
+        MergeRule rule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
+
+        // 업그레이드 후 레어리티가 같을 경우 재료는 동일 레어리티 & 동일 아이템 타입
+        if(data.Rarity == rule.UpgradedRarity)
+            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType).ToList();
+        // 업그레이드 후 레어리티가 다를 경우 재료는 동일 레어리티 & 동일 아이템 타입 & 동일 아이템 ID
+        else
+            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.ItemID == data.ItemID).ToList();
+
+        // 선택한 아이템은 목록에서 제거
+        items.Remove(data);
+
+        // 슬롯 생성
         CreateSlots(items);
-    }
-    public void CreateFilterSlots(EquipmentType equipmentType, ItemRarity itemRarity, string itemId)
-    {
-        List<EquipmentItemData> items = _items.Where(i => i.EquipmentType == equipmentType && i.Rarity == itemRarity && i.ItemID == itemId).ToList();
     }
 
     private void SetItemSlot(EquipmentItemData data)
@@ -127,40 +156,95 @@ public class EquipmentMergePresenter : MonoBehaviour
         {
             case MergeState.None:
                 SelectBaseItem(data);
-                CreateFilterSlots(data.EquipmentType, data.Rarity);
+                CreateFilterSlots(data);
                 break;
             case MergeState.BaseSelected:
-                break;
-            case MergeState.RequireSelected:
+                Debug.Log("재료 아이템 선택");
                 break;
         }
-
-        
     }
 
     private void SelectBaseItem(EquipmentItemData data)
     {
+        // 베이스 아이템 설정 상태
+        _mergeState = MergeState.BaseSelected;
         // 선택된 슬롯 활성화
         _selectedSlot.gameObject.SetActive(true);
         // 선택된 슬롯 초기화
         _selectedSlot.Init(data);
         // 선택된 슬롯 이벤트 추가
         _selectedSlot.OnItemSlotClicked += EmptySelectedSlot;
+
+        // 업그레이드 예시 슬롯 활성화
+        _upgradedSlot.gameObject.SetActive(true);
+        // 업그레이드 예시 슬롯 초기화
+        _upgradedSlot.Init(GetUpgradedEquipmentData(data));
+        
+        // 필요한 재료의 갯수 나타냄
+        switch(GetRequireCount(data))
+        {
+            case 1:
+                _requireOne.gameObject.SetActive(true);
+                _requireCount = GetRequireCount(data);
+                _requireItems = _requireOne.gameObject.GetComponentsInChildren<EquipmentItemSlot>().ToList();
+                break;
+            case 2:
+                _requireTwo.gameObject.SetActive(true);
+                _requireCount = GetRequireCount(data);
+                _requireItems = _requireTwo.gameObject.GetComponentsInChildren<EquipmentItemSlot>().ToList();
+                break;
+        }
     }
+
     private void SelectRequireItem(EquipmentItemData data)
     {
-
+        if (_requireCount == GetRequireCount(_selectedSlot.ItemData))
+            return;
     }
 
     private void EmptySelectedSlot(EquipmentItemData data)
     {
+        // 상태 없음 설정
+        _mergeState = MergeState.None;
+
+        // 합성 아이템 목록 갱신
         Refresh();
+
+        // 선택된 아이템 슬롯 비활성화
         _selectedSlot.gameObject.SetActive(false);
+
+        // 업그레이드 예시 아이템 슬롯 비활성화
+        _upgradedSlot.gameObject.SetActive(false);
+
+        // 업그레이드 재료 슬롯 비활성화
+        if(_requireOne.activeSelf)
+            _requireOne.SetActive(false);
+        if(_requireTwo.activeSelf)
+            _requireTwo.SetActive(false);
+
+        // 업그레이드에 필요 재료 수 초기화
+        _requireCount = 0;
+
+        // 업그레이드에 필요 재료 리스트 초기화
+        _requireItems.Clear();
     }
 
     private void Refresh()
     {
         CreateSlots(_items);
+    }
+
+    private EquipmentItemData GetUpgradedEquipmentData(EquipmentItemData data)
+    {
+        MergeRule mergeRule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
+        EquipmentItemData returnData = new("", data.ItemID, data.EquipmentType, mergeRule.UpgradedRarity, mergeRule.UpgradedRarityLevel, data.ItemLevel);
+
+        return returnData;
+    }
+
+    private int GetRequireCount(EquipmentItemData data)
+    {
+        return _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel).RequireCount;
     }
 
     private void DestroySlots()

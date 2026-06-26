@@ -13,6 +13,7 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
     /// </summary>
     private EquipmentItemData _itemData;
 
+    public EquipmentItemData ItemData => _itemData;
     /// <summary>
     /// 슬롯이 클릭될 시 실행될 이벤트
     /// </summary>

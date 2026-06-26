@@ -12,39 +12,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8a8ac49b3da754cb9f76a6e85ad145, type: 3}
   m_Name: MergeRuleData
   m_EditorClassIdentifier: 
-  mergeRules:
+  _mergeRules:
+  - _baseitemRarity: 0
+    _baseitemRarityLevel: 0
+    _requireitemRarity: 0
+    _requireRarityLevel: 0
+    _requireCount: 2
+    _upgradedRarity: 1
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 1
+    _baseitemRarityLevel: 0
+    _requireitemRarity: 1
+    _requireRarityLevel: 0
+    _requireCount: 2
+    _upgradedRarity: 2
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 2
+    _baseitemRarityLevel: 0
+    _requireitemRarity: 2
+    _requireRarityLevel: 0
+    _requireCount: 2
+    _upgradedRarity: 3
+    _upgradedRarityLevel: 0
   - _baseitemRarity: 3
     _baseitemRarityLevel: 0
     _requireitemRarity: 3
     _requireRarityLevel: 0
     _requireCount: 1
+    _upgradedRarity: 3
+    _upgradedRarityLevel: 1
   - _baseitemRarity: 3
     _baseitemRarityLevel: 1
     _requireitemRarity: 3
     _requireRarityLevel: 0
-    _requireCount: 2
+    _requireCount: 1
+    _upgradedRarity: 3
+    _upgradedRarityLevel: 2
   - _baseitemRarity: 3
     _baseitemRarityLevel: 2
     _requireitemRarity: 3
     _requireRarityLevel: 2
     _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
   - _baseitemRarity: 4
     _baseitemRarityLevel: 0
     _requireitemRarity: 4
     _requireRarityLevel: 0
     _requireCount: 1
-  - _baseitemRarity: 4
-    _baseitemRarityLevel: 1
-    _requireitemRarity: 4
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 1
+  - _baseitemRarity: 3
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 3
+    _requireRarityLevel: 2
+    _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 3
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 3
+    _requireRarityLevel: 2
+    _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 3
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 3
+    _requireRarityLevel: 2
+    _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 3
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 3
+    _requireRarityLevel: 2
+    _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 3
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 3
+    _requireRarityLevel: 2
+    _requireCount: 1
+    _upgradedRarity: 4
+    _upgradedRarityLevel: 0
+  - _baseitemRarity: 5
+    _baseitemRarityLevel: 2
+    _requireitemRarity: 5
     _requireRarityLevel: 0
     _requireCount: 1
-  - _baseitemRarity: 4
-    _baseitemRarityLevel: 2
-    _requireitemRarity: 4
-    _requireRarityLevel: 0
-    _requireCount: 2
-  - _baseitemRarity: 4
+    _upgradedRarity: 5
+    _upgradedRarityLevel: 3
+  - _baseitemRarity: 5
     _baseitemRarityLevel: 3
-    _requireitemRarity: 4
+    _requireitemRarity: 5
     _requireRarityLevel: 0
-    _requireCount: 2
+    _requireCount: 1
+    _upgradedRarity: 5
+    _upgradedRarityLevel: 4
