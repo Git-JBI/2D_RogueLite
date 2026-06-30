@@ -27,9 +27,11 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
         OnItemSlotClicked = null;
 
         _itemData = data;
-
-        string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
-        _itemViewer.Init(data.Rarity, desc);
+        if(_itemData != null)
+        {
+            string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
+            _itemViewer.Init(data.Rarity, desc);
+        }
     }
 
     /// <summary>

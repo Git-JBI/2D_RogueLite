@@ -19,8 +19,8 @@
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-06-26",
-    "LastWeeklyResetDate": "2026-06-22",
+    "LastDailyResetDate": "2026-06-30",
+    "LastWeeklyResetDate": "2026-06-29",
     "Achievements": [
         {
             "AchievementId": "Daily_EnterStage",
@@ -30,8 +30,8 @@
         },
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 1,
-            "IsCompleted": true,
+            "Progress": 0,
+            "IsCompleted": false,
             "IsRewardClaimed": false
         },
         {
@@ -48,8 +48,8 @@
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 5,
-            "IsCompleted": true,
+            "Progress": 1,
+            "IsCompleted": false,
             "IsRewardClaimed": false
         }
     ],
@@ -627,6 +627,14 @@
             "_itemID": "eq_Armor_03",
             "_equipmentType": 3,
             "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "698f90bd-2304-4111-9b81-63664ed58f6e",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
         }
