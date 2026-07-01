@@ -14,7 +14,6 @@ public class ItemViewer : MonoBehaviour
         if(!_descText)
             _descText = GetComponentInChildren<TextMeshProUGUI>();
 
-
         SetGradeColor(rarity);
         SetDescText(desc);
     }
@@ -24,22 +23,22 @@ public class ItemViewer : MonoBehaviour
         switch(rarity)
         {
             case ItemRarity.Common:
-                _gradeImage.color = new Color(161, 165, 190);
+                _gradeImage.color = new Color32(161, 165, 190, 255);
                 break;
             case ItemRarity.UnCommon:
-                _gradeImage.color = new Color(150, 255, 0);
+                _gradeImage.color = new Color32(150, 255, 0, 255);
                 break;
             case ItemRarity.Rare:
-                _gradeImage.color = new Color(0, 180, 255);
+                _gradeImage.color = new Color32(0, 180, 255, 255);
                 break;
             case ItemRarity.Unique:
-                _gradeImage.color = new Color(203, 36, 254);
+                _gradeImage.color = new Color32(203, 36, 254, 255);
                 break;
             case ItemRarity.Epic:
-                _gradeImage.color = new Color(255, 251, 6);
+                _gradeImage.color = new Color32(255, 251, 6, 255);
                 break;
             case ItemRarity.Legendary:
-                _gradeImage.color = new Color(255, 89, 117);
+                _gradeImage.color = new Color32(255, 89, 117, 255);
                 break;
         }
     }

@@ -62,41 +62,41 @@ MonoBehaviour:
     _requireCount: 1
     _upgradedRarity: 4
     _upgradedRarityLevel: 1
-  - _baseitemRarity: 3
-    _baseitemRarityLevel: 2
-    _requireitemRarity: 3
-    _requireRarityLevel: 2
+  - _baseitemRarity: 4
+    _baseitemRarityLevel: 1
+    _requireitemRarity: 4
+    _requireRarityLevel: 0
     _requireCount: 1
     _upgradedRarity: 4
-    _upgradedRarityLevel: 0
-  - _baseitemRarity: 3
+    _upgradedRarityLevel: 2
+  - _baseitemRarity: 4
     _baseitemRarityLevel: 2
-    _requireitemRarity: 3
-    _requireRarityLevel: 2
+    _requireitemRarity: 4
+    _requireRarityLevel: 0
     _requireCount: 1
     _upgradedRarity: 4
+    _upgradedRarityLevel: 3
+  - _baseitemRarity: 4
+    _baseitemRarityLevel: 3
+    _requireitemRarity: 4
+    _requireRarityLevel: 0
+    _requireCount: 2
+    _upgradedRarity: 5
     _upgradedRarityLevel: 0
-  - _baseitemRarity: 3
-    _baseitemRarityLevel: 2
-    _requireitemRarity: 3
-    _requireRarityLevel: 2
+  - _baseitemRarity: 5
+    _baseitemRarityLevel: 0
+    _requireitemRarity: 5
+    _requireRarityLevel: 0
     _requireCount: 1
-    _upgradedRarity: 4
-    _upgradedRarityLevel: 0
-  - _baseitemRarity: 3
-    _baseitemRarityLevel: 2
-    _requireitemRarity: 3
-    _requireRarityLevel: 2
+    _upgradedRarity: 5
+    _upgradedRarityLevel: 1
+  - _baseitemRarity: 5
+    _baseitemRarityLevel: 1
+    _requireitemRarity: 5
+    _requireRarityLevel: 0
     _requireCount: 1
-    _upgradedRarity: 4
-    _upgradedRarityLevel: 0
-  - _baseitemRarity: 3
-    _baseitemRarityLevel: 2
-    _requireitemRarity: 3
-    _requireRarityLevel: 2
-    _requireCount: 1
-    _upgradedRarity: 4
-    _upgradedRarityLevel: 0
+    _upgradedRarity: 5
+    _upgradedRarityLevel: 2
   - _baseitemRarity: 5
     _baseitemRarityLevel: 2
     _requireitemRarity: 5

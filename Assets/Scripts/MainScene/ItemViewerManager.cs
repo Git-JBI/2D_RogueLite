@@ -20,10 +20,10 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
 
     public void ShowOne(EquipmentItemData data)
     {
-        gameObject.SetActive(true);
-        _viewers[0].gameObject.SetActive(true);
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
 
-        SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(data.ItemID);
+        _viewers[0].gameObject.SetActive(true);
 
         ItemRarity rarity = data.Rarity;
         string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
@@ -38,8 +38,6 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
         for(int i = 0; i < _viewers.Length; i++)
         {
             _viewers[i].gameObject.SetActive(true);
-
-            SO_EquipmentItemData equipmentItemData = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemData(datas[i].ItemID);
 
             ItemRarity rarity = datas[i].Rarity;
             string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(datas[i].ItemID);
