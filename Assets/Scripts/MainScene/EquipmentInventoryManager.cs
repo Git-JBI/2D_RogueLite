@@ -8,7 +8,6 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// 장비 아이템 슬롯 프리펩
     /// </summary>
     [SerializeField] private EquipmentItemSlot _equipmentSlot;
-
     /// <summary>
     /// 장비 아이템 세부내용을 보여줄 팝업
     /// </summary>

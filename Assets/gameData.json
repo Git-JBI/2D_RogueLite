@@ -19,7 +19,7 @@
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-06-30",
+    "LastDailyResetDate": "2026-07-01",
     "LastWeeklyResetDate": "2026-06-29",
     "Achievements": [
         {
@@ -48,7 +48,7 @@
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 1,
+            "Progress": 2,
             "IsCompleted": false,
             "IsRewardClaimed": false
         }
@@ -58,7 +58,7 @@
             "_instanceID": "eddf5115-a227-4593-8047-d3ade5c9c363",
             "_itemID": "eq_Gloves_03",
             "_equipmentType": 2,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -66,7 +66,7 @@
             "_instanceID": "5e625d88-6307-4de2-96da-1673fda05c5f",
             "_itemID": "eq_Armor_03",
             "_equipmentType": 3,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -90,7 +90,7 @@
             "_instanceID": "11ae5280-b7a8-47d2-9e47-b9a8ac40eed5",
             "_itemID": "eq_Necklace_03",
             "_equipmentType": 1,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -119,14 +119,6 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "ded938fb-64c9-4cc3-86c1-d8e9b86375e1",
-            "_itemID": "eq_Belt_01",
-            "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "8d8e2f00-2e73-461a-bf42-d5ca9ed345c0",
             "_itemID": "eq_Belt_02",
             "_equipmentType": 4,
@@ -138,7 +130,7 @@
             "_instanceID": "b83f48b5-b99d-4ee2-bea6-c55da18b7513",
             "_itemID": "eq_Boots_03",
             "_equipmentType": 5,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -154,7 +146,7 @@
             "_instanceID": "81742ec0-f311-47df-b25e-093e80aca710",
             "_itemID": "eq_Boots_02",
             "_equipmentType": 5,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -162,15 +154,7 @@
             "_instanceID": "229b2eac-e420-47cc-be87-714e4a1487cb",
             "_itemID": "eq_Belt_03",
             "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "f9df7672-79f0-4193-b604-52c7f62a17f9",
-            "_itemID": "eq_Gloves_03",
-            "_equipmentType": 2,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -194,39 +178,7 @@
             "_instanceID": "92e47ad0-8fdd-494d-b617-9b497de69d2f",
             "_itemID": "eq_Necklace_02",
             "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "85a0c540-30fb-41f3-b1e7-415692060427",
-            "_itemID": "eq_Gloves_03",
-            "_equipmentType": 2,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "a3a0fbb0-6466-4e65-a33a-5d48a9405ffe",
-            "_itemID": "eq_Boots_03",
-            "_equipmentType": 5,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "30d4d114-b1c6-4384-8ca9-ea41680fc669",
-            "_itemID": "eq_Belt_03",
-            "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "3e3206fc-5d68-42a5-894a-afba0465e056",
-            "_itemID": "eq_Boots_03",
-            "_equipmentType": 5,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -234,23 +186,7 @@
             "_instanceID": "39ea4d0a-5934-44f1-a9a8-f5b3b6d2d970",
             "_itemID": "eq_Necklace_01",
             "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "39da4ee0-3ca5-4a25-986c-c2bbc42ad4d2",
-            "_itemID": "eq_Armor_03",
-            "_equipmentType": 3,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "b0ff19bb-af73-4df7-8116-94ee064327f7",
-            "_itemID": "eq_Necklace_02",
-            "_equipmentType": 1,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -290,7 +226,7 @@
             "_instanceID": "597e7cda-f1f1-4ee1-a130-23c1a196d8ae",
             "_itemID": "eq_Belt_01",
             "_equipmentType": 4,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -311,14 +247,6 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "79c2b91c-f903-4e77-8852-378be664cd17",
-            "_itemID": "eq_Boots_02",
-            "_equipmentType": 5,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "feee748e-2f67-40a2-a36d-edb39f269fcd",
             "_itemID": "eq_Boots_01",
             "_equipmentType": 5,
@@ -330,7 +258,7 @@
             "_instanceID": "6dfb0e05-5d94-45f4-a40b-23b5d59f8191",
             "_itemID": "eq_Boots_03",
             "_equipmentType": 5,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -346,30 +274,6 @@
             "_instanceID": "7b8b9550-d011-467c-9911-11638c24671c",
             "_itemID": "eq_Belt_01",
             "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "c61e9de6-acba-4e5a-bc5a-a075f19c7bb2",
-            "_itemID": "eq_Boots_03",
-            "_equipmentType": 5,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "d33dc65b-1c1d-4d0e-8e9f-f81aaf8ef2a5",
-            "_itemID": "eq_Armor_03",
-            "_equipmentType": 3,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "9f525a60-35d9-4fc3-a5ef-47a1337714fc",
-            "_itemID": "eq_Necklace_03",
-            "_equipmentType": 1,
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
@@ -391,22 +295,6 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "aad1d697-c550-47d2-b5f2-bf45e44e0a11",
-            "_itemID": "eq_Necklace_01",
-            "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "4b98b9d3-b39a-4d23-98bd-09d5426c18fb",
-            "_itemID": "eq_Belt_01",
-            "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "3b59b00e-6182-4c31-a5dd-e7248a032d68",
             "_itemID": "eq_Belt_01",
             "_equipmentType": 4,
@@ -423,22 +311,6 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "c59ee18a-a0e9-486a-9287-c3872b0724a2",
-            "_itemID": "eq_Boots_03",
-            "_equipmentType": 5,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "e169bdf5-3510-4aed-a901-ad91fa85b8fe",
-            "_itemID": "eq_Necklace_03",
-            "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "09081c6b-d732-4b8c-a508-da2268b172f5",
             "_itemID": "eq_Gloves_01",
             "_equipmentType": 2,
@@ -447,18 +319,10 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "bbfb225b-8966-47eb-ac12-ac4f14dba487",
-            "_itemID": "eq_Boots_02",
-            "_equipmentType": 5,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "537a8f7a-a371-4f66-a487-96f5e04a8206",
             "_itemID": "eq_Armor_02",
             "_equipmentType": 3,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -471,26 +335,10 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "58f79127-8f2c-4427-91bc-bf53f5a40b24",
-            "_itemID": "eq_Necklace_01",
-            "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "522d3650-93c2-44a7-b854-21b113cbc0df",
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
             "_rarity": 1,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "75d90322-4cc4-4cb9-91f5-ea7cbd260f1f",
-            "_itemID": "eq_Necklace_02",
-            "_equipmentType": 1,
-            "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -506,7 +354,7 @@
             "_instanceID": "e8a8c30e-4446-4531-a9a8-25b8c1e5c3c1",
             "_itemID": "eq_Necklace_01",
             "_equipmentType": 1,
-            "_rarity": 0,
+            "_rarity": 1,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -543,42 +391,10 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "87677b70-50b5-4190-9c8b-0d7705e4a8f4",
-            "_itemID": "eq_Belt_03",
-            "_equipmentType": 4,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "89d2cb86-56c9-43d3-aded-e03d67b915ee",
             "_itemID": "eq_weapon_02",
             "_equipmentType": 0,
             "_rarity": 1,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "9b5e952e-6301-41d1-92f4-8bda6aa5b6dc",
-            "_itemID": "eq_Necklace_01",
-            "_equipmentType": 1,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
-            "_itemID": "eq_weapon_01",
-            "_equipmentType": 0,
-            "_rarity": 3,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
-            "_itemID": "eq_weapon_01",
-            "_equipmentType": 0,
-            "_rarity": 3,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -599,22 +415,6 @@
             "_itemLevel": 5
         },
         {
-            "_instanceID": "e8af7f25-8e9d-49e9-bc82-c4a35700eedf",
-            "_itemID": "eq_Armor_02",
-            "_equipmentType": 3,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "ddb432ee-40c9-4d94-b46c-28d24576256d",
-            "_itemID": "eq_Armor_02",
-            "_equipmentType": 3,
-            "_rarity": 0,
-            "_rarityLevel": 0,
-            "_itemLevel": 1
-        },
-        {
             "_instanceID": "9d568fb6-aedc-47cd-a0b5-dd40c7e83b26",
             "_itemID": "eq_Armor_03",
             "_equipmentType": 3,
@@ -631,28 +431,2994 @@
             "_itemLevel": 1
         },
         {
-            "_instanceID": "698f90bd-2304-4111-9b81-63664ed58f6e",
+            "_instanceID": "6cb653c4-e981-4a9f-a0e6-193db9c5ad6d",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bf434869-ae08-4783-ae5b-11201a388ee9",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "62ea384c-1ea0-4511-a757-d815e0456425",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "575c0995-48a6-40e3-a3af-c89bca83cc18",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f773479f-6241-4fd4-820e-0f141e311a82",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "939d5138-ddbe-46ef-900a-eeeabeb1d9ef",
             "_itemID": "eq_Necklace_01",
             "_equipmentType": 1,
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
-        }
-    ],
-    "EquippedItems": [
+        },
         {
-            "_instanceID": "990607b3-3931-47e2-b8b8-a91bc5ff039d",
+            "_instanceID": "c85f11d6-a3b1-40e4-920a-d1104c0ec425",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ab86f85f-bc54-4c8d-b9ac-67b29daef34a",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "49f354c4-376d-4789-aa3b-1ffe5c3fb47d",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3ee3131f-1c84-4070-9c07-5cc9eab561f7",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1eff8173-bd5e-49d5-8fe6-3c4860198925",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "72621d73-4c0d-461d-af46-53e44a4f30f0",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "23fd6ba8-79ce-403a-afd6-6bbda6622a78",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6c80a23b-62a8-45a6-b78e-c896573e726b",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d85797c4-8a6e-4a19-95e6-899f4ec96a16",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "62f6fc81-7631-4932-80aa-6b6628eef7d2",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cd4bd72e-97ba-4d3b-889d-d3e8a77f1f4e",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "588294cd-df3b-4306-8247-651c1c1b82c4",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "121c31b6-4170-40cf-9265-87c0b0f2af73",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2a51edd2-3042-4bfb-b7b4-0b8b49e844ce",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "039f48f5-d9ee-4cfc-b40c-3b66c9073daf",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "43740f5b-e007-4322-9698-8d0ec0d34df9",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4bed26d3-8bdb-43d0-a323-f60218634544",
             "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e9477859-4d4f-4045-b50d-0f8316d3330c",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f237c0da-e699-4684-a1f9-29a4d76367db",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e0d06861-b18a-42f0-9744-12a44a791603",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "42bc99ca-51bc-459c-8e37-419e532a6228",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f7deda1f-af09-43d3-8d4c-ecd08b6b78ec",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2f5d59a2-d693-4913-a5b6-034757dafd4a",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "10195e9e-aa17-4e31-84c6-cc0fe7ed27fb",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c26d9439-40c6-4299-aa36-ee9d82f3eb2d",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "29b9a298-e4b9-4cb1-a5b8-f086646a1654",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c1ae533f-0d56-4aab-81f1-9eee190ff51c",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "181dcf6b-b5b6-4ce9-a014-cd7d06f39383",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ff30c658-7b91-4435-90ed-4c4eabba3b08",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "384c34c2-020f-4181-8294-b2d0df87c2f2",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f8297332-a926-4bfe-920f-716b9e1ec358",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "efd3c7dc-d66a-465f-bd91-9fc2cd9c14e5",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cd3b970b-8204-4d7c-a249-428430a9c100",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b66e6310-9b51-470c-83a4-f17b992b9b69",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "911bd505-76ec-4fef-ba72-32dbe3fb7f34",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ce988d24-3652-4c09-8c11-1ad4cb0a35ec",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d0179e96-0388-490b-94b4-5c4a2647cd55",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cf68b4cc-341f-4d61-99c3-2dee8e5a243b",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a1c2108b-18b4-41d7-bb59-cff96bf44ccb",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ef8f5c90-d90a-4673-994c-d0ffe8fe36f5",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "80cea215-c09c-4417-ac35-d386365e3307",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "453fb89e-4000-41f4-91ae-1243679f6eb7",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e14359c3-94b7-495b-b2e7-10578d41af43",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3be99abb-2737-42b2-adc0-3e8d14aecd44",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5707bd2b-4a79-443c-b688-5db2a61826f6",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cd126e1-f63b-4509-947e-feb216d6eea8",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b49c1a4a-1acc-4909-8936-224b148bbf23",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "707d1be1-4470-40e2-b852-ba14e451d264",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "78ced0a6-9ea9-4870-8215-2edcbf7a096b",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ff691ef7-bc70-4ed9-9242-1e04c54ff55b",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "80f4bc47-ef64-459c-b75a-f20778ecd484",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "aba922c1-e198-4f55-aab3-3d4bbd2f7d86",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fae226e1-9f2b-480e-9f04-869877cea7d6",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "50be0d00-f5a3-40c9-a60e-df0a0db28491",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b35af45a-ffa7-4370-a593-256717cbf20c",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f54c60ea-4650-4506-aaf8-59a0cfbb6f95",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0398b73d-e5d5-419a-be1e-ae1131de012f",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5ab0ff34-5ec1-4ea7-b792-d848eafd9047",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4edbbdd4-1635-46c0-ad5e-3b87e6a4afd7",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cba11be9-31dd-425e-9f16-d547cb40cc57",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5141096c-b70d-4489-87ac-ed7d5f86cb5b",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9ac96320-8244-4b3b-8b47-835fab70d66f",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5cc99f8a-9700-4a96-84a2-b975a588cdaf",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "36ff2de6-c4c3-40ef-b332-f535d44ee54b",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bf8b5d56-3648-44d0-8480-29877cc1c0be",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "60f26344-826b-4ead-be2d-31a6b271df0d",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "40f1a0a1-50b7-477d-b2bf-2cb926e25da9",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b9a3fb5b-443e-4591-ab94-ff2f511af548",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d50d0379-cb2b-477b-a5ab-905a2dc657cd",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2b8babbb-4146-4354-85e8-88a5abf89cd9",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1d0501c3-d8e7-4e7b-a3c9-e3e39d2cc449",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6455b343-d553-46e2-80d6-cc4b3b9c1f1a",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bf055391-414b-4ad9-9094-d4fc50f07429",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b9ba605e-e470-4d9b-8d17-fa04c6c1eca3",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "91b2acbd-cbca-45f8-b1ec-1d553acf47ab",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9edd8976-c2c2-4d29-b403-3621ea51d736",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9349a12e-d436-43af-84bd-5ffe715559e7",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a7bd319e-c799-467c-a5da-eab2f30db067",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7ed5ba45-430c-4d2a-85df-7dc5b369256e",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "491c957b-2a68-4929-9008-57be2e1b5ea0",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bbcb9b53-e739-4864-8c83-a0da6fc5d366",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "47b7fa8e-4013-4e1f-a912-e8957c6fa5d7",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "68197790-a450-41f2-811e-293df233b842",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fd89d227-41eb-49b9-b80e-8873ad006192",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0c81bd05-39c3-4ff4-8cb4-b30d0e21012e",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "269ba1b0-6c1d-46d9-aeaf-e518e6e07597",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6ae4daaa-c4ab-471b-8408-2737956be006",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1946e45f-7651-4c91-bd72-55605ec81970",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fe40ac8f-6d20-4eed-9eec-9fbfdd0899b4",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "34d0c3ce-ecbe-4408-a0ef-02250d9ea81d",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2463dd89-999a-48d2-b8e2-ec7b377ed448",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0105e1bb-6e90-432d-bdb5-168774d3887b",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e85d5867-30df-46e8-9c44-b0b79fd8e2ba",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0c891310-922e-4044-af12-44eb01f0cc0f",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9d63f5ec-d2bc-4549-ad2f-043f5fb92fa2",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f7b56379-adc8-47aa-8272-28cd68d52297",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fec28ce7-1cfb-4e25-af8b-1e349a26f85c",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "70bcf291-ec36-4e7a-a6b5-7662cffb720a",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "40a52399-6a3c-4fe4-89b9-0ba8b8bd23b4",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "687e15ab-2871-4401-aede-1d9b64787f2a",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4d18a7bf-df15-4f04-826a-8ec60611af3e",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "abd91dd6-1150-45de-a7a0-660a1367dfb0",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2c93b88d-4926-4a86-88e7-4f40d932016c",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3889da1b-e393-4e87-82f3-9ebe1feb0fbe",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fdd9f3ef-5aef-4a65-bd25-29a40dafa5bf",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "258e7692-741b-4415-9717-4f40e39a3b16",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4fd4f6e2-d0e2-4ae1-b1b5-b621ebe23d96",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ee2f04bb-bd2d-417a-94a5-240e92e5415e",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5b498ebb-f83b-45d3-b5d5-b56d506dc26c",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e5abed91-7bfe-4c69-90be-39f205a56732",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "146a9bd1-a32c-411c-bc7b-9e7969a2f461",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "deaaec46-4394-448e-84b7-fcfa8553d6f3",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3c46e95c-be6a-47e8-8bae-98b64cb24e39",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9c12018c-a551-4165-846b-aa78e3d31f08",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5f1cd616-f9bb-4e4d-befc-86af00a6d84c",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b012afa7-746c-49a3-8a8e-df97b35fdeb7",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a9dd57ae-bbdd-49e0-8ba3-3fef3cfb18de",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e88794b3-426c-4b73-8aad-301b7e0a6057",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d23b13ed-c5ef-48cf-aabe-962e3901630c",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c5828888-aa0c-4fd1-ba17-1a5efa39b73c",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4b2f3021-5b42-4c4c-a107-19fea8863488",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "eca28608-3af9-43c3-a9be-fea822d4c56f",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2035e6ad-a896-4e6c-b64b-a57670d3c1ff",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bf0a666f-d1eb-4daf-8522-a3710eb6a1fd",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ae09e44e-65d5-4a5a-bde0-7f71ef7c72cf",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c90aa0cc-4c5b-41f0-9ddd-4544f4090b4c",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "651e1231-e07f-4f07-842d-e6652d0aca5c",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e563e923-7bbf-4565-ab1d-c56b13fc4c96",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2558cac3-7a14-4125-aa54-530bb2e4d485",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "81eaed2d-cc86-4af0-8c8f-9102419ae710",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5330fb06-3329-4d0a-a9cd-01dd7d41aab7",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f3fedabd-4e61-4cc2-8ec0-7fc31753598c",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e891dcc5-64b2-435e-be27-6739206f75f4",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4c05e90e-7055-478a-846b-3cbc466d4b25",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b878c6e4-d892-45e6-ac45-f8ca1713c959",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bce065b6-8088-4385-be60-1bd5152c62be",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3fe3f5d3-74b4-48c3-b45a-a6e12a196275",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "51853e11-97ec-4963-ac79-1a57c3c850cd",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "8765588d-a646-4031-8959-1dbf8f5eac62",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ba9aea5b-6aeb-4478-8e25-ff212491fa00",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c7968dac-281c-4423-a598-65fe5de93c42",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fbde2aa9-3a1a-4f1e-b483-b494267175f0",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6ddde022-e969-4bf7-81f6-955ab55694f8",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3f124f28-3010-4a71-95dd-efe188726ec2",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "50b20920-f838-4a36-b86e-c9e1e4ac4723",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f6b54c52-8b10-4baa-b19e-6fa370f3fa92",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9d104f12-829a-4a90-bd44-8efe394eebd4",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "af2db286-1573-4ab3-9ff9-7d4f479ee6ed",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e97b861f-b210-4f9b-8931-75e21f09efed",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0c0f68d3-2916-4dc5-993f-2ed13ff41302",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e0c7ae52-ca3d-4835-b90e-f3f270db076d",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "8eae51dc-0bdf-4268-a841-251083ca8bbc",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bf2baf6b-eb67-4a20-93d7-8589104775e2",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 3,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d693be68-c46d-49e1-b0b1-75383873279f",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ed06fc02-4443-416e-a7e5-2550b2d557c6",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "01b5697c-1d34-4c02-945e-d7e21fb586f8",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1716d9c5-2bbc-42d3-9854-0ccc2d7cb5d6",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c514321b-891d-431e-8d7f-3764945fc80d",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2ccca696-26cf-4248-8c8d-772bc72f2087",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b40004f8-a749-4ccf-aef0-d3c4e3d331be",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "82fb2dec-3d9b-4e6e-8e7b-e2ddf783812a",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "706bcf3b-7c99-414c-9caa-08a8635647d4",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0eb1b2a8-c929-4596-b959-92cfa0ce40fe",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7d7fcf49-d7cc-4f84-a9c7-4e7388a44aa1",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "482f3b2d-698d-4c7f-b095-38c2d72801d3",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d7bede7f-84bb-481a-b11d-66e89468703b",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "8cb8ee34-fe41-49c5-8963-2f34800b6493",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9e14980b-ac51-4d47-96d3-c5bd519540a0",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f9dd4a14-f115-47b1-aad1-e59775f53e8b",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0e07e8cb-bb7b-45da-a201-6c13174d3017",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4016765d-4716-44db-ab31-fd2f1f903ffa",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d86ef478-3ec6-4794-bb24-9a42450d6782",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 3,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7f12d23a-24fc-4325-a3af-b9a54f95db26",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "03a80574-a22b-4e5b-b8c7-186119682099",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "91ece5a9-8959-478c-9679-22622038661b",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9edb5bb1-89d2-48dd-b3ca-a7dcd9174860",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3e9998dc-5f61-4943-af51-302d3fa728c5",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a6635915-8752-40f7-ad4a-f1ee9058318f",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "55787b93-77e0-406e-8f4d-95b72fc60e42",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e3cdc710-81ab-4c26-a9b3-009e854755f5",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0e80893b-2afb-41f0-9725-db9ce127d85b",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "dfbeb6e1-d109-4e0f-abf3-4f840eb6ddcc",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e81c848c-67e3-466c-aa25-cad4c7f0f49c",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "664a851c-200b-4a87-b587-c57d2ae23232",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "06cd7cd9-9b93-4481-a3d2-298816e5f6ff",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f7640739-764a-45b7-84ef-da1b6da3a3c8",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7d3f0ef7-6715-4eba-9578-496eff1b4e5e",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fedf1e16-3ede-432e-a765-6a52c53775ec",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "89c3e7df-6232-4ce3-9b0a-4b7ecd578e85",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ce874385-a514-4715-8816-70e1577e985f",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "37db3e1b-efd1-43c3-a4c3-a03c486e5b0e",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6742d834-ef20-45af-ba92-4de80791ce14",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "92b4a656-7cab-4b84-8d0b-83bb4ad37afc",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ee42ae43-4624-4aa8-824a-add8fd416333",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "52f86d32-d7f4-4886-8466-6f84a3884da5",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b9d5ae08-0ccd-4d88-8a07-d2f37933bbbd",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c9842c9c-798f-48a4-af1a-a3ff06dc2372",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d659e66d-6cd6-42c0-af4b-733497e8fa20",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1fb5b38f-b540-49d4-af41-a7e89b5fdaec",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f5ea963a-cea3-4aeb-9882-d40f1891fa9d",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "871b1584-eb19-4c90-a43a-2d1a047d14cd",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a6b3ea80-9987-4193-a26b-b860210a01cb",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f1c5adda-3042-4cea-bfe2-e617a44c139f",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e9abae1c-64f5-404a-8782-e390701d107c",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "36449b10-cbf1-4a6f-9d0b-814a0e04034f",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b83db566-8c6d-4594-9dcc-c67c79e933b7",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a2afea27-9304-4bcf-9937-7fa7780f8ea3",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2e167ed6-c728-4cce-97ab-548379543b41",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a7ccae92-0dce-40c6-b699-a8a0b62643c6",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "faf209ff-86b7-4bed-9138-fbb4f9cc29d6",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a6f675d5-3908-48a1-ade0-cd8a610117ef",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "16108a5c-dbc2-492e-abe9-db79d40f3dba",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "807cd83b-c8b9-4990-8380-bb376b4c7772",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "06192ab5-c8df-42a8-870d-d74a82db655e",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "8b4f78fb-2b70-4e4a-83ba-ac5eaac4881c",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e9cfba66-c280-49af-8ff1-b1919e7bb95e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a46db097-884f-4187-8e6d-85fdd623107e",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d5d3dee7-586e-43ed-b54d-8c23aa20c229",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0cc8ff5e-f8f1-47d1-afb2-8555d179f84f",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6f1ef2ef-0a3d-4b3c-a574-edd01c7218f3",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "55ff013a-a68c-47dc-a497-035a05d26b1d",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7ae7e965-9f65-412d-b243-c67fa5590bd0",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e048bd24-41bf-4e82-8906-f30ebd31261f",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6a589b40-26d6-4a5d-8fb9-14a251862307",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "41304521-58b6-4a99-8fe9-0bf35b420e3e",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fecea49c-c0ff-425a-bd1d-3011920ebf8d",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4d101274-9d47-420e-adb5-188d83cd01ba",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0817f559-b0b0-4b22-a21e-6c8324f97129",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "17dbd54d-9eb7-476e-af98-9ddd3558ee95",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "395b4d9d-f823-4a25-992b-6d174224c902",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "abf1e257-7b72-4e9c-8091-c10e5e84ffdc",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "64446f47-1979-40dd-84d0-f908c775e3b6",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d6540dce-45a9-41ad-9a91-38e278c2ef40",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "62632f1c-19cb-4f40-a1d8-8d9650de35d5",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "14bc6092-2b1a-4bcf-a795-2573971f9f12",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9b17ded0-a700-4888-bc03-cbd0a409de24",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1a8c4bbe-bb78-463a-a9d5-4050d1c5be63",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a1e328cd-96a4-44bb-9ce0-f2e5fa5b02fb",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ca45ca30-5b17-4c49-b4e8-24b742c3cbfb",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f47e3ad4-12ba-4883-a983-683b2574a84d",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9379268e-2918-44ca-87d8-6d03220a990f",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "64bca07f-10f8-4102-8625-efaa590ff5d8",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cad16993-377f-463f-8139-089fa47ec9a4",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "adbc8f74-5dbb-4c93-8f4b-05bbb0fe5029",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e1fb586f-0097-41e8-ae8e-937d043af437",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6bd95227-f672-44a0-9691-15471b9fd31a",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "27550476-feb8-4fae-a665-c021022fdcea",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a112f037-9118-439e-8694-1059abae73ac",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "32cb7b1c-18bb-4a63-9179-9b5b3bddc756",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "13a4c2d1-cdf0-481b-83c6-13f12f4354f6",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "868cf922-ef49-431d-aa03-ec3b011dee99",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1dbf28a9-32da-4ea4-a177-4956b949a8e0",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "914342cb-9806-47b9-9b21-76959b454ad9",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e54d16b2-5310-41ee-b292-0e3b154e144a",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "58fd1f2f-27e9-4166-b6e2-72572fbf9395",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "468f8227-ccf6-4b09-974d-bd9f8359accd",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d79cd6dd-dc19-477a-aabb-eb69e66c207f",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e7282912-dc39-4239-ac83-a1358879b0e2",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "23ce2f5b-21dc-45a8-941e-9fd2c30335d3",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "21f41f4c-cbe8-4b76-9598-cbff220fa21e",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e366081b-65d9-4978-ab01-4eeaf2ea7617",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e5a62e0c-f351-4bf6-8db9-d430a022e611",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ef0bd83e-cb3f-43b5-aa17-2ccb9a83d412",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a804121a-fb50-4e6f-a4e9-7ee2ef1819f7",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e19c0233-206e-4d43-b476-8710f6ee3339",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c9e9cb4a-a196-41de-aaab-14a0d9254efa",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "32d68b1b-a438-4209-94ee-7181bb393ce1",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "de507774-92c0-4e47-81f8-2bb7cd57ef0d",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ea4959f4-7012-4761-8287-6fda762b85f2",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "45c5a1ae-64b2-4905-ba20-3479d4ed18e5",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2f7e7b6b-a732-4d65-a957-f93fd0f11567",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fedb314b-842f-4fd9-ad1e-9a13db34a4fe",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2441d683-90f3-4c3c-8a9b-c185b61e9aaf",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "925e3861-3c22-46bd-9e69-716b2636945e",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e0317c4e-55af-4e52-b65a-dc5c70aeed55",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b9547069-624d-4b95-b64d-57384a9164ab",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "118d1f61-3daf-4474-b0d7-9af125686898",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0b415e19-05e8-4d25-8e7b-3ab80776fe48",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5d7aa420-5ebc-4cab-9e94-fa55d0df1acd",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "426f3387-3877-4410-bfc5-513b558af903",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "73b7910c-4870-4e67-9252-f75926913afe",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b0bbbf08-cd57-4fff-9aca-f5f9d28eef69",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "67ed168f-a560-40ec-b9b4-9e688da9b49c",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "dce491ac-d7ed-4b3d-a6ca-03e3fde59822",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "af437e50-ca0b-4945-a56c-de8a60efb931",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "46549e56-e228-43c1-ae37-36fbcbbc0d08",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a529132f-d0cc-4efd-a1fc-6fde75e6bda4",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e9fab823-85a2-49dd-82f6-b5c234f2c152",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "447fb890-6e3e-484a-840c-5a34bd98802f",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4a667164-27b6-4887-9782-51a31251a0f3",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1dc18818-333d-4078-8022-f6848fbaf21a",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "570845dd-08b8-4b73-ad37-77621f0bc457",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5c7dfb4d-1ba0-4538-a527-e23c45a5f26f",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e2afb992-46b8-4a73-9aff-278670211f5a",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c3cc2a75-1c72-408e-ad2d-4111449ebf13",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4b0473ad-b9b1-4b57-859a-b876387255ab",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e30929ec-9a83-4a4d-8af9-bb0d60041701",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "1dab84a1-79c9-4e23-9727-ef9198f53761",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "100d7a5a-045b-4ba4-bfa2-b7f0a74845a6",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d9afcfa2-02e1-4f5d-864c-5e426b5e4262",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e4d5dd86-eb93-4b88-a326-824ef20f9dea",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "abbe6ed9-155c-41d0-8e8d-158bc78e1dc6",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7be91341-632e-40ec-8678-f6c10bc2e5d8",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4c73de22-95be-4b2a-8a2d-2185d00610c1",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9e1811aa-d3c4-4822-8e5c-0d610e20377c",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "6e3aabf5-e6bb-4f57-9ea6-a451d096e71b",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d0c53ef2-acba-4cc3-973b-c6dbb16b746a",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "756c949b-2f59-4530-8ee2-f60e3bb2eb6f",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5fd46ab5-f4a2-480c-ad48-189a075a9ac1",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fd1f7827-8f30-4fe2-a88b-0e2febace364",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "aac2c00f-8627-406b-92ba-f44a43079cd6",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d2d07a52-28b9-4717-ba54-ae4bc5e98106",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0038c080-57ab-431f-b489-c34d12b3edf1",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "deaafcbc-7d20-4354-8b80-fcada7eb84c8",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "cb7c992e-85b1-4905-993f-0c7f78030108",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "42eac5a2-ef8d-4c38-ae87-81b67a1931a8",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bbd2afd5-b229-4d5a-9125-8b71443179f8",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4130d18a-2d57-48ba-a658-57eff2647360",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9cd844c0-87a9-42ad-90e4-ba791fb005cb",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "49c56b12-09d5-45ae-b2a9-3f7fdf9a5fcb",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "dbdc67c7-3ccc-4166-a680-0b50e423ac83",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 3,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "edda4dbf-d5f7-4413-90b2-0a7c4cc40c2d",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4e18f24e-b144-4679-b4a2-0a10d489c8de",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "fd94a516-47c0-463f-bf84-81969e7609a8",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f413c01a-5dba-49a7-ae73-52651ef238a4",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4e270c36-7df7-4b39-bb7c-787305cb6a3f",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "750ba4ef-177d-4e4e-8036-8b2250cfb09b",
+            "_itemID": "eq_Belt_02",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "2400d049-89c2-4b50-82e5-74de396be2cd",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a346f65c-70eb-4c91-80a5-cbad21ec4463",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a00d4c7f-9c65-44a7-a0ef-30593d9c7416",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "c754a587-75c4-4cf5-ada1-16fad2cbe7d2",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "34f6acb0-f200-44cc-a5f5-edfabdf68906",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "dcfe0177-8c14-4f02-b392-9a7c4dca6a08",
+            "_itemID": "eq_Gloves_03",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7bfbc15f-7412-42f4-8155-2770d3473b37",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7223d186-c33b-4711-9307-6a11854eca66",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "501ee1a9-0b0e-49f9-ad65-2555789735c4",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f67601e6-82de-42a6-a496-0e989d033aed",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "80359b00-3c2e-41e0-831c-ce19253749e7",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "26f01fc0-964b-4c4c-b10f-a3a4d2e092d5",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0c73b252-5b52-48e0-acff-18e347d0699a",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d486fe55-eba3-48a9-affc-c05a7db4a8e7",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "05891786-c4d9-4e63-b561-49cc30a32356",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "eddc089b-8b33-4c6b-b4ab-19d5a741f1fe",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "5c773e77-c56c-49b9-a646-2e76a555fc9a",
+            "_itemID": "eq_Necklace_01",
+            "_equipmentType": 1,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "e905f0c9-3759-4e10-ab42-6276ab87d577",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "dc0cb035-cc58-4cd3-9ac6-c6b858b5ad69",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "ac1943da-bcd2-4454-b72d-3757e1c4f160",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "077f0bc1-7cac-4940-a2ea-8062d35cf197",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 2,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a7d6fd24-3cdc-4915-8ca5-e9659f6ee082",
+            "_itemID": "eq_Belt_01",
+            "_equipmentType": 4,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "7679f6d0-710c-4526-b985-7b0690ac9d0c",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "94639c10-6828-4db4-ac5b-e2ebaaeac683",
+            "_itemID": "eq_Boots_02",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d66c1f3d-158a-4ec7-8603-796b9bc5522d",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bddf36aa-3886-47c9-9c21-bc75fc1a721a",
+            "_itemID": "eq_Belt_01",
             "_equipmentType": 4,
             "_rarity": 3,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
         {
-            "_instanceID": "990607b3-3931-47e2-b8b8-a91bc5ff039d",
-            "_itemID": "eq_Belt_03",
+            "_instanceID": "2efe5e3d-74d6-4293-b21c-c0d37cc8db54",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "176ff215-7297-4f2f-9141-30abff3c4225",
+            "_itemID": "eq_weapon_02",
+            "_equipmentType": 0,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "445ecc51-8213-4c4a-aeb4-c01f0311744d",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "9513bf43-7ea3-4182-a263-4e5c334ddde4",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3f7a50e1-f754-4201-b433-490f328fc5d9",
+            "_itemID": "eq_Belt_01",
             "_equipmentType": 4,
-            "_rarity": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "63f444a6-2a66-4ee0-a790-953de1a51a7c",
+            "_itemID": "eq_Armor_02",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "662c91c8-1a53-48f6-a6bd-9fd526acfc50",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "bca1011c-086c-4045-95cd-7b02201f2195",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "b2cdbf04-a9a9-43c8-bd59-07ac15b4d47e",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "4295ff78-c158-4350-8c7e-1bf9a4fd0a36",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3ecaacc1-6fd1-4fb9-b909-cfbd6e95ae01",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "26ffe267-f122-4910-b77c-34eb4c318585",
+            "_itemID": "eq_Armor_01",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "f668bb15-2191-4f6f-a4f9-3d2e7e5cf08e",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 1,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "8cfc9dea-56c5-4bb6-9df8-8d22dc46e9e1",
+            "_itemID": "eq_Gloves_01",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "46b4ac11-bfae-45ff-914c-35bd09cde972",
+            "_itemID": "eq_Necklace_02",
+            "_equipmentType": 1,
+            "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -660,15 +3426,15 @@
             "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
-            "_rarity": 3,
+            "_rarity": 4,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
         {
-            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
-            "_itemID": "eq_weapon_01",
-            "_equipmentType": 0,
-            "_rarity": 3,
+            "_instanceID": "a4cfe8f0-b0fa-457b-81dc-37756bd96287",
+            "_itemID": "eq_Boots_01",
+            "_equipmentType": 5,
+            "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
         },
@@ -687,6 +3453,55 @@
             "_rarity": 2,
             "_rarityLevel": 0,
             "_itemLevel": 1
+        },
+        {
+            "_instanceID": "990607b3-3931-47e2-b8b8-a91bc5ff039d",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 3,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "990607b3-3931-47e2-b8b8-a91bc5ff039d",
+            "_itemID": "eq_Belt_03",
+            "_equipmentType": 4,
+            "_rarity": 3,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 4,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 4,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 4,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 4,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
         }
-    ]
+    ],
+    "EquippedItems": []
 }

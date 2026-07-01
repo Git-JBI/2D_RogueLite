@@ -8645,6 +8645,7 @@ MonoBehaviour:
   _content: {fileID: 1324172695}
   _requireOne: {fileID: 2026016280}
   _requireTwo: {fileID: 1369432244}
+  _mergeButton: {fileID: 528961821}
 --- !u!1 &1236003133
 GameObject:
   m_ObjectHideFlags: 0
