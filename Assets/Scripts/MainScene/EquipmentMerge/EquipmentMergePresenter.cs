@@ -274,15 +274,15 @@ public class EquipmentMergePresenter : MonoBehaviour
         List<EquipmentItemData> items = new();
         MergeRule rule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
 
-        // 선택된 업그레이드 될 아이템이 Unique+2일 경우
+        // 선택된 업그레이드 될 아이템이 Unique+2일 경우 동일 레어리티 & 동일 아이템 & 동일 레어리티 레벨
         if (data.Rarity == ItemRarity.Unique && data.RarityLevel == 2)
-            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.ItemID == data.ItemID && i.RarityLevel == data.RarityLevel).ToList();
-        // 업그레이드 후 레어리티가 같을 경우 재료는 동일 레어리티 & 동일 아이템 타입 & 동일 레어리티 레벨
+            items = _items.Where(i => i.Rarity == data.Rarity && i.ItemID == data.ItemID && i.RarityLevel == data.RarityLevel).ToList();
+        // 업그레이드 후 레어리티가 같을 경우 재료는 동일 레어리티 & 동일 아이템 타입 & 레어리티 레벨 0
         else if(data.Rarity == rule.UpgradedRarity)
-            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.RarityLevel == data.RarityLevel).ToList();
-        // 업그레이드 후 레어리티가 다를 경우 재료는 동일 레어리티 & 동일 아이템 타입 & 동일 아이템 ID
+            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.RarityLevel == 0).ToList();
+        // 업그레이드 후 레어리티가 다를 경우 재료는 동일 레어리티 & 동일 아이템 ID
         else
-            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.ItemID == data.ItemID).ToList();
+            items = _items.Where(i => i.Rarity == data.Rarity && i.ItemID == data.ItemID).ToList();
 
         // 선택한 아이템은 목록에서 제거
         items.Remove(data);

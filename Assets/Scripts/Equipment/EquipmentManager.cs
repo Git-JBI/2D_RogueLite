@@ -103,7 +103,10 @@ public class EquipmentManager : MonoBehaviour
         // 장착 중인 아이템이 없을 시
         if(equippedItem == null)
         {
+            // 장착중인 장비 리스트에 추가
             _equipmentModel.AddEquippedItemList(item);
+            // 보유중인 장비 리스트에서 제거
+            _equipmentModel.RemoveEquipmentList(item);
         }
         // 장착 중인 아이템이 있을 시
         else
@@ -112,12 +115,12 @@ public class EquipmentManager : MonoBehaviour
             _equipmentModel.RemoveEquippedItemList(equippedItem);
             // 보유중인 장비 리스트에 장착중이였던 장비 추가
             _equipmentModel.AddEquipmentList(equippedItem);
-        }
 
-        // 보유중인 장비 리스트에서 제거
-        _equipmentModel.RemoveEquipmentList(item);
-        // 장착중인 장비 리스트에 추가
-        _equipmentModel.AddEquippedItemList(item);
+            // 선택한 장비를 장착중인 장비 리스트에 추가
+            _equipmentModel.AddEquippedItemList(item);
+            // 선택한 장비를 보유중인 장비 리스트에서 제거
+            _equipmentModel.RemoveEquipmentList(item);
+        }
 
         // 저장
         _equipmentModel.SaveData();
