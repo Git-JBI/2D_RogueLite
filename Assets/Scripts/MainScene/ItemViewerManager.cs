@@ -25,10 +25,9 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
 
         _viewers[0].gameObject.SetActive(true);
 
-        ItemRarity rarity = data.Rarity;
         string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
 
-        _viewers[0].Init(rarity, dataDesc);
+        _viewers[0].Init(data, dataDesc);
     }
 
     public void ShowTen(List<EquipmentItemData> datas)
@@ -39,10 +38,9 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
         {
             _viewers[i].gameObject.SetActive(true);
 
-            ItemRarity rarity = datas[i].Rarity;
             string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(datas[i].ItemID);
 
-            _viewers[i].Init(rarity, dataDesc);
+            _viewers[i].Init(datas[i], dataDesc);
         }
     }
 

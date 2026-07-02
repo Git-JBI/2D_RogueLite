@@ -1,6 +1,6 @@
 {
     "HeroDataName": "00",
-    "Gold": 8168000,
+    "Gold": 8165000,
     "Emerald": 100,
     "UpgradeLevel": [
         10,
@@ -10,7 +10,7 @@
     "MaxStage": 1,
     "SelectStage": 1,
     "UpgradeScroll": [
-        764,
+        762,
         941,
         966,
         1,
@@ -19,7 +19,7 @@
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastDailyResetDate": "2026-07-01",
+    "LastDailyResetDate": "2026-07-02",
     "LastWeeklyResetDate": "2026-06-29",
     "Achievements": [
         {
@@ -30,8 +30,8 @@
         },
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 0,
-            "IsCompleted": false,
+            "Progress": 1,
+            "IsCompleted": true,
             "IsRewardClaimed": false
         },
         {
@@ -48,7 +48,7 @@
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 2,
+            "Progress": 3,
             "IsCompleted": false,
             "IsRewardClaimed": false
         }
@@ -3339,14 +3339,6 @@
             "_itemID": "eq_Belt_03",
             "_equipmentType": 4,
             "_rarity": 3,
-            "_rarityLevel": 1,
-            "_itemLevel": 1
-        },
-        {
-            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
-            "_itemID": "eq_weapon_01",
-            "_equipmentType": 0,
-            "_rarity": 4,
             "_rarityLevel": 1,
             "_itemLevel": 1
         },
@@ -7965,6 +7957,14 @@
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
+        },
+        {
+            "_instanceID": "3cdbec6f-18ca-4baf-b9be-e25560a7e26e",
+            "_itemID": "eq_weapon_01",
+            "_equipmentType": 0,
+            "_rarity": 4,
+            "_rarityLevel": 0,
+            "_itemLevel": 3
         }
     ],
     "EquippedItems": [
@@ -8013,7 +8013,7 @@
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
             "_rarity": 4,
-            "_rarityLevel": 0,
+            "_rarityLevel": 1,
             "_itemLevel": 1
         }
     ]

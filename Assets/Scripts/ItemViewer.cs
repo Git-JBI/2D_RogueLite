@@ -2,23 +2,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemViewer : MonoBehaviour
+public abstract class ItemViewer : MonoBehaviour
 {
     private Image _gradeImage;
     private TextMeshProUGUI _descText;
 
-    public void Init(ItemRarity rarity, string desc)
+    public virtual void Init(EquipmentItemData data, string desc)
     {
         if(!_gradeImage)
             _gradeImage = GetComponentInChildren<Image>();
         if(!_descText)
             _descText = GetComponentInChildren<TextMeshProUGUI>();
 
-        SetGradeColor(rarity);
+        SetGradeColor(data.Rarity);
         SetDescText(desc);
     }
 
-    private void SetGradeColor(ItemRarity rarity)
+    protected void SetGradeColor(ItemRarity rarity)
     {
         switch(rarity)
         {
@@ -43,7 +43,7 @@ public class ItemViewer : MonoBehaviour
         }
     }
 
-    private void SetDescText(string desc)
+    protected void SetDescText(string desc)
     {
         _descText.text = desc;
     }
