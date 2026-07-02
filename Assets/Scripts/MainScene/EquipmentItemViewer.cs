@@ -1,12 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 //TODO EquipmentItemViewer는 ItemViewer를 상속 받은 상태로 써야함
 public class EquipmentItemViewer : ItemViewer
 {
-    [SerializeField] private Image _gradeImage;
-    [SerializeField] private TextMeshProUGUI _descText;
     [SerializeField] private TextMeshProUGUI _rarityLevelText;
     [SerializeField] private TextMeshProUGUI _itemLevelText;
 

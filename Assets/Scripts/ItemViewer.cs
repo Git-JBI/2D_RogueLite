@@ -2,48 +2,47 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ItemViewer : MonoBehaviour
+public class ItemViewer : MonoBehaviour
 {
-    private Image _gradeImage;
-    private TextMeshProUGUI _descText;
+    [SerializeField] private Image _gradeImage;
+    [SerializeField] private TextMeshProUGUI _descText;
+    private SO_RarityImageColorData _colorData;
 
     public virtual void Init(EquipmentItemData data, string desc)
     {
-        if(!_gradeImage)
-            _gradeImage = GetComponentInChildren<Image>();
-        if(!_descText)
-            _descText = GetComponentInChildren<TextMeshProUGUI>();
+        if (!_colorData)
+            _colorData = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/RarityImageColorData/RarityImageColorData") as SO_RarityImageColorData;
 
         SetGradeColor(data.Rarity);
         SetDescText(desc);
     }
 
-    protected void SetGradeColor(ItemRarity rarity)
+    private void SetGradeColor(ItemRarity rarity)
     {
         switch(rarity)
         {
             case ItemRarity.Common:
-                _gradeImage.color = new Color32(161, 165, 190, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.Common];
                 break;
             case ItemRarity.UnCommon:
-                _gradeImage.color = new Color32(150, 255, 0, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.UnCommon];
                 break;
             case ItemRarity.Rare:
-                _gradeImage.color = new Color32(0, 180, 255, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.Rare];
                 break;
             case ItemRarity.Unique:
-                _gradeImage.color = new Color32(203, 36, 254, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.Unique];
                 break;
             case ItemRarity.Epic:
-                _gradeImage.color = new Color32(255, 251, 6, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.Epic];
                 break;
             case ItemRarity.Legendary:
-                _gradeImage.color = new Color32(255, 89, 117, 255);
+                _gradeImage.color = _colorData.Colors[(int)ItemRarity.Legendary];
                 break;
         }
     }
 
-    protected void SetDescText(string desc)
+    private void SetDescText(string desc)
     {
         _descText.text = desc;
     }

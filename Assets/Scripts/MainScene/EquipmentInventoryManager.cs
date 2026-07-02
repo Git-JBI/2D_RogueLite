@@ -46,14 +46,16 @@ public class EquipmentInventoryManager : MonoBehaviour
 
         foreach (EquipmentItemData x in items)
         {
+            GameObject slot = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", transform);
+
             // 장비 아이템 슬롯 생성(이곳으로 부모 설정)
-            EquipmentItemSlot slot = Instantiate(_equipmentSlot, transform);
+            EquipmentItemSlot slotPrefab = slot.GetComponent<EquipmentItemSlot>();
             // 장비 아이템 슬롯 초기화
-            slot.Init(x);
+            slotPrefab.Init(x);
             // 슬롯 이벤트 추가
-            slot.OnItemSlotClicked += OpenPopup;
+            slotPrefab.OnItemSlotClicked += OpenPopup;
             // 슬롯 리스트에 슬롯 추가
-            _slots.Add(slot);
+            _slots.Add(slotPrefab);
         }
     }
 
@@ -64,8 +66,9 @@ public class EquipmentInventoryManager : MonoBehaviour
     {
         foreach(EquipmentItemSlot slot in _slots)
         {
-            // 슬롯 리스트 내에 있는 슬롯 파괴
-            Destroy(slot.gameObject);
+            // 슬롯 리스트 내에 있는 슬롯 풀로 되돌리기
+            PoolingObject poolOb = slot.GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
         }
 
         // 슬롯 리스트 비우기
