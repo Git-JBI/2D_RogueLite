@@ -43,11 +43,6 @@ public class EquipmentMergePresenter : MonoBehaviour
     private List<EquipmentItemSlot> _requireItems = new();
 
     /// <summary>
-    /// 생성해 줄 아이템 슬롯
-    /// </summary>
-    private EquipmentItemSlot _mergeSlotPrefab;
-
-    /// <summary>
     /// 장비 합성 규칙 설정 데이터
     /// </summary>
     private SO_MergeRuleData _mergeRule;
@@ -69,7 +64,6 @@ public class EquipmentMergePresenter : MonoBehaviour
         _model = GameManager.Instance.GameModel.EquipmentModel;
         _requireCount = 0;
 
-        _mergeSlotPrefab = Resources.Load<EquipmentItemSlot>("Prefabs/Slots/ItemSlot");
         _mergeRule = Resources.Load<SO_MergeRuleData>("GameDatas/MergeRuleData/MergeRuleData");
 
         _mergeButton.onClick.AddListener(Merge);
@@ -88,17 +82,22 @@ public class EquipmentMergePresenter : MonoBehaviour
     {
         if (_selectedSlot.gameObject.activeSelf)
             _selectedSlot.gameObject.SetActive(false);
+
         if (_upgradedSlot.gameObject.activeSelf)
             _upgradedSlot.gameObject.SetActive(false);
+
         foreach(EquipmentItemSlot x in _requireItems)
         {
             if(x.gameObject.activeSelf)
                 x.gameObject.SetActive(false);
         }
+
         if (_requireOne.activeSelf)
             _requireOne.gameObject.SetActive(false);
+        
         if (_requireTwo.activeSelf)
             _requireTwo.gameObject.SetActive(false);
+        
         if(_mergeButton.gameObject.activeSelf)
             _mergeButton.gameObject.SetActive(false);
 
@@ -116,9 +115,10 @@ public class EquipmentMergePresenter : MonoBehaviour
         
         _items = _items.
             Where(i => !(i.Rarity == ItemRarity.Legendary && i.RarityLevel == 4)).
-            OrderBy(i => i.EquipmentType).
-            OrderBy(i => i.ItemID).
             OrderByDescending(i => i.Rarity).
+            ThenBy(i => i.EquipmentType).
+            ThenByDescending(i => i.RarityLevel).
+            ThenBy(i => i.ItemID).
             ToList();
     }
     private void CreateAllSlots(IReadOnlyList<EquipmentItemData> items)
@@ -129,7 +129,8 @@ public class EquipmentMergePresenter : MonoBehaviour
         foreach (EquipmentItemData item in items)
         {
             // 머지 아이템 슬롯 생성
-            EquipmentItemSlot slot = Instantiate(_mergeSlotPrefab, _content);
+            GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+            EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
 
             // 초기화
             slot.Init(item);
@@ -240,10 +241,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     }
     private void EmptyRequireItem(EquipmentItemData data)
     {
-        Debug.Log("선택된 재료 아이템 슬롯 비우기");
-
         // 장비 재료 선택 리스트에 추가
-        EquipmentItemSlot slot = Instantiate(_mergeSlotPrefab, _content);
+        GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+        EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
         slot.Init(data);
         slot.OnItemSlotClicked += InitRequireItem;
         _slots.Add(slot);
@@ -297,7 +297,8 @@ public class EquipmentMergePresenter : MonoBehaviour
 
         foreach (EquipmentItemData x in datas)
         {
-            EquipmentItemSlot slot = Instantiate(_mergeSlotPrefab, _content);
+            GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+            EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
 
             slot.Init(x);
 
@@ -351,8 +352,8 @@ public class EquipmentMergePresenter : MonoBehaviour
     {
         foreach(EquipmentItemSlot slot in _slots)
         {
-            // 슬롯 리스트 내의 슬롯 파괴
-            Destroy(slot.gameObject);
+            PoolingObject poolOb = slot.GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
         }
 
         // 슬롯 리스트 비우기

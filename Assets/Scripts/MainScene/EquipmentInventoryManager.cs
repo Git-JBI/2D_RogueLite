@@ -42,13 +42,18 @@ public class EquipmentInventoryManager : MonoBehaviour
     private void InitSlots()
     {
         // 리스트 복제본을 생성 후 1. 장비 아이템 타입에 따라 정렬 2. 타입에 따른 종류에 따라 정렬 3. 레어리티에 따라 정렬
-        var items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems.OrderBy(i => i.EquipmentType).OrderBy(i => i.ItemID).OrderByDescending(i => i.Rarity).ToList();
+        var items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems.
+            OrderByDescending(i => i.Rarity).
+            ThenBy(i => i.EquipmentType).
+            ThenByDescending(i => i.RarityLevel).
+            ThenBy(i => i.ItemID).
+            ToList();
 
         foreach (EquipmentItemData x in items)
         {
+            // 장비 아이템 슬롯 생성(이곳으로 부모 설정)
             GameObject slot = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", transform);
 
-            // 장비 아이템 슬롯 생성(이곳으로 부모 설정)
             EquipmentItemSlot slotPrefab = slot.GetComponent<EquipmentItemSlot>();
             // 장비 아이템 슬롯 초기화
             slotPrefab.Init(x);
