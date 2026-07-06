@@ -32,6 +32,7 @@ public class GameSceneManager : MonoBehaviour
         _achievementManager = GameManager.Instance.AchievementManager;
 
         _gameSceneModel = new GameSceneModel();
+        Debug.Log(_gameModel.SelectStage);
         _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
 
         _isKillCountReported = false;

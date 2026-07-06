@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffa8343429df1c408b40a5b54aa1389, type: 3}
-  m_Name: StageData002
+  m_Name: StageData1
   m_EditorClassIdentifier: 
-  Stage: 2
-  BossSpawnTime: 180
+  Stage: 1
+  StageTimeLimit: 60
+  Enemies:
+  - {fileID: 2865483741860779955, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+  Bosses:
+  - {fileID: 0}

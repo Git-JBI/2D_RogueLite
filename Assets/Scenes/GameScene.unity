@@ -6848,7 +6848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70566eb55fc33664897ea4c29d418708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 2865483741860779955, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
   _boss: {fileID: 8454792514845497883, guid: 98a1a032fa7d31b49b3c499fa559e881, type: 3}
 --- !u!4 &611943853
 Transform:
@@ -21389,7 +21388,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1798230851
 CanvasRenderer:

@@ -10,8 +10,7 @@ public class EnemySpawner : MonoBehaviour
 {
     private List<EnemyController> _enemyPrefabs;
     private Transform _playerTransform;
-    [SerializeField]
-    private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData에서 받아오기
+    [SerializeField] private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData에서 받아오기
 
     private List<EnemyController> _normalEnemies = new();
 

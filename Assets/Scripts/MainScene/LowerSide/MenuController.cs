@@ -26,6 +26,7 @@ public class MenuController : MonoBehaviour
             _buttons[i].Init();
             _buttons[i].OnMenuButtonClicked += MoveMenuPos;
 
+            //TODO 장비 불러오기 변경
             if (i == 1)
             {
                 _buttons[i].OnButtonClicked += _invenManager.Init;
