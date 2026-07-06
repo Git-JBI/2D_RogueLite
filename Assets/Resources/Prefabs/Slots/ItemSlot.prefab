@@ -76,8 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gradeImage: {fileID: 6475092709114476855}
   _descText: {fileID: 5012991034725134350}
-  _itemLevelText: {fileID: 253026201147968337}
   _rarityLevelText: {fileID: 3570119844225800970}
+  _itemLevelText: {fileID: 253026201147968337}
 --- !u!1 &1502197212051241059
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lv.1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}
   m_sharedMaterial: {fileID: -5386956462497973009, guid: 05d5f0167a97a0a47806c2434d3411e1, type: 2}

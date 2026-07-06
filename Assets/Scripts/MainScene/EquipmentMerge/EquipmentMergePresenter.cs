@@ -37,6 +37,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     [Header("# 합성 버튼")]
     [SerializeField] private Button _mergeButton;
 
+    [Header("# 합성 결과 패널")]
+    [SerializeField] private MergeResultViewer _mergeResultViewer;
+
     private EquipmentInventoryManager _inventoryManager;
     private EquipmentModel _model;
     private int _requireCount;
@@ -313,11 +316,27 @@ public class EquipmentMergePresenter : MonoBehaviour
     /// </summary>
     private void Merge()
     {
+        _mergeResultViewer.gameObject.SetActive(true);
+
+        // 메인 슬롯의 업그레이드 결과 불러오기
         MergeRule upgradeData = _mergeRule.GetMergeRule(_selectedSlot.ItemData.Rarity, _selectedSlot.ItemData.RarityLevel);
+
+        // 필요 재료에 따른 결과 창 분기
+        switch (_requireItems.Count)
+        {
+            case 1:
+                _mergeResultViewer.Init(_selectedSlot.ItemData, upgradeData, _requireItems[0].ItemData);
+                break;
+            case 2:
+                _mergeResultViewer.Init(_selectedSlot.ItemData, upgradeData, _requireItems[0].ItemData, _requireItems[1].ItemData);
+                break;
+        }
+
+        // 메인 슬롯 아이템에 업그레이드 결과 적용
         _selectedSlot.ItemData.Rarity = upgradeData.UpgradedRarity;
         _selectedSlot.ItemData.RarityLevel = upgradeData.UpgradedRarityLevel;
 
-        foreach(EquipmentItemSlot x in _requireItems)
+        foreach (EquipmentItemSlot x in _requireItems)
         {
             //TODO 추후 업그레이드 재료로 쓰이는 장비가 레벨업이 되어있는 경우 사용한 재화들 리턴
             _model.RemoveEquipmentList(x.ItemData);
