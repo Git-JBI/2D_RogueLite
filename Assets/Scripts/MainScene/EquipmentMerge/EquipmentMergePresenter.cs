@@ -37,6 +37,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     [Header("# 합성 버튼")]
     [SerializeField] private Button _mergeButton;
 
+    [Header("# 레어이하 모든 아이템 합성 버튼")]
+    [SerializeField] private Button _mergeAllButton;
+
     [Header("# 합성 결과 패널")]
     [SerializeField] private MergeResultViewer _mergeResultViewer;
 
@@ -79,6 +82,15 @@ public class EquipmentMergePresenter : MonoBehaviour
 
         // 슬롯 생성
         CreateAllSlots(_items);
+
+        // 레어 이하 합성 가능한지 여부
+        if (CheckCanMergeUnderRare())
+            _mergeAllButton.gameObject.SetActive(true);
+        else
+            _mergeAllButton.gameObject.SetActive(false);
+
+        // 일괄 합성 버튼에 이벤트 추가
+        _mergeAllButton.onClick.AddListener(MergeAll);
     }
 
     private void OnDisable()
@@ -347,11 +359,86 @@ public class EquipmentMergePresenter : MonoBehaviour
         OnEnable();
     }
 
+    private void MergeAll()
+    {
+        // 기본 티어 장비 설정 데이터
+        var defaultEquipmentConfigs = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas
+            .Where(i => i.ItemTier == ItemTier.Default);
+
+        // 등급별로 순회 (0: Common, 1: UnCommon, 2: Rare)
+        for (int x = 0; x < 3; x++)
+        {
+            ItemRarity currentRarity = (ItemRarity)x;
+
+            // 현재 검사 중인 등급의 아이템만 필터링한 리스트
+            var checkDatas = _items.Where(i => i.Rarity == currentRarity).ToList();
+
+            foreach (SO_EquipmentItemData config in defaultEquipmentConfigs)
+            {
+                // 동일 ID를 가진 장비들만 모은 리스트 생성
+                var sameIdItems = checkDatas.Where(i => i.ItemID == config.Id).ToList();
+
+                // 3개 이상일 때만 합성
+                if (sameIdItems.Count >= 3)
+                {
+                    int mergeCount = sameIdItems.Count / 3;
+
+                    for (int i = 0; i < mergeCount; i++)
+                    {
+                        int baseIndex = i * 3;
+
+                        EquipmentItemData baseItem = sameIdItems[baseIndex];
+                        EquipmentItemData material1 = sameIdItems[baseIndex + 1];
+                        EquipmentItemData material2 = sameIdItems[baseIndex + 2];
+
+                        // 1. 베이스 아이템 등급 상승
+                        baseItem.Rarity += 1;
+
+                        // 2. 원본 모델 리스트에서 재료 아이템 삭제
+                        _model.RemoveEquipmentList(material1);
+                        _model.RemoveEquipmentList(material2);
+                    }
+                }
+            }
+        }
+
+        // 저장
+        _model.SaveData();
+
+        // 목록 리프레시
+        Refresh();
+    }
+
+    private bool CheckCanMergeUnderRare()
+    {
+        // 아이템데이터 리스트
+        IReadOnlyList<SO_EquipmentItemData> equipmentItemDatas = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas;
+        // ItemTier가 Default만 
+        equipmentItemDatas = equipmentItemDatas.Where(i => i.ItemTier == ItemTier.Default).ToList();
+
+        // itemId, Rarity에 따른 개수
+        foreach(SO_EquipmentItemData data in equipmentItemDatas)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                int count = GetEquipmentCount(data.Id, (ItemRarity)i);
+                if (count >= 2)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     private void Refresh()
     {
         SortCanMergeSlots();
 
         CreateAllSlots(_items);
+    }
+
+    private int GetEquipmentCount(string itemId, ItemRarity rarity)
+    {
+        return _items.Count(i => i.ItemID == itemId && i.Rarity == rarity);
     }
 
     private EquipmentItemData GetUpgradedEquipmentData(EquipmentItemData data)
