@@ -90,7 +90,7 @@ public class EquipmentMergePresenter : MonoBehaviour
             _mergeAllButton.gameObject.SetActive(false);
 
         // 일괄 합성 버튼에 이벤트 추가
-        _mergeAllButton.onClick.AddListener(MergeAll);
+        _mergeAllButton.onClick.AddListener(MergeLowRarities);
     }
 
     private void OnDisable()
@@ -359,7 +359,10 @@ public class EquipmentMergePresenter : MonoBehaviour
         OnEnable();
     }
 
-    private void MergeAll()
+    /// <summary>
+    /// 레어등급 이하 아이템들 일괄 합성 기능
+    /// </summary>
+    private void MergeLowRarities()
     {
         // 기본 티어 장비 설정 데이터
         var defaultEquipmentConfigs = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas
@@ -401,7 +404,6 @@ public class EquipmentMergePresenter : MonoBehaviour
                 }
             }
         }
-
         // 저장
         _model.SaveData();
 
@@ -409,6 +411,10 @@ public class EquipmentMergePresenter : MonoBehaviour
         Refresh();
     }
 
+    /// <summary>
+    /// 레어등급 이하 아이템중에서 합성 가능한 아이템이 있는지 체크하는 함수
+    /// </summary>
+    /// <returns></returns>
     private bool CheckCanMergeUnderRare()
     {
         // 아이템데이터 리스트
@@ -444,9 +450,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     private EquipmentItemData GetUpgradedEquipmentData(EquipmentItemData data)
     {
         MergeRule mergeRule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
-        EquipmentItemData returnData = new("", data.ItemID, data.EquipmentType, mergeRule.UpgradedRarity, mergeRule.UpgradedRarityLevel, data.ItemLevel);
-
-        return returnData;
+        data.Rarity = mergeRule.UpgradedRarity;
+        data.RarityLevel = mergeRule.UpgradedRarityLevel;
+        return data;
     }
 
     private int GetRequireCount(EquipmentItemData data)
