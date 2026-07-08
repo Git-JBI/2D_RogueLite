@@ -4,6 +4,7 @@ using UnityEngine;
 public class Pool
 {
     private Stack<GameObject> _pool;
+    private HashSet<GameObject> _outPoolOb;
     private GameObject _prefab;
     private Transform _parent;
 
@@ -18,6 +19,7 @@ public class Pool
         _prefab = prefab;
         _parent = parent;
         _pool = new Stack<GameObject>(initStack);
+        _outPoolOb = new HashSet<GameObject>(initStack);
 
         for(int i = 0; i < initStack; i++)
         {
@@ -62,9 +64,12 @@ public class Pool
         if (_pool.Count == 0)
             CreateObject();             // 새 게임오브젝트 생성
 
+        // 풀에 있는 오브젝트 꺼내오기
         GameObject go = _pool.Pop();
-        go.SetActive(true);
+        // 나가는 오브젝트 관리용 HashSet에 추가
+        _outPoolOb.Add(go);
         go.transform.SetParent(parent);
+        go.SetActive(true);
         return go;
     }
 
@@ -76,6 +81,15 @@ public class Pool
     {
         go.transform.SetParent(_parent);
         go.SetActive(false);
+        _outPoolOb.Remove(go);
         _pool.Push(go);
+    }
+
+    /// <summary>
+    /// 모든 풀에서 팝된 오브젝트들을 풀로 되돌리는 함수
+    /// </summary>
+    public void AllReturnPool()
+    {
+
     }
 }

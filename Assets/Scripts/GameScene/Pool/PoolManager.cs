@@ -35,4 +35,12 @@ public class PoolManager : MonoBehaviour
 
         return pool.Pop(parent);
     }
+
+    public void AllReturnPool()
+    {
+        foreach(var pool in _poolMap.Values)
+        {
+            pool.AllReturnPool();
+        }
+    }
 }
