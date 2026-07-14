@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyDeadState : IState
 {
@@ -17,14 +16,8 @@ public class EnemyDeadState : IState
         // 타이머 초기화
         _timer = 0;
 
-        // 리지드바디 비활성화
-        _enemy.SetRigidbodyActive(false);
-
-        // 콜라이더 비활성화
-        _enemy.SetColliderActive(false);
-
-        // 죽음 애니메이션 트리거실행
-        _enemy.SpriteController.Dead();
+        // 죽음 상태 시작
+        _enemy.EnterDead();
     }
 
     public void OnStateExit()

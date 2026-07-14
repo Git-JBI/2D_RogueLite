@@ -6,7 +6,6 @@
 
     public int EnemyDeadCount => _enemyDeadCount;
     public int StageGold => _stageGold;
-
     public float StageTime => _stageTime;
 
     public void IncreaseEnemyDeadCount(int count)

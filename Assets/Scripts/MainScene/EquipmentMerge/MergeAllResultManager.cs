@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MergeAllResultManager : MonoBehaviour
 {
-    
     [SerializeField] private Transform _content;
     private EquipmentItemSlot _itemSlot;
 
@@ -13,6 +12,7 @@ public class MergeAllResultManager : MonoBehaviour
 
     private void Awake()
     {
+        // 생성할 슬롯(?) -> 풀링으로 변경
         _itemSlot = Resources.Load<EquipmentItemSlot>("Prefabs/Slots/ItemSlot");
     }
 
@@ -25,8 +25,6 @@ public class MergeAllResultManager : MonoBehaviour
         }
 
         // 텍스트 비활성화
-
-        // 패널 닫는 버튼 이벤트 비우기
 
         // 패널 끄기
         gameObject.SetActive(false);
@@ -51,6 +49,9 @@ public class MergeAllResultManager : MonoBehaviour
 
     private IEnumerator ShowCoroutine(List<EquipmentItemData> items)
     {
+        // 탭하면 닫는 텍스트 활성화
+        // 외각 터치 시 패널을 닫는 이벤트 추가 <-- Awake로 변경해도 될듯
+
         // 받아온 아이템들 슬롯에 적용
         for (int i = 0; i < items.Count; i++)
         {
@@ -65,9 +66,5 @@ public class MergeAllResultManager : MonoBehaviour
             // 0.2초 대기
             yield return new WaitForSeconds(0.2f);
         }
-        
-        // 탭하면 닫는 텍스트 활성화
-
-        // 외각 터치 시 패널을 닫는 이벤트 추가
     }
 }

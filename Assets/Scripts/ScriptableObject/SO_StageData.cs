@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameDatas/StageData", fileName = "StageData")]
 public class SO_StageData : ScriptableObject
 {
-    public int Stage;
-    public float StageTimeLimit;
-
-    public List<EnemyController> Enemies = new();
+    private float _stagePlayTime;
     
-    public List<EnemyController> Bosses = new();
+    private List<NormalEnemyController> _normalEnemies = new();
+    private List<BossEnemyController> _bossEnemies = new();
+
+    public float StagePlayTime => _stagePlayTime;
+
+    public IReadOnlyList<NormalEnemyController> NormalEnemies => _normalEnemies;
+    public IReadOnlyList<BossEnemyController> BossEnemies => _bossEnemies;
 }

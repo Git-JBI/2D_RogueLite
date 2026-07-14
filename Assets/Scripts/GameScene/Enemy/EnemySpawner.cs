@@ -25,10 +25,9 @@ public class EnemySpawner : MonoBehaviour
         _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
-    public void Init(Transform transform, List<EnemyController> enemyPrefabs)
+    public void Init(int stage, Transform transform)
     {
         _playerTransform = transform;
-        _enemyPrefabs = enemyPrefabs;
     }
 
     public void BurstSpawnEnemy(int count, int enemyCount)
@@ -57,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
 
-            //TODO 적 생성시간 추후 수정(스테이지마다 다를지 고정으로 할지 생각)
             yield return new WaitForSeconds(0.5f);
         }
     }

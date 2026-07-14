@@ -13,7 +13,9 @@ public class GameSceneManager : MonoBehaviour
 
     private GameSceneModel _gameSceneModel;
     private SO_StageData _stageData;
-    
+
+    private int _stage;
+
     private bool _isKillCountReported;
     private bool _isBossSpawn;
     private bool _isFirstBurstStarted;
@@ -32,7 +34,7 @@ public class GameSceneManager : MonoBehaviour
         _achievementManager = GameManager.Instance.AchievementManager;
 
         _gameSceneModel = new GameSceneModel();
-        Debug.Log(_gameModel.SelectStage);
+        _stage = _gameModel.SelectStage;
         _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
 
         _isKillCountReported = false;
@@ -69,7 +71,7 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnDead += PlayerDead;
 
         _heroController.Init();
-        _enemySpawner.Init(_heroController.transform,_stageData.Enemies);
+        _enemySpawner.Init(_stage, _heroController.transform);
     }
 
     /// <summary>
@@ -80,7 +82,7 @@ public class GameSceneManager : MonoBehaviour
         if (_isBossSpawn)
             return;
 
-        if (_gameSceneModel.StageTime <= _stageData.StageTimeLimit)
+        if (_gameSceneModel.StageTime <= _stageData.StagePlayTime)
         {
             _gameSceneModel.IncreaseStageTime(Time.deltaTime);
             _ui.SetTimeText(_gameSceneModel.StageTime);
@@ -94,14 +96,14 @@ public class GameSceneManager : MonoBehaviour
         }
 
         // 첫번째 물량 공세 체크
-        if(_gameSceneModel.StageTime >= _stageData.StageTimeLimit / 3 && !_isFirstBurstStarted)
+        if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 && !_isFirstBurstStarted)
         {
             _isFirstBurstStarted = true;
             // 물량 공세 이벤트 발행
             OnBurstStarted?.Invoke(3, 40);
         }
         // 두번째 물량 공세 체크
-        if(_gameSceneModel.StageTime >= _stageData.StageTimeLimit / 3 * 2 && !_isSecondBurstStarted)
+        if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 * 2 && !_isSecondBurstStarted)
         {
             _isSecondBurstStarted = true;
             // 물량 공세 이벤트 발행

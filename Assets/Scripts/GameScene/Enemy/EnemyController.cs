@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// 플레이어의 방향을 구하는함수
+    /// 플레이어쪽 방향을 구하는함수
     /// </summary>
     /// <returns>플레이어 방향 vector2</returns>
     public Vector2 DirToTarget()
@@ -83,19 +83,19 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// 리지드바디 상태 설정 함수
+    /// 리지드바디 활성화 설정 함수
     /// </summary>
     /// <param name="value"></param>
-    public void SetRigidbodyActive(bool value)
+    private void SetRigidbodyActive(bool value)
     {
         _rigidbody.simulated = value;
     }
 
     /// <summary>
-    /// 콜라이더 상태 설정 함수
+    /// 콜라이더 활성화 설정 함수
     /// </summary>
     /// <param name="x"></param>
-    public void SetColliderActive(bool x)
+    private void SetColliderActive(bool x)
     {
         _collider.enabled = x;
     }
@@ -108,6 +108,17 @@ public class EnemyController : MonoBehaviour, IDamageable
     public void Stop()
     {
         _movement.Move(Vector2.zero, 0);
+    }
+    public void EnterDead()
+    {
+        // 리지드바디 비활성화
+        SetRigidbodyActive(false);
+
+        // 콜라이더 비활성화
+        SetColliderActive(false);
+
+        // 죽음 애니메이션 트리거실행
+        SpriteController.Dead();
     }
     public void Dead()
     {
@@ -140,7 +151,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         item.Init(transform.position);
     }
 
-    //TODO 계속 플레이어와 맞닿아 있는 경우 데미지
+    //TODO 계속 플레이어와 맞닿아 있는 경우 데미지 < OnCollisionEnter2D, Stay2D 2종류 다 써야 할 듯 attackTimer 추가
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -150,6 +161,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
     }
 
+    #region Interface
     public void TakeDamage(float damage)
     {
         _model.TakeDamage(damage);
@@ -163,4 +175,5 @@ public class EnemyController : MonoBehaviour, IDamageable
             ChangeState(_damagedState);
         }
     }
+    #endregion
 }
