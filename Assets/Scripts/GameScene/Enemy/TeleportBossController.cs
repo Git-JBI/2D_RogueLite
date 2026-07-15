@@ -2,32 +2,26 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TeleportEnemyController : MonoBehaviour, IDamageable
+public class TeleportBossController : BossEnemyController
 {
     [SerializeField] private GameObject _enemyBody;
 
     private Transform _target;
-    private EnemyModel _model;
-    private EnemySpriteController _spriteController;
     private Rigidbody2D _rigid;
-    private Collider2D _collider;
 
     private Coroutine _teleportCoroutine;
 
-    private IState _curState;
-
     public event UnityAction OnDead;
 
-    private TeleportEnemyIdleState _idleState;
+    private TeleportBossIdleState _idleState;
     private TeleportEnemyTeleportState _teleportState;
-    private TeleportEnemyDeadState _deadState;
 
-    public TeleportEnemyIdleState IdleState => _idleState;
+    public TeleportBossIdleState IdleState => _idleState;
     public TeleportEnemyTeleportState TeleportState => _teleportState;
 
     public EnemySpriteController SpriteController => _spriteController;
 
-    private void Awake()
+    protected override void Awake()
     {
         _model = GetComponent<EnemyModel>();
         _rigid = GetComponent<Rigidbody2D>();
@@ -35,12 +29,8 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         _spriteController = GetComponentInChildren<EnemySpriteController>();
         _collider = GetComponentInChildren<Collider2D>();
 
-        _idleState = new TeleportEnemyIdleState(this);
+        _idleState = new TeleportBossIdleState(this);
         _teleportState = new TeleportEnemyTeleportState(this);
-        _deadState = new TeleportEnemyDeadState(this);
-
-        //TODO 추후 spawner에서
-        _model.Init();
 
         ChangeState(_idleState);
     }
@@ -53,41 +43,6 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
     public void Init(Transform target)
     {
         _target = target;
-    }
-
-    /// <summary>
-    /// 상태변화 함수
-    /// </summary>
-    /// <param name="state">설정할 상태</param>
-    public void ChangeState(IState state)
-    {
-        if (_curState == _deadState)
-            return;
-
-        if (_curState != null)
-            _curState.OnStateExit();
-
-        _curState = state;
-
-        _curState.OnStateEnter();
-    }
-
-    /// <summary>
-    /// 리지드바디 활성화 설정
-    /// </summary>
-    /// <param name="x"></param>
-    public void SetRigidbodyActive(bool x)
-    {
-        _rigid.simulated = x;
-    }
-
-    /// <summary>
-    /// 콜라이더 활성화 설정
-    /// </summary>
-    /// <param name="x"></param>
-    public void SetColliderActive(bool x)
-    {
-        _collider.enabled = x;
     }
 
     /// <summary>
@@ -107,30 +62,10 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         StopCoroutine(_teleportCoroutine);
 
         // 리지드바디 켜기
-        SetRigidbodyActive(true);
+        SetRigidBodyActive(true);
 
         // 콜라이더 켜기
         SetColliderActive(true);
-    }
-
-    public void Dead()
-    {
-        // 죽음 이벤트 실행
-        OnDead?.Invoke();
-
-        // 현재 상태 비우기
-        _curState = null;
-
-        // 이벤트 비우기
-        OnDead = null;
-
-        // 제거
-        PoolingObject poolOb = GetComponent<PoolingObject>();
-
-        if (poolOb)
-            poolOb.ReturnToPool();
-        else
-            Destroy(gameObject);
     }
 
     /// <summary>
@@ -183,7 +118,7 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         // 텔레포트할 랜덤한 위치(플레이어 캐릭터 기준)
         Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_target.transform.position;
         // 리지드바디 끄기
-        SetRigidbodyActive(false);
+        SetRigidBodyActive(false);
         // 콜라이더 끄기
         SetColliderActive(false);
         // 본체 위치 상승
@@ -207,19 +142,8 @@ public class TeleportEnemyController : MonoBehaviour, IDamageable
         ChangeState(_idleState);
     }
 
-    #region Interface
-    public void TakeDamage(float damage)
+    public override void ExitDamaged()
     {
-        _model.TakeDamage(damage);
 
-        if(_model.CurHp <= 0)
-        {
-            ChangeState(_deadState);
-        }
-        else
-        {
-            _spriteController.Damaged();
-        }
     }
-    #endregion
 }

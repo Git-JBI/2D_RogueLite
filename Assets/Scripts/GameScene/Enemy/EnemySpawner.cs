@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 적을 스폰
+/// 적을 스폰하는 클래스
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    private List<EnemyController> _enemyPrefabs;
     private Transform _playerTransform;
-    [SerializeField] private TeleportEnemyController _boss;  //TODO GameSceneManager _stageData에서 받아오기
+    private SO_StageData _stageConfigData;
 
-    private List<EnemyController> _normalEnemies = new();
+    private List<MinionEnemyController> _minionEnemies;
+
+    private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
+    private IReadOnlyList<BossEnemyController> _bossEnemiePrefabs;
 
     public event UnityAction OnEnemyDead;
     public event UnityAction OnBossDead;
@@ -27,6 +29,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void Init(int stage, Transform transform)
     {
+        _stageConfigData = GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/StageData/StageData{stage}") as SO_StageData;
+        _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
+        _bossEnemiePrefabs = _stageConfigData.BossEnemies;
         _playerTransform = transform;
     }
 
@@ -40,14 +45,14 @@ public class EnemySpawner : MonoBehaviour
         // 일반 적 코루틴 정지
         StopCoroutine(_spawnRoutine);
 
-        // 보스 소환
-        TeleportEnemyController boss = Instantiate(_boss);
+        // 보스 소환 (보스리스트의 갯수 - 1)
+        BossEnemyController boss = Instantiate(_bossEnemiePrefabs[_bossEnemiePrefabs.Count - 1]);
 
         // 보스 초기화
-        boss.Init(_playerTransform);
+        boss.Init(_playerTransform, RandomSpawnPosition());
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
-        boss.OnDead += BossDead;
+        boss.OnBossDead += BossDead;
     }
 
     private IEnumerator SpawnCoroutine()
@@ -65,16 +70,14 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     private void SpawnEnemy()
     {
-        GameObject enemy;
+        GameObject enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
 
-        enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
-
-        EnemyController enemyController = enemy.GetComponent<EnemyController>();
+        MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
         enemyController.Init(_playerTransform, RandomSpawnPosition());
-        enemyController.OnDead += EnemyDead;
+        enemyController.OnMinionEnemyDead += EnemyDead;
 
-        _normalEnemies.Add(enemyController);
+        _minionEnemies.Add(enemyController);
     }
 
     /// <summary>
@@ -100,10 +103,10 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// 적 사망 시 호출할 함수
     /// </summary>
-    private void EnemyDead(EnemyController enemyController)
+    private void EnemyDead(MinionEnemyController enemyController)
     {
         // 스폰된 적 리스트에서 제거
-        _normalEnemies.Remove(enemyController);
+        _minionEnemies.Remove(enemyController);
 
         // 적 죽을 시 이벤트 발행
         OnEnemyDead?.Invoke();

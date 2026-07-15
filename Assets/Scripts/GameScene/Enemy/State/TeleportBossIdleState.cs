@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class TeleportEnemyIdleState : IState
+public class TeleportBossIdleState : IState
 {
-    private TeleportEnemyController _controller;
+    private TeleportBossController _controller;
 
     private float _timer;
     private bool _isAttackTime;
 
-    public TeleportEnemyIdleState(TeleportEnemyController controller)
+    public TeleportBossIdleState(TeleportBossController controller)
     {
         _controller = controller;
     }

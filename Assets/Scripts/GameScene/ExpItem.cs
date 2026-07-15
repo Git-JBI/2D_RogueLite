@@ -12,7 +12,7 @@ public class ExpItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Magnatic"))
         {
-            Iitemable itemable = collision.gameObject.GetComponentInParent<Iitemable>();
+            IItem itemable = collision.gameObject.GetComponentInParent<IItem>();
 
             itemable.GetExpItem(10);
 

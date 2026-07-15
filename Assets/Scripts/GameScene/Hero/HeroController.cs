@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.U2D.Animation;
 
-public class HeroController : MonoBehaviour, IDamageable, Iitemable
+public class HeroController : MonoBehaviour, IDamageable, IItem
 {
     private RigidMovement _movement;
     private HeroModel _heromodel;

@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
 
-public class RigidMovement : MonoBehaviour
+public class RigidMovement
 {
     private Rigidbody2D _rigid;
-
-    private void Awake()
+    public RigidMovement(Rigidbody2D rigid)
     {
-        _rigid = GetComponent<Rigidbody2D>();
-    }
-
-    public void SetActive(bool x)
-    {
-        _rigid.simulated = x;
+        _rigid = rigid;
     }
 
     public void Move(Vector2 inputAxis, float moveSpeed)

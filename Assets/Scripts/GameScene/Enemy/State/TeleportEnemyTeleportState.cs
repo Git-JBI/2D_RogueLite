@@ -2,9 +2,9 @@
 
 public class TeleportEnemyTeleportState : IState
 {
-    private TeleportEnemyController _controller;
+    private TeleportBossController _controller;
 
-    public TeleportEnemyTeleportState(TeleportEnemyController controller)
+    public TeleportEnemyTeleportState(TeleportBossController controller)
     {
         _controller = controller;
     }

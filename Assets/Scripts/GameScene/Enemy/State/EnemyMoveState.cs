@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-
-public class EnemyMoveState : IState
+﻿public class EnemyMoveState : IState
 {
-    private EnemyController _enemy;
+    private MoveEnemyController _enemy;
 
-    public EnemyMoveState(EnemyController enemy)
+    public EnemyMoveState(MoveEnemyController enemy)
     {
         _enemy = enemy;
     }

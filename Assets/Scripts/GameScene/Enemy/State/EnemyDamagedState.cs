@@ -2,30 +2,31 @@
 
 public class EnemyDamagedState : IState
 {
-    private EnemyController _enemy;
+    private EnemyControllerBase _enemy;
 
     private float _timer;
 
-    public EnemyDamagedState(EnemyController enemy)
+    public EnemyDamagedState(EnemyControllerBase enemy)
     {
         _enemy = enemy;
     }
 
     public void OnStateEnter()
     {
-        _enemy.SpriteController.Damaged();
+        _enemy.EnterDamaged();
     }
 
     public void OnStateExit()
     {
+        // 타이머 초기화
         _timer = 0.0f;
     }
 
     public void OnStateUpdate()
     {
-        if (_timer < 0.2f)
-            _timer += Time.deltaTime;
-        else
-            _enemy.ChangeState(_enemy.MoveState);
+        _timer += Time.deltaTime;
+
+        if (_timer > 0.2f)
+            _enemy.ExitDamaged();
     }
 }

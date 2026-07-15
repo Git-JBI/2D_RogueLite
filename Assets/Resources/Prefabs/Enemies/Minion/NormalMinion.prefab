@@ -289,12 +289,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1218017799556201919}
-  - component: {fileID: 2865483741860779955}
+  - component: {fileID: 3928593005986539960}
   - component: {fileID: 2735973943919985587}
   - component: {fileID: 6173500794798897868}
   - component: {fileID: 1002657539062586766}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: NormalMinion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ Transform:
   - {fileID: 1771394206771281359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2865483741860779955
+--- !u!114 &3928593005986539960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7345475044060265913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24358e2e6a23384db844bb269285f76, type: 3}
+  m_Script: {fileID: 11500000, guid: b2708866b473cf64681aa4ae849c1b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2735973943919985587

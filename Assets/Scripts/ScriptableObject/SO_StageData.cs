@@ -7,11 +7,11 @@ public class SO_StageData : ScriptableObject
 {
     private float _stagePlayTime;
     
-    private List<NormalEnemyController> _normalEnemies = new();
+    private List<MinionEnemyController> _minionEnemies = new();
     private List<BossEnemyController> _bossEnemies = new();
 
     public float StagePlayTime => _stagePlayTime;
 
-    public IReadOnlyList<NormalEnemyController> NormalEnemies => _normalEnemies;
+    public IReadOnlyList<MinionEnemyController> MinionEnemies => _minionEnemies;
     public IReadOnlyList<BossEnemyController> BossEnemies => _bossEnemies;
 }

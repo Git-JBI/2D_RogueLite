@@ -2,11 +2,11 @@
 
 public class TeleportEnemyDeadState : IState
 {
-    private TeleportEnemyController _controller;
+    private EnemyControllerBase _controller;
 
     private float _timer;
 
-    public TeleportEnemyDeadState(TeleportEnemyController controller)
+    public TeleportEnemyDeadState(EnemyControllerBase controller)
     {
         _controller = controller;
     }
@@ -17,13 +17,14 @@ public class TeleportEnemyDeadState : IState
         _timer = 0;
 
         // 리지드바디 비활성화
-        _controller.SetRigidbodyActive(false);
-
+        _controller.SetRigidBodyActive(false);
+        
         // 콜라이더 비활성화
         _controller.SetColliderActive(false);
-
+        
+        //TODO 변경 필요
         // 죽음 애니메이션 실행
-        _controller.SpriteController.Dead();
+        // _controller.SpriteController.Dead();
     }
 
     public void OnStateExit()

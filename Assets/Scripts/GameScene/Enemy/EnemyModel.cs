@@ -11,13 +11,12 @@ public class EnemyModel : MonoBehaviour
     public float MoveSpeed => _moveSpeed;
     public float Damage => _damage;
 
-    public void Init()
+    public EnemyModel(float maxHp, float curHp, float moveSpeed, float damage, int mul)
     {
-        //TODO 값 따로 설정
-        _maxHp = 30;
-        _curHp = _maxHp;
-        _moveSpeed = 1;
-        _damage = 3;
+        _maxHp = maxHp;
+        _curHp = curHp;
+        _moveSpeed = moveSpeed;
+        _damage = damage;
     }
 
     public void TakeDamage(float damage)

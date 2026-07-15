@@ -40,8 +40,8 @@ public class EquipmentMergePresenter : MonoBehaviour
     [Header("# 레어이하 모든 아이템 합성 버튼")]
     [SerializeField] private Button _mergeAllButton;
 
-    [Header("# 합성 결과 패널")]
-    [SerializeField] private MergeResultViewer _mergeResultViewer;
+    private MergeResultViewer _mergeResultViewer;
+    private MergeAllResultManager _mergeAllResult;
 
     private EquipmentInventoryManager _inventoryManager;
     private EquipmentModel _model;
@@ -67,12 +67,18 @@ public class EquipmentMergePresenter : MonoBehaviour
     {
         _inventoryManager = FindAnyObjectByType<EquipmentInventoryManager>();
 
+        _mergeResultViewer = GetComponentInChildren<MergeResultViewer>(true);
+        _mergeAllResult = GetComponentInChildren<MergeAllResultManager>(true);
+
         _model = GameManager.Instance.GameModel.EquipmentModel;
         _requireCount = 0;
 
         _mergeRule = Resources.Load<SO_MergeRuleData>("GameDatas/MergeRuleData/MergeRuleData");
 
         _mergeButton.onClick.AddListener(Merge);
+
+        // 일괄 합성 버튼에 이벤트 추가
+        _mergeAllButton.onClick.AddListener(MergeLowRarities);
     }
 
     private void OnEnable()
@@ -88,9 +94,6 @@ public class EquipmentMergePresenter : MonoBehaviour
             _mergeAllButton.gameObject.SetActive(true);
         else
             _mergeAllButton.gameObject.SetActive(false);
-
-        // 일괄 합성 버튼에 이벤트 추가
-        _mergeAllButton.onClick.AddListener(MergeLowRarities);
     }
 
     private void OnDisable()
@@ -364,6 +367,9 @@ public class EquipmentMergePresenter : MonoBehaviour
     /// </summary>
     private void MergeLowRarities()
     {
+        // 합성한 아이템들을 담아둘 List
+        List<EquipmentItemData> itemList = new();
+
         // 기본 티어 장비 설정 데이터
         var defaultEquipmentConfigs = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas
             .Where(i => i.ItemTier == ItemTier.Default);
@@ -400,6 +406,15 @@ public class EquipmentMergePresenter : MonoBehaviour
                         // 2. 원본 모델 리스트에서 재료 아이템 삭제
                         _model.RemoveEquipmentList(material1);
                         _model.RemoveEquipmentList(material2);
+
+                        // 3. 합성한 아이템 리스트에 추가
+                        itemList.Add(baseItem);
+
+                        // 4. 합성한 아이템 리스트에 포함되어있는 경우 제거
+                        if (itemList.Contains(material1))
+                            itemList.Remove(material1);
+                        if (itemList.Contains(material2))
+                            itemList.Remove(material2);
                     }
                 }
             }
@@ -407,6 +422,12 @@ public class EquipmentMergePresenter : MonoBehaviour
         // 저장
         _model.SaveData();
 
+        // 합성 결과 활성화
+        _mergeAllResult.gameObject.SetActive(true);
+
+        // 합성 결과 초기화
+        _mergeAllResult.ShowResult(itemList);
+        
         // 목록 리프레시
         Refresh();
     }
@@ -428,7 +449,7 @@ public class EquipmentMergePresenter : MonoBehaviour
             for(int i = 0; i < 3; i++)
             {
                 int count = GetEquipmentCount(data.Id, (ItemRarity)i);
-                if (count >= 2)
+                if (count >= 3)
                     return true;
             }
         }
@@ -440,13 +461,30 @@ public class EquipmentMergePresenter : MonoBehaviour
         SortCanMergeSlots();
 
         CreateAllSlots(_items);
+
+        // 레어 이하 합성 가능한지 여부
+        if (CheckCanMergeUnderRare())
+            _mergeAllButton.gameObject.SetActive(true);
+        else
+            _mergeAllButton.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// 레어리티와 아이템 종류가 같은 아이템의 갯수를 가져오는 함수
+    /// </summary>
+    /// <param name="itemId"></param>
+    /// <param name="rarity"></param>
+    /// <returns></returns>
     private int GetEquipmentCount(string itemId, ItemRarity rarity)
     {
         return _items.Count(i => i.ItemID == itemId && i.Rarity == rarity);
     }
 
+    /// <summary>
+    /// 업그레이드된 장비 데이터를 가져오는 함수
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
     private EquipmentItemData GetUpgradedEquipmentData(EquipmentItemData data)
     {
         MergeRule mergeRule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);

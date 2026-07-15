@@ -14,8 +14,6 @@ public class GameSceneManager : MonoBehaviour
     private GameSceneModel _gameSceneModel;
     private SO_StageData _stageData;
 
-    private int _stage;
-
     private bool _isKillCountReported;
     private bool _isBossSpawn;
     private bool _isFirstBurstStarted;
@@ -33,9 +31,8 @@ public class GameSceneManager : MonoBehaviour
         _gameModel = GameManager.Instance.GameModel;
         _achievementManager = GameManager.Instance.AchievementManager;
 
-        _gameSceneModel = new GameSceneModel();
-        _stage = _gameModel.SelectStage;
-        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
+        _gameSceneModel = new GameSceneModel(_gameModel.SelectStage);
+        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameSceneModel.Stage}");
 
         _isKillCountReported = false;
         _isBossSpawn = false;
@@ -71,7 +68,7 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnDead += PlayerDead;
 
         _heroController.Init();
-        _enemySpawner.Init(_stage, _heroController.transform);
+        _enemySpawner.Init(_gameSceneModel.Stage, _heroController.transform);
     }
 
     /// <summary>
