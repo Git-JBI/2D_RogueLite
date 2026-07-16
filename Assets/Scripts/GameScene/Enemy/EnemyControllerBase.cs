@@ -110,6 +110,8 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         _spriteController.Damaged();
     }
 
+    protected abstract void SetStartState();
+
     //TODO 계속 플레이어와 맞닿아 있는 경우 데미지 <= OnCollisionEnter2D, Stay2D 2종류 다 써야 할 듯 attackTimer 추가
     private void OnCollisionEnter2D(Collision2D collision)
     {

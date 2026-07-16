@@ -14,7 +14,8 @@ public class EnemySpawner : MonoBehaviour
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
 
-    private List<SO_EnemyData> _enemiesConfigData = new();
+    private List<SO_EnemyData> _minionsConfigData = new();
+    private List<SO_EnemyData> _bossConfigData = new();
     private List<MinionEnemyController> _minionEnemies = new();
 
     private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
@@ -35,8 +36,10 @@ public class EnemySpawner : MonoBehaviour
 
         for(int i = 0; i < _minionEnemiePrefabs.Count; i++)
         {
-            _enemiesConfigData.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionEnemiePrefabs[i].name}ConfigData") as SO_EnemyData);
+            _minionsConfigData.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionEnemiePrefabs[i].name}ConfigData") as SO_EnemyData);
         }
+        //TODO 보스 데이터 받아오기
+        // for(int i = 0; i < _)
 
         _playerTransform = transform;
 
@@ -85,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, RandomSpawnPosition(), _enemiesConfigData[index], _stage);
+        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage);
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);

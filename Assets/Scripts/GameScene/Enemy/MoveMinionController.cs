@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class MoveMinionController : MinionEnemyController
 {
     private NormalMovement _movement;
@@ -18,5 +16,10 @@ public class MoveMinionController : MinionEnemyController
     protected override void SetStartState()
     {
         _curState = _moveState;
+    }
+
+    public override void FinishDamageState()
+    {
+        ChangeState(_moveState);
     }
 }

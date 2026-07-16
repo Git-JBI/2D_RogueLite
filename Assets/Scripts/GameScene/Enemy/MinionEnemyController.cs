@@ -3,7 +3,16 @@ using UnityEngine.Events;
 
 public abstract class MinionEnemyController : EnemyControllerBase
 {
+    private MinionDamagedState _damagedState;
+
     public event UnityAction<MinionEnemyController> OnMinionEnemyDead;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _damagedState = new MinionDamagedState(this);
+    }
 
     public void Init(Transform target, Vector2 spawnPos, SO_EnemyData data, int stage)
     {
@@ -41,7 +50,15 @@ public abstract class MinionEnemyController : EnemyControllerBase
         poolOb.ReturnToPool();
     }
 
-    protected abstract void SetStartState();
+    protected override void Damaged()
+    {
+        base.Damaged();
+
+        ChangeState(_damagedState);
+    }
+
+    
+    public abstract void FinishDamageState();
 
     //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률)
     /// <summary>

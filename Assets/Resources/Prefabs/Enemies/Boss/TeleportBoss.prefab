@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 771274465564795589}
   - component: {fileID: 8092722054864712698}
   m_Layer: 6
-  m_Name: TeleportEnemy
+  m_Name: TeleportBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

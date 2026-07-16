@@ -4,45 +4,19 @@ using UnityEngine.Events;
 
 public class TeleportBossController : BossEnemyController
 {
-    [SerializeField] private GameObject _enemyBody;
-
-    private Transform _target;
-    private Rigidbody2D _rigid;
+    private Transform _transform;
 
     private Coroutine _teleportCoroutine;
-
-    public event UnityAction OnDead;
 
     private TeleportBossIdleState _idleState;
     private TeleportEnemyTeleportState _teleportState;
 
-    public TeleportBossIdleState IdleState => _idleState;
-    public TeleportEnemyTeleportState TeleportState => _teleportState;
-
     public EnemySpriteController SpriteController => _spriteController;
 
     protected override void Awake()
-    {
-        _model = GetComponent<EnemyModel>();
-        _rigid = GetComponent<Rigidbody2D>();
-
-        _spriteController = GetComponentInChildren<EnemySpriteController>();
-        _collider = GetComponentInChildren<Collider2D>();
-
+    { 
         _idleState = new TeleportBossIdleState(this);
         _teleportState = new TeleportEnemyTeleportState(this);
-
-        ChangeState(_idleState);
-    }
-
-    private void Update()
-    {
-        _curState.OnStateUpdate();
-    }
-
-    public void Init(Transform target)
-    {
-        _target = target;
     }
 
     /// <summary>
@@ -52,7 +26,6 @@ public class TeleportBossController : BossEnemyController
     {
         _teleportCoroutine = StartCoroutine(TeleportRoutine());
     }
-
     /// <summary>
     /// 텔레포트 끝
     /// </summary>
@@ -66,6 +39,14 @@ public class TeleportBossController : BossEnemyController
 
         // 콜라이더 켜기
         SetColliderActive(true);
+    }
+    public void FinishIdle()
+    {
+        ChangeState(_teleportState);
+    }
+    protected override void SetStartState()
+    {
+        ChangeState(_idleState);
     }
 
     /// <summary>
@@ -116,13 +97,13 @@ public class TeleportBossController : BossEnemyController
         float downSpeed = 1;
         float timer = 0;
         // 텔레포트할 랜덤한 위치(플레이어 캐릭터 기준)
-        Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_target.transform.position;
+        Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_heroTransform.transform.position;
         // 리지드바디 끄기
         SetRigidBodyActive(false);
         // 콜라이더 끄기
         SetColliderActive(false);
         // 본체 위치 상승
-        _enemyBody.transform.localPosition = Vector3.up * 3;
+        _transform.localPosition = Vector3.up * 3;
         // 적 위치 변경
         transform.position = teleportPos;
 
@@ -131,12 +112,12 @@ public class TeleportBossController : BossEnemyController
         {
             timer += Time.deltaTime;
             downSpeed += Time.deltaTime * 5;
-            _enemyBody.transform.localPosition = Vector2.MoveTowards(_enemyBody.transform.localPosition, Vector2.zero, downSpeed * Time.deltaTime);
+            _transform.localPosition = Vector2.MoveTowards(_transform.localPosition, Vector2.zero, downSpeed * Time.deltaTime);
             yield return null;
         }
         
         // 본체의 위치 0,0,0으로 조정
-        _enemyBody.transform.localPosition = Vector3.zero;
+        _transform.localPosition = Vector3.zero;
 
         // Idle상태 진입
         ChangeState(_idleState);

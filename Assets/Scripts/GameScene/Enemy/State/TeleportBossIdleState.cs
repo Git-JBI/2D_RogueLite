@@ -35,7 +35,7 @@ public class TeleportBossIdleState : IState
         
         if(_timer >= 5.0f)
         {
-            _controller.ChangeState(_controller.TeleportState);
+            _controller.FinishIdle();
         }
     }
 }
