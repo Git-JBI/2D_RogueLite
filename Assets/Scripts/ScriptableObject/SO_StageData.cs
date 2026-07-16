@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameDatas/StageData", fileName = "StageData")]
 public class SO_StageData : ScriptableObject
 {
-    private float _stagePlayTime;
-    
-    private List<MinionEnemyController> _minionEnemies = new();
-    private List<BossEnemyController> _bossEnemies = new();
+    [SerializeField] private float _stagePlayTime;
+
+    [SerializeField] private List<MinionEnemyController> _minionEnemies;
+    [SerializeField] private List<BossEnemyController> _bossEnemies;
 
     public float StagePlayTime => _stagePlayTime;
 

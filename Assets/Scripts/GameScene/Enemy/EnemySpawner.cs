@@ -8,10 +8,14 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
+    private System.Random _random = new System.Random();
+
+    private int _stage;
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
 
-    private List<MinionEnemyController> _minionEnemies;
+    private List<SO_EnemyData> _enemiesConfigData = new();
+    private List<MinionEnemyController> _minionEnemies = new();
 
     private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
     private IReadOnlyList<BossEnemyController> _bossEnemiePrefabs;
@@ -22,17 +26,21 @@ public class EnemySpawner : MonoBehaviour
     private Coroutine _spawnRoutine;
     private Coroutine _burstSpawnRoutine;
 
-    private void Start()
-    {
-        _spawnRoutine = StartCoroutine(SpawnCoroutine());
-    }
-
     public void Init(int stage, Transform transform)
     {
+        _stage = stage;
         _stageConfigData = GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/StageData/StageData{stage}") as SO_StageData;
         _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
         _bossEnemiePrefabs = _stageConfigData.BossEnemies;
+
+        for(int i = 0; i < _minionEnemiePrefabs.Count; i++)
+        {
+            _enemiesConfigData.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionEnemiePrefabs[i].name}ConfigData") as SO_EnemyData);
+        }
+
         _playerTransform = transform;
+
+        _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
     public void BurstSpawnEnemy(int count, int enemyCount)
@@ -70,11 +78,14 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     private void SpawnEnemy()
     {
-        GameObject enemy = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Enemies/Enemy", transform);
+        // _stageConfigData의 설정값에 따라 적의 종류 갯수
+        int index = _random.Next(0, _stageConfigData.MinionEnemies.Count);
+
+        GameObject enemy = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Enemies/Minion/{_minionEnemiePrefabs[index].name}", transform);
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, RandomSpawnPosition());
+        enemyController.Init(_playerTransform, RandomSpawnPosition(), _enemiesConfigData[index], _stage);
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);

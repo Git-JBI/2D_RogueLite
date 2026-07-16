@@ -5,7 +5,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
 {
     public event UnityAction<MinionEnemyController> OnMinionEnemyDead;
 
-    public override void Init(Transform target, Vector2 spawnPos)
+    public void Init(Transform target, Vector2 spawnPos, SO_EnemyData data, int stage)
     {
         base.Init(target, spawnPos);
 
@@ -14,6 +14,12 @@ public abstract class MinionEnemyController : EnemyControllerBase
 
         // 콜라이더 활성화
         SetColliderActive(true);
+
+        // 모델 값 초기화
+        _model = new EnemyModel(data, stage);
+
+        // 상태 초기화
+        SetStartState();
     }
 
     public override void Dead()
@@ -22,7 +28,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
         OnMinionEnemyDead?.Invoke(this);
 
         // 현재 상태 비우기
-        _curState = null;
+        base.Dead();
 
         // 이벤트 비우기
         OnMinionEnemyDead = null;
@@ -34,6 +40,8 @@ public abstract class MinionEnemyController : EnemyControllerBase
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
     }
+
+    protected abstract void SetStartState();
 
     //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률)
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class EnemySpriteController : SpriteControllerBase
+﻿public class EnemySpriteController : SpriteControllerBase
 {
     public void Damaged()
     {

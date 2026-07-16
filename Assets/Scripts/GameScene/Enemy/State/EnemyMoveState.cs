@@ -1,10 +1,10 @@
 ﻿public class EnemyMoveState : IState
 {
-    private MoveEnemyController _enemy;
+    private IEnemyMovement _enemyMovement;
 
-    public EnemyMoveState(MoveEnemyController enemy)
+    public EnemyMoveState(IEnemyMovement enemy)
     {
-        _enemy = enemy;
+        _enemyMovement = enemy;
     }
 
     public void OnStateEnter()
@@ -13,11 +13,11 @@
 
     public void OnStateExit()
     {
-        _enemy.Stop();
+        _enemyMovement.Stop();
     }
 
     public void OnStateUpdate()
     {
-        _enemy.Move();
+        _enemyMovement.Move();
     }
 }

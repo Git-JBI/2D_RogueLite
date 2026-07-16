@@ -29,13 +29,23 @@ public enum AchievementRewardType
 [CreateAssetMenu(menuName = "GameDatas/AchievementData", fileName = "AchievementData")]
 public class SO_AchievementData : ScriptableObject
 {
-    public string AchievementId;
-    public AchievementType Type;
-    public AchievementConditionType ConditionType;
+    [SerializeField] private string _achievementId;
+    [SerializeField] private AchievementType _type;
+    [SerializeField] private AchievementConditionType _conditionType;
 
-    public string AchievementName;
-    public int TargetValue;
+    [SerializeField] private string _achievementName;
+    [SerializeField] private int _targetValue;
 
-    public AchievementRewardType RewardType;
-    public int RewardValue;
+    [SerializeField] private AchievementRewardType _rewardType;
+    [SerializeField] private int _rewardValue;
+
+    public string AchievementId => _achievementId;
+    public AchievementType Type => _type;
+    public AchievementConditionType ConditionType => _conditionType;
+
+    public string AchievementName => _achievementName;
+    public int TargetValue => _targetValue;
+
+    public AchievementRewardType RewardType => _rewardType;
+    public int RewardValue => _rewardValue;
 }

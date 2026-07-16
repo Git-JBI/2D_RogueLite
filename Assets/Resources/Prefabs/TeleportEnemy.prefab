@@ -298,9 +298,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8802801964380352749}
-  - component: {fileID: 8454792514845497883}
-  - component: {fileID: 346765724483091194}
   - component: {fileID: 771274465564795589}
+  - component: {fileID: 8092722054864712698}
   m_Layer: 6
   m_Name: TeleportEnemy
   m_TagString: Enemy
@@ -325,32 +324,6 @@ Transform:
   - {fileID: 3348272808812619417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8454792514845497883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6548099234524550929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f689c354a7daa64bb2efaccaa35dc1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyBody: {fileID: 4308128573330423349}
-  _target: {fileID: 0}
---- !u!114 &346765724483091194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6548099234524550929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6679f68abbc2c42428fe99f20a751ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &771274465564795589
 Rigidbody2D:
   serializedVersion: 5
@@ -378,3 +351,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8092722054864712698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548099234524550929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd4c37074f1bac4b9b0d69c631265e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyBody: {fileID: 6548099234524550929}

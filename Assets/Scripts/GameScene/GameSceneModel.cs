@@ -10,11 +10,10 @@
     public int Stage => _stage;
     public float StageTime => _stageTime;
 
-    public GameSceneModel(int stage)
+    public GameSceneModel()
     {
         _enemyDeadCount = 0;
         _stageGold = 0;
-        _stage = stage;
         _stageTime = 0;
     }
 

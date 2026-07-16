@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffa8343429df1c408b40a5b54aa1389, type: 3}
   m_Name: StageData5
   m_EditorClassIdentifier: 
-  Stage: 5
-  BossSpawnTime: 240
+  _stagePlayTime: 0
+  _minionEnemies: []
+  _bossEnemies: []

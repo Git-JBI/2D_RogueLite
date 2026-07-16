@@ -290,8 +290,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1218017799556201919}
   - component: {fileID: 3928593005986539960}
-  - component: {fileID: 2735973943919985587}
-  - component: {fileID: 6173500794798897868}
   - component: {fileID: 1002657539062586766}
   m_Layer: 6
   m_Name: NormalMinion
@@ -327,30 +325,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2708866b473cf64681aa4ae849c1b7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2735973943919985587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7345475044060265913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6679f68abbc2c42428fe99f20a751ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6173500794798897868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7345475044060265913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e482487e90696b4291402390f043f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &1002657539062586766

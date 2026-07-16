@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
@@ -31,7 +32,7 @@ public class EquipmentManager : MonoBehaviour
                 if(itemData.EquipmentStatType == EquipmentStatType.Attack)
                 {
                     // 현재 레어리티에 맞는 베이스스텟, 레벨당 스텟 불러오기
-                    RarityStatInfo info = itemData.RaritySettings.Find(x => x.Rarity == data.Rarity);
+                    RarityStatInfo info = itemData.RaritySettings.First(x => x.Rarity == data.Rarity);
 
                     // 베이스 스텟 + 레벨 당 스텟 * 아이템 레벨
                     _equipmentBonusAtk = _equipmentBonusAtk + info.BaseStat + info.StatPerLevel * data.ItemLevel;
@@ -59,8 +60,8 @@ public class EquipmentManager : MonoBehaviour
                 if (itemData.EquipmentStatType == EquipmentStatType.Hp)
                 {
                     // 현재 레어리티에 맞는 베이스스텟, 레벨당 스텟 불러오기
-                    RarityStatInfo info = itemData.RaritySettings.Find(x => x.Rarity == data.Rarity);
-
+                    RarityStatInfo info = itemData.RaritySettings.First(x => x.Rarity == data.Rarity);
+                   
                     // 베이스 스텟 + 레벨 당 스텟 * 아이템 레벨
                     _equipmentBonusHp = _equipmentBonusHp + info.BaseStat + info.StatPerLevel * data.ItemLevel;
                 }

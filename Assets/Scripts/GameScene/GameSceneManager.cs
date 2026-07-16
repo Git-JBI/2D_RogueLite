@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 public class GameSceneManager : MonoBehaviour
 {
-    private HeroController _heroController;
-    private Joystick _joystick;
-    private GameSceneUIManager _ui;
-    private EnemySpawner _enemySpawner;
+    [SerializeField] private HeroController _heroController;
+    [SerializeField] private Joystick _joystick;
+    [SerializeField] private GameSceneUIManager _ui;
+    [SerializeField] private EnemySpawner _enemySpawner;
 
     private GameModel _gameModel;
     private AchievementManager _achievementManager;
@@ -23,16 +23,11 @@ public class GameSceneManager : MonoBehaviour
 
     private void Awake()
     {
-        _heroController = FindFirstObjectByType<HeroController>();
-        _joystick = FindFirstObjectByType<Joystick>();
-        _ui = FindFirstObjectByType<GameSceneUIManager>();
-        _enemySpawner = FindFirstObjectByType<EnemySpawner>();
-
         _gameModel = GameManager.Instance.GameModel;
         _achievementManager = GameManager.Instance.AchievementManager;
 
-        _gameSceneModel = new GameSceneModel(_gameModel.SelectStage);
-        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameSceneModel.Stage}");
+        _gameSceneModel = new GameSceneModel();
+        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
 
         _isKillCountReported = false;
         _isBossSpawn = false;
@@ -68,7 +63,8 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnDead += PlayerDead;
 
         _heroController.Init();
-        _enemySpawner.Init(_gameSceneModel.Stage, _heroController.transform);
+
+        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);
     }
 
     /// <summary>

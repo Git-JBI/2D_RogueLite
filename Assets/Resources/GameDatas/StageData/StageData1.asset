@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffa8343429df1c408b40a5b54aa1389, type: 3}
   m_Name: StageData1
   m_EditorClassIdentifier: 
-  Stage: 1
-  StageTimeLimit: 60
-  Enemies:
-  - {fileID: 2865483741860779955, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
-  Bosses:
-  - {fileID: 0}
+  _stagePlayTime: 60
+  _minionEnemies:
+  - {fileID: 3928593005986539960, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+  _bossEnemies:
+  - {fileID: 8092722054864712698, guid: 98a1a032fa7d31b49b3c499fa559e881, type: 3}

@@ -11,23 +11,24 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 
     protected IState _curState;
     
-    protected EnemyDamagedState _damagedState;
     protected EnemyDeadState _deadState;
+
+    public EnemyModel Model => _model;
+    public Rigidbody2D Rigidbody => _rigidbody;
 
     protected virtual void Awake()
     {
-        _model = GetComponent<EnemyModel>();
         _spriteController = GetComponentInChildren<EnemySpriteController>();
         _rigidbody = GetComponentInChildren<Rigidbody2D>();
         _collider = GetComponentInChildren<Collider2D>();
 
-        _damagedState = new EnemyDamagedState(this);
         _deadState = new EnemyDeadState(this);
     }
 
     private void Update()
     {
-        _curState.OnStateUpdate();
+        if (_curState != null)
+            _curState.OnStateUpdate();
     }
     
     /// <summary>
@@ -74,6 +75,10 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     {
         _collider.enabled = x;
     }
+    /// <summary>
+    /// 리지드바디 활성화 여부 설정 함수
+    /// </summary>
+    /// <param name="x"></param>
     public void SetRigidBodyActive(bool x)
     {
         _rigidbody.simulated = x;
@@ -83,7 +88,6 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     {
         _spriteController.Damaged();
     }
-    public abstract void ExitDamaged();
     public void EnterDead()
     {
         // 리지드바디 비활성화
@@ -101,7 +105,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         _curState = null;
     }
 
-    private void Damaged()
+    protected virtual void Damaged()
     {
         _spriteController.Damaged();
     }
@@ -127,7 +131,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         }
         else
         {
-            ChangeState(_damagedState);
+            Damaged();
         }
     }
     #endregion

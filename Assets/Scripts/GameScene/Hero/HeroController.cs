@@ -4,8 +4,8 @@ using UnityEngine.U2D.Animation;
 
 public class HeroController : MonoBehaviour, IDamageable, IItem
 {
-    private RigidMovement _movement;
     private HeroModel _heromodel;
+    private HeroMovement _movement;
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
     private HeroWeaponController _weaponController;
@@ -31,7 +31,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
 
     private void Awake()
     {
-        _movement = GetComponent<RigidMovement>();
+        _movement = GetComponent<HeroMovement>();
         _heromodel = GetComponent<HeroModel>();
         _upgradeController = GetComponent<UpgradeController>();
 
