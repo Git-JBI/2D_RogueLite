@@ -18,12 +18,8 @@ public class UpgradeController : MonoBehaviour
     private void Awake()
     {
         _upgradables = GetComponentsInChildren<IUpgradable>(true).ToList<IUpgradable>();
-    }
 
-    private void Start()
-    {
-        //TODO 추후 GamaManager가 StartScene에서 생성될 시 Start > Awake로 수정
-        _selectPrefab = GameManager.Instance.ResourceManager.GetPrefabOnce<UpgradeSelectionView>("Prefabs/Ability");
+        _selectPrefab = Resources.Load<UpgradeSelectionView>("Prefabs/Ability");
     }
 
     public void OnLevelUp(int level)
@@ -31,10 +27,10 @@ public class UpgradeController : MonoBehaviour
         if (level <= 0)
             return;
 
-        SelectStart();
+        LevelUp();
     }
 
-    private void SelectStart()
+    private void LevelUp()
     {
         // 게임 진행속도 0
         Time.timeScale = 0.0f;
@@ -42,6 +38,7 @@ public class UpgradeController : MonoBehaviour
         // 업그레이드 패널 활성화
         OnUpgradeActive?.Invoke(true);
 
+        //TODO 각성 가능여부 확인하기 (각성 여부 판단하는 룰을 만들어야 할 것 같음)
         // 3종 랜덤으로 뽑기
         // _upgradables 랜덤으로 섞기
         Util.Shuffle<IUpgradable>(_upgradables);
@@ -98,6 +95,7 @@ public class UpgradeController : MonoBehaviour
             Destroy(views.gameObject);
         }
 
+        // 뷰 리스트 비움
         _views.Clear();
 
         // 업그레이드 패널 비활성화

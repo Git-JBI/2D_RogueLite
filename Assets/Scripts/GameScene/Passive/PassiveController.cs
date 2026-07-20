@@ -6,13 +6,10 @@ public class PassiveController : MonoBehaviour
 
     private HeroModel _model;
 
-    private void Awake()
-    {
-        _passives = GetComponentsInChildren<PassiveBase>();
-    }
-
     public void Init(HeroModel model)
     {
+        _passives = GetComponentsInChildren<PassiveBase>();
+
         _model = model;
 
         foreach (PassiveBase x in _passives)

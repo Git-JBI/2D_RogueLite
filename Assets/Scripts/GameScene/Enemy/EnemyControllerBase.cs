@@ -104,7 +104,6 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         // 현재 상태 비우기
         _curState = null;
     }
-
     protected virtual void Damaged()
     {
         _spriteController.Damaged();

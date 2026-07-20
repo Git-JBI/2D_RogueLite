@@ -16,51 +16,51 @@ public class HeroModel : MonoBehaviour
     private float _upgradeHp;
     private float _upgradeArmor;
 
-    private float _increaseDamagePercent;
-    private float _increaseMaxHpPercent;
-    private float _increaseMoveSpeedPercent;
+    private float _passiveDamagePercent;
+    private float _passiveMaxHpPercent;
+    private float _passiveMoveSpeedPercent;
 
     public int Level => _level;
     public float MaxExp => _maxExp;
     public float CurExp => _curExp;
-    public float MaxHp => (_maxHp + _upgradeHp) + (_maxHp + _upgradeHp) * _increaseMaxHpPercent / 100;
+    public float MaxHp => (_maxHp + _upgradeHp) * (1 + _passiveMaxHpPercent / 100);
     public float CurHp => _curHp;
-    public float Damage => (_damage + _upgradeDamage) + (_damage + _upgradeDamage) * _increaseDamagePercent / 100;
-    public float MoveSpeed => _moveSpeed + _moveSpeed * _increaseMoveSpeedPercent / 100;
+    public float Damage => (_damage + _upgradeDamage) * (1 + _passiveDamagePercent / 100);
+    public float MoveSpeed => _moveSpeed * (1 + _passiveMoveSpeedPercent / 100);
     public float Armor => _armor + _upgradeArmor;
 
-    public float IncreaseDamagePercent
+    public float PassiveDamagePercent
     {
         get
         {
-            return _increaseDamagePercent;
+            return _passiveDamagePercent;
         }
         set
         {
-            _increaseDamagePercent = value;
+            _passiveDamagePercent = value;
         }
     }
-    public float IncreaseMoveSpeedPercent
+    public float PassiveMoveSpeedPercent
     {
         get
         {
-            return _increaseMoveSpeedPercent;
+            return _passiveMoveSpeedPercent;
         }
         set
         {
-            _increaseMoveSpeedPercent = value;
+            _passiveMoveSpeedPercent = value;
         }
     }
-    public float IncreaseMaxHpPercent
+    public float PassiveMaxHpPercent
     {
         get
         {
-            return _increaseMaxHpPercent;
+            return _passiveMaxHpPercent;
         }
         set
         {
-            _increaseMaxHpPercent = value;
-            _curHp = _curHp + _curHp / 100 * _increaseMaxHpPercent;
+            _passiveMaxHpPercent = value;
+            _curHp = _curHp + _curHp / 100 * _passiveMaxHpPercent;
         }
     }
 

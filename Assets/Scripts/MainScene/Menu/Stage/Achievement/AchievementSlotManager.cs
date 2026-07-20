@@ -27,7 +27,7 @@ public class AchievementSlotManager : MonoBehaviour
         _background.onClick.AddListener(AchievementPopupClose);
 
         // 업적 슬롯을 프리팹으로 가지고 있는다.
-        _dateSlotPrefab = GameManager.Instance.ResourceManager.GetPrefabOnce<AchievementSlot>("Prefabs/Achievement/DateAchievement");
+        _dateSlotPrefab = Resources.Load<AchievementSlot>("Prefabs/Achievement/DateAchievement");
 
         //TODO 업적 진행 완료 > 미완료 > 보상 받음 순서로 업적슬롯리스트 갱신
 

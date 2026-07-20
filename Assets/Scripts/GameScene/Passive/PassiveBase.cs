@@ -2,9 +2,7 @@
 
 public abstract class PassiveBase : MonoBehaviour, IUpgradable
 {
-    //TODO 추후 불러오는방법 변경 SerializeField X
-    [SerializeField] protected PassiveData _passiveData;
-
+    protected PassiveData _passiveData;
     protected HeroModel _model;
 
     protected int _level;
