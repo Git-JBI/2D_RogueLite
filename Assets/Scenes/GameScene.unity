@@ -625,7 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f64347762ac6f248af89c00c8b72137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _passiveData: {fileID: 11400000, guid: 5723a49549cd90f44bd15fced78e4fb4, type: 2}
 --- !u!1 &209972105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,7 +3352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lv. 0
+  m_text: Lv. 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9984,7 +9983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23bb1859e399c04ba19df9f46b0d9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _passiveData: {fileID: 11400000, guid: 693b23e0fdb313a46b1878e78240e349, type: 2}
 --- !u!1 &972682683
 GameObject:
   m_ObjectHideFlags: 0
@@ -18497,7 +18495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7626f9ab3dc9649add868257eed4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _passiveData: {fileID: 11400000, guid: cda41869531e2104a88723ef58b7372a, type: 2}
 --- !u!1 &1547017997
 GameObject:
   m_ObjectHideFlags: 0
@@ -21343,7 +21340,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

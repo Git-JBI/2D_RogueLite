@@ -92,12 +92,6 @@ public class HeroModel : MonoBehaviour
         SetHeroBonusData();
     }
 
-    public void Init()
-    {
-        OnChangeExp?.Invoke(_curExp, _maxExp);
-        OnChangeLevel?.Invoke(_level);
-    }
-
     /// <summary>
     /// 캐릭터마다 다른 보너스 능력치 설정
     /// </summary>

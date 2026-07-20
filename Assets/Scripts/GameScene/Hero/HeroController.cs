@@ -49,7 +49,6 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
         SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero{GameManager.Instance.GameModel.HeroData.HeroName}");
 
         _spriteController.Init(libraryAsset);
-        _heromodel.Init();
         _weaponController.Init(_heromodel);
         _passiveController.Init(_heromodel);
 

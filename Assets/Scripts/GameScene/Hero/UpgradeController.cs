@@ -17,7 +17,7 @@ public class UpgradeController : MonoBehaviour
 
     private void Awake()
     {
-        _upgradables = GetComponentsInChildren<IUpgradable>(true).ToList<IUpgradable>();
+        _upgradables = GetComponentsInChildren<IUpgradable>(true).ToList();
 
         _selectPrefab = Resources.Load<UpgradeSelectionView>("Prefabs/Ability");
     }
