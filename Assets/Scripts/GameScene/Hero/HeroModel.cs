@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class HeroModel : MonoBehaviour
 {
+    private UpgradeModel _upgradeModel;
+
     private int _level;
     private float _maxExp;
     private float _curExp;
@@ -72,6 +74,8 @@ public class HeroModel : MonoBehaviour
 
     private void Awake()
     {
+        _upgradeModel = GameManager.Instance.GameModel.UpgradeModel;
+
         // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화 >>>>> 필요없는 변수들이 있는 것 같음 기본값을 GameModel에서 설정 후 기본 값 설정 후 인게임 업그레이드 데이터를 적용하는 방식
         _maxHp = 10000;
         _curHp = _maxHp;
@@ -81,9 +85,9 @@ public class HeroModel : MonoBehaviour
         _curExp = 0;
         _level = 1;
 
-        _upgradeDamage = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataDamage").Value[GameManager.Instance.GameModel.UpgradeLevel[0]];
-        _upgradeHp = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataHp").Value[GameManager.Instance.GameModel.UpgradeLevel[1]];
-        _upgradeArmor = Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataArmor").Value[GameManager.Instance.GameModel.UpgradeLevel[2]];
+        _upgradeDamage = _upgradeModel.GetUpgradeDamageValue();
+        _upgradeHp = _upgradeModel.GetUpgradeHpValue();
+        _upgradeArmor = _upgradeModel.GetUpgradeArmorValue();
 
         SetHeroBonusData();
     }

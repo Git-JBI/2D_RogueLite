@@ -10,6 +10,7 @@ public class GameModel : MonoBehaviour
     [SerializeField] private GameData _gameData;
     private EquipmentModel _equipmentModel;
     private AchievementModel _achievementModel;
+    private UpgradeModel _upgradeModel;
 
     private HeroData _heroData;
 
@@ -32,6 +33,7 @@ public class GameModel : MonoBehaviour
 
     public EquipmentModel EquipmentModel => _equipmentModel;
     public AchievementModel AchievementModel => _achievementModel;
+    public UpgradeModel UpgradeModel => _upgradeModel;
 
     private void Awake()
     {
@@ -40,6 +42,7 @@ public class GameModel : MonoBehaviour
 
         _equipmentModel = new EquipmentModel(_gameData, this);
         _achievementModel = new AchievementModel(_gameData, this);
+        _upgradeModel = new UpgradeModel(_gameData, this);
 
         InitModel();
     }
