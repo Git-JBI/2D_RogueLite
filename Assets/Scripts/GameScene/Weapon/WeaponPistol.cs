@@ -11,7 +11,6 @@ public class WeaponPistol : WeaponBase
     private float _bulletCount;
     private float _bulletSpeed;
     private float _coolTime;
-
     private float _detectRadius;
     private Vector2 _targetPos;
     private Vector2 _bulletDir;

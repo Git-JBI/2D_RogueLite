@@ -6,6 +6,8 @@ public interface IUpgradable
 
     int Level { get; }
 
+    int MaxLevel { get; }
+
     string Desc { get; }
 
     bool IsPermanentAbility { get; }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c507b8bf1b541a740abe3dd484914d35, type: 3}
   m_Name: ShovelWeaponAwakeningData
   m_EditorClassIdentifier: 
-  _baseWeapon: 0
-  _basePassive: 0
-  _resultWeapon: 0
+  _baseWeapon: 3
+  _basePassive: 1
+  _resultWeapon: 1

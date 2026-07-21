@@ -7,5 +7,6 @@ public enum AwakeningWeaponName
 }
 public class AwakeningWeaponBase : MonoBehaviour
 {
+    protected AwakeningWeaponName _weaponName;
 
 }

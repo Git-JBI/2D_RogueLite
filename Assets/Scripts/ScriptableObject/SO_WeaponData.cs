@@ -9,6 +9,7 @@ public class SO_WeaponData : ScriptableObject
     [SerializeField] private WeaponStatData[] _statDatas;
     [SerializeField] private string[] _desces;
 
+    public WeaponName WeaponName => _weaponName;
     public Sprite WeaponIcon => _weaponIcon;
     public string[] Descs => _desces;
     public int MaxLevel => _desces.Length;

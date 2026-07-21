@@ -14,12 +14,13 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
     [SerializeField] protected SO_WeaponData _weaponData;
     protected HeroModel _heroModel;
 
-    protected WeaponName _weaponName;
     protected int _level;
     protected float _damageMagnification;
 
+    public WeaponName WeaponName => _weaponData.WeaponName;
     public Sprite IconSprite => _weaponData.WeaponIcon;
     public int Level => _level;
+    public int MaxLevel => _weaponData.Descs.Length;
     public string Desc => _weaponData.Descs[_level];
     public bool IsPermanentAbility => true;
 
@@ -40,11 +41,11 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
 
     public virtual void Upgrade()
     {
+        // 활성화되지 않은 무기의 경우 켜기
         if (!gameObject.activeInHierarchy)
             gameObject.SetActive(true);
 
-        if (_level == 5)
-            return;
+        // 레벨 증가(최초 레벨 0이라 레벨 업 후 스텟 계산)
         _level++;
         
         CalculateStats();

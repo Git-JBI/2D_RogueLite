@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
   m_Name: WeaponData_Pistol
   m_EditorClassIdentifier: 
-  _weaponName: Pistol
+  _weaponName: 0
   _weaponIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   _statDatas:
   - _statType: 0
@@ -43,3 +43,4 @@ MonoBehaviour:
   - 2
   - 3
   - 4
+  - "\uBB34\uAE30\uAC00 \uAC01\uC131\uD569\uB2C8\uB2E4."
