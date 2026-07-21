@@ -3,16 +3,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UpgradeSelectionView : MonoBehaviour
+public class UpgradeSelection : MonoBehaviour
 {
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _descTexc;
 
     private Button _btn;
-    private IUpgradable _upgradable;
 
-    public event UnityAction OnSelect;
+    public event UnityAction OnSelected;
 
     public void Init(IUpgradable upgradable)
     {
@@ -20,27 +19,30 @@ public class UpgradeSelectionView : MonoBehaviour
 
         _btn.onClick.AddListener(HandleOnClicked);
 
-        _upgradable = upgradable;
+        OnSelected += upgradable.Upgrade;
 
-        OnSelect += _upgradable.Upgrade;
+        _icon.sprite = upgradable.IconSprite;
 
-        _icon.sprite = _upgradable.IconSprite;
-
-        // TODO 액티브/패시브를 제외한 후 나머지 선택 시 텍스트 표기 수정 필요?
-        if(_upgradable.Level == 99)
+        if(upgradable.Level == 99)
         {
             _levelText.text = "";
         }
         else
         {
-            _levelText.text = $"Lv. {_upgradable.Level} > {_upgradable.Level + 1}";
+            _levelText.text = $"Lv. {upgradable.Level} > {upgradable.Level + 1}";
         }
 
-        _descTexc.text = _upgradable.Desc;
+        _descTexc.text = upgradable.Desc;
+    }
+
+    public void EmptyEvent()
+    {
+        _btn.onClick.RemoveAllListeners();
+        OnSelected = null;
     }
 
     private void HandleOnClicked()
     {
-        OnSelect?.Invoke();
+        OnSelected?.Invoke();
     }
 }

@@ -6,6 +6,11 @@ using UnityEngine;
 /// </summary>
 public static class Util
 {
+    /// <summary>
+    /// 리스트 내용을 랜덤 순서로 섞는 함수
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
     public static void Shuffle<T>(List<T> list)
     {
         // 리스트의 내용물이 없을 경우 리턴

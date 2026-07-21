@@ -4,17 +4,20 @@ using UnityEngine.UI;
 
 public class GameSceneUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TextMeshProUGUI _countDeadEnemiesText;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private Image _expBar;
 
     private UI_GameFinish _gameFinishPanel;
+    private UpgradeViewer _upgradeViewer;
+
+    public IUpgradeViewer IupgradeViewer => _upgradeViewer;
 
     private void Awake()
     {
         _gameFinishPanel = GetComponentInChildren<UI_GameFinish>(true);
+        _upgradeViewer = GetComponentInChildren<UpgradeViewer>(true);
     }
 
     /// <summary>
@@ -52,11 +55,6 @@ public class GameSceneUIManager : MonoBehaviour
     {
         //TODO 부드러운 경험치 바 채워짐으로 변경
         _expBar.fillAmount = curExp / maxExp;
-    }
-
-    public void SetUpgradePanelActive(bool isActive)
-    {
-        _upgradePanel.SetActive(isActive);
     }
 
     public void Fail()

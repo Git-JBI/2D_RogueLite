@@ -3,18 +3,15 @@
 public abstract class WeaponBase : MonoBehaviour, IUpgradable
 {
     //TODO 추후 불러오는방법 변경 SerializeField X
-    [SerializeField] protected WeaponData _weaponData;
+    [SerializeField] protected SO_WeaponData _weaponData;
     protected HeroModel _heroModel;
 
     protected int _level;
     protected float _damageMagnification;
 
     public Sprite IconSprite => _weaponData.WeaponIcon;
-
     public int Level => _level;
-
     public string Desc => _weaponData.Descs[_level];
-
     public bool IsPermanentAbility => true;
 
     protected virtual void Awake()

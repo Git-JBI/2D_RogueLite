@@ -1,25 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class UpgradeController : MonoBehaviour
 {
-    [SerializeField] private Transform _selectionParent;
-
-    private UpgradeSelectionView _selectPrefab;
-
+    private IUpgradeViewer _iUpgradeViewer;
     private List<IUpgradable> _upgradables = new();
-
-    private List<UpgradeSelectionView> _views = new List<UpgradeSelectionView>();
-
-    public event UnityAction<bool> OnUpgradeActive;
 
     private void Awake()
     {
         _upgradables = GetComponentsInChildren<IUpgradable>(true).ToList();
+    }
 
-        _selectPrefab = Resources.Load<UpgradeSelectionView>("Prefabs/Ability");
+    public void Init(IUpgradeViewer viewer)
+    {
+        _iUpgradeViewer = viewer;
     }
 
     public void OnLevelUp(int level)
@@ -29,76 +24,56 @@ public class UpgradeController : MonoBehaviour
 
         LevelUp();
     }
+    /*
+     * 무기 조합에 대한 설정 데이터 추가
+     * 설정 데이터에 따른 
+     */
 
     private void LevelUp()
     {
-        // 게임 진행속도 0
+        // Viewer에 전해줄 업그레이드들
+        List<IUpgradable> upgradables = new();
+
+        // 게임 진행속도 0 설정
         Time.timeScale = 0.0f;
 
-        // 업그레이드 패널 활성화
-        OnUpgradeActive?.Invoke(true);
-
-        //TODO 각성 가능여부 확인하기 (각성 여부 판단하는 룰을 만들어야 할 것 같음)
-        // 3종 랜덤으로 뽑기
         // _upgradables 랜덤으로 섞기
-        Util.Shuffle<IUpgradable>(_upgradables);
+        _upgradables.Shuffle();
 
+        // _upgradables에서 3 종류 선택
         foreach(IUpgradable x in _upgradables)
         {
-            if (_views.Count == 3)
-                return;
-            // Level 5 미만일 경우(업그레이드 가능), IsPermanentAbility가 True인 경우
-            if (x.Level < 5 && x.IsPermanentAbility)
+            // upgradabels의 숫자가 3일 경우
+            if (upgradables.Count == 3)
+                break;
+            //TODO Level체크를 5 값을 주는게 아니여도 될듯
+            // Level이 5 미만 && 영구적 능력일 경우
+            if(x.Level < 5 && x.IsPermanentAbility)
             {
-                UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
-
-                // 업그레이드 선택 뷰 초기화
-                view.Init(x);
-
-                // 선택 이벤트에 추가
-                view.OnSelect += EndSelect;
-
-                // 리스트 추가
-                _views.Add(view);
+                upgradables.Add(x);
             }
         }
 
         // 뽑을 경우가 없을 경우(IsPermanentAbility가 False인 경우)
-        if (_views.Count == 0)
+        if (upgradables.Count == 0)
         {
             foreach(IUpgradable x in _upgradables)
             {
                 if(!x.IsPermanentAbility)
                 {
-                    UpgradeSelectionView view = Instantiate(_selectPrefab, _selectionParent);
-
-                    // 업그레이드 선택 뷰 초기화
-                    view.Init(x);
-
-                    // 선택 이벤트에 추가
-                    view.OnSelect += EndSelect;
-
-                    // 리스트 추가
-                    _views.Add(view);
+                    upgradables.Add(x);
                 }
             }
         }
+
+        _iUpgradeViewer.Show(upgradables);
+
+        _iUpgradeViewer.OnSelected += EndSelect;
     }
     
     private void EndSelect()
     {
         // 게임 진행속도 1
         Time.timeScale = 1.0f;
-
-        foreach(var views in _views)
-        {
-            Destroy(views.gameObject);
-        }
-
-        // 뷰 리스트 비움
-        _views.Clear();
-
-        // 업그레이드 패널 비활성화
-        OnUpgradeActive?.Invoke(false);
     }
 }

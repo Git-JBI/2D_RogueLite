@@ -22,11 +22,6 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
         add { _heromodel.OnChangeExp += value; }
         remove { _heromodel.OnChangeExp -= value; }
     }
-    public event UnityAction<bool> OnUpgradedActive
-    {
-        add { _upgradeController.OnUpgradeActive += value; }
-        remove { _upgradeController.OnUpgradeActive -= value; }
-    }
     public event UnityAction OnDead;
 
     private void Awake()

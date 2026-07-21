@@ -7,6 +7,8 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private Joystick _joystick;
     [SerializeField] private GameSceneUIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
+    
+    private UpgradeController _upgradeController;
 
     private GameModel _gameModel;
     private AchievementManager _achievementManager;
@@ -20,7 +22,7 @@ public class GameSceneManager : MonoBehaviour
     private bool _isSecondBurstStarted;
 
     public event UnityAction<int, int> OnBurstStarted;
-
+    
     private void Awake()
     {
         _gameModel = GameManager.Instance.GameModel;
@@ -57,11 +59,13 @@ public class GameSceneManager : MonoBehaviour
 
     private void Init()
     {
+        _upgradeController = _heroController.GetComponent<UpgradeController>();
+
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
-        _heroController.OnUpgradedActive += _ui.SetUpgradePanelActive;
         _heroController.OnDead += PlayerDead;
 
+        _upgradeController.Init(_ui.IupgradeViewer);
         _heroController.Init();
 
         _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);

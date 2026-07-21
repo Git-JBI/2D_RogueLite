@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public static class Extensions
 {
@@ -35,5 +36,10 @@ public static class Extensions
         }
 
         return isNegative ? "-" + result : result;
+    }
+
+    public static void Shuffle<T>(this List<T> list)
+    {
+        Util.Shuffle(list);
     }
 }
