@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 
+public enum WeaponName
+{
+    Pistol,
+    Rifle,
+    Shotgun,
+    Shovel,
+}
+
 public abstract class WeaponBase : MonoBehaviour, IUpgradable
 {
     //TODO 추후 불러오는방법 변경 SerializeField X
     [SerializeField] protected SO_WeaponData _weaponData;
     protected HeroModel _heroModel;
 
+    protected WeaponName _weaponName;
     protected int _level;
     protected float _damageMagnification;
 

@@ -4,7 +4,7 @@ public class PassiveIncreaseMoveSpeed : PassiveBase
 {
     private void Awake()
     {
-        _passiveData = Resources.Load<PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseMoveSpeedPercent");
+        _passiveData = Resources.Load<SO_PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseMoveSpeedPercent");
     }
 
     protected override void CalculateStat()

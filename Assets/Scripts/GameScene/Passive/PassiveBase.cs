@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
 
+public enum PassiveName
+{
+    Damage,
+    Hp,
+    MoveSpeed,
+}
+
 public abstract class PassiveBase : MonoBehaviour, IUpgradable
 {
-    protected PassiveData _passiveData;
+    protected SO_PassiveData _passiveData;
     protected HeroModel _model;
 
     protected int _level;

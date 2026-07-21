@@ -4,7 +4,7 @@ public class PassiveIncreaseDamage : PassiveBase
 {
     private void Awake()
     {
-        _passiveData = Resources.Load<PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseDamagePercent");
+        _passiveData = Resources.Load<SO_PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseDamagePercent");
     }
 
     protected override void CalculateStat()

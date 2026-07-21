@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameDatas/WeaponData", fileName = "WeaponData")]
 public class SO_WeaponData : ScriptableObject
 {
-    [SerializeField] private string _weaponName;
+    [SerializeField] private WeaponName _weaponName;
     [SerializeField] private Sprite _weaponIcon;
     [SerializeField] private WeaponStatData[] _statDatas;
     [SerializeField] private string[] _desces;

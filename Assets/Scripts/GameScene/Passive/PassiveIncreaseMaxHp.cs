@@ -4,7 +4,7 @@ public class PassiveIncreaseMaxHp : PassiveBase
 {
     private void Awake()
     {
-        _passiveData = Resources.Load<PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseMaxHpPercent");
+        _passiveData = Resources.Load<SO_PassiveData>("GameDatas/PassiveData/PassiveData_IncreaseMaxHpPercent");
     }
 
     protected override void CalculateStat()

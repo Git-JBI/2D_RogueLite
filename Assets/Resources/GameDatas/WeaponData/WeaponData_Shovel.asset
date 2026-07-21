@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
   m_Name: WeaponData_Shovel
   m_EditorClassIdentifier: 
-  _weaponName: Shovel
+  _weaponName: 3
   _weaponIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   _statDatas:
   - _statType: 0

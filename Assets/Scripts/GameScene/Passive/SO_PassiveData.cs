@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameDatas/PassiveData", fileName = "PassiveData")]
-public class PassiveData : ScriptableObject
+public class SO_PassiveData : ScriptableObject
 {
-    [SerializeField] private string _passiveName;
+    [SerializeField] private PassiveName _passiveName;
     [SerializeField] private Sprite _passiveSprite;
     [SerializeField] private string[] _desces;
     [SerializeField] private PassiveStatData _statData;
 
+    public PassiveName PassiveName => _passiveName;
     public Sprite PassiveSprite => _passiveSprite;
     public string[] Desces => _desces;
 
