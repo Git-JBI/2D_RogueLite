@@ -35,11 +35,19 @@ public class UpgradeSelection : MonoBehaviour
         _descTexc.text = upgradable.Desc;
     }
 
-    public void EmptyEvent()
+    public void Hide()
+    {
+        EmptyEvent();
+
+        gameObject.SetActive(false);
+    }
+
+    private void EmptyEvent()
     {
         _btn.onClick.RemoveAllListeners();
         OnSelected = null;
     }
+
 
     private void HandleOnClicked()
     {

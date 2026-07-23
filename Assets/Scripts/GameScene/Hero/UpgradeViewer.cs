@@ -16,10 +16,10 @@ public class UpgradeViewer : MonoBehaviour, IUpgradeViewer
 
     public void Hide()
     {
-        // selectionView의 이벤트 비움
         foreach(UpgradeSelection view in _selections)
         {
-            view.EmptyEvent();
+            // selectionView 숨기기
+            view.Hide();
         }
 
         // 이벤트 실행
