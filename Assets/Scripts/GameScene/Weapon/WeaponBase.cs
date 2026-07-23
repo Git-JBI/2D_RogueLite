@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum WeaponName
+public enum WeaponType
 {
     Pistol,
     Rifle,
@@ -17,7 +17,7 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
     protected int _level;
     protected float _damageMagnification;
 
-    public WeaponName WeaponName => _weaponData.WeaponName;
+    public WeaponType WeaponName => _weaponData.WeaponName;
     public Sprite IconSprite => _weaponData.WeaponIcon;
     public int Level => _level;
     public int MaxLevel => _weaponData.Descs.Length;
@@ -36,7 +36,7 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
 
     protected virtual void CalculateStats()
     {
-        _damageMagnification = _weaponData.GetStatValue(WeaponStatType.DamageMagnification, _level - 1);
+        _damageMagnification = _weaponData.GetStatValue(WeaponStatType.DamageMagnification, _level);
     }
 
     public virtual void Upgrade()

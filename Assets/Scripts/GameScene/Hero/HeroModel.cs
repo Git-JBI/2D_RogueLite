@@ -113,7 +113,7 @@ public class HeroModel : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void ChangeHp(float damage)
     {
         _curHp = Mathf.Clamp(_curHp - damage, 0, MaxHp);
         OnChangeHp?.Invoke(_curHp, MaxHp);

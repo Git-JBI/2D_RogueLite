@@ -4,17 +4,18 @@ public class PassiveController : MonoBehaviour
 {
     private PassiveBase[] _passives;
 
-    private HeroModel _model;
+    public PassiveBase[] Passives => _passives;
+
+    private void Awake()
+    {
+        _passives = GetComponentsInChildren<PassiveBase>();
+    }
 
     public void Init(HeroModel model)
     {
-        _passives = GetComponentsInChildren<PassiveBase>();
-
-        _model = model;
-
         foreach (PassiveBase x in _passives)
         {
-            x.Init(_model);
+            x.Init(model);
         }
     }
 }

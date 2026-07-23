@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public class WeaponPistol : WeaponBase
 {
-    private float _bulletCount;
     private float _bulletSpeed;
     private float _coolTime;
     private float _detectRadius;
@@ -91,8 +90,7 @@ public class WeaponPistol : WeaponBase
     {
         base.CalculateStats();
 
-        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
-        _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level - 1);
-        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level - 1);
+        _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
+        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
     }
 }

@@ -9866,7 +9866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroController: {fileID: 1654112608}
-  _upgradeController: {fileID: 1654112614}
   _joystick: {fileID: 209972107}
   _ui: {fileID: 606005872}
   _enemySpawner: {fileID: 611943852}
@@ -21571,7 +21570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1708204677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7f31a8914d74240bafe70cff149730, type: 3}
+  m_Script: {fileID: 11500000, guid: e0a1c9a61afd15a46936a79bd219c081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1718681295

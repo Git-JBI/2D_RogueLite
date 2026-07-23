@@ -28,7 +28,6 @@ public class GameSceneUIManager : MonoBehaviour
     {
         _countDeadEnemiesText.text = count.ToString();
     }
-
     /// <summary>
     /// 레벨 텍스트 설정 함수
     /// </summary>
@@ -37,7 +36,6 @@ public class GameSceneUIManager : MonoBehaviour
     {
         _levelText.text = $"Lv. {level}";
     }
-
     /// <summary>
     /// 시간 텍스트 설정 함수
     /// </summary>
@@ -49,7 +47,6 @@ public class GameSceneUIManager : MonoBehaviour
 
         _timeText.text = $"{minute:D2} : {second:D2}";
     }
-
     //TODO 능력치 선택 전까지는 경험치 바 가득 참 상태
     public void SetExpBar(float curExp, float maxExp)
     {

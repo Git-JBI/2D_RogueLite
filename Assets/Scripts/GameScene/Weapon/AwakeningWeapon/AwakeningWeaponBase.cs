@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public enum AwakeningWeaponName
+public enum AwakeningWeaponType
 {
-    MaxPistol,
-    MaxShovel,
+    UpgradedPistol,
+    UpgradedShovel,
 }
 public class AwakeningWeaponBase : MonoBehaviour
 {
-    protected AwakeningWeaponName _weaponName;
+    protected AwakeningWeaponType _weaponType;
 
 }

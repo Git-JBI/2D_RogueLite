@@ -7,8 +7,6 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private Joystick _joystick;
     [SerializeField] private GameSceneUIManager _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
-    
-    private UpgradeController _upgradeController;
 
     private GameModel _gameModel;
     private AchievementManager _achievementManager;
@@ -35,6 +33,12 @@ public class GameSceneManager : MonoBehaviour
         _isBossSpawn = false;
         _isFirstBurstStarted = false;
         _isSecondBurstStarted = false;
+    }
+
+    private void Start()
+    {
+        _heroController.Init(_ui.IupgradeViewer);
+        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);
 
         OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
 
@@ -44,31 +48,15 @@ public class GameSceneManager : MonoBehaviour
         _joystick.OnTouchDown += _heroController.MoveStart;
         _joystick.OnTouchUp += _heroController.MoveFinish;
         _joystick.OnDragging += _heroController.Move;
-    }
 
-
-    private void Start()
-    {
-        Init();
+        _heroController.OnChangeLevel += _ui.SetLevelText;
+        _heroController.OnChangeExp += _ui.SetExpBar;
+        _heroController.OnDead += PlayerDead;
     }
 
     private void Update()
     {
         CheckTime();
-    }
-
-    private void Init()
-    {
-        _upgradeController = _heroController.GetComponent<UpgradeController>();
-
-        _heroController.OnChangeLevel += _ui.SetLevelText;
-        _heroController.OnChangeExp += _ui.SetExpBar;
-        _heroController.OnDead += PlayerDead;
-
-        _upgradeController.Init(_ui.IupgradeViewer);
-        _heroController.Init();
-
-        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);
     }
 
     /// <summary>
@@ -92,6 +80,7 @@ public class GameSceneManager : MonoBehaviour
             _enemySpawner.SpawnBoss();
         }
 
+        //TODO 이 부분 스테이지 데이터부터 가져와서 bool[]을 들고 체크해야함
         // 첫번째 물량 공세 체크
         if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 && !_isFirstBurstStarted)
         {

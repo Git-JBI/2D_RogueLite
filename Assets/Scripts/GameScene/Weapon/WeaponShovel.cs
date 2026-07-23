@@ -69,7 +69,7 @@ public class WeaponShovel : WeaponBase
         //TODO WeaponStatData의 GetValue에서 Max레벨 이상 락걸어둬서 괜찮은데 여기서도 제한 걸어둬야 함
         base.CalculateStats();
 
-        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level - 1);
-        _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level - 1);
+        _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level);
+        _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level);
     }
 }
