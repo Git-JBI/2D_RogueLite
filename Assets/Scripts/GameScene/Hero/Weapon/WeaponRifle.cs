@@ -21,9 +21,9 @@ public class WeaponRifle : WeaponBase
 
     private Coroutine _shootRoutine;
 
-    protected override void Awake()
+    public override void Init(HeroModel model)
     {
-        base.Awake();
+        base.Init(model);
 
         _enemyMask = LayerMask.GetMask("Enemy");
 

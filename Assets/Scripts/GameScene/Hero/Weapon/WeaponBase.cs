@@ -24,13 +24,9 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
     public string Desc => _weaponData.Descs[_level];
     public bool IsPermanentAbility => true;
 
-    protected virtual void Awake()
+    public virtual void Init(HeroModel model)
     {
         _level = 0;
-    }
-
-    public void Init(HeroModel model)
-    {
         _heroModel = model;
     }
     public virtual void Upgrade()

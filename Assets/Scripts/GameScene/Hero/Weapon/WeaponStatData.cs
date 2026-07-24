@@ -9,6 +9,7 @@ public enum WeaponStatType
     FireDelay,                  // 총알 한발 사이의 딜레이
     SpreadAngle,                // 탄 퍼짐 범위
     RotSpeed,                   // 회전 속도
+    Duration,                   // 지속 시간
 }
 
 [System.Serializable]

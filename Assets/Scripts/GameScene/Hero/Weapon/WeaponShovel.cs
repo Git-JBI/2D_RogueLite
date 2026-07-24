@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponShovel : WeaponBase
@@ -9,19 +10,55 @@ public class WeaponShovel : WeaponBase
     private float _bulletCount;
     private float _rotSpeed;
     private float _radius;
+    private float _coolTime;
+    private float _duration;
+
+    private float _timer;
+    private float _coolingTimer;
+    private bool _isCooling;
 
     private List<PlayerBulletBase> _shovels = new();
 
-    protected override void Awake()
+    private void Update()
     {
-        base.Awake();
-
-        _radius = 3;
+        CheckCoolTime();
     }
 
     private void FixedUpdate()
     {
         transform.Rotate(0, 0, _rotSpeed);
+    }
+
+    private void CheckCoolTime()
+    {
+        // 지속시간 이상이 되었을 시
+        if(_timer >= _duration)
+        {
+            DisableShovels();
+            _isCooling = true;
+            _timer = 0;
+        }
+        // 쿨타임이 끝났을 시
+        if(_coolingTimer >= _coolTime)
+        {
+            EnableShovels();
+            _isCooling = false;
+            _coolingTimer = 0;
+        }
+
+        if (!_isCooling)
+            _timer += Time.deltaTime;
+        else
+            _coolingTimer += Time.deltaTime;
+    }
+
+    public override void Init(HeroModel model)
+    {
+        base.Init(model);
+        _radius = 3;
+        _timer = 0;
+        _coolingTimer = 0;
+        _isCooling = false;
     }
 
     public override void Upgrade()
@@ -32,7 +69,32 @@ public class WeaponShovel : WeaponBase
 
         SpawnBullets();
     }
+    
+    /// <summary>
+    /// 삽 켜기
+    /// </summary>
+    private void EnableShovels()
+    {
+        foreach(PlayerBulletBase x in _shovels)
+        {
+            x.gameObject.SetActive(true);
+        }
+    }
 
+    /// <summary>
+    /// 삽 끄기
+    /// </summary>
+    private void DisableShovels()
+    {
+        foreach (PlayerBulletBase x in _shovels)
+        {
+            x.gameObject.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// 삽 소환
+    /// </summary>
     private void SpawnBullets()
     {
         float angle = 360 / _bulletCount;
@@ -55,6 +117,9 @@ public class WeaponShovel : WeaponBase
         }
     }
 
+    /// <summary>
+    /// 삽 제거
+    /// </summary>
     private void RemoveBullets()
     {
         foreach(PlayerBulletBase bullet in _shovels)
@@ -64,12 +129,15 @@ public class WeaponShovel : WeaponBase
         _shovels.Clear();
     }
 
+    #region abstract
     protected override void CalculateStats()
     {
-        //TODO WeaponStatData의 GetValue에서 Max레벨 이상 락걸어둬서 괜찮은데 여기서도 제한 걸어둬야 함
         base.CalculateStats();
 
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level);
         _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level);
+        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
+        _duration = _weaponData.GetStatValue(WeaponStatType.Duration, _level);
     }
+    #endregion
 }
