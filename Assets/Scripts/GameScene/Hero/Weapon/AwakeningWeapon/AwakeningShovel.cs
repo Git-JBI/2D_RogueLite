@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 무한하게 돌아가는 삽 + 적의 기본 총알을 막아주는 기능
+/// 무한하게 돌아가며 적의 총알을 막아주는 각성 삽
 /// </summary>
 public class AwakeningShovel : AwakeningWeaponBase
 {
