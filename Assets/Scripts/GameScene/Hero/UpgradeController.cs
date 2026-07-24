@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpgradeController : MonoBehaviour
@@ -10,19 +9,22 @@ public class UpgradeController : MonoBehaviour
     /// </summary>
     private IUpgradeViewer _iUpgradeViewer;
     /// <summary>
-    /// 업그레이드 가능한 목록들
+    /// 업그레이드 가능한 리스트
     /// </summary>
     private List<IUpgradable> _upgradables = new();
     /// <summary>
-    /// 각성에 필요한 내용 설정 데이터
+    /// 무기 각성용 IUpgradable 리스트
+    /// </summary>
+    private List<IAwakeningUpgradable> _awakeningUpgradables = new();
+    /// <summary>
+    /// 각성에 필요한 데이터 리스트
     /// </summary>
     private List<SO_AwakeningConfigData> _awakeningDatas = new();
+
     private WeaponController _weaponController;
     private PassiveController _passiveController;
 
-    private Dictionary<WeaponType, WeaponBase> _weaponMap = new();
-    private Dictionary<PassiveType, PassiveBase> _passiveMap = new();
-    private Dictionary<AwakeningWeaponType, WeaponBase> _awakeningWeaponMap = new();
+    private Dictionary<AwakeningWeaponType, IAwakeningUpgradable> _awakeningUpgradablesMap = new();
 
     private void Awake()
     {
@@ -35,15 +37,19 @@ public class UpgradeController : MonoBehaviour
         _weaponController = wc;
         _passiveController = pc;
 
-        foreach(WeaponBase x in _weaponController.Weapons)
+        foreach(IUpgradable x in _weaponController.Upgradables)
         {
-            Debug.Log(x.WeaponName);
             _upgradables.Add(x);
         }
-        foreach(PassiveBase x in _passiveController.Passives)
+        foreach(IUpgradable x in _passiveController.Upgradables)
         {
-            Debug.Log(x.PassiveName);
             _upgradables.Add(x);
+        }
+        foreach (SO_AwakeningConfigData data in _awakeningDatas)
+        {
+            IAwakeningUpgradable up = new AwakeningUpgradable(_weaponController, data);
+            _awakeningUpgradables.Add(up);
+            _awakeningUpgradablesMap.Add(data.ResultWeapon, up);
         }
     }
 
@@ -54,10 +60,6 @@ public class UpgradeController : MonoBehaviour
 
         LevelUp();
     }
-    /*
-     * 무기 조합에 대한 설정 데이터 추가
-     * 설정 데이터에 따른
-     */
 
     private void LevelUp()
     {
@@ -68,33 +70,19 @@ public class UpgradeController : MonoBehaviour
         List<IUpgradable> upgradables = new();
 
         //TODO 현재 무기만 가능
+        // 무기 각성 데이터 순회
         foreach(SO_AwakeningConfigData x in _awakeningDatas)
         {
+            IUpgradable weapon = _weaponController.GetIUpgradableWeapon(x.BaseWeapon);
+            IUpgradable passive = _passiveController.GetIUpgradablePassive(x.Passive);
 
+            // 무기가 5레벨이며 필요 패시브가 1레벨 이상인 경우
+            if(weapon.Level == 5 && passive.Level >= 1)
+            {
+                IAwakeningUpgradable up = _awakeningUpgradablesMap[x.ResultWeapon];
+                upgradables.Add(up);
+            }
         }
-
-
-        // // 각성 가능 여부 체크(최대 레벨이 6이라면)
-        // foreach (WeaponBase weapon in _weapons)
-        // {
-        //     // 최대 레벨이 6이며(각성 가능한 무기 체크) 현재 레벨이 5인 무기일 경우
-        //     if (weapon.MaxLevel == 6 && weapon.Level == 5)
-        //     {
-        //         // 각성 설정 데이터 찾기
-        //         SO_AwakeningConfigData data = _awakeningDatas.Find(i => i.BaseWeapon == weapon.WeaponName);
-        //         if (data != null)
-        //         {
-        //             // 각성에 필요한 패시브가 있는지 여부 판단
-        //             PassiveBase requirePassive = _passives.Find(i => i.PassiveName == data.Passive);
-        //             if (requirePassive != null && requirePassive.Level >= 1)
-        //             {
-        //                 upgradables.Add(weapon);
-        //                 if (upgradables.Count == 3)
-        //                     break;
-        //             }
-        //         }
-        //     }
-        // }
 
         // _upgradables 랜덤으로 섞기
         _upgradables.Shuffle();

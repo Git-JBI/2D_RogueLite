@@ -14,7 +14,7 @@ public abstract class PassiveBase : MonoBehaviour, IUpgradable
 
     protected int _level;
 
-    public PassiveType PassiveName => _passiveData.PassiveName;
+    public PassiveType PassiveType => _passiveData.PassiveType;
     public Sprite IconSprite => _passiveData.PassiveSprite;
     public int Level => _level;
     public int MaxLevel => _passiveData.Desces.Length;

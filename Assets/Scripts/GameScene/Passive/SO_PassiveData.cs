@@ -3,12 +3,12 @@
 [CreateAssetMenu(menuName = "GameDatas/PassiveData", fileName = "PassiveData")]
 public class SO_PassiveData : ScriptableObject
 {
-    [SerializeField] private PassiveType _passiveName;
+    [SerializeField] private PassiveType _passiveType;
     [SerializeField] private Sprite _passiveSprite;
     [SerializeField] private string[] _desces;
     [SerializeField] private PassiveStatData _statData;
 
-    public PassiveType PassiveName => _passiveName;
+    public PassiveType PassiveType => _passiveType;
     public Sprite PassiveSprite => _passiveSprite;
     public string[] Desces => _desces;
 
