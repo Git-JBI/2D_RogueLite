@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponShovel : WeaponBase
@@ -7,10 +6,25 @@ public class WeaponShovel : WeaponBase
     //TODO ResourceLoad로 변경
     [SerializeField]private PlayerBulletBase _shovel;
 
+    /// <summary>
+    /// 삽 갯수
+    /// </summary>
     private float _bulletCount;
+    /// <summary>
+    /// 회전 속도
+    /// </summary>
     private float _rotSpeed;
+    /// <summary>
+    /// 캐릭터와 삽 사이의 반지름
+    /// </summary>
     private float _radius;
+    /// <summary>
+    /// 쿨타임
+    /// </summary>
     private float _coolTime;
+    /// <summary>
+    /// 지속 시간
+    /// </summary>
     private float _duration;
 
     private float _timer;

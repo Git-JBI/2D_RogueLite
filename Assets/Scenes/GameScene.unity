@@ -6350,6 +6350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8be914fcebefc4ea18f49b0ebf60ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: dcd5db1f21170fb439a145b6cbd06fe8, type: 2}
 --- !u!1 &542078529
 GameObject:
   m_ObjectHideFlags: 0
@@ -21496,6 +21497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15b0fbd78c0faf45954d8075152ca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: aa512d24663e5154cb97d4d72557628a, type: 2}
 --- !u!1 &1654112607
 GameObject:
   m_ObjectHideFlags: 0
