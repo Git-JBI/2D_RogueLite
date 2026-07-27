@@ -5,8 +5,10 @@ public class Bullet_Gun : PlayerBulletBase
     private float _moveSpeed;
     private Vector2 _startPos;
 
-    public void Init(Vector2 pos, Vector2 dir, float movespeed)
+    public void Init(HeroModel model, float damage, Vector2 pos, Vector2 dir, float movespeed)
     {
+        _model = model;
+        _damageMagnification = damage;
         transform.position = pos;
         _startPos = pos;
         transform.up = dir;
@@ -27,8 +29,10 @@ public class Bullet_Gun : PlayerBulletBase
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();

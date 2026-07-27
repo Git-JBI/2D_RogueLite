@@ -65,8 +65,7 @@ public class WeaponPistol : WeaponBase
 
             Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
 
-            bulletPrefab.Init(_heroModel, _damageMagnification);
-            bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
+            bulletPrefab.Init(_heroModel, _damageMagnification, transform.position, _bulletDir, _bulletSpeed);
 
             yield return new WaitForSeconds(_coolTime);
         }

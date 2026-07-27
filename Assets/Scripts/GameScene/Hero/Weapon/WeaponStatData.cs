@@ -10,6 +10,7 @@ public enum WeaponStatType
     SpreadAngle,                // 탄 퍼짐 범위
     RotSpeed,                   // 회전 속도
     Duration,                   // 지속 시간
+    BounceCount,                // 튕김 횟수
 }
 
 [System.Serializable]

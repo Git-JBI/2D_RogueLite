@@ -9,6 +9,7 @@ public enum AwakeningWeaponType
 public class AwakeningWeaponBase : MonoBehaviour
 {
     [SerializeField] protected SO_AwakeningWeaponConfigData _weaponData;
+
     protected AwakeningWeaponType _weaponType;
     protected HeroModel _heroModel;
 

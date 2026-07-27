@@ -72,8 +72,7 @@ public class WeaponRifle : WeaponBase
 
                 Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
 
-                bulletPrefab.Init(_heroModel, _damageMagnification);
-                bulletPrefab.Init(transform.position, _bulletDir, _bulletSpeed);
+                bulletPrefab.Init(_heroModel, _damageMagnification, transform.position, _bulletDir, _bulletSpeed);
 
                 // 총알 간격 시간
                 yield return new WaitForSeconds(_fireDelay);
