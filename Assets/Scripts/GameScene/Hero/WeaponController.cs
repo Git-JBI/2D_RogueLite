@@ -17,6 +17,12 @@ public class WeaponController : MonoBehaviour
         _upgradables = GetComponentsInChildren<IUpgradable>(true);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            _weapons[1].Upgrade();
+    }
+
     public void Init(HeroModel model)
     {
         // 일반 무기 초기화

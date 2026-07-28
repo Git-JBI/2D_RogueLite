@@ -13,6 +13,8 @@ public class Bullet_Gun : PlayerBulletBase
         _startPos = pos;
         transform.up = dir;
         _moveSpeed = movespeed;
+
+        // 부모 설정 해제
         transform.SetParent(null);
     }
 

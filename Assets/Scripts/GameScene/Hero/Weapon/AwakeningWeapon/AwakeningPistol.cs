@@ -14,7 +14,7 @@ public class AwakeningPistol : AwakeningWeaponBase
     {
         base.Init(model);
 
-        _weaponType = AwakeningWeaponType.APistol;
+        _weaponType = _weaponData.WeaponType;
 
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime);
         _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed);
@@ -36,11 +36,12 @@ public class AwakeningPistol : AwakeningWeaponBase
     {
         while (true)
         {
+            Debug.Log("발사");
             // 사용할 불릿 오브젝트
             GameObject bullet;
 
             // 불릿 불러오기, 스폰
-            bullet = GameManager.Instance.PoolManager.GetFromPool("", transform);
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Chase", transform);
 
             // 추적하는 불릿 컴포넌트
             ChasingBullet bulletPrefab = bullet.GetComponent<ChasingBullet>();

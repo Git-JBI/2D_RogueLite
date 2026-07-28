@@ -20,7 +20,7 @@ public class AwakeningShovel : AwakeningWeaponBase
     {
         base.Init(model);
 
-        _weaponType = AwakeningWeaponType.AShovel;
+        _weaponType = _weaponData.WeaponType;
 
         _shovel = Resources.Load<PlayerBulletBase>("Prefabs/Bullets/Bullet_Shovel");
 

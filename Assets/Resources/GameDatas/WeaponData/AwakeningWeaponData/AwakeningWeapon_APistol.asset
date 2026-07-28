@@ -23,3 +23,6 @@ MonoBehaviour:
   - _statType: 3
     _value:
     - 1.5
+  - _statType: 8
+    _value:
+    - 5
