@@ -5,10 +5,9 @@ using UnityEngine;
 public class PassiveController : MonoBehaviour
 {
     private PassiveBase[] _passives;
-    private IReadOnlyList<IUpgradable> _upgradables;
+    private IUpgradable[] _upgradables;
 
     public IReadOnlyList<IUpgradable> Upgradables => _upgradables;
-    public PassiveBase[] Passives => _passives;
 
     private void Awake()
     {

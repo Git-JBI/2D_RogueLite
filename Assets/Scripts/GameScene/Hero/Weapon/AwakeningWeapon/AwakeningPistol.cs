@@ -36,7 +36,6 @@ public class AwakeningPistol : AwakeningWeaponBase
     {
         while (true)
         {
-            Debug.Log("발사");
             // 사용할 불릿 오브젝트
             GameObject bullet;
 

@@ -8,9 +8,10 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     private HeroMovement _movement;
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
-    private WeaponController _weaponController;
     private UpgradeController _upgradeController;
+    private WeaponController _weaponController;
     private PassiveController _passiveController;
+    private AbilityController _abilityController;
 
     public event UnityAction<int> OnChangeLevel
     {
@@ -31,9 +32,10 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
         _upgradeController = GetComponent<UpgradeController>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
+        _heroHud = GetComponentInChildren<HeroHud>();
         _weaponController = GetComponentInChildren<WeaponController>();
         _passiveController = GetComponentInChildren<PassiveController>();
-        _heroHud = GetComponentInChildren<HeroHud>();
+        _abilityController = GetComponentInChildren<AbilityController>();
     }
 
     public void Init(IUpgradeViewer upgradeViewer)

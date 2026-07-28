@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863233422453738431, guid: 031e69ec679302a4bbcaf9c1d80b83ef, type: 3}
       propertyPath: m_Name
-      value: Bullet_Enemy_HaveParent Variant
+      value: Bullet_Enemy_NoParent
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3758976162745135774, guid: 031e69ec679302a4bbcaf9c1d80b83ef, type: 3}
