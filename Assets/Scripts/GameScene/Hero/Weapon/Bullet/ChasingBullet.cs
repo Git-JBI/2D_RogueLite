@@ -42,7 +42,7 @@ public class ChasingBullet : PlayerBulletBase
         transform.position = pos;
 
         // 가장 가까운 적 방향
-        Vector2 dir = SetBulletDir();
+        Vector2 dir = GetDirToEnemy();
 
         // 가장 가까운 적이 없을 경우(Vector.zero일 경우)
         if(dir == Vector2.zero)
@@ -55,7 +55,11 @@ public class ChasingBullet : PlayerBulletBase
         transform.up = dir;
     }
 
-    private Vector2 SetBulletDir()
+    /// <summary>
+    /// 적을 향하는 Vector2를 반환하는 함수
+    /// </summary>
+    /// <returns>가장 가까운 or 그 다음으로 가까운 적을 향하는 벡터</returns>
+    private Vector2 GetDirToEnemy()
     {
         // 적 배열
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 20, _enemyMask);
@@ -78,8 +82,15 @@ public class ChasingBullet : PlayerBulletBase
 
         return dir;
     }
-        
-    private Collider2D GetXthNearestEnemy(Collider2D[] enemies, int skipcCount)
+
+    /// <summary>
+    /// 총알과 enemies에 있는 적들의 위치 차를 오름차순으로 정렬 후
+    /// skipCount에 따른 순번의 적을 반환하는 함수
+    /// </summary>
+    /// <param name="enemies">적 배열</param>
+    /// <param name="skipCount">몇 번째 가까운 적을 원하는지</param>
+    /// <returns>X 번째 가까운 적</returns>
+    private Collider2D GetXthNearestEnemy(Collider2D[] enemies, int skipCount)
     {
         Array.Sort(enemies, (a, b) =>
         {
@@ -89,10 +100,10 @@ public class ChasingBullet : PlayerBulletBase
         });
 
         // 넘길 숫자가 감지한 적의 수보다 클 때 그나마 가장 가까운 대상
-        if (skipcCount >= enemies.Length)
+        if (skipCount >= enemies.Length)
             return enemies[enemies.Length - 1];
 
-        return enemies[skipcCount];
+        return enemies[skipCount];
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -109,7 +120,7 @@ public class ChasingBullet : PlayerBulletBase
                 _curBounceCount--;
 
                 // 가장 가까운 적의 방향설정
-                Vector2 dir = SetBulletDir();
+                Vector2 dir = GetDirToEnemy();
 
                 // 가장 가까운 적이 없을 경우 남은 _curBounceCount를 전부 소모해서 데미지를 입힘
                 if(dir == Vector2.zero)
@@ -126,7 +137,7 @@ public class ChasingBullet : PlayerBulletBase
                 }
                 // 있을 경우 up 방향 돌리기
                 else
-                    transform.up = SetBulletDir();
+                    transform.up = GetDirToEnemy();
             }
             // 남은 횟수가 없는 경우
             else
