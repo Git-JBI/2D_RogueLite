@@ -14,7 +14,7 @@ public class EnemyModel
     public EnemyModel(SO_EnemyData data, int stage)
     {
         _maxHp = CalculateStat(data.MaxHp, stage);
-        _curHp = CalculateStat(data.MaxHp, stage);
+        _curHp = _maxHp;
         _damage = CalculateStat(data.Damage, stage);
         _moveSpeed = data.MoveSpeed;
     }
@@ -24,20 +24,27 @@ public class EnemyModel
         _curHp = Mathf.Clamp(_curHp - damage, 0, _maxHp);
     }
     
+    /// <summary>
+    /// 적의 스텟 데이터에 스테이지에 따른 배율을 넣는 함수
+    /// </summary>
+    /// <param name="baseValue">기존 값</param>
+    /// <param name="stage">현재 진행하는 스테이지</param>
+    /// <returns>기존 값 * 배율</returns>
     private float CalculateStat(float baseValue, int stage)
     {
+        // 스테이지 입력이 0이하인 경우
         if (stage <= 0)
             stage = 1;
-        float stagemulValue = baseValue * stage;
 
-        float bonusMul = 1.0f;
-        if(stage >= 10)
-        {
-            int bonus = stage / 10;
-            bonusMul += bonus * 0.1f;
-        }
+        float bonus1 = 1.0f + (stage * 0.1f);
 
-        float value = stagemulValue * bonusMul;
+        int tier10 = stage / 10;
+        float bonus10 = 1.0f + (tier10 * 0.1f);
+
+        int tier100 = stage / 100;
+        float bonus100 = 1.0f + (tier100 * 0.1f);
+
+        float value = baseValue * bonus1 * bonus10 * bonus100;
 
         return Mathf.RoundToInt(value);
     }
