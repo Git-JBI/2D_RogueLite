@@ -21,7 +21,7 @@ public class AbilityHeal : MonoBehaviour, IUpgradable
     {
         float heal = _model.MaxHp / 4f;
 
-        _model.ChangeHp(heal);
+        _model.HealHp(heal);
     }
     #endregion
 }

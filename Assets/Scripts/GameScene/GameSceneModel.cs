@@ -14,7 +14,7 @@ public class GameSceneModel
 
     /// <summary>
     /// T0 : 사망한 적 숫자
-    /// GameSceneManager > Start()
+    /// GameSceneManager.Start()
     /// </summary>
     public UnityAction<int> OnIncreaseEnemyDeadCount;
 

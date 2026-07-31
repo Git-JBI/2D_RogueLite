@@ -71,9 +71,9 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     #region Interface
     public void TakeDamage(float damage)
     {
-        _heromodel.ChangeHp(-damage);
+        _heromodel.TakeDamage(damage);
 
-        if(_heromodel.CurHp <= 0)
+        if(!_heromodel.IsAlive)
         {
             Time.timeScale = 0;
             OnDead?.Invoke();

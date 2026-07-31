@@ -27,7 +27,7 @@ public class GameSceneManager : MonoBehaviour
         _achievementManager = GameManager.Instance.AchievementManager;
 
         _gameSceneModel = new GameSceneModel();
-        _stageData = Resources.Load<SO_StageData>($"GameDatas/StageData/StageData{_gameModel.SelectStage}");
+        _stageData = GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/StageData/StageData{_gameModel.SelectStage}") as SO_StageData;
 
         _isKillCountReported = false;
         _isBossSpawn = false;
@@ -38,7 +38,7 @@ public class GameSceneManager : MonoBehaviour
     private void Start()
     {
         _heroController.Init(_gameSceneModel, _ui.IupgradeViewer);
-        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);
+        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform, _stageData);
 
         OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
 

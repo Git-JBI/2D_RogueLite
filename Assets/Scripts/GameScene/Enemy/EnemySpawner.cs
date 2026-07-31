@@ -10,9 +10,10 @@ public class EnemySpawner : MonoBehaviour
 {
     private System.Random _random = new System.Random();
 
-    private int _stage;
+    private GameSceneModel _gameSceneModel;
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
+    private int _stage;
 
     private List<SO_EnemyData> _minionsConfigData = new();
     private List<SO_EnemyData> _bossConfigData = new();
@@ -21,19 +22,16 @@ public class EnemySpawner : MonoBehaviour
     private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
     private IReadOnlyList<BossEnemyController> _bossEnemiePrefabs;
 
-    /// <summary>
-    /// GameSceneManager > Start()
-    /// </summary>
     public event UnityAction OnEnemyDead;
     public event UnityAction OnBossDead;
 
     private Coroutine _spawnRoutine;
     private Coroutine _burstSpawnRoutine;
 
-    public void Init(int stage, Transform transform)
+    public void Init(int stage, Transform transform, SO_StageData data)
     {
         _stage = stage;
-        _stageConfigData = GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/StageData/StageData{stage}") as SO_StageData;
+        _stageConfigData = data;
         _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
         _bossEnemiePrefabs = _stageConfigData.BossEnemies;
 
