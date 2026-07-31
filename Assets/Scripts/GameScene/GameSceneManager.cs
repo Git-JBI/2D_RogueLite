@@ -52,6 +52,8 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnChangeLevel += _ui.SetLevelText;
         _heroController.OnChangeExp += _ui.SetExpBar;
         _heroController.OnDead += PlayerDead;
+
+        _gameSceneModel.OnIncreaseEnemyDeadCount += _ui.SetDeadCount;
     }
 
     private void Update()
@@ -123,11 +125,8 @@ public class GameSceneManager : MonoBehaviour
     /// </summary>
     private void EnemyDead()
     {
-        // 적 사망 수 1 증가
-        _gameSceneModel.IncreaseEnemyDeadCount(1);
-        
-        // 적 사망 텍스트 죽은 숫자로 적용
-        _ui.SetDeadCount(_gameSceneModel.EnemyDeadCount);
+        // 적 사망
+        _gameSceneModel.IncreaseEnemyDeadCount();
     }
 
     /// <summary>

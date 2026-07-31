@@ -1,4 +1,6 @@
-﻿public class GameSceneModel
+﻿using UnityEngine.Events;
+
+public class GameSceneModel
 {
     private int _enemyDeadCount;
     private int _stageGold;
@@ -10,6 +12,12 @@
     public int Stage => _stage;
     public float StageTime => _stageTime;
 
+    /// <summary>
+    /// T0 : 사망한 적 숫자
+    /// GameSceneManager > Start()
+    /// </summary>
+    public UnityAction<int> OnIncreaseEnemyDeadCount;
+
     public GameSceneModel()
     {
         _enemyDeadCount = 0;
@@ -17,9 +25,10 @@
         _stageTime = 0;
     }
 
-    public void IncreaseEnemyDeadCount(int count)
+    public void IncreaseEnemyDeadCount()
     {
-        _enemyDeadCount += count;
+        _enemyDeadCount++;
+        OnIncreaseEnemyDeadCount?.Invoke(_enemyDeadCount);
     }
 
     public void IncreaseStageGold(int value)

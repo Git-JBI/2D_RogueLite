@@ -21,6 +21,9 @@ public class EnemySpawner : MonoBehaviour
     private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
     private IReadOnlyList<BossEnemyController> _bossEnemiePrefabs;
 
+    /// <summary>
+    /// GameSceneManager > Start()
+    /// </summary>
     public event UnityAction OnEnemyDead;
     public event UnityAction OnBossDead;
 
