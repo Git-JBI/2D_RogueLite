@@ -66,7 +66,6 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     {
         return (_heroTransform.position - transform.position).normalized;
     }
-
     /// <summary>
     /// 콜라이더 활성화 여부 설정 함수
     /// </summary>

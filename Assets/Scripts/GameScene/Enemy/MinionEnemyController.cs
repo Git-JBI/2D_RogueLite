@@ -60,7 +60,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
     
     public abstract void FinishDamageState();
 
-    //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률)
+    //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률) <<<< Spawner에서 시간에 따른 값을 초기화하는게 가장 나아보임
     /// <summary>
     /// 아이템을 생성하는 함수
     /// </summary>

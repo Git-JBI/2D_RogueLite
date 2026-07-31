@@ -147,4 +147,49 @@ public class EnemySpawner : MonoBehaviour
 
         return pos;
     }
+    /*
+     * public static class TimeWeightedRandom
+{
+    // 행: 시간 구간, 열: 0, 1, 2가 나올 확률
+    private static readonly float[,] Probabilities =
+    {
+        { 0.8f, 0.2f, 0.0f }, // 1구간
+        { 0.6f, 0.4f, 0.0f }, // 2구간
+        { 0.4f, 0.4f, 0.2f }, // 3구간
+        { 0.2f, 0.3f, 0.5f }, // 4구간
+        { 0.0f, 0.2f, 0.8f }  // 5구간
+    };
+
+    public static int GetRandomValue(float elapsedTime, float totalTime)
+    {
+        if (totalTime <= 0f)
+        {
+            Debug.LogError("전체 시간은 0보다 커야 합니다.");
+            return 0;
+        }
+
+        // 경과 시간을 0~전체 시간 안으로 제한
+        elapsedTime = Mathf.Clamp(elapsedTime, 0f, totalTime);
+
+        // 시간을 0~1로 정규화한 뒤 5개 구간으로 변환
+        int section = Mathf.Min(
+            Mathf.FloorToInt(elapsedTime / totalTime * 5f),
+            4
+        );
+
+        float randomValue = Random.value;
+
+        float probabilityOfZero = Probabilities[section, 0];
+        float probabilityOfOne = Probabilities[section, 1];
+
+        if (randomValue < probabilityOfZero)
+            return 0;
+
+        if (randomValue < probabilityOfZero + probabilityOfOne)
+            return 1;
+
+        return 2;
+    }
+}
+     */
 }
