@@ -27,11 +27,6 @@ public class EquipmentInventoryManager : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        Debug.Log("장비 인벤토리 초기화");
-        // 슬롯 리스트 내에 남아있을 경우
-        if (_slots.Count != 0)
-            DestroySlots();
-
         // 슬롯 리스트 초기화
         InitSlots();
     }
@@ -49,35 +44,26 @@ public class EquipmentInventoryManager : MonoBehaviour
             ThenBy(i => i.ItemID).
             ToList();
 
-        foreach (EquipmentItemData x in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            // 장비 아이템 슬롯 생성(이곳으로 부모 설정)
-            GameObject slot = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", transform);
+            EquipmentItemSlot slot;
 
-            EquipmentItemSlot slotPrefab = slot.GetComponent<EquipmentItemSlot>();
-            // 장비 아이템 슬롯 초기화
-            slotPrefab.Init(x);
-            // 슬롯 이벤트 추가
-            slotPrefab.OnItemSlotClicked += OpenPopup;
-            // 슬롯 리스트에 슬롯 추가
-            _slots.Add(slotPrefab);
+            if (i < _slots.Count)
+            {
+                slot = _slots[i];
+                slot.gameObject.SetActive(true);
+            }
+            else
+            {
+                GameObject slotObject = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", transform);
+
+                slot = slotObject.GetComponent<EquipmentItemSlot>();
+                _slots.Add(slot);
+            }
+
+            slot.Init(items[i]);
+            slot.OnItemSlotClicked += OpenPopup;
         }
-    }
-
-    /// <summary>
-    /// 슬롯 리스트 비우는 함수
-    /// </summary>
-    private void DestroySlots()
-    {
-        foreach(EquipmentItemSlot slot in _slots)
-        {
-            // 슬롯 리스트 내에 있는 슬롯 풀로 되돌리기
-            PoolingObject poolOb = slot.GetComponent<PoolingObject>();
-            poolOb.ReturnToPool();
-        }
-
-        // 슬롯 리스트 비우기
-        _slots.Clear();
     }
 
     private void OpenPopup(EquipmentItemData data)
