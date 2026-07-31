@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class HeroModel : MonoBehaviour
 {
     private UpgradeModel _upgradeModel;
+    private SO_ExpConfigData _expConfigData;
 
     private int _level;
     private float _maxExp;
@@ -22,11 +23,7 @@ public class HeroModel : MonoBehaviour
     private float _passiveMaxHpPercent;
     private float _passiveMoveSpeedPercent;
 
-    public int Level => _level;
-    public float MaxExp => _maxExp;
-    public float CurExp => _curExp;
     public float MaxHp => (_maxHp + _upgradeHp) * (1 + _passiveMaxHpPercent / 100);
-    public float CurHp => _curHp;
     public float Damage => (_damage + _upgradeDamage) * (1 + _passiveDamagePercent / 100);
     public float MoveSpeed => _moveSpeed * (1 + _passiveMoveSpeedPercent / 100);
     public float Armor => _armor + _upgradeArmor;
@@ -68,6 +65,9 @@ public class HeroModel : MonoBehaviour
 
     public bool IsAlive => _curHp > 0;
 
+    /// <summary>
+    /// T0 : 현재 레벨
+    /// </summary>
     public event UnityAction<int> OnChangeLevel;
     /// <summary>
     /// T0 : 현재 Hp, T1 : 최대 Hp
@@ -81,15 +81,16 @@ public class HeroModel : MonoBehaviour
     private void Awake()
     {
         _upgradeModel = GameManager.Instance.GameModel.UpgradeModel;
+        _expConfigData = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/HeroConfigData/ExpConfigData/ExpConfigData") as SO_ExpConfigData;
 
         // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화 >>>>> 필요없는 변수들이 있는 것 같음 기본값을 GameModel에서 설정 후 기본 값 설정 후 인게임 업그레이드 데이터를 적용하는 방식
+        _level = 1;
         _maxHp = 10000;
         _curHp = _maxHp;
         _damage = 10;
         _moveSpeed = 2;
-        _maxExp = 100;
+        _maxExp = _expConfigData.GetMaxExp(_level);
         _curExp = 0;
-        _level = 1;
 
         _upgradeDamage = _upgradeModel.GetUpgradeDamageValue();
         _upgradeHp = _upgradeModel.GetUpgradeHpValue();
@@ -119,23 +120,57 @@ public class HeroModel : MonoBehaviour
         }
     }
 
-    public void ChangeHp(float damage)
+    /// <summary>
+    /// 체력을 회복하는 함수
+    /// </summary>
+    /// <param name="value">더해지는 체력의 양</param>
+    public void HealHp(float value)
     {
-        _curHp = Mathf.Clamp(_curHp - damage, 0, MaxHp);
-        OnChangeHp?.Invoke(_curHp, MaxHp);
+        float heal = value;
+
+        // _curHp는 _maxHp을 초과할 수 없음
+        _curHp = Mathf.Min(_curHp + heal, _maxHp);
+    }
+
+    /// <summary>
+    /// 데미지를 입는 함수
+    /// </summary>
+    /// <param name="value">입는 데미지</param>
+    public void TakeDamage(float value)
+    {
+        float damage = value;
+
+        // _curHp는 0미만이 될 수 없음
+        _curHp = Mathf.Max(_curHp - damage, 0);
     }
 
     public void IncreaseExp(int exp)
     {
         _curExp += exp;
-        
+
+        CheckExp();
+
+        OnChangeExp?.Invoke(_curExp, _maxExp);
+    }
+
+    /// <summary>
+    /// 현재 경험치가 최대 경험치보다 큰지 확인용도 함수 
+    /// </summary>
+    public void CheckExp()
+    {
         if(_curExp >= _maxExp)
         {
+            // 레벨 증가
             _level++;
+
+            // 현재 경험치에서 최대 경험치만큼 감소
             _curExp -= _maxExp;
 
+            // 레벨에 따른 최대 경험치 재설정
+            _maxExp = _expConfigData.GetMaxExp(_level);
+
+            // 레벨업 시 이벤트 발행
             OnChangeLevel?.Invoke(_level);
         }
-        OnChangeExp?.Invoke(_curExp, _maxExp);
     }
 }
