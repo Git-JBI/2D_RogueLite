@@ -38,7 +38,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
         _abilityController = GetComponentInChildren<AbilityController>();
     }
 
-    public void Init(IUpgradeViewer upgradeViewer)
+    public void Init(GameSceneModel model ,IUpgradeViewer upgradeViewer)
     {
         SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero{GameManager.Instance.GameModel.HeroData.HeroName}");
 
@@ -46,6 +46,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
         _weaponController.Init(_heromodel);
         _passiveController.Init(_heromodel);
         _upgradeController.Init(upgradeViewer, _weaponController, _passiveController);
+        _abilityController.Init(model, _heromodel);
 
         _heromodel.OnChangeLevel += _upgradeController.OnLevelUp;
         _heromodel.OnChangeHp += _heroHud.SetHpBar;
@@ -70,7 +71,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     #region Interface
     public void TakeDamage(float damage)
     {
-        _heromodel.ChangeHp(damage);
+        _heromodel.ChangeHp(-damage);
 
         if(_heromodel.CurHp <= 0)
         {

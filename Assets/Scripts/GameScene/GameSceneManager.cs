@@ -37,7 +37,7 @@ public class GameSceneManager : MonoBehaviour
 
     private void Start()
     {
-        _heroController.Init(_ui.IupgradeViewer);
+        _heroController.Init(_gameSceneModel, _ui.IupgradeViewer);
         _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform);
 
         OnBurstStarted += _enemySpawner.BurstSpawnEnemy;

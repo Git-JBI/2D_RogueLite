@@ -69,7 +69,13 @@ public class HeroModel : MonoBehaviour
     public bool IsAlive => _curHp > 0;
 
     public event UnityAction<int> OnChangeLevel;
+    /// <summary>
+    /// T0 : 현재 Hp, T1 : 최대 Hp
+    /// </summary>
     public event UnityAction<float, float> OnChangeHp;
+    /// <summary>
+    /// T0 : 현재 Exp, T1 : 최대 Exp
+    /// </summary>
     public event UnityAction<float, float> OnChangeExp;
 
     private void Awake()
