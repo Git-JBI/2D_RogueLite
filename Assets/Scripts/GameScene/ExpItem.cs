@@ -1,11 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ExpItem : MonoBehaviour
 {
-    //TODO expType에 따른 이미지와 획득 경험치량 설정필요
-    private int _expType;
     private int _exp;
     private Sprite[] _expSprites = new Sprite[3];
     private SpriteRenderer _spriteRenderer;
@@ -46,7 +43,6 @@ public class ExpItem : MonoBehaviour
             for(int i = 0; i < _expSprites.Length; i++)
             {
                 _expSprites[i] = Array.Find(sprites, x => x.name == $"Exp {i}");
-                Debug.Log(_expSprites[i].name);
             }
         }
     }
@@ -57,7 +53,7 @@ public class ExpItem : MonoBehaviour
         {
             IItem itemable = collision.gameObject.GetComponentInParent<IItem>();
 
-            itemable.GetExpItem(10);
+            itemable.GetExpItem(_exp);
 
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();

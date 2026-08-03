@@ -97,7 +97,7 @@ public class TeleportBossController : BossEnemyController
         float downSpeed = 1;
         float timer = 0;
         // 텔레포트할 랜덤한 위치(플레이어 캐릭터 기준)
-        Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_heroTransform.transform.position;
+        Vector2 teleportPos = Random.insideUnitCircle.normalized * 4.0f + (Vector2)_target.transform.position;
         // 리지드바디 끄기
         SetRigidBodyActive(false);
         // 콜라이더 끄기

@@ -8,19 +8,12 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    private float[,] _probabilities =
-    {
-        { 0.8f, 0.2f, 0.0f }, // 1구간
-        { 0.6f, 0.4f, 0.0f }, // 2구간
-        { 0.4f, 0.4f, 0.2f }, // 3구간
-        { 0.2f, 0.3f, 0.5f }, // 4구간
-        { 0.0f, 0.2f, 0.8f }  // 5구간
-    };
     private System.Random _random = new System.Random();
 
     private GameSceneManager _gameSceneManager;
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
+    private SO_ExpProbabilityConfigData _probabilities;
     private int _stage;
 
     private List<SO_EnemyData> _minionsConfigData = new();
@@ -41,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         _stage = stage;
         _stageConfigData = data;
         _gameSceneManager = gameSceneManager;
+        _probabilities = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/ExpProbabilityData/ExpTimeConfigData") as SO_ExpProbabilityConfigData;
 
         _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
         _bossEnemiePrefabs = _stageConfigData.BossEnemies;
@@ -171,8 +165,8 @@ public class EnemySpawner : MonoBehaviour
 
         float randomValue = Random.value;
 
-        float probabilityZero = _probabilities[section, 0];
-        float probabilityOne = _probabilities[section, 1];
+        float probabilityZero = _probabilities.GetProbability(section, 0);
+        float probabilityOne = _probabilities.GetProbability(section, 1);
 
         if (randomValue < probabilityZero)
             return 0;

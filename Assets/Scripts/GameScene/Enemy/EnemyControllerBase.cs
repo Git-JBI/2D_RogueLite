@@ -3,12 +3,13 @@
 [System.Serializable]
 public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 {
-    protected Transform _heroTransform;
+    protected Transform _target;
     protected EnemyModel _model;
     protected EnemySpriteController _spriteController;
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
 
+    protected IState[] _states;
     protected IState _curState;
     
     protected EnemyDeadState _deadState;
@@ -39,7 +40,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     public virtual void Init(Transform target, Vector2 spawnPos)
     {
         // 타겟 설정(플레이어)
-        _heroTransform = target;
+        _target = target;
 
         // 생성 위치 설정
         transform.position = spawnPos;
@@ -47,6 +48,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 
     public void ChangeState(IState state)
     {
+        // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
         if (_curState == _deadState)
             return;
 
@@ -64,7 +66,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     /// <returns>플레이어 방향 vector2</returns>
     public Vector2 DirToTarget()
     {
-        return (_heroTransform.position - transform.position).normalized;
+        return (_target.position - transform.position).normalized;
     }
     /// <summary>
     /// 콜라이더 활성화 여부 설정 함수
