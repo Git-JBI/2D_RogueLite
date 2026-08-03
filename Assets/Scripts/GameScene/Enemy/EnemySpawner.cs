@@ -8,9 +8,17 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
+    private float[,] _probabilities =
+    {
+        { 0.8f, 0.2f, 0.0f }, // 1구간
+        { 0.6f, 0.4f, 0.0f }, // 2구간
+        { 0.4f, 0.4f, 0.2f }, // 3구간
+        { 0.2f, 0.3f, 0.5f }, // 4구간
+        { 0.0f, 0.2f, 0.8f }  // 5구간
+    };
     private System.Random _random = new System.Random();
 
-    private GameSceneModel _gameSceneModel;
+    private GameSceneManager _gameSceneManager;
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
     private int _stage;
@@ -28,10 +36,12 @@ public class EnemySpawner : MonoBehaviour
     private Coroutine _spawnRoutine;
     private Coroutine _burstSpawnRoutine;
 
-    public void Init(int stage, Transform transform, SO_StageData data)
+    public void Init(int stage, Transform transform, SO_StageData data, GameSceneManager gameSceneManager)
     {
         _stage = stage;
         _stageConfigData = data;
+        _gameSceneManager = gameSceneManager;
+
         _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
         _bossEnemiePrefabs = _stageConfigData.BossEnemies;
 
@@ -89,7 +99,7 @@ public class EnemySpawner : MonoBehaviour
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage);
+        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage, GetRandomExp());
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);
@@ -147,49 +157,27 @@ public class EnemySpawner : MonoBehaviour
 
         return pos;
     }
-    /*
-     * public static class TimeWeightedRandom
-{
-    // 행: 시간 구간, 열: 0, 1, 2가 나올 확률
-    private static readonly float[,] Probabilities =
-    {
-        { 0.8f, 0.2f, 0.0f }, // 1구간
-        { 0.6f, 0.4f, 0.0f }, // 2구간
-        { 0.4f, 0.4f, 0.2f }, // 3구간
-        { 0.2f, 0.3f, 0.5f }, // 4구간
-        { 0.0f, 0.2f, 0.8f }  // 5구간
-    };
 
-    public static int GetRandomValue(float elapsedTime, float totalTime)
+    private int GetRandomExp()
     {
+        float curTime = _gameSceneManager.GetTime();
+        float totalTime = _stageConfigData.StagePlayTime;
+
+        // 전체 시간이 0 이하일 수가 없음
         if (totalTime <= 0f)
-        {
-            Debug.LogError("전체 시간은 0보다 커야 합니다.");
             return 0;
-        }
 
-        // 경과 시간을 0~전체 시간 안으로 제한
-        elapsedTime = Mathf.Clamp(elapsedTime, 0f, totalTime);
-
-        // 시간을 0~1로 정규화한 뒤 5개 구간으로 변환
-        int section = Mathf.Min(
-            Mathf.FloorToInt(elapsedTime / totalTime * 5f),
-            4
-        );
+        int section = Mathf.Min(Mathf.FloorToInt(curTime / totalTime * 5f), 4);
 
         float randomValue = Random.value;
 
-        float probabilityOfZero = Probabilities[section, 0];
-        float probabilityOfOne = Probabilities[section, 1];
+        float probabilityZero = _probabilities[section, 0];
+        float probabilityOne = _probabilities[section, 1];
 
-        if (randomValue < probabilityOfZero)
+        if (randomValue < probabilityZero)
             return 0;
-
-        if (randomValue < probabilityOfZero + probabilityOfOne)
+        if (randomValue < probabilityZero + probabilityOne)
             return 1;
-
         return 2;
     }
-}
-     */
 }

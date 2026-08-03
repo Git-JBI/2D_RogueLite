@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public abstract class MinionEnemyController : EnemyControllerBase
 {
+    private int _expType;
     private MinionDamagedState _damagedState;
 
     public event UnityAction<MinionEnemyController> OnMinionEnemyDead;
@@ -14,7 +15,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
         _damagedState = new MinionDamagedState(this);
     }
 
-    public void Init(Transform target, Vector2 spawnPos, SO_EnemyData data, int stage)
+    public void Init(Transform target, Vector2 spawnPos, SO_EnemyData data, int stage, int expType)
     {
         base.Init(target, spawnPos);
 
@@ -29,6 +30,9 @@ public abstract class MinionEnemyController : EnemyControllerBase
 
         // 상태 초기화
         SetStartState();
+
+        // 드랍할 경험치 타입
+        _expType = expType;
     }
 
     public override void Dead()
@@ -60,7 +64,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
     
     public abstract void FinishDamageState();
 
-    //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률) <<<< Spawner에서 시간에 따른 값을 초기화하는게 가장 나아보임
+    //TODO 추후 expitem의 종류 다양 (3종의 아이템 + 스테이지 진행 시간에 따른 확률)
     /// <summary>
     /// 아이템을 생성하는 함수
     /// </summary>
@@ -68,10 +72,10 @@ public abstract class MinionEnemyController : EnemyControllerBase
     {
         GameObject expItem;
 
-        expItem = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Item/Item_Exp", transform);
+        expItem = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Item/Item_Exp", transform);
 
         ExpItem item = expItem.GetComponent<ExpItem>();
 
-        item.Init(transform.position);
+        item.Init(transform.position, _expType);
     }
 }

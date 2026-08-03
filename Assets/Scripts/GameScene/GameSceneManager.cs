@@ -38,7 +38,7 @@ public class GameSceneManager : MonoBehaviour
     private void Start()
     {
         _heroController.Init(_gameSceneModel, _ui.IupgradeViewer);
-        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform, _stageData);
+        _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform, _stageData, this);
 
         OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
 
@@ -166,5 +166,10 @@ public class GameSceneManager : MonoBehaviour
     private void ReportBossKillCount()
     {
         _achievementManager.Report(AchievementConditionType.KillBoss);
+    }
+
+    public float GetTime()
+    {
+        return _gameSceneModel.StageTime;
     }
 }
