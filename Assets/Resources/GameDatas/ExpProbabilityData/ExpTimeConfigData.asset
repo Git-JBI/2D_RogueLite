@@ -12,3 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575ac514a6446af4fb58ac1c06ed3f4e, type: 3}
   m_Name: ExpTimeConfigData
   m_EditorClassIdentifier: 
+  _sections:
+  - _first: 0.8
+    _second: 0.2
+    _third: 0
+  - _first: 0.6
+    _second: 0.4
+    _third: 0
+  - _first: 0.4
+    _second: 0.4
+    _third: 0.2
+  - _first: 0.2
+    _second: 0.3
+    _third: 0.5
+  - _first: 0
+    _second: 0.2
+    _third: 0.8

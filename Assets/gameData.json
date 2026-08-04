@@ -3429,6 +3429,14 @@
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
+        },
+        {
+            "_instanceID": "0edaca15-60c6-4b37-9c44-298d77160f14",
+            "_itemID": "eq_Armor_03",
+            "_equipmentType": 3,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
         }
     ],
     "EquippedItems": [

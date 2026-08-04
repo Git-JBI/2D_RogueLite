@@ -93,7 +93,7 @@ public class EnemySpawner : MonoBehaviour
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage, GetRandomExp());
+        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage, GetRandomExpType());
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);
@@ -152,7 +152,11 @@ public class EnemySpawner : MonoBehaviour
         return pos;
     }
 
-    private int GetRandomExp()
+    /// <summary>
+    /// 랜덤한 경험치 
+    /// </summary>
+    /// <returns></returns>
+    private int GetRandomExpType()
     {
         float curTime = _gameSceneManager.GetTime();
         float totalTime = _stageConfigData.StagePlayTime;
