@@ -16,6 +16,7 @@ public class GameSceneManager : MonoBehaviour
 
     private bool _isKillCountReported;
     private bool _isBossSpawn;
+    //TODO bool[]생성 후 밑에 2개는 제거
     private bool _isFirstBurstStarted;
     private bool _isSecondBurstStarted;
 
@@ -82,7 +83,7 @@ public class GameSceneManager : MonoBehaviour
             _enemySpawner.SpawnBoss();
         }
 
-        //TODO 이 부분 스테이지 데이터부터 가져와서 bool[]을 들고 체크해야함
+        //TODO 설정데이터에 설정해둔 횟수를 통해 전체 시간에서 나눠서 bool[] 변수 초기화 후 체킹 변수 초기화 시점을 설정데이터 불러오고 난 후로 지정하면 될 듯
         // 첫번째 물량 공세 체크
         if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 && !_isFirstBurstStarted)
         {

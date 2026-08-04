@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private SO_StageData _stageConfigData;
     private SO_ExpProbabilityConfigData _probabilities;
     private int _stage;
+    private float _radius;
 
     private List<SO_EnemyData> _minionsConfigData = new();
     private List<SO_EnemyData> _bossConfigData = new();
@@ -77,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
 
+            //TODO 스폰하는 시간 0.5f -> 변수로 수정
             yield return new WaitForSeconds(0.5f);
         }
     }
@@ -99,8 +101,9 @@ public class EnemySpawner : MonoBehaviour
         _minionEnemies.Add(enemyController);
     }
 
+    //ㄱ
     /// <summary>
-    /// 순간적으로 적을 대량 생성하는 함수
+    /// 순간적으로 적을 대량 생성하는 코루틴
     /// </summary>
     /// <param name="count"></param>
     /// <param name="enemyCount"></param>
@@ -140,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어 위치 기준으로 랜덤한 위치를 반환하는 함수
+    /// 플레이어 위치 기준으로 스폰할 랜덤한 위치를 반환하는 함수
     /// </summary>
     /// <returns></returns>
     private Vector2 RandomSpawnPosition()
@@ -153,7 +156,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// 랜덤한 경험치 
+    /// 랜덤한 경험치 타입을 받는 함수
     /// </summary>
     /// <returns></returns>
     private int GetRandomExpType()
