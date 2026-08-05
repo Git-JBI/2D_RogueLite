@@ -19,6 +19,26 @@ public class EnemyModel
         _moveSpeed = data.MoveSpeed;
     }
 
+    /// <summary>
+    /// 스테이지가 바뀌지 않은 상황에서 리스폰용 함수
+    /// </summary>
+    public void Respawn()
+    {
+        _curHp = _maxHp;
+    }
+
+    /// <summary>
+    /// 스테이지가 바뀐 상황에서 리스폰용 함수
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="stage"></param>
+    public void Respawn(SO_EnemyData data, int stage)
+    {
+        _maxHp = CalculateStat(data.MaxHp, stage);
+        _curHp = _maxHp;
+        _damage = CalculateStat(data.Damage, stage);
+    }
+
     public void TakeDamage(float damage)
     {
         _curHp = Mathf.Clamp(_curHp - damage, 0, _maxHp);

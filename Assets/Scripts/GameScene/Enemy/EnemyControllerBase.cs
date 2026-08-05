@@ -31,22 +31,8 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         if (_curState != null)
             _curState.OnStateUpdate();
     }
-    
-    /// <summary>
-    /// 적 초기화 함수(적마다 각 최초 상태 설정, model 생성 필요)
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="spawnPos"></param>
-    public virtual void Init(Transform target, Vector2 spawnPos)
-    {
-        // 타겟 설정(플레이어)
-        _target = target;
 
-        // 생성 위치 설정
-        transform.position = spawnPos;
-    }
-
-    public void ChangeState(IState state)
+    protected void ChangeState(IState state)
     {
         // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
         if (_curState == _deadState)
@@ -100,17 +86,25 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         // 죽음 애니메이션 트리거실행
         _spriteController.Dead();
     }
-    public virtual void Dead()
-    {
-        // 현재 상태 비우기
-        _curState = null;
-    }
+    public abstract void Dead();
     protected virtual void Damaged()
     {
         _spriteController.Damaged();
     }
-
     protected abstract void SetStartState();
+
+    /// <summary>
+    /// 플레이어 위치 기준으로 스폰할 랜덤한 위치를 반환하는 함수
+    /// </summary>
+    /// <returns></returns>
+    protected Vector2 RandomSpawnPosition()
+    {
+        Vector2 pos = _target.position;
+
+        pos += Random.insideUnitCircle.normalized * 10.0f;
+
+        return pos;
+    }
 
     //TODO 계속 플레이어와 맞닿아 있는 경우 데미지 <= OnCollisionEnter2D, Stay2D 2종류 다 써야 할 듯 attackTimer 추가
     private void OnCollisionEnter2D(Collision2D collision)

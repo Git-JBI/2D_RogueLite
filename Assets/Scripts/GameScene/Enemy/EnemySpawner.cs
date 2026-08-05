@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
     private SO_StageData _stageConfigData;
     private SO_ExpProbabilityConfigData _probabilities;
     private int _stage;
-    private float _radius;
 
     private List<SO_EnemyData> _minionsConfigData = new();
     private List<SO_EnemyData> _bossConfigData = new();
@@ -28,7 +27,6 @@ public class EnemySpawner : MonoBehaviour
     public event UnityAction OnBossDead;
 
     private Coroutine _spawnRoutine;
-    private Coroutine _burstSpawnRoutine;
 
     public void Init(int stage, Transform transform, SO_StageData data, GameSceneManager gameSceneManager)
     {
@@ -54,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void BurstSpawnEnemy(int count, int enemyCount)
     {
-        _burstSpawnRoutine = StartCoroutine(BurstSpawnCoroutine(count, enemyCount));
+        StartCoroutine(BurstSpawnCoroutine(count, enemyCount));
     }
 
     public void SpawnBoss()
@@ -66,12 +64,16 @@ public class EnemySpawner : MonoBehaviour
         BossEnemyController boss = Instantiate(_bossEnemiePrefabs[_bossEnemiePrefabs.Count - 1]);
 
         // 보스 초기화
-        boss.Init(_playerTransform, RandomSpawnPosition());
+        boss.Init(_playerTransform, _bossConfigData[_bossConfigData.Count - 1], _stage);
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
         boss.OnBossDead += BossDead;
     }
 
+    /// <summary>
+    /// 적을 스폰하는 코루틴
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator SpawnCoroutine()
     {
         while (true)
@@ -95,13 +97,12 @@ public class EnemySpawner : MonoBehaviour
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, RandomSpawnPosition(), _minionsConfigData[index], _stage, GetRandomExpType());
+        enemyController.Init(_playerTransform, _minionsConfigData[index], _stage, GetRandomExpType());
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);
     }
 
-    //ㄱ
     /// <summary>
     /// 순간적으로 적을 대량 생성하는 코루틴
     /// </summary>
@@ -119,7 +120,6 @@ public class EnemySpawner : MonoBehaviour
 
             yield return new WaitForSeconds(3.0f);
         }
-        StopCoroutine(_burstSpawnRoutine);
     }
 
     /// <summary>
@@ -140,19 +140,6 @@ public class EnemySpawner : MonoBehaviour
     private void BossDead()
     {
         OnBossDead?.Invoke();
-    }
-
-    /// <summary>
-    /// 플레이어 위치 기준으로 스폰할 랜덤한 위치를 반환하는 함수
-    /// </summary>
-    /// <returns></returns>
-    private Vector2 RandomSpawnPosition()
-    {
-        Vector2 pos = _playerTransform.position;
-
-        pos += Random.insideUnitCircle.normalized * 10.0f;
-
-        return pos;
     }
 
     /// <summary>

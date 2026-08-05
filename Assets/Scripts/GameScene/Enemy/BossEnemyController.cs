@@ -5,9 +5,13 @@ public abstract class BossEnemyController : EnemyControllerBase
 {
     public UnityAction OnBossDead;
 
-    public void Init(Transform target, Vector2 spawnPos, SO_EnemyData data, int stage)
+    public void Init(Transform target, SO_EnemyData data, int stage)
     {
-        base.Init(target, spawnPos);
+        // 타겟 설정(플레이어)
+        _target = target;
+
+        // 위치 설정
+        transform.position = RandomSpawnPosition();
 
         // 모델 값 초기화
         _model = new EnemyModel(data, stage);
@@ -19,9 +23,6 @@ public abstract class BossEnemyController : EnemyControllerBase
     {
         // 죽음 이벤트 실행
         OnBossDead?.Invoke();
-
-        // 현재 상태 비우기
-        base.Dead();
 
         // 제거
         Destroy(gameObject);
