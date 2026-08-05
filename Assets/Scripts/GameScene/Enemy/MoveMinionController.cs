@@ -18,8 +18,18 @@ public class MoveMinionController : MinionEnemyController
         _curState = _moveState;
     }
 
-    public override void FinishDamageState()
+    public override void ExitDamagedState()
     {
         ChangeState(_moveState);
+    }
+
+    public override void EnterDamagedState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void EnterDeadState()
+    {
+        throw new System.NotImplementedException();
     }
 }

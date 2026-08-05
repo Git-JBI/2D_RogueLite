@@ -19,7 +19,7 @@ public abstract class BossEnemyController : EnemyControllerBase
         // 상태 초기화
         SetStartState();
     }
-    public override void Dead()
+    public override void ExitDeadState()
     {
         // 죽음 이벤트 실행
         OnBossDead?.Invoke();

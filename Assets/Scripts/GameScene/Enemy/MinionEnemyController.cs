@@ -65,7 +65,7 @@ public abstract class MinionEnemyController : EnemyControllerBase
         SetColliderActive(true);
     }
 
-    public override void Dead()
+    public override void ExitDeadState()
     {
         // 죽음 이벤트 실행
         OnMinionEnemyDead?.Invoke(this);
@@ -80,15 +80,8 @@ public abstract class MinionEnemyController : EnemyControllerBase
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
     }
-
-    protected override void Damaged()
-    {
-        base.Damaged();
-
-        ChangeState(_damagedState);
-    }
-
-    public abstract void FinishDamageState();
+    public abstract void EnterDamagedState();
+    public abstract void ExitDamagedState();
 
     /// <summary>
     /// 아이템을 생성하는 함수

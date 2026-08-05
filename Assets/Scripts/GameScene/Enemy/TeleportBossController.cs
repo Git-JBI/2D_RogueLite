@@ -122,4 +122,9 @@ public class TeleportBossController : BossEnemyController
         // Idle상태 진입
         ChangeState(_idleState);
     }
+
+    public override void EnterDeadState()
+    {
+        EnterDead();
+    }
 }

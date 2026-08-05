@@ -10,12 +10,14 @@ public class TeleportEnemyDeadState : IState
     {
         _controller = controller;
     }
-
+    
+    //TODO 리지드바디, 콜라이더의 비활성화를 TeleportEnemy에서 하도록 설정
     public void OnStateEnter()
     {
         // 타이머 초기화
         _timer = 0;
 
+        _controller.EnterDeadState();
         // 리지드바디 비활성화
         _controller.SetRigidBodyActive(false);
         
@@ -29,7 +31,7 @@ public class TeleportEnemyDeadState : IState
 
     public void OnStateExit()
     {
-        _controller.Dead();
+        _controller.ExitDeadState();
     }
 
     public void OnStateUpdate()

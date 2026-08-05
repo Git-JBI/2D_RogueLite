@@ -14,7 +14,7 @@ public class EnemyDeadState : IState
     public void OnStateEnter()
     {
         // 죽음 상태 시작
-        _enemy.EnterDead();
+        _enemy.EnterDeadState();
     }
 
     public void OnStateExit()
@@ -22,7 +22,8 @@ public class EnemyDeadState : IState
         // 타이머 초기화
         _timer = 0;
 
-        _enemy.Dead();
+        // 죽음 상태 끝
+        _enemy.ExitDeadState();
     }
 
     public void OnStateUpdate()

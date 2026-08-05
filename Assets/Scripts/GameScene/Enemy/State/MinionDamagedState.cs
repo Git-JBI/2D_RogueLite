@@ -13,12 +13,15 @@ public class MinionDamagedState : IState
 
     public void OnStateEnter()
     {
+        // 타이머 초기화
+        _timer = 0;
+
+        _controller.EnterDamagedState();
     }
 
     public void OnStateExit()
     {
-        // 타이머 초기화
-        _timer = 0;
+        _controller.ExitDamagedState();
     }
 
     public void OnStateUpdate()
@@ -26,6 +29,6 @@ public class MinionDamagedState : IState
         _timer += Time.deltaTime;
 
         if (_timer > 0.1f)
-            _controller.FinishDamageState();
+            OnStateExit();
     }
 }

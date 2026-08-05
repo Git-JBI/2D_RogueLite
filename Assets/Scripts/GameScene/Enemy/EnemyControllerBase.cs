@@ -31,21 +31,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         if (_curState != null)
             _curState.OnStateUpdate();
     }
-
-    protected void ChangeState(IState state)
-    {
-        // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
-        if (_curState == _deadState)
-            return;
-
-        if (_curState != null)
-            _curState.OnStateExit();
-
-        _curState = state;
-
-        _curState.OnStateEnter();
-    }
-
+    
     /// <summary>
     /// 플레이어쪽 방향을 구하는함수
     /// </summary>
@@ -70,12 +56,8 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     {
         _rigidbody.simulated = x;
     }
-    
-    public void EnterDamaged()
-    {
-        _spriteController.Damaged();
-    }
-    public void EnterDead()
+
+    protected void EnterDead()
     {
         // 리지드바디 비활성화
         SetRigidBodyActive(false);
@@ -86,11 +68,30 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         // 죽음 애니메이션 트리거실행
         _spriteController.Dead();
     }
-    public abstract void Dead();
+    /// <summary>
+    /// 상태를 바꾸는 함수
+    /// </summary>
+    /// <param name="state">바꿀 상태</param>
+    protected void ChangeState(IState state)
+    {
+        // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
+        if (_curState == _deadState)
+            return;
+
+        // 상태 변경
+        _curState = state;
+
+        // 바뀐 상태 OnStateEnter() 실행
+        _curState.OnStateEnter();
+    }
+
     protected virtual void Damaged()
     {
         _spriteController.Damaged();
     }
+
+    public abstract void EnterDeadState();
+    public abstract void ExitDeadState();
     protected abstract void SetStartState();
 
     /// <summary>
