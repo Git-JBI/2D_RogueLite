@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 
-public class EnemyBullet_Spiral : EnemyBulletBase
+public class EnemyBullet_Spiral : MonoBehaviour
 {
-    //TODO 당장엔 보스에서 사용할 용도라 이런데 추후 불릿모델으로 바뀔듯
-    private EnemyModel _model;
-    // 스폰될 위치
-    private Vector2 _startPos;
+    // 데미지
+    private float _damage;
     // 회전 속도
     private float _rotSpeed;
     // 사용할 총알 갯수
@@ -31,20 +29,22 @@ public class EnemyBullet_Spiral : EnemyBulletBase
         }
     }
 
-    public void Init(Vector2 startPos)
+    public void Init(Vector2 pos, float damage)
     {
         // 시작 위치 설정
-        transform.position = startPos;
-        // 부모로부터 귀속 해제
-        transform.SetParent(null);
+        transform.position = pos;
+        // 데미지 설정
+        _damage = damage;
         // 총알 갯수 설정
         _bulletCount = 8;
         // 총알 속도 설정
         _bulletSpeed = 7;
         // 회전 속도 설정
-        _rotSpeed = 2;
+        _rotSpeed = 1.5f;
         // 타이머 초기화
         _timer = 0;
+        // 부모로부터 귀속 해제
+        transform.SetParent(null);
         // 총알 발사
         ShootBullets(_bulletCount, _bulletSpeed);
     }
@@ -65,11 +65,11 @@ public class EnemyBullet_Spiral : EnemyBulletBase
             Vector2 dir = rotation * Vector2.up;
 
             GameObject bullet;
-            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy_HaveParent", transform);
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy", transform);
 
-            EnemyBullet_Normal_HaveParent bulletBase = bullet.GetComponent<EnemyBullet_Normal_HaveParent>();
+            EnemyBulletBase bulletBase = bullet.GetComponent<EnemyBulletBase>();
 
-            bulletBase.Init(transform.position, dir, bulletSpeed);
+            bulletBase.Init(transform.position, dir, _damage, _bulletSpeed, true);
         }
     }
 }

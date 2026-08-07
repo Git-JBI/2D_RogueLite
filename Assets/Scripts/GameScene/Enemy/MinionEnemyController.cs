@@ -5,7 +5,8 @@ public abstract class MinionEnemyController : EnemyControllerBase
 {
     private int _curStage;
     private int _expType;
-    private MinionDamagedState _damagedState;
+
+    protected MinionDamagedState _damagedState;
 
     public event UnityAction<MinionEnemyController> OnMinionEnemyDead;
 
@@ -65,7 +66,21 @@ public abstract class MinionEnemyController : EnemyControllerBase
         SetColliderActive(true);
     }
 
-    public override void ExitDeadState()
+    /// <summary>
+    /// 아이템을 생성하는 함수
+    /// </summary>
+    protected void SpawnExpItem()
+    {
+        GameObject expItem;
+
+        expItem = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Item/Item_Exp", transform);
+
+        ExpItem item = expItem.GetComponent<ExpItem>();
+
+        item.Init(transform.position, _expType);
+    }
+
+    public override void HandleDeadCompleted()
     {
         // 죽음 이벤트 실행
         OnMinionEnemyDead?.Invoke(this);
@@ -80,20 +95,6 @@ public abstract class MinionEnemyController : EnemyControllerBase
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
     }
-    public abstract void EnterDamagedState();
-    public abstract void ExitDamagedState();
 
-    /// <summary>
-    /// 아이템을 생성하는 함수
-    /// </summary>
-    protected void SpawnExpItem()
-    {
-        GameObject expItem;
-
-        expItem = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Item/Item_Exp", transform);
-
-        ExpItem item = expItem.GetComponent<ExpItem>();
-
-        item.Init(transform.position, _expType);
-    }
+    public abstract void HandleDamagedCompleted();
 }

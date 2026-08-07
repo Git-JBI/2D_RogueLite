@@ -1,35 +1,43 @@
+using UnityEngine;
+
 public class MoveMinionController : MinionEnemyController
 {
-    private NormalMovement _movement;
-
     private EnemyMoveState _moveState;
 
     protected override void Awake()
     {
         base.Awake();
 
-        _movement = new NormalMovement(this, _spriteController);
-
-        _moveState = new EnemyMoveState(_movement);
+        _moveState = new EnemyMoveState(this);
     }
 
-    protected override void SetStartState()
+    public override void Move()
     {
-        _curState = _moveState;
-    }
+        // 방향 설정
+        Vector2 dir = DirToTarget();
 
-    public override void ExitDamagedState()
+        // 속도 설정(방향 * 속력)
+        _rigidbody.linearVelocity = dir * _model.MoveSpeed;
+        _spriteController.SetFlipX(dir.x);
+    }
+    public override void HandleMoveCompleted()
+    {
+        // 정지
+        _rigidbody.linearVelocity = Vector2.zero;
+    }
+    public override void HandleDamagedCompleted()
     {
         ChangeState(_moveState);
     }
 
-    public override void EnterDamagedState()
+    protected override void Damaged()
     {
-        throw new System.NotImplementedException();
-    }
+        base.Damaged();
 
-    public override void EnterDeadState()
+        ChangeState(_damagedState);
+    }
+    protected override void SetStartState()
     {
-        throw new System.NotImplementedException();
+        _curState = _moveState;
     }
 }

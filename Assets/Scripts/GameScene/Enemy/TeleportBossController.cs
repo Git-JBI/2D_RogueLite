@@ -1,11 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class TeleportBossController : BossEnemyController
 {
-    private Transform _transform;
-
     private Coroutine _teleportCoroutine;
 
     private TeleportBossIdleState _idleState;
@@ -14,7 +11,9 @@ public class TeleportBossController : BossEnemyController
     public EnemySpriteController SpriteController => _spriteController;
 
     protected override void Awake()
-    { 
+    {
+        base.Awake();
+
         _idleState = new TeleportBossIdleState(this);
         _teleportState = new TeleportEnemyTeleportState(this);
     }
@@ -65,12 +64,11 @@ public class TeleportBossController : BossEnemyController
             Vector2 dir = rotation * Vector2.up;
 
             GameObject bullet;
-            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy_NoParent", transform);
+            bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy", transform);
 
-            EnemyBullet_Normal_NoParent spiralBullet = bullet.GetComponent<EnemyBullet_Normal_NoParent>();
+            EnemyBulletBase spiralBullet = bullet.GetComponent<EnemyBulletBase>();
 
-            spiralBullet.Init(_model);
-            spiralBullet.Init(transform.position, dir, 7);
+            spiralBullet.Init(transform.position, dir, _model.Damage, 3, false);
         }
     }
 
@@ -84,8 +82,7 @@ public class TeleportBossController : BossEnemyController
 
         EnemyBullet_Spiral bullet = spiralBullet.GetComponent<EnemyBullet_Spiral>();
 
-        bullet.Init(_model);
-        bullet.Init(transform.position);
+        bullet.Init(transform.position, _model.Damage);
     }
 
     /// <summary>
@@ -103,7 +100,7 @@ public class TeleportBossController : BossEnemyController
         // 콜라이더 끄기
         SetColliderActive(false);
         // 본체 위치 상승
-        _transform.localPosition = Vector3.up * 3;
+        transform.localPosition = Vector3.up * 3;
         // 적 위치 변경
         transform.position = teleportPos;
 
@@ -112,19 +109,23 @@ public class TeleportBossController : BossEnemyController
         {
             timer += Time.deltaTime;
             downSpeed += Time.deltaTime * 5;
-            _transform.localPosition = Vector2.MoveTowards(_transform.localPosition, Vector2.zero, downSpeed * Time.deltaTime);
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, Vector2.zero, downSpeed * Time.deltaTime);
             yield return null;
         }
         
         // 본체의 위치 0,0,0으로 조정
-        _transform.localPosition = Vector3.zero;
+        transform.localPosition = Vector3.zero;
 
         // Idle상태 진입
         ChangeState(_idleState);
     }
 
-    public override void EnterDeadState()
+    public override void Move()
     {
-        EnterDead();
+        throw new System.NotImplementedException();
+    }
+    public override void HandleMoveCompleted()
+    {
+        throw new System.NotImplementedException();
     }
 }

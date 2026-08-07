@@ -14,9 +14,6 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     
     protected EnemyDeadState _deadState;
 
-    public EnemyModel Model => _model;
-    public Rigidbody2D Rigidbody => _rigidbody;
-
     protected virtual void Awake()
     {
         _spriteController = GetComponentInChildren<EnemySpriteController>();
@@ -56,16 +53,11 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     {
         _rigidbody.simulated = x;
     }
-
-    protected void EnterDead()
+    /// <summary>
+    /// 죽음 트리거 실행 함수
+    /// </summary>
+    public void DeadTrigger()
     {
-        // 리지드바디 비활성화
-        SetRigidBodyActive(false);
-
-        // 콜라이더 비활성화
-        SetColliderActive(false);
-
-        // 죽음 애니메이션 트리거실행
         _spriteController.Dead();
     }
     /// <summary>
@@ -77,6 +69,9 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
         if (_curState == _deadState)
             return;
+
+        // 현재 상태 나감 실행
+        _curState.OnStateExit();
 
         // 상태 변경
         _curState = state;
@@ -90,8 +85,9 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         _spriteController.Damaged();
     }
 
-    public abstract void EnterDeadState();
-    public abstract void ExitDeadState();
+    public abstract void Move();
+    public abstract void HandleMoveCompleted();
+    public abstract void HandleDeadCompleted();
     protected abstract void SetStartState();
 
     /// <summary>
