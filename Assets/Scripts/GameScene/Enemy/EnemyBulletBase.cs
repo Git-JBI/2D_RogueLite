@@ -45,8 +45,9 @@ public class EnemyBulletBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            IDamageable idamageable = collision.gameObject.GetComponent<IDamageable>();
-            
+            IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
+
+            Debug.Log(idamageable);
             idamageable.TakeDamage(_damage);
 
             PoolingObject poolOb = GetComponent<PoolingObject>();

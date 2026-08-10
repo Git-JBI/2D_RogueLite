@@ -22,4 +22,8 @@ public class SpriteControllerBase : MonoBehaviour
             _spriteRenderer.flipX = true;
         }
     }
+    public void SetAnimSpeed(float speed)
+    {
+        _animator.speed = speed;
+    }
 }

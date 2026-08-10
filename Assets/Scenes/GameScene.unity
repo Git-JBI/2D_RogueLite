@@ -22204,7 +22204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponData: {fileID: 11400000, guid: e4d3daaf25283a14791b82003834a329, type: 2}
-  _shovel: {fileID: -7504902902279333237, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
+  _shovel: {fileID: -5337818559325585494, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
 --- !u!1 &2060077484
 GameObject:
   m_ObjectHideFlags: 0
