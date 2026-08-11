@@ -70,7 +70,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
             return;
 
         // 현재 상태 나감 실행
-        _curState.OnStateExit();
+        _curState?.OnStateExit();
 
         // 상태 변경
         _curState = state;

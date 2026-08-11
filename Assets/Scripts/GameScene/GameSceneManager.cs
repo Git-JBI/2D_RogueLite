@@ -70,7 +70,7 @@ public class GameSceneManager : MonoBehaviour
         if (_isBossSpawn)
             return;
 
-        if (_gameSceneModel.StageTime <= _stageData.StagePlayTime)
+        if (_gameSceneModel.StageTime <= _stageData.StageLimitTime)
         {
             _gameSceneModel.IncreaseStageTime(Time.deltaTime);
             _ui.SetTimeText(_gameSceneModel.StageTime);
@@ -85,14 +85,14 @@ public class GameSceneManager : MonoBehaviour
 
         //TODO 설정데이터에 설정해둔 횟수를 통해 전체 시간에서 나눠서 bool[] 변수 초기화 후 체킹 변수 초기화 시점을 설정데이터 불러오고 난 후로 지정하면 될 듯
         // 첫번째 물량 공세 체크
-        if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 && !_isFirstBurstStarted)
+        if(_gameSceneModel.StageTime >= _stageData.StageLimitTime / 3 && !_isFirstBurstStarted)
         {
             _isFirstBurstStarted = true;
             // 물량 공세 이벤트 발행
             OnBurstStarted?.Invoke(3, 40);
         }
         // 두번째 물량 공세 체크
-        if(_gameSceneModel.StageTime >= _stageData.StagePlayTime / 3 * 2 && !_isSecondBurstStarted)
+        if(_gameSceneModel.StageTime >= _stageData.StageLimitTime / 3 * 2 && !_isSecondBurstStarted)
         {
             _isSecondBurstStarted = true;
             // 물량 공세 이벤트 발행
@@ -105,11 +105,19 @@ public class GameSceneManager : MonoBehaviour
     /// </summary>
     private void ClearStage()
     {
-        // 최대 스테이지 +1 증가
-        _gameModel.IncreaseMaxStage();
+        Debug.Log("스테이지 클리어");
 
-        // 저장
-        _gameModel.SaveGameData();
+        // 최대 진행가능 스테이지 == 현재 진행중인 스테이지 일 경우
+        if (_gameModel.MaxStage == _gameModel.SelectStage)
+        {
+            Debug.Log("최대 스테이지 +1");
+            // 최대 스테이지 +1 증가
+            _gameModel.IncreaseMaxStage();
+            // 선택한 스테이지 설정
+            _gameModel.SetSelectStage(_gameModel.MaxStage);
+            // 저장
+            _gameModel.SaveGameData();
+        }
     }
 
     /// <summary>

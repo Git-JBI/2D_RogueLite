@@ -6,16 +6,14 @@ public class TeleportBossController : BossEnemyController
     private Coroutine _teleportCoroutine;
 
     private TeleportBossIdleState _idleState;
-    private TeleportEnemyTeleportState _teleportState;
-
-    public EnemySpriteController SpriteController => _spriteController;
+    private TeleportBossTeleportState _teleportState;
 
     protected override void Awake()
     {
         base.Awake();
 
         _idleState = new TeleportBossIdleState(this);
-        _teleportState = new TeleportEnemyTeleportState(this);
+        _teleportState = new TeleportBossTeleportState(this);
     }
 
     /// <summary>
@@ -43,6 +41,7 @@ public class TeleportBossController : BossEnemyController
     {
         ChangeState(_teleportState);
     }
+
     protected override void SetStartState()
     {
         ChangeState(_idleState);
@@ -99,10 +98,10 @@ public class TeleportBossController : BossEnemyController
         SetRigidBodyActive(false);
         // 콜라이더 끄기
         SetColliderActive(false);
-        // 본체 위치 상승
-        transform.localPosition = Vector3.up * 3;
         // 적 위치 변경
         transform.position = teleportPos;
+        // 본체 위치 상승
+        transform.localPosition = Vector3.up * 3;
 
         // 일정 시간동안 본체 하강
         while(timer < 1)

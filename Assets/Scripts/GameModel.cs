@@ -102,14 +102,6 @@ public class GameModel : MonoBehaviour
         AddUpgradeScroll(5, lastScrollValue);
     }
     /// <summary>
-    /// 최대 스테이지 설정 함수
-    /// </summary>
-    /// <param name="value"></param>
-    public void SetMaxStage(int value)
-    {
-        _gameData.MaxStage = value;
-    }
-    /// <summary>
     /// 선택한 스테이지 설정 함수
     /// </summary>
     /// <param name="value"></param>
@@ -214,7 +206,7 @@ public class GameModel : MonoBehaviour
         // 최대 스테이지 설정값이 없을 경우
         if(MaxStage == 0)
         {
-            SetMaxStage(1);
+            _gameData.MaxStage = 1;
         }
         // 선택한 스테이지 설정값이 없을 경우
         if(SelectStage == 0)

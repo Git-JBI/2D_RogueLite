@@ -16,12 +16,12 @@ public class EnemySpawner : MonoBehaviour
     private SO_ExpProbabilityConfigData _probabilities;
     private int _stage;
 
-    private List<SO_EnemyData> _minionsConfigData = new();
-    private List<SO_EnemyData> _bossConfigData = new();
+    private List<SO_EnemyData> _minionConfigDatas = new();
+    private List<SO_EnemyData> _bossConfigDatas = new();
     private List<MinionEnemyController> _minionEnemies = new();
 
-    private IReadOnlyList<MinionEnemyController> _minionEnemiePrefabs;
-    private IReadOnlyList<BossEnemyController> _bossEnemiePrefabs;
+    private IReadOnlyList<MinionEnemyController> _minionPrefabs;
+    private IReadOnlyList<BossEnemyController> _bossPrefabs;
 
     public event UnityAction OnEnemyDead;
     public event UnityAction OnBossDead;
@@ -35,15 +35,19 @@ public class EnemySpawner : MonoBehaviour
         _gameSceneManager = gameSceneManager;
         _probabilities = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/ExpProbabilityData/ExpTimeConfigData") as SO_ExpProbabilityConfigData;
 
-        _minionEnemiePrefabs = _stageConfigData.MinionEnemies;
-        _bossEnemiePrefabs = _stageConfigData.BossEnemies;
+        _minionPrefabs = _stageConfigData.Minions;
+        _bossPrefabs = _stageConfigData.Bosses;
 
-        for(int i = 0; i < _minionEnemiePrefabs.Count; i++)
+        // 미니언 프리펩 설정 데이터 불러오기
+        for(int i = 0; i < _minionPrefabs.Count; i++)
         {
-            _minionsConfigData.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionEnemiePrefabs[i].name}ConfigData") as SO_EnemyData);
+            _minionConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionPrefabs[i].name}ConfigData") as SO_EnemyData);
         }
-        //TODO 보스 데이터 받아오기
-        // for(int i = 0; i < _)
+        // 보스 프리펩 설정 데이터 불러오기
+        for(int i = 0; i < _bossPrefabs.Count; i++)
+        {
+            _bossConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Boss/{_bossPrefabs[i].name}ConfigData") as SO_EnemyData);
+        }
 
         _playerTransform = transform;
 
@@ -61,10 +65,10 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(_spawnRoutine);
 
         // 보스 소환 (보스리스트의 갯수 - 1)
-        BossEnemyController boss = Instantiate(_bossEnemiePrefabs[_bossEnemiePrefabs.Count - 1]);
+        BossEnemyController boss = Instantiate(_bossPrefabs[_bossPrefabs.Count - 1]);
 
         // 보스 초기화
-        boss.Init(_playerTransform, _bossConfigData[_bossConfigData.Count - 1], _stage);
+        boss.Init(_playerTransform, _bossConfigDatas[_bossConfigDatas.Count - 1], _stage);
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
         boss.OnBossDead += BossDead;
@@ -91,13 +95,13 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         // _stageConfigData의 설정값에 따라 적의 종류 갯수
-        int index = _random.Next(0, _stageConfigData.MinionEnemies.Count);
+        int index = _random.Next(0, _stageConfigData.Minions.Count);
 
-        GameObject enemy = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Enemies/Minion/{_minionEnemiePrefabs[index].name}", transform);
+        GameObject enemy = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Enemies/Minion/{_minionPrefabs[index].name}", transform);
 
         MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
 
-        enemyController.Init(_playerTransform, _minionsConfigData[index], _stage, GetRandomExpType());
+        enemyController.Init(_playerTransform, _minionConfigDatas[index], _stage, GetRandomExpType());
         enemyController.OnMinionEnemyDead += EnemyDead;
 
         _minionEnemies.Add(enemyController);
@@ -149,7 +153,7 @@ public class EnemySpawner : MonoBehaviour
     private int GetRandomExpType()
     {
         float curTime = _gameSceneManager.GetTime();
-        float totalTime = _stageConfigData.StagePlayTime;
+        float totalTime = _stageConfigData.StageLimitTime;
 
         // 전체 시간이 0 이하일 수가 없음
         if (totalTime <= 0f)
