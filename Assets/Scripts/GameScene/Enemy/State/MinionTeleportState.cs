@@ -36,12 +36,12 @@ public class MinionTeleportState : IState
         _timer += Time.deltaTime;
 
         // 일정 시간 지나면 Move실행
-        if(_timer > 1.0f && !_checkShoot)
+        if(_timer > 1.5f && !_checkShoot)
         {
             _checkShoot = true;
             _controller.ShootBullet();
         }
-        else if(_timer > 2.0f)
+        else if(_timer > 3.0f)
         {
             _controller.Move();
             _controller.HandleMoveCompleted();
