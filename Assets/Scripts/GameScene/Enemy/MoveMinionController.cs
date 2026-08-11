@@ -18,12 +18,17 @@ public class MoveMinionController : MinionEnemyController
 
         // 속도 설정(방향 * 속력)
         _rigidbody.linearVelocity = dir * _model.MoveSpeed;
+
+        // 스프라이트 설정
         _spriteController.SetFlipX(dir.x);
     }
     public override void HandleMoveCompleted()
     {
         // 정지
         _rigidbody.linearVelocity = Vector2.zero;
+
+        // 다시 움직임 상태
+        ChangeState(_moveState);
     }
     public override void HandleDamagedCompleted()
     {

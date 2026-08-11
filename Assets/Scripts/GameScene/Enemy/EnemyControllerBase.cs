@@ -25,8 +25,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (_curState != null)
-            _curState.OnStateUpdate();
+        _curState?.OnStateUpdate();
     }
     
     /// <summary>

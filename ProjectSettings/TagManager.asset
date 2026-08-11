@@ -9,6 +9,7 @@ TagManager:
   - Hero
   - Boss
   - Background
+  - EnemyNormalBullet
   layers:
   - Default
   - TransparentFX

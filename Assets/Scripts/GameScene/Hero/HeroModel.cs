@@ -142,6 +142,8 @@ public class HeroModel : MonoBehaviour
 
         // _curHp는 0미만이 될 수 없음
         _curHp = Mathf.Max(_curHp - damage, 0);
+
+        Debug.Log($"Hp : {_curHp}");
     }
 
     public void IncreaseExp(int exp)

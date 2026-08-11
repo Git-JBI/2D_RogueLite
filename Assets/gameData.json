@@ -3453,6 +3453,30 @@
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
+        },
+        {
+            "_instanceID": "d166c831-d382-4e14-95d9-95df7852cb4c",
+            "_itemID": "eq_weapon_03",
+            "_equipmentType": 0,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "a0b13cd5-6c8a-4cef-ab19-3b8e2cc07e29",
+            "_itemID": "eq_Gloves_02",
+            "_equipmentType": 2,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "99772915-c9ce-45ac-8d5b-690918b124fa",
+            "_itemID": "eq_Necklace_03",
+            "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
         }
     ],
     "EquippedItems": [
