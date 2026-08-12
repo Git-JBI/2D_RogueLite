@@ -1,20 +1,23 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class MinionEnemyController : EnemyControllerBase
+public abstract class MinionController : EnemyControllerBase
 {
     private int _curStage;
     private int _expType;
 
-    protected MinionDamagedState _damagedState;
+    protected IState _damagedState;
 
-    public event UnityAction<MinionEnemyController> OnMinionEnemyDead;
+    public event UnityAction<MinionController> OnMinionDead;
+
+    public IState DamagedState => _damagedState;
 
     protected override void Awake()
     {
         base.Awake();
 
-        _damagedState = new MinionDamagedState(this);
+        _deadState = new EnemyDeadState(this, 0.5f);
+        _damagedState = new MinionDamagedState(this, 0.2f);
     }
 
     /// <summary>
@@ -54,9 +57,6 @@ public abstract class MinionEnemyController : EnemyControllerBase
             _model.Respawn();
         }
 
-        // 상태 초기화
-        SetStartState();
-
         // 드랍할 경험치 타입
         _expType = expType;
 
@@ -64,10 +64,12 @@ public abstract class MinionEnemyController : EnemyControllerBase
         SetRigidBodyActive(true);
         // 콜라이더 활성화
         SetColliderActive(true);
+        // 상태 초기화
+        SetStartState();
     }
 
     /// <summary>
-    /// 아이템을 생성하는 함수
+    /// 경험치 아이템을 생성하는 함수
     /// </summary>
     protected void SpawnExpItem()
     {
@@ -80,13 +82,16 @@ public abstract class MinionEnemyController : EnemyControllerBase
         item.Init(transform.position, _expType);
     }
 
-    public override void HandleDeadCompleted()
+    /// <summary>
+    /// 미니언의 죽음 시 실행될 함수
+    /// </summary>
+    public override void Remove()
     {
         // 죽음 이벤트 실행
-        OnMinionEnemyDead?.Invoke(this);
+        OnMinionDead?.Invoke(this);
 
         // 이벤트 비우기
-        OnMinionEnemyDead = null;
+        OnMinionDead = null;
 
         // 아이템 스폰
         SpawnExpItem();
@@ -96,5 +101,10 @@ public abstract class MinionEnemyController : EnemyControllerBase
         poolOb.ReturnToPool();
     }
 
-    public abstract void HandleDamagedCompleted();
+    protected override void Damaged()
+    {
+        base.Damaged();
+
+        ChangeState(_damagedState);
+    }
 }

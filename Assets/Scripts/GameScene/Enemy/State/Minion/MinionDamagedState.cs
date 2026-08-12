@@ -2,19 +2,17 @@ using UnityEngine;
 
 public class MinionDamagedState : IState
 {
-    private MinionEnemyController _controller;
+    private MinionController _controller;
 
-    /// <summary>
-    /// 경직용도 타이머
-    /// </summary>
     private float _timer;
+    private float _updateTime;
 
-    public MinionDamagedState(MinionEnemyController controller)
+    public MinionDamagedState(MinionController controller, float time)
     {
         _controller = controller;
 
-        // 타이머 초기화
-        _timer = 0;
+        // 업데이트 진행 시간
+        _timer = time;
     }
 
     public void OnStateEnter()
@@ -31,9 +29,7 @@ public class MinionDamagedState : IState
     {
         _timer += Time.deltaTime;
 
-        if (_timer > 0.1f)
-        {
-            _controller.HandleDamagedCompleted();
-        }
+        if (_timer > _updateTime)
+            _controller.ChangeState(_controller.NormalState);
     }
 }

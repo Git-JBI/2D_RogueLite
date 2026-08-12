@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-
-public class TeleportBossTeleportState : IState
+﻿public class TeleportBossMoveState : IState
 {
     private TeleportBossController _controller;
 
-    public TeleportBossTeleportState(TeleportBossController controller)
+    public TeleportBossMoveState(TeleportBossController controller)
     {
         _controller = controller;
     }

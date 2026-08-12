@@ -43,7 +43,7 @@ public class GameSceneManager : MonoBehaviour
 
         OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
 
-        _enemySpawner.OnEnemyDead += EnemyDead;
+        _enemySpawner.OnMinionDead += EnemyDead;
         _enemySpawner.OnBossDead += BossDead;
 
         _joystick.OnTouchDown += _heroController.MoveStart;

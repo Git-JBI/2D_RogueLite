@@ -5,13 +5,14 @@ public class EnemyDeadState : IState
     private EnemyControllerBase _controller;
 
     private float _timer;
+    private float _updateTime;
 
-    public EnemyDeadState(EnemyControllerBase enemy)
+    public EnemyDeadState(EnemyControllerBase enemy, float time)
     {
         _controller = enemy;
 
-        // 타이머 초기화
-        _timer = 0;
+        // 업데이트 진행 시간
+        _updateTime = time;
     }
 
     public void OnStateEnter()
@@ -25,8 +26,8 @@ public class EnemyDeadState : IState
         // 콜라이더 비활성화
         _controller.SetColliderActive(false);
 
-        // 죽음트리거 실행
-        _controller.DeadTrigger();
+        // 죽음 애니메이션트리거 실행
+        _controller.DeadAnimTrigger();
     }
 
     public void OnStateExit()
@@ -38,10 +39,10 @@ public class EnemyDeadState : IState
     {
         _timer += Time.deltaTime;
 
-        if (_timer >= 0.5f)
+        if (_timer >= _updateTime)
         {
             // 죽음 상태 끝날 시 실행할 함수
-            _controller.HandleDeadCompleted();
+            _controller.Remove();
         }
     }
 }

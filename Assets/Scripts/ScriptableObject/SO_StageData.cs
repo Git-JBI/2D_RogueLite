@@ -7,11 +7,11 @@ public class SO_StageData : ScriptableObject
 {
     [SerializeField] private float _stageLimitTime;
 
-    [SerializeField] private List<MinionEnemyController> _minions;
-    [SerializeField] private List<BossEnemyController> _bosses;
+    [SerializeField] private List<MinionController> _minions;
+    [SerializeField] private List<BossController> _bosses;
 
     public float StageLimitTime => _stageLimitTime;
 
-    public IReadOnlyList<MinionEnemyController> Minions => _minions;
-    public IReadOnlyList<BossEnemyController> Bosses => _bosses;
+    public IReadOnlyList<MinionController> Minions => _minions;
+    public IReadOnlyList<BossController> Bosses => _bosses;
 }

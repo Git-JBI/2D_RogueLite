@@ -9,18 +9,19 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     protected Rigidbody2D _rigidbody;
     protected Collider2D _collider;
 
-    protected IState[] _states;
     protected IState _curState;
-    
-    protected EnemyDeadState _deadState;
+
+    protected IState _normalState;
+    protected IState _deadState;
+
+    public IState NormalState => _normalState;
+    public IState DeadState => _deadState;
 
     protected virtual void Awake()
     {
         _spriteController = GetComponentInChildren<EnemySpriteController>();
         _rigidbody = GetComponentInChildren<Rigidbody2D>();
         _collider = GetComponentInChildren<Collider2D>();
-
-        _deadState = new EnemyDeadState(this);
     }
 
     private void Update()
@@ -53,9 +54,38 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         _rigidbody.simulated = x;
     }
     /// <summary>
+    /// 속도를 플레이어 방향으로 설정하는 함수
+    /// </summary>
+    public void SetVelocityToTarget()
+    {
+        // 방향 설정
+        Vector2 dir = DirToTarget();
+
+        // 속도 설정(방향 * 속력)
+        _rigidbody.linearVelocity = dir * _model.MoveSpeed;
+
+        // 스프라이트 설정
+        _spriteController.SetFlipX(dir.x);
+    }
+    /// <summary>
+    /// 속도를 0으로 설정하는 함수
+    /// </summary>
+    public void Stop()
+    {
+        _rigidbody.linearVelocity = Vector2.zero;
+    }
+    /// <summary>
+    /// 애니메이션 재생 속도를 설정하는 함수
+    /// </summary>
+    /// <param name="speed">재생 속도</param>
+    public void SetAnimSpeed(float speed)
+    {
+        _spriteController.SetAnimSpeed(speed);
+    }
+    /// <summary>
     /// 죽음 트리거 실행 함수
     /// </summary>
-    public void DeadTrigger()
+    public void DeadAnimTrigger()
     {
         _spriteController.Dead();
     }
@@ -63,7 +93,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     /// 상태를 바꾸는 함수
     /// </summary>
     /// <param name="state">바꿀 상태</param>
-    protected void ChangeState(IState state)
+    public void ChangeState(IState state)
     {
         // 현 상태가 죽음 상태라면 어느 상태로든 변하지 않음
         if (_curState == _deadState)
@@ -79,15 +109,15 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         _curState.OnStateEnter();
     }
 
-    protected virtual void Damaged()
+    /// <summary>
+    /// 처음 상태 설정 함수
+    /// </summary>
+    protected void SetStartState()
     {
-        _spriteController.Damaged();
-    }
+        _curState = _normalState;
 
-    public abstract void Move();
-    public abstract void HandleMoveCompleted();
-    public abstract void HandleDeadCompleted();
-    protected abstract void SetStartState();
+        _curState.OnStateEnter();
+    }
 
     /// <summary>
     /// 플레이어 위치 기준으로 스폰할 랜덤한 위치를 반환하는 함수
@@ -101,6 +131,19 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 
         return pos;
     }
+
+    /// <summary>
+    /// 데미지 입었을 시 실행할 함수
+    /// </summary>
+    protected virtual void Damaged()
+    {
+        _spriteController.Damaged();
+    }
+
+    /// <summary>
+    /// 적이 죽을 시 실행 될 함수
+    /// </summary>
+    public abstract void Remove();
 
     //TODO 계속 플레이어와 맞닿아 있는 경우 데미지 <= OnCollisionEnter2D, Stay2D 2종류 다 써야 할 듯 attackTimer 추가
     private void OnCollisionEnter2D(Collision2D collision)

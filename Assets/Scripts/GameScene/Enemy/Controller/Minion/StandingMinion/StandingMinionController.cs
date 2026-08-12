@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class TeleportMinionController : MinionEnemyController
+public class StandingMinionController : MinionController
 {
-    private MinionTeleportState _teleportState;
-
     protected override void Awake()
     {
         base.Awake();
 
-        _teleportState = new MinionTeleportState(this);
+        _normalState = new StandingMinionNormalState(this, 1.5f, 3.0f);
     }
 
     public void ShootBullet()
@@ -22,7 +20,7 @@ public class TeleportMinionController : MinionEnemyController
         bulletBase.Init(transform.position, DirToTarget(), _model.Damage, 3, false);
     }
 
-    public override void Move()
+    public void CheckDistance()
     {
         // 일정거리 이상으로 플레이어와 멀어졌을 경우 다시 이동하는 방식
         float distance = Vector2.Distance(transform.position, _target.position);
@@ -31,18 +29,5 @@ public class TeleportMinionController : MinionEnemyController
         {
             transform.position = RandomSpawnPosition();
         }
-    }
-    public override void HandleMoveCompleted()
-    {
-        ChangeState(_teleportState);
-    }
-    public override void HandleDamagedCompleted()
-    {
-        ChangeState(_teleportState);
-    }
-
-    protected override void SetStartState()
-    {
-        _curState = _teleportState;
     }
 }

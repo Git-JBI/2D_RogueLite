@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class BossEnemyController : EnemyControllerBase
+public abstract class BossController : EnemyControllerBase
 {
     public UnityAction OnBossDead;
 
@@ -20,7 +20,7 @@ public abstract class BossEnemyController : EnemyControllerBase
         SetStartState();
     }
 
-    public override void HandleDeadCompleted()
+    public override void Remove()
     {
         // 죽음 이벤트 실행
         OnBossDead?.Invoke();

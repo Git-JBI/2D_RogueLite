@@ -18,12 +18,12 @@ public class EnemySpawner : MonoBehaviour
 
     private List<SO_EnemyData> _minionConfigDatas = new();
     private List<SO_EnemyData> _bossConfigDatas = new();
-    private List<MinionEnemyController> _minionEnemies = new();
+    private List<MinionController> _minionEnemies = new();
 
-    private IReadOnlyList<MinionEnemyController> _minionPrefabs;
-    private IReadOnlyList<BossEnemyController> _bossPrefabs;
+    private IReadOnlyList<MinionController> _minionPrefabs;
+    private IReadOnlyList<BossController> _bossPrefabs;
 
-    public event UnityAction OnEnemyDead;
+    public event UnityAction OnMinionDead;
     public event UnityAction OnBossDead;
 
     private Coroutine _spawnRoutine;
@@ -65,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(_spawnRoutine);
 
         // 보스 소환 (보스리스트의 갯수 - 1)
-        BossEnemyController boss = Instantiate(_bossPrefabs[_bossPrefabs.Count - 1]);
+        BossController boss = Instantiate(_bossPrefabs[_bossPrefabs.Count - 1]);
 
         // 보스 초기화
         boss.Init(_playerTransform, _bossConfigDatas[_bossConfigDatas.Count - 1], _stage);
@@ -99,10 +99,10 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject enemy = GameManager.Instance.PoolManager.GetFromPool($"Prefabs/Enemies/Minion/{_minionPrefabs[index].name}", transform);
 
-        MinionEnemyController enemyController = enemy.GetComponent<MinionEnemyController>();
+        MinionController enemyController = enemy.GetComponent<MinionController>();
 
         enemyController.Init(_playerTransform, _minionConfigDatas[index], _stage, GetRandomExpType());
-        enemyController.OnMinionEnemyDead += EnemyDead;
+        enemyController.OnMinionDead += MinionDead;
 
         _minionEnemies.Add(enemyController);
     }
@@ -129,13 +129,13 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// 적 사망 시 호출할 함수
     /// </summary>
-    private void EnemyDead(MinionEnemyController enemyController)
+    private void MinionDead(MinionController enemyController)
     {
         // 스폰된 적 리스트에서 제거
         _minionEnemies.Remove(enemyController);
 
         // 적 죽을 시 이벤트 발행
-        OnEnemyDead?.Invoke();
+        OnMinionDead?.Invoke();
     }
 
     /// <summary>
