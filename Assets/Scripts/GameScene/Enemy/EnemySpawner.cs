@@ -8,13 +8,16 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("# 적의 스폰 딜레이")]
+    [SerializeField]private float _spawnDelay;
+
     private System.Random _random = new System.Random();
 
+    private int _stage;
     private GameSceneManager _gameSceneManager;
     private Transform _playerTransform;
     private SO_StageData _stageConfigData;
     private SO_ExpProbabilityConfigData _probabilities;
-    private int _stage;
 
     private List<SO_EnemyData> _minionConfigDatas = new();
     private List<SO_EnemyData> _bossConfigDatas = new();
@@ -54,12 +57,18 @@ public class EnemySpawner : MonoBehaviour
         _spawnRoutine = StartCoroutine(SpawnCoroutine());
     }
 
-    public void BurstSpawnEnemy(int count, int enemyCount)
+    /// <summary>
+    /// 웨이브 스폰 함수
+    /// </summary>
+    /// <param name="count">웨이브 실행 횟수</param>
+    /// <param name="enemyCount">한 웨이브에 스폰될 적의 수</param>
+    /// <param name="delay">웨이브 사이의 딜레이</param>
+    public void WaveSpawn(int count, int enemyCount, float delay)
     {
-        StartCoroutine(BurstSpawnCoroutine(count, enemyCount));
+        StartCoroutine(WaveSpawnCoroutine(count, enemyCount, delay));
     }
 
-    public void SpawnBoss()
+    public void SpawnStageBoss()
     {
         // 일반 적 코루틴 정지
         StopCoroutine(_spawnRoutine);
@@ -85,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemy();
 
             //TODO 스폰하는 시간 0.5f -> 변수로 수정
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_spawnDelay);
         }
     }
 
@@ -113,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="count"></param>
     /// <param name="enemyCount"></param>
     /// <returns></returns>
-    private IEnumerator BurstSpawnCoroutine(int count, int enemyCount)
+    private IEnumerator WaveSpawnCoroutine(int count, int enemyCount, float delay)
     {
         for(int i = 0; i < count; i++)
         {
@@ -122,7 +131,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
             }
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(delay);
         }
     }
 

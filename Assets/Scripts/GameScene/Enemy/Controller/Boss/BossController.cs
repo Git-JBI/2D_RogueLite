@@ -5,6 +5,13 @@ public abstract class BossController : EnemyControllerBase
 {
     public UnityAction OnBossDead;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _deadState = new EnemyDeadState(this, 1.0f);
+    }
+
     public void Init(Transform target, SO_EnemyData data, int stage)
     {
         // 타겟 설정(플레이어)

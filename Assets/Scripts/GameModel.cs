@@ -11,6 +11,7 @@ public class GameModel : MonoBehaviour
     private EquipmentModel _equipmentModel;
     private AchievementModel _achievementModel;
     private UpgradeModel _upgradeModel;
+    private EnergyModel _energyModel;
 
     private HeroData _heroData;
 
@@ -34,6 +35,7 @@ public class GameModel : MonoBehaviour
     public EquipmentModel EquipmentModel => _equipmentModel;
     public AchievementModel AchievementModel => _achievementModel;
     public UpgradeModel UpgradeModel => _upgradeModel;
+    public EnergyModel EnergyModel => _energyModel;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class GameModel : MonoBehaviour
         _equipmentModel = new EquipmentModel(_gameData, this);
         _achievementModel = new AchievementModel(_gameData, this);
         _upgradeModel = new UpgradeModel(_gameData, this);
+        _energyModel = new EnergyModel(_gameData, this);
 
         InitModel();
     }

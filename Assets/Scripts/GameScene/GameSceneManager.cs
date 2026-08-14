@@ -5,7 +5,7 @@ public class GameSceneManager : MonoBehaviour
 {
     [SerializeField] private HeroController _heroController;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private GameSceneUIManager _ui;
+    [SerializeField] private GameSceneUIManager _uiManager;
     [SerializeField] private EnemySpawner _enemySpawner;
 
     private GameModel _gameModel;
@@ -20,7 +20,10 @@ public class GameSceneManager : MonoBehaviour
     private bool _isFirstBurstStarted;
     private bool _isSecondBurstStarted;
 
-    public event UnityAction<int, int> OnBurstStarted;
+    /// <summary>
+    /// T0: 웨이브 실행 횟수, T1: 한 웨이브에 스폰될 적의 수, T2: 웨이브 사이의 딜레이
+    /// </summary>
+    public event UnityAction<int, int, float> OnWaveStarted;
     
     private void Awake()
     {
@@ -38,10 +41,10 @@ public class GameSceneManager : MonoBehaviour
 
     private void Start()
     {
-        _heroController.Init(_gameSceneModel, _ui.IupgradeViewer);
+        _heroController.Init(_gameSceneModel, _uiManager.IupgradeViewer);
         _enemySpawner.Init(_gameModel.SelectStage, _heroController.transform, _stageData, this);
 
-        OnBurstStarted += _enemySpawner.BurstSpawnEnemy;
+        OnWaveStarted += _enemySpawner.WaveSpawn;
 
         _enemySpawner.OnMinionDead += EnemyDead;
         _enemySpawner.OnBossDead += BossDead;
@@ -50,11 +53,11 @@ public class GameSceneManager : MonoBehaviour
         _joystick.OnTouchUp += _heroController.MoveFinish;
         _joystick.OnDragging += _heroController.Move;
 
-        _heroController.OnChangeLevel += _ui.SetLevelText;
-        _heroController.OnChangeExp += _ui.SetExpBar;
+        _heroController.OnChangeLevel += _uiManager.SetLevelText;
+        _heroController.OnChangeExp += _uiManager.SetExpBar;
         _heroController.OnDead += PlayerDead;
 
-        _gameSceneModel.OnIncreaseEnemyDeadCount += _ui.SetDeadCount;
+        _gameSceneModel.OnIncreaseEnemyDeadCount += _uiManager.SetDeadCount;
     }
 
     private void Update()
@@ -73,30 +76,37 @@ public class GameSceneManager : MonoBehaviour
         if (_gameSceneModel.StageTime <= _stageData.StageLimitTime)
         {
             _gameSceneModel.IncreaseStageTime(Time.deltaTime);
-            _ui.SetTimeText(_gameSceneModel.StageTime);
+            _uiManager.SetTimeText(_gameSceneModel.StageTime);
         }
         else
         {
             _isBossSpawn = true;
 
+            //TODO 보스 등장 변경 필요
+            _uiManager.OnBeforeBossSpawn();
+
             // 보스 등장
-            _enemySpawner.SpawnBoss();
+            _enemySpawner.SpawnStageBoss();
         }
 
         //TODO 설정데이터에 설정해둔 횟수를 통해 전체 시간에서 나눠서 bool[] 변수 초기화 후 체킹 변수 초기화 시점을 설정데이터 불러오고 난 후로 지정하면 될 듯
         // 첫번째 물량 공세 체크
         if(_gameSceneModel.StageTime >= _stageData.StageLimitTime / 3 && !_isFirstBurstStarted)
         {
+            //TODO 물량공세 등장 변경 필요
+            _uiManager.OnBeforeWaveSpawn();
+
             _isFirstBurstStarted = true;
             // 물량 공세 이벤트 발행
-            OnBurstStarted?.Invoke(3, 40);
+            OnWaveStarted?.Invoke(3, 40, 3.0f);
         }
         // 두번째 물량 공세 체크
         if(_gameSceneModel.StageTime >= _stageData.StageLimitTime / 3 * 2 && !_isSecondBurstStarted)
         {
+            _uiManager.OnBeforeWaveSpawn();
             _isSecondBurstStarted = true;
             // 물량 공세 이벤트 발행
-            OnBurstStarted?.Invoke(3, 40);
+            OnWaveStarted?.Invoke(3, 40, 3.0f);
         }
     }
 
@@ -126,7 +136,7 @@ public class GameSceneManager : MonoBehaviour
     private void PlayerDead()
     {
         ReportKillCount();
-        _ui.Fail();
+        _uiManager.Fail();
     }
 
     /// <summary>
@@ -155,7 +165,7 @@ public class GameSceneManager : MonoBehaviour
         Time.timeScale = 0;
 
         // 클리어 창 띄우기
-        _ui.Clear();
+        _uiManager.Clear();
 
         // 스테이지 클리어
         ClearStage();

@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class GameSceneUIManager : MonoBehaviour
@@ -9,15 +10,23 @@ public class GameSceneUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private Image _expBar;
 
-    private UI_GameFinish _gameFinishPanel;
+    private UI_GameFinish _gameFinishUI;
+    private UI_Warning _warningUI;
     private UpgradeViewer _upgradeViewer;
 
     public IUpgradeViewer IupgradeViewer => _upgradeViewer;
 
+    public event UnityAction BeforeWaveSpawn;
+    public event UnityAction BeforeBossSpawn;
+
     private void Awake()
     {
-        _gameFinishPanel = GetComponentInChildren<UI_GameFinish>(true);
+        _gameFinishUI = GetComponentInChildren<UI_GameFinish>(true);
+        _warningUI = GetComponentInChildren<UI_Warning>(true);
         _upgradeViewer = GetComponentInChildren<UpgradeViewer>(true);
+
+        BeforeWaveSpawn += _warningUI.BeforeBurstSpawn;
+        BeforeBossSpawn += _warningUI.BeforeBossSpawn;
     }
 
     /// <summary>
@@ -54,15 +63,22 @@ public class GameSceneUIManager : MonoBehaviour
         _expBar.fillAmount = curExp / maxExp;
     }
 
+    public void OnBeforeWaveSpawn()
+    {
+        BeforeWaveSpawn?.Invoke();
+    }
+    public void OnBeforeBossSpawn()
+    {
+        BeforeBossSpawn?.Invoke();
+    }
     public void Fail()
     {
-        _gameFinishPanel.gameObject.SetActive(true);
-        _gameFinishPanel.Fail();
+        _gameFinishUI.gameObject.SetActive(true);
+        _gameFinishUI.Fail();
     }
-
     public void Clear()
     {
-        _gameFinishPanel.gameObject.SetActive(true);
-        _gameFinishPanel.Clear();
+        _gameFinishUI.gameObject.SetActive(true);
+        _gameFinishUI.Clear();
     }
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private ResourceManager _resourceManager;
     private AchievementManager _achievementManager;
     private EquipmentManager _equipmentManager;
+    private EnergyManager _energyManager;
     private EquipmentItemDatabase _equipmentItemDatabase;
 
     public GameModel GameModel => _gameModel;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public ResourceManager ResourceManager => _resourceManager;
     public AchievementManager AchievementManager => _achievementManager;
     public EquipmentManager EquipmentManager => _equipmentManager;
+    public EnergyManager EnergyManager => _energyManager;
     public EquipmentItemDatabase EquipmentItemDatabase => _equipmentItemDatabase;
 
     private void Awake()
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         _resourceManager = GetComponent<ResourceManager>();
         _achievementManager = GetComponent<AchievementManager>();
         _equipmentManager = GetComponent<EquipmentManager>();
+        _energyManager = new EnergyManager(_gameModel.EnergyModel);
         _equipmentItemDatabase = GetComponent<EquipmentItemDatabase>();
     }
 

@@ -6,6 +6,7 @@ public class GameData
     public string HeroDataName;
     public int Gold;
     public int Emerald;
+    public int Energy;
     public int[] UpgradeLevel = new int[3];
     public int MaxStage;
     public int SelectStage;
@@ -17,6 +18,7 @@ public class GameData
     public int DailyAchievementScore;
     public int WeeklyAchievementScore;
 
+    public string LastLoginTime;
     public string LastDailyResetDate;
     public string LastWeeklyResetDate;
 
