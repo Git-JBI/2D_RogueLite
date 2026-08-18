@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private List<SO_EnemyData> _minionConfigDatas = new();
     private List<SO_EnemyData> _bossConfigDatas = new();
-    private List<MinionController> _minionEnemies = new();
+    private List<MinionController> _minions = new();
 
     private IReadOnlyList<MinionController> _minionPrefabs;
     private IReadOnlyList<BossController> _bossPrefabs;
@@ -73,6 +73,10 @@ public class EnemySpawner : MonoBehaviour
         // 일반 적 코루틴 정지
         StopCoroutine(_spawnRoutine);
 
+        // 모든 일반 적 제거
+        RemoveAllMinions();
+        //TODO 이 사이에 시간이 좀 비어야함
+
         // 보스 소환 (보스리스트의 갯수 - 1)
         BossController boss = Instantiate(_bossPrefabs[_bossPrefabs.Count - 1]);
 
@@ -113,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
         enemyController.Init(_playerTransform, _minionConfigDatas[index], _stage, GetRandomExpType());
         enemyController.OnMinionDead += MinionDead;
 
-        _minionEnemies.Add(enemyController);
+        _minions.Add(enemyController);
     }
 
     /// <summary>
@@ -136,12 +140,27 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// 보스등장 시 모든 미니언을 제거할 함수
+    /// </summary>
+    private void RemoveAllMinions()
+    {
+        foreach(MinionController minion in _minions)
+        {
+            // 미니언 리스트에 있는 모든 미니언 사망
+            minion.Dead();
+        }
+
+        // 리스트 비우기
+        _minions.Clear();
+    }
+
+    /// <summary>
     /// 적 사망 시 호출할 함수
     /// </summary>
     private void MinionDead(MinionController enemyController)
     {
         // 스폰된 적 리스트에서 제거
-        _minionEnemies.Remove(enemyController);
+        _minions.Remove(enemyController);
 
         // 적 죽을 시 이벤트 발행
         OnMinionDead?.Invoke();

@@ -69,6 +69,14 @@ public abstract class MinionController : EnemyControllerBase
     }
 
     /// <summary>
+    /// 보스등장 시 미니언을 제거시킬 용도의 함수
+    /// </summary>
+    public void Dead()
+    {
+        ChangeState(_deadState);
+    }
+
+    /// <summary>
     /// 경험치 아이템을 생성하는 함수
     /// </summary>
     protected void SpawnExpItem()
