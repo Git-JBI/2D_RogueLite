@@ -27,6 +27,13 @@ public class EnergyModel
         _gameData.Energy = Math.Min(_gameData.Energy + value, _maxEnergy);
         _gameModel.SaveGameData();
     }
+    public void SaveLastLoginTime(string time)
+    {
+        // 마지막 접속시간 설정
+        _gameData.LastLoginTime = time;
+        // 저장
+        _gameModel.SaveGameData();
+    }
 
     private void CheckFirstTime()
     {

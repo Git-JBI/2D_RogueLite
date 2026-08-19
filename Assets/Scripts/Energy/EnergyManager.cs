@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class EnergyManager
+public class EnergyManager : MonoBehaviour
 {
     private EnergyModel _energyModel;
 
-    public EnergyManager(EnergyModel energyModel)
+    public void Init(EnergyModel model)
     {
-        _energyModel = energyModel;
+        _energyModel = model;
 
         CalculateOffLineTime();
     }
@@ -15,25 +15,32 @@ public class EnergyManager
     /// <summary>
     /// 
     /// </summary>
-    public void CalculateOffLineTime()
+    private void CalculateOffLineTime()
     {
+        Debug.Log(_energyModel.LastLoginTime);
         long saveTime = Convert.ToInt64(_energyModel.LastLoginTime);
         TimeSpan time = DateTime.Now - DateTime.FromBinary(saveTime);
 
         Debug.Log(time.TotalSeconds);
     }
+
+    private void SaveLastLoginTime()
+    {
+        Debug.Log("SaveLastLoginTime");
+    }
+
     #region Pause & Quit
     public void OnApplicationFocus(bool focus)
     {
-        Debug.Log($"Focus : {focus}");
+        SaveLastLoginTime();
     }
     public void OnApplicationPause(bool pause)
     {
-        Debug.Log("Pause");
+        SaveLastLoginTime();
     }
     public void OnApplicationQuit()
     {
-        Debug.Log("Quit");
+        SaveLastLoginTime();
     }
     #endregion
 }

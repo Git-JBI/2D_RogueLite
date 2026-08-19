@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         _resourceManager = GetComponent<ResourceManager>();
         _achievementManager = GetComponent<AchievementManager>();
         _equipmentManager = GetComponent<EquipmentManager>();
-        _energyManager = new EnergyManager(_gameModel.EnergyModel);
+        _energyManager = GetComponent<EnergyManager>();
         _equipmentItemDatabase = GetComponent<EquipmentItemDatabase>();
     }
 
@@ -50,5 +50,6 @@ public class GameManager : MonoBehaviour
     {
         _achievementManager.Init(_gameModel);
         _equipmentManager.Init(_gameModel);
+        _energyManager.Init(_gameModel.EnergyModel);
     }
 }

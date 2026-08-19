@@ -68,6 +68,9 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(WaveSpawnCoroutine(count, enemyCount, delay));
     }
 
+    /// <summary>
+    /// 스테이지 보스 소환 함수
+    /// </summary>
     public void SpawnStageBoss()
     {
         // 일반 적 코루틴 정지
