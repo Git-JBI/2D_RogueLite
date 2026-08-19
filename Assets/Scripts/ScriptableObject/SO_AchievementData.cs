@@ -10,7 +10,7 @@ public enum AchievementType
 public enum AchievementConditionType
 {
     Login,                  // 로그인
-    KillEnemy,              // 적 처치
+    KillMinion,             // 미니언 처치
     KillBoss,               // 보스 처치
     EquipmentLevelUp,       // 장비 레벨 업
     Gacha,                  // 가챠 횟수

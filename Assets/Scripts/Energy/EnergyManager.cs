@@ -17,7 +17,6 @@ public class EnergyManager : MonoBehaviour
     /// </summary>
     private void CalculateOffLineTime()
     {
-        Debug.Log(_energyModel.LastLoginTime);
         long saveTime = Convert.ToInt64(_energyModel.LastLoginTime);
         TimeSpan time = DateTime.Now - DateTime.FromBinary(saveTime);
 
@@ -26,21 +25,21 @@ public class EnergyManager : MonoBehaviour
 
     private void SaveLastLoginTime()
     {
-        Debug.Log("SaveLastLoginTime");
+        string now = DateTime.Now.ToBinary().ToString();
+
+        _energyModel.SaveLastLoginTime(now);
     }
 
     #region Pause & Quit
-    public void OnApplicationFocus(bool focus)
-    {
-        SaveLastLoginTime();
-    }
     public void OnApplicationPause(bool pause)
     {
-        SaveLastLoginTime();
+        if (_energyModel != null)
+            SaveLastLoginTime();
     }
     public void OnApplicationQuit()
     {
-        SaveLastLoginTime();
+        if (_energyModel != null)
+            SaveLastLoginTime();
     }
     #endregion
 }

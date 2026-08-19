@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
   m_Name: AchievementData_Daily_EnterStage
   m_EditorClassIdentifier: 
-  AchievementId: Daily_EnterStage
-  Type: 0
-  ConditionType: 5
-  AchievementName: "\uBA54\uC778 \uC2A4\uD14C\uC774\uC9C0 1\uD68C \uCC38\uC5EC"
-  TargetValue: 1
-  RewardType: 3
-  RewardValue: 10
+  _achievementId: Daily_EnterStage
+  _type: 0
+  _conditionType: 5
+  _achievementName: "\uC2A4\uD14C\uC774\uC9C0 \uC9C4\uC785 \uD69F\uC218"
+  _targetValue: 10
+  _rewardType: 1
+  _rewardValue: 100

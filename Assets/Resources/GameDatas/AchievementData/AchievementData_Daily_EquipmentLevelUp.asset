@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
   m_Name: AchievementData_Daily_EquipmentLevelUp
   m_EditorClassIdentifier: 
-  AchievementId: Daily_EquipmentLevelUp
-  Type: 0
-  ConditionType: 3
-  AchievementName: "\uC7A5\uBE44 \uB808\uBCA8\uC5C5"
-  TargetValue: 1
-  RewardType: 3
-  RewardValue: 10
+  _achievementId: Daily_EquipmentLevelUp
+  _type: 0
+  _conditionType: 3
+  _achievementName: "\uC7A5\uBE44 \uB808\uBCA8\uC5C5 \uD69F\uC218"
+  _targetValue: 20
+  _rewardType: 3
+  _rewardValue: 10

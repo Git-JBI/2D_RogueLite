@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
   m_Name: AchievementData_Weekly_Login
   m_EditorClassIdentifier: 
-  AchievementId: Weekly_Login
-  Type: 1
-  ConditionType: 0
-  AchievementName: "\uAC8C\uC784 \uB85C\uADF8\uC778 5\uD68C"
-  TargetValue: 5
-  RewardType: 3
-  RewardValue: 20
+  _achievementId: Weekly_Login
+  _type: 1
+  _conditionType: 0
+  _achievementName: "\uC8FC\uAC04 \uB85C\uADF8\uC778 \uD69F\uC218"
+  _targetValue: 5
+  _rewardType: 2
+  _rewardValue: 200

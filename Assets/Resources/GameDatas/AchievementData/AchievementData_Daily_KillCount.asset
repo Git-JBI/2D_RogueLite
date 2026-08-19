@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01fca5eeefddfe4ebab67bd76fc3a1d, type: 3}
   m_Name: AchievementData_Daily_KillCount
   m_EditorClassIdentifier: 
-  AchievementId: Daily_KillCount
-  Type: 0
-  ConditionType: 1
-  AchievementName: "\uC801 \uCC98\uCE58 \uC218"
-  TargetValue: 100
-  RewardType: 1
-  RewardValue: 500
+  _achievementId: Daily_KillCount
+  _type: 0
+  _conditionType: 1
+  _achievementName: "\uBBF8\uB2C8\uC5B8 \uC81C\uAC70 \uD69F\uC218"
+  _targetValue: 100
+  _rewardType: 2
+  _rewardValue: 50

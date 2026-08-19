@@ -159,7 +159,6 @@ public class AchievementManager : MonoBehaviour
         _achievementModel.SaveData();
     }
 
-    //TODO 로그인 체크를 여기서 할지
     /// <summary>
     /// 금일 로그인 체크
     /// </summary>
@@ -168,7 +167,7 @@ public class AchievementManager : MonoBehaviour
         // 금일 로그인을 하지 않았다면
         if(!_achievementModel.IsTodayLogin)
         {
-            Report(AchievementConditionType.Login, 1);
+            Report(AchievementConditionType.Login);
         }
     }
 }

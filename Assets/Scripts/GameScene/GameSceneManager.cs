@@ -179,7 +179,7 @@ public class GameSceneManager : MonoBehaviour
         
         _isKillCountReported = true;
 
-        _achievementManager.Report(AchievementConditionType.KillEnemy, _gameSceneModel.EnemyDeadCount);
+        _achievementManager.Report(AchievementConditionType.KillMinion, _gameSceneModel.EnemyDeadCount);
     }
 
     private void ReportBossKillCount()
