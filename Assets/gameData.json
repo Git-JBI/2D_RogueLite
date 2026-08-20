@@ -20,8 +20,8 @@
     ],
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
-    "LastLoginTime": "-8584144903637747610",
-    "LastDailyResetDate": "2026-08-19",
+    "LastLoginTime": "-8584143866808895942",
+    "LastDailyResetDate": "2026-08-20",
     "LastWeeklyResetDate": "2026-08-17",
     "Achievements": [
         {
@@ -38,15 +38,15 @@
         },
         {
             "AchievementId": "Daily_KillCount",
-            "Progress": 100,
-            "IsCompleted": true,
-            "IsRewardClaimed": true
+            "Progress": 0,
+            "IsCompleted": false,
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Daily_LogIn",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": true
+            "IsRewardClaimed": false
         },
         {
             "AchievementId": "Weekly_Login",
@@ -3476,6 +3476,14 @@
             "_instanceID": "99772915-c9ce-45ac-8d5b-690918b124fa",
             "_itemID": "eq_Necklace_03",
             "_equipmentType": 1,
+            "_rarity": 0,
+            "_rarityLevel": 0,
+            "_itemLevel": 1
+        },
+        {
+            "_instanceID": "976576b9-5fc6-417b-83bc-5de25b41b6f2",
+            "_itemID": "eq_Boots_03",
+            "_equipmentType": 5,
             "_rarity": 0,
             "_rarityLevel": 0,
             "_itemLevel": 1
