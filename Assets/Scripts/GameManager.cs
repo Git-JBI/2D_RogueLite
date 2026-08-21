@@ -53,6 +53,6 @@ public class GameManager : MonoBehaviour
     {
         _achievementManager.Init(_gameModel);
         _equipmentManager.Init(_gameModel);
-        _energyManager.Init(_gameModel.EnergyModel, 30f);
+        _energyManager.Init(_gameModel.EnergyModel, 15f);
     }
 }

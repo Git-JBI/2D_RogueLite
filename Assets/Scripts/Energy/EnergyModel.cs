@@ -8,24 +8,32 @@ public class EnergyModel
     private int _maxEnergy;
 
     public int Energy => _gameData.Energy;
+    public int MaxEnergy => _maxEnergy;
+    public int EnergyRechargeRemainingTime => _gameData.EnergyRechargeRemainingTime;
     public string LastLoginTime => _gameData.LastLoginTime;
+    public int RemainChargeEnergy => _maxEnergy - _gameData.Energy;
+    public bool IsEnergyFull => _gameData.Energy == _maxEnergy ? true : false;
 
     public EnergyModel(GameData gameData, GameModel model)
     {
         _gameData = gameData;
         _gameModel = model;
+        //TODO 최대 에너지의 변화가 있을 경우 없어져야할 부분
         _maxEnergy = 50;
 
         CheckFirstTime();
     }
 
     /// <summary>
-    /// 에너지를 증가시키는 함수(MaxEnergy인 50을 넘길 수 없도록 설정됨)
+    /// 에너지를 증감하는 함수(0 미만으로 내려갈 수 없도록 설정됨)
     /// </summary>
-    /// <param name="value">증가할 에너지 양</param>
-    public void IncreaseEnergy(int value = 1)
+    /// <param name="value">증감할 에너지 양</param>
+    public void AddEnergy(int value = 1)
     {
-        _gameData.Energy = Math.Min(_gameData.Energy + value, _maxEnergy);
+        // 에너지 증가
+        _gameData.Energy = Math.Max(0, _gameData.Energy + value);
+
+        // 저장
         _gameModel.SaveGameData();
     }
     /// <summary>
@@ -37,6 +45,18 @@ public class EnergyModel
         // 마지막 접속시간 설정
         _gameData.LastLoginTime = time;
 
+        // 저장
+        _gameModel.SaveGameData();
+    }
+    /// <summary>
+    /// 에너지 재충전까지 남은 시간을 증감하는 함수
+    /// </summary>
+    /// <param name="value"></param>
+    public void AddEnergyRechargeRemainingTime(int value)
+    {
+        // 남은 시간은 0 미만의 값으로 설정할 수 없도록
+        _gameData.EnergyRechargeRemainingTime = Math.Max(0, _gameData.EnergyRechargeRemainingTime + value);
+        
         // 저장
         _gameModel.SaveGameData();
     }

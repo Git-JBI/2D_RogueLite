@@ -3,13 +3,20 @@ using UnityEngine;
 
 public static class Extensions
 {
-    // 정수(int)용 확장 메서드
+    /// <summary>
+    /// 정수(int)용 확장 메서드
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public static string ToAbbreviatedString(this int value)
     {
         return ((long)value).ToAbbreviatedString();
     }
-
-    // 큰 숫자(long)용 확장 메서드
+    /// <summary>
+    /// 큰 숫자(long)용 확장 메서드
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public static string ToAbbreviatedString(this long value)
     {
         // 음수 처리

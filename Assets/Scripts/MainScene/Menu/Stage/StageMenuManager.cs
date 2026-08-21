@@ -16,9 +16,7 @@ public class StageMenuManager : MonoBehaviour
 
     private bool CheckEnoughEnergy()
     {
-        int energy = GameManager.Instance.EnergyManager.GetEnergy();
-
-        return energy >= 5 ? true : false;
+        return GameManager.Instance.EnergyManager.Energy >= 5 ? true : false;
     }
     private void StartGame()
     {

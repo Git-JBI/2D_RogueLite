@@ -7,6 +7,7 @@ public class GameData
     public int Gold;
     public int Emerald;
     public int Energy;
+    public int EnergyRechargeRemainingTime;
     public int[] UpgradeLevel = new int[3];
     public int MaxStage;
     public int SelectStage;
