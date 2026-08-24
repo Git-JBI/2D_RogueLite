@@ -16,6 +16,8 @@ public class UI_Warning : MonoBehaviour
         // 텍스트 설정
         _warningText.text = "적이 몰려옵니다!";
 
+        OpenPanel();
+
         // 이미지 크기 애니메이션 실행
         PlayWarningAnimation();
     }
@@ -27,8 +29,19 @@ public class UI_Warning : MonoBehaviour
         // 텍스트 설정
         _warningText.text = "보스가 등장합니다.";
 
+        OpenPanel();
+
         // 이미지 크기 애니메이션 실행
         PlayWarningAnimation();
+    }
+
+    private void OpenPanel()
+    {
+        // 크기 0으로 설정
+        transform.localScale = Vector3.zero;
+
+        // 본 크기로 0.5초동안 늘어나도록 설정
+        transform.DOScale(1, 0.5f);
     }
 
     private void PlayWarningAnimation()

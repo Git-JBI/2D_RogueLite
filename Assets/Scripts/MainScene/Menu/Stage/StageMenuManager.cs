@@ -16,7 +16,8 @@ public class StageMenuManager : MonoBehaviour
 
     private bool CheckEnoughEnergy()
     {
-        return GameManager.Instance.EnergyManager.Energy >= 5 ? true : false;
+        //TODO 0 => 5로 변경
+        return GameManager.Instance.EnergyManager.Energy >= 0 ? true : false;
     }
     private void StartGame()
     {
@@ -24,7 +25,8 @@ public class StageMenuManager : MonoBehaviour
         if(CheckEnoughEnergy())
         {
             // 에너지 감소
-            GameManager.Instance.EnergyManager.UseEnergy(5);
+            //TODO 0 => 5로 변경
+            GameManager.Instance.EnergyManager.UseEnergy(0);
 
             // 게임 씬 불러오기
             GameManager.Instance.LoadSceneManager.LoadGameScene();
