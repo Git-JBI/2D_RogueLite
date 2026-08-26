@@ -1515,7 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6d878f75e7849478a60ed730e957e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upperGoldText: {fileID: 1273551919}
+  _upperGoldText: {fileID: 0}
   _outside: {fileID: 2023591633}
   _closeButton: {fileID: 529048196}
   _equipButton: {fileID: 1414319227}
@@ -3238,11 +3238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4722,11 +4722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8342,7 +8342,6 @@ GameObject:
   - component: {fileID: 920156925}
   - component: {fileID: 920156928}
   - component: {fileID: 920156927}
-  - component: {fileID: 920156926}
   m_Layer: 5
   m_Name: Text_Energy
   m_TagString: Untagged
@@ -8369,18 +8368,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 182, y: 0}
   m_Pivot: {x: 1, y: 0.5}
---- !u!114 &920156926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920156924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b84e611b483bb458a8ea978af066af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &920156927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,11 +11203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11428,7 +11415,6 @@ GameObject:
   - component: {fileID: 1273551916}
   - component: {fileID: 1273551918}
   - component: {fileID: 1273551917}
-  - component: {fileID: 1273551919}
   m_Layer: 5
   m_Name: Text_gold
   m_TagString: Untagged
@@ -11555,18 +11541,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273551915}
   m_CullTransparentMesh: 1
---- !u!114 &1273551919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273551915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b84e611b483bb458a8ea978af066af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1275209129
 GameObject:
   m_ObjectHideFlags: 0
@@ -11905,7 +11879,6 @@ GameObject:
   - component: {fileID: 1303325147}
   - component: {fileID: 1303325150}
   - component: {fileID: 1303325149}
-  - component: {fileID: 1303325148}
   m_Layer: 5
   m_Name: Text_Emerald
   m_TagString: Untagged
@@ -11932,18 +11905,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 182, y: 0}
   m_Pivot: {x: 1, y: 0.5}
---- !u!114 &1303325148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303325146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b84e611b483bb458a8ea978af066af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1303325149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12164,7 +12125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f21e3b008f15f44a98d9196383d217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goldText: {fileID: 1273551919}
+  _goldText: {fileID: 0}
 --- !u!1 &1324172694
 GameObject:
   m_ObjectHideFlags: 0
@@ -16258,11 +16219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18062,11 +18023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18376,11 +18337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3909043140143194463, guid: 86240ca0e1a1bc141923f371f70e5045, type: 3}
       propertyPath: m_LocalPosition.x

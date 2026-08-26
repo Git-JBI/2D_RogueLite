@@ -15,21 +15,27 @@ public class UpperSideUiPresenter : MonoBehaviour
 
         Init();
 
+        _gameModel.OnGoldChanged += _viewer.SetGoldText;
+        _gameModel.OnEmeraldChanged += _viewer.SetEmeraldText;
+
         _energyManager.OnEnergyChanged += _viewer.SetEnergyText;
         _energyManager.OnTimeChanged += _viewer.SetTimeText;
     }
 
     public void OnDestroy()
     {
+        _gameModel.OnGoldChanged -= _viewer.SetGoldText;
+        _gameModel.OnEmeraldChanged -= _viewer.SetEmeraldText;
+
         _energyManager.OnEnergyChanged -= _viewer.SetEnergyText;
         _energyManager.OnTimeChanged -= _viewer.SetTimeText;
     }
 
     private void Init()
     {
-        _viewer.SetTimeText(_energyManager.EnergyRechargeRemainingTime);
-        _viewer.SetEnergyText(_energyManager.Energy, _energyManager.MaxEnergy);
-        _viewer.SetEmeraldText(_gameModel.Emerald);
         _viewer.SetGoldText(_gameModel.Gold);
+        _viewer.SetEmeraldText(_gameModel.Emerald);
+        _viewer.SetEnergyText(_energyManager.Energy, _energyManager.MaxEnergy);
+        _viewer.SetTimeText(_energyManager.EnergyRechargeRemainingTime);
     }
 }

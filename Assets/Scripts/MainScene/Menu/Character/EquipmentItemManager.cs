@@ -23,10 +23,11 @@ public class EquipmentItemManager : MonoBehaviour
 
     public void Refresh()
     {
-        Debug.Log("장비중인 아이템 갱신");
         EquipmentModel equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
+
         if (equipmentModel.EquippedItems.Count == 0)
             return;
+
         for (int i = 0; i < _slots.Length; i++)
         {
             EquipmentItemData itemdata = GameManager.Instance.GameModel.EquipmentModel.GetEquippedItem((EquipmentType)i);

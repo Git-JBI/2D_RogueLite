@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameModel : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class GameModel : MonoBehaviour
     public UpgradeModel UpgradeModel => _upgradeModel;
     public EnergyModel EnergyModel => _energyModel;
 
+    public event UnityAction<int> OnGoldChanged;
+    public event UnityAction<int> OnEmeraldChanged;
+
     private void Awake()
     {
         // 저장된 게임 데이터 불러오기
@@ -57,6 +61,7 @@ public class GameModel : MonoBehaviour
     public void AddGold(int value)
     {
         _gameData.Gold += value;
+        OnGoldChanged?.Invoke(_gameData.Gold);
     }
     /// <summary>
     /// 에메랄드 추가 함수
@@ -65,6 +70,7 @@ public class GameModel : MonoBehaviour
     public void AddEmerald(int value)
     {
         _gameData.Emerald += value;
+        OnEmeraldChanged?.Invoke(_gameData.Emerald);
     }
     /// <summary>
     /// 업그레이드 스크롤 추가 함수
