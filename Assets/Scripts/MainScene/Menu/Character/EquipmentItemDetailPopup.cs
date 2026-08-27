@@ -173,9 +173,6 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             // 아이템 레벨 표시
             _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
         }
-
-        // 상단바 골드 표시
-        _upperGoldText.UpdateGoldText(gold);
     }
 
     private void PopupClosed()
