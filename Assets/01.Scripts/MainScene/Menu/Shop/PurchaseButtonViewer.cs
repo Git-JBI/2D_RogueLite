@@ -8,7 +8,7 @@ public class PurchaseButtonViewer : MonoBehaviour
 
     public void Init(int require, int reward)
     {
-        _requireText.text = _requireText.ToString();
-        _rewardText.text = _rewardText.ToString();
+        _requireText.text = require.ToString();
+        _rewardText.text = reward.ToString();
     }
 }
