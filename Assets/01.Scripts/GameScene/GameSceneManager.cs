@@ -62,13 +62,18 @@ public class GameSceneManager : MonoBehaviour
 
     private void Update()
     {
-        CheckTime();
+        UpdateTime();
+    }
+
+    public float GetTime()
+    {
+        return _gameSceneModel.StageTime;
     }
 
     /// <summary>
     /// 스테이지 시간진행 체크
     /// </summary>
-    private void CheckTime()
+    private void UpdateTime()
     {
         if (_isBossSpawn)
             return;
@@ -111,16 +116,13 @@ public class GameSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 스테이지 클리어 시 호출할 함수
+    /// 스테이지 클리어 시 최대 스테이지를 증가시킬 함수
     /// </summary>
-    private void ClearStage()
+    private void UpdateMaxStage()
     {
-        Debug.Log("스테이지 클리어");
-
         // 최대 진행가능 스테이지 == 현재 진행중인 스테이지 일 경우
         if (_gameModel.MaxStage == _gameModel.SelectStage)
         {
-            Debug.Log("최대 스테이지 +1");
             // 최대 스테이지 +1 증가
             _gameModel.IncreaseMaxStage();
             // 선택한 스테이지 설정
@@ -168,7 +170,7 @@ public class GameSceneManager : MonoBehaviour
         _uiManager.Clear();
 
         // 스테이지 클리어
-        ClearStage();
+        UpdateMaxStage();
     }
 
     private void ReportKillCount()
@@ -185,10 +187,5 @@ public class GameSceneManager : MonoBehaviour
     private void ReportBossKillCount()
     {
         _achievementManager.Report(AchievementConditionType.KillBoss);
-    }
-
-    public float GetTime()
-    {
-        return _gameSceneModel.StageTime;
     }
 }

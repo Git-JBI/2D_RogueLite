@@ -12,7 +12,7 @@ public class MenuButton : ButtonBase
         _menuNumber = number;
     }
 
-    protected override void ClickButton()
+    private void ClickButton()
     {
         MenuButtonClick();
     }

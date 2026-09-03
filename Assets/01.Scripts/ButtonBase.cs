@@ -1,19 +1,45 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class ButtonBase : MonoBehaviour
+public class ButtonBase : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerUpHandler
 {
-    protected Button _button;
+    private bool _isClicked;
 
-    protected virtual void Awake()
+    private void ScaleDown()
     {
-        _button = GetComponent<Button>();
+        transform.DOScale(0.9f, 0.2f);
     }
 
-    public void Init()
+    private void ResetScale()
     {
-        _button.onClick.AddListener(ClickButton);
+        transform.DOScale(1.0f, 0.2f);
     }
 
-    protected abstract void ClickButton();
+    #region PointerInterface
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        _isClicked = false;
+
+        ResetScale();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        _isClicked = true;
+
+        ScaleDown();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ResetScale();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_isClicked)
+            ScaleDown();
+    }
+    #endregion
 }

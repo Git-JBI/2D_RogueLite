@@ -22,7 +22,6 @@ public class GachaManager : MonoBehaviour
 
         foreach(Button_Gacha x in _button_Gachas)
         {
-            x.Init();
         }
 
         _totalItemDataPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();

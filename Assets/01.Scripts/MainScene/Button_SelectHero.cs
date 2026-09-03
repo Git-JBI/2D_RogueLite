@@ -11,10 +11,8 @@ public class Button_SelectHero : ButtonBase
     public event UnityAction<Sprite> OnSpriteChange;
     public event UnityAction<string> OnTextChange;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-
         _buttonImage = GetComponent<Image>();
     }
 
@@ -23,11 +21,9 @@ public class Button_SelectHero : ButtonBase
         _heroData = heroData;
 
         _buttonImage.sprite = _heroData.HeroSprite;
-
-        base.Init();
     }
 
-    protected override void ClickButton()
+    private void ClickButton()
     {
         GameManager.Instance.GameModel.SelectHero(_heroData);
         OnSpriteChange?.Invoke(_heroData.HeroSprite);

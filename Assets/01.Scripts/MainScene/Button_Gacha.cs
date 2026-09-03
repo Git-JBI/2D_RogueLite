@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 
 public class Button_Gacha : ButtonBase
 {
     public event UnityAction OnButtonClicked;
 
-    protected override void ClickButton()
+    private void ClickButton()
     {
         ButtonClicked();
     }

@@ -2,7 +2,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UpgradeManager : MonoBehaviour
+public enum UpgradeButtonType
+{
+    Damage,
+    Hp,
+    Armor,
+}
+
+public class UpgradePresenter : MonoBehaviour
 {
     private int _maxUpgradeLevel;
     //TODO Money텍스트 까지 적용하도록(UpgradeData 받아와서 사용) + Button_Upgrade추가 함수 필요
@@ -10,7 +17,7 @@ public class UpgradeManager : MonoBehaviour
 
     [SerializeField] private List<UpgradeData> _upgradeDatas = new();
     private UpgradeButtonType[] _upgradeButtonTypes = { UpgradeButtonType.Damage, UpgradeButtonType.Hp, UpgradeButtonType.Armor };
-    [SerializeField] private Button_Upgrade[] _buttons;                   // 0. Damage, 1. Hp, 2. Armor
+    [SerializeField] private UpgradeButtonViewer[] _buttons;                   // 0. Damage, 1. Hp, 2. Armor
 
     public event UnityAction<int> OnUpgradeLevelChanged;
 
@@ -18,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
     {
         _gameModel = GameManager.Instance.GameModel;
 
-        _buttons = GetComponentsInChildren<Button_Upgrade>();
+        _buttons = GetComponentsInChildren<UpgradeButtonViewer>();
 
         _upgradeDatas.Add(Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataDamage"));
         _upgradeDatas.Add(Resources.Load<UpgradeData>("GameDatas/UpgradeData/UpgradeDataHp"));
@@ -45,8 +52,6 @@ public class UpgradeManager : MonoBehaviour
     {
         switch (buttonType)
         {
-            case UpgradeButtonType.None:
-                return;
             case UpgradeButtonType.Damage:          // 데미지 업그레이드
                 // 최대 레벨 도달했을 경우 리턴
                 if (_gameModel.UpgradeLevel[0] == _maxUpgradeLevel)

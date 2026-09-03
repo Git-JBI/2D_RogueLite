@@ -23,7 +23,6 @@ public class MenuController : MonoBehaviour
         for (int i = 0; i < _buttons.Length; i++)
         {
             _buttons[i].Init(i);
-            _buttons[i].Init();
             _buttons[i].OnMenuButtonClicked += MoveMenuPos;
 
             //TODO 장비 불러오기 변경
