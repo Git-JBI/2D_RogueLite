@@ -35,7 +35,7 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
     /// <summary>
-    /// 버튼을 눌렀을 시 실행되는 함수
+    /// 슬롯을 눌렀을 시 실행되는 함수
     /// </summary>
     /// <param name="eventData"></param>
     public void OnPointerClick(PointerEventData eventData)

@@ -2,31 +2,21 @@
 using System.Linq;
 using UnityEngine;
 
-public class GachaManager : MonoBehaviour
+public class EquipmentGachaManager : MonoBehaviour
 {
-    [SerializeField] private List<SO_EquipmentItemData> _totalItemDataPool;
+    private List<SO_EquipmentItemData> _totalItemDataPool;
     private AchievementManager _achievementManager;
     private EquipmentModel _equipmentModel;
 
-    private Button_Gacha[] _button_Gachas;
-
     //TODO 추후 UI쪽에서 받아오기
-    [SerializeField] private ItemViewerManager _itemViewer;
+    [SerializeField] private GachaItemPresenter _itemViewer;
 
     private void Awake()
     {
         _achievementManager = GameManager.Instance.AchievementManager;
         _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
 
-        _button_Gachas = GetComponentsInChildren<Button_Gacha>();
-
-        foreach(Button_Gacha x in _button_Gachas)
-        {
-        }
-
         _totalItemDataPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();
-        _button_Gachas[0].OnButtonClicked += GachaEquipmentItemOne;
-        _button_Gachas[1].OnButtonClicked += GachaEquipmentItemTen;
     }
     /*
      * 각 종류별 뽑기에 대한 등급별 확률로 등급 결정
@@ -110,7 +100,7 @@ public class GachaManager : MonoBehaviour
         _equipmentModel.SaveData();
 
         // 획득한 아이템 보여주기
-        _itemViewer.ShowOne(equipmentItemData);
+        _itemViewer.ShowOne(equipmentItemData.ItemID, equipmentItemData.Rarity);
     }
 
     public void GachaEquipmentItemTen()

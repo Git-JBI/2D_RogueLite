@@ -6,9 +6,9 @@ public class EquipmentItemViewer : ItemViewer
     [SerializeField] private TextMeshProUGUI _rarityLevelText;
     [SerializeField] private TextMeshProUGUI _itemLevelText;
 
-    public override void Init(EquipmentItemData data, string desc)
+    public void Init(EquipmentItemData data, string desc)
     {
-        base.Init(data, desc);
+        // base.Init(data, desc);
         SetItemLevelText(data.ItemLevel.ToString());
         SetRarityLevelText(data.RarityLevel);
     }

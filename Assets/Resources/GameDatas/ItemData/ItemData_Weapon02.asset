@@ -12,34 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Weapon02
   m_EditorClassIdentifier: 
-  Id: eq_weapon_02
-  ItemName: Weapon02
-  EquipmentType: 0
-  ItemTier: 0
-  IconSprite: {fileID: 0}
-  Desc: "02\uBB34\uAE30"
-  RaritySettings:
-  - Rarity: 0
-    MaxLevel: 10
-    BaseStat: 5
-    StatPerLevel: 2
-  - Rarity: 1
-    MaxLevel: 20
-    BaseStat: 10
-    StatPerLevel: 4
-  - Rarity: 2
-    MaxLevel: 30
-    BaseStat: 15
-    StatPerLevel: 6
-  - Rarity: 3
-    MaxLevel: 40
-    BaseStat: 20
-    StatPerLevel: 8
-  - Rarity: 4
-    MaxLevel: 70
-    BaseStat: 25
-    StatPerLevel: 10
-  - Rarity: 5
-    MaxLevel: 110
-    BaseStat: 30
-    StatPerLevel: 12
+  _id: eq_weapon_02
+  _itemName: Weapon02
+  _equipmentType: 0
+  _equipmentStatType: 0
+  _itemTier: 0
+  _iconSprite: {fileID: -7744616905352368197, guid: b2c1f92b323ab2b4f8e95796c2fc9f45, type: 3}
+  _desc: "02\uBB34\uAE30"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 5
+    _statPerLevel: 2
+  - _rarity: 1
+    _baseStat: 10
+    _statPerLevel: 4
+  - _rarity: 2
+    _baseStat: 15
+    _statPerLevel: 6
+  - _rarity: 3
+    _baseStat: 20
+    _statPerLevel: 8
+  - _rarity: 4
+    _baseStat: 25
+    _statPerLevel: 10
+  - _rarity: 5
+    _baseStat: 30
+    _statPerLevel: 12

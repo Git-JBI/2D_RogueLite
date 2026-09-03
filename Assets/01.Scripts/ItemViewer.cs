@@ -1,26 +1,24 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemViewer : MonoBehaviour
 {
-    [SerializeField] private Image _gradeImage;
-    [SerializeField] private TextMeshProUGUI _descText;
+    [SerializeField] private Image _itemImage;
+    [SerializeField] private Image _rarityImage;
 
-    public virtual void Init(EquipmentItemData data, string desc)
+    public virtual void Init(Sprite itemImage, Sprite rarityImage)
     {
-        Sprite sprite = (GameManager.Instance.ResourceManager.GetScriptable("GameDatas/RaritySpriteData/RaritySpriteData") as SO_RaritySprite).Sprites[(int)data.Rarity];
-        SetRaritySprite(sprite);
-        SetDescText(desc);
+        SetItemSprite(itemImage);
+        SetRaritySprite(rarityImage);
     }
 
     private void SetRaritySprite(Sprite sprite)
     {
-        _gradeImage.sprite = sprite;
+        _rarityImage.sprite = sprite;
     }
 
-    private void SetDescText(string desc)
+    private void SetItemSprite(Sprite sprite)
     {
-        _descText.text = desc;
+        _itemImage.sprite = sprite;
     }
 }

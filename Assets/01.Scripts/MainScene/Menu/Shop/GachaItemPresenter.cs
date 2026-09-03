@@ -2,12 +2,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
+public class GachaItemPresenter : MonoBehaviour, IPointerClickHandler
 {
+    private EquipmentItemDatabase _equipmentItemDatabase;
     private ItemViewer[] _viewers;
 
     private void Awake()
     {
+        _equipmentItemDatabase = GameManager.Instance.EquipmentItemDatabase;
+
         _viewers = GetComponentsInChildren<ItemViewer>();
 
         foreach (ItemViewer x in _viewers)
@@ -18,16 +21,17 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
         gameObject.SetActive(false);
     }
 
-    public void ShowOne(EquipmentItemData data)
+    public void ShowOne(string id, ItemRarity rarity)
     {
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
         _viewers[0].gameObject.SetActive(true);
 
-        string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
+        Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(id);
+        Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(rarity);
 
-        _viewers[0].Init(data, dataDesc);
+        _viewers[0].Init(raritySprite, itemSprite);
     }
 
     public void ShowTen(List<EquipmentItemData> datas)
@@ -38,9 +42,10 @@ public class ItemViewerManager : MonoBehaviour, IPointerClickHandler
         {
             _viewers[i].gameObject.SetActive(true);
 
-            string dataDesc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(datas[i].ItemID);
+            Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(datas[i].ItemID);
+            Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(datas[i].Rarity);
 
-            _viewers[i].Init(datas[i], dataDesc);
+            _viewers[i].Init(itemSprite, raritySprite);
         }
     }
 

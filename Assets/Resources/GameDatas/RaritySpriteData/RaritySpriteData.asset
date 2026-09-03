@@ -9,19 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edb40be4d47604418af2b4aba2fa872, type: 3}
+  m_Script: {fileID: 11500000, guid: b30f6c8c540fba14c8463dc8cba65749, type: 3}
   m_Name: RaritySpriteData
   m_EditorClassIdentifier: 
-  _colors:
-  - serializedVersion: 2
-    rgba: 4290684321
-  - serializedVersion: 2
-    rgba: 4278255510
-  - serializedVersion: 2
-    rgba: 4294947840
-  - serializedVersion: 2
-    rgba: 4294845643
-  - serializedVersion: 2
-    rgba: 4278647807
-  - serializedVersion: 2
-    rgba: 4285880831
+  _sprites:
+  - {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
+  - {fileID: 21300000, guid: e6eea4f7cbb9f46f79c0fe06180fa5b3, type: 3}
+  - {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
+  - {fileID: 21300000, guid: 10d23572713d041c596abf5c00be11dc, type: 3}
+  - {fileID: 21300000, guid: 84063999b9e1741d099c1d8f7bbc0f7a, type: 3}
+  - {fileID: 21300000, guid: c7ade68a31f1d4e12a57617409b6ee8a, type: 3}
