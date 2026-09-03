@@ -1,7 +1,7 @@
 {
     "HeroDataName": "00",
     "Gold": 31406600,
-    "Emerald": 2383170,
+    "Emerald": 3183670,
     "Energy": 50,
     "EnergyRechargeRemainingTime": 0,
     "UpgradeLevel": [
@@ -22,7 +22,7 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-09-03",
+    "LastDailyResetDate": "2026-09-04",
     "LastWeeklyResetDate": "2026-08-31",
     "Achievements": [
         {
@@ -39,8 +39,8 @@
         },
         {
             "AchievementId": "Daily_KillCount",
-            "Progress": 100,
-            "IsCompleted": true,
+            "Progress": 0,
+            "IsCompleted": false,
             "IsRewardClaimed": false
         },
         {

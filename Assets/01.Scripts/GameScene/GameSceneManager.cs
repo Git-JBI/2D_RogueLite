@@ -71,6 +71,22 @@ public class GameSceneManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 정지
+    /// </summary>
+    public void Pause()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    /// <summary>
+    /// 계속
+    /// </summary>
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+    /// <summary>
     /// 스테이지 시간진행 체크
     /// </summary>
     private void UpdateTime()

@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 
-//TODO EquipmentItemViewer는 ItemViewer를 상속 받은 상태로 써야함
 public class EquipmentItemViewer : ItemViewer
 {
     [SerializeField] private TextMeshProUGUI _rarityLevelText;

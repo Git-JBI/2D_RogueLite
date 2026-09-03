@@ -9,13 +9,14 @@ public class ItemViewer : MonoBehaviour
 
     public virtual void Init(EquipmentItemData data, string desc)
     {
-        SetGradeColor((GameManager.Instance.ResourceManager.GetScriptable("GameDatas/RarityImageColorData/RarityImageColorData") as SO_RarityImageColorData).Colors[(int)data.Rarity]);
+        Sprite sprite = (GameManager.Instance.ResourceManager.GetScriptable("GameDatas/RaritySpriteData/RaritySpriteData") as SO_RaritySprite).Sprites[(int)data.Rarity];
+        SetRaritySprite(sprite);
         SetDescText(desc);
     }
 
-    private void SetGradeColor(Color32 gradeColor)
+    private void SetRaritySprite(Sprite sprite)
     {
-        _gradeImage.color = gradeColor;
+        _gradeImage.sprite = sprite;
     }
 
     private void SetDescText(string desc)
