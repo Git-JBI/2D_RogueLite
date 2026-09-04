@@ -14097,6 +14097,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e962407560ebe1e4987a9438c9eddfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseButton: {fileID: 1304297909}
+  _pausePanel: {fileID: 1567551751}
+  _resumeButton: {fileID: 0}
+  _homeButton: {fileID: 0}
 --- !u!1 &1317311582
 GameObject:
   m_ObjectHideFlags: 0
@@ -22582,7 +22586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f562b64042c00445a4eb69dee82d9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pausePanel: {fileID: 1567551751}
+  _gameSceneManager: {fileID: 0}
   _viewer: {fileID: 1304297912}
 --- !u!1001 &1575299721
 PrefabInstance:

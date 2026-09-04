@@ -92,9 +92,9 @@ public class HeroModel : MonoBehaviour
         _maxExp = _expConfigData.GetMaxExp(_level);
         _curExp = 0;
 
-        _upgradeDamage = _upgradeModel.GetUpgradeDamageValue();
-        _upgradeHp = _upgradeModel.GetUpgradeHpValue();
-        _upgradeArmor = _upgradeModel.GetUpgradeArmorValue();
+        _upgradeDamage = _upgradeModel.GetValue(UpgradeType.Damage);
+        _upgradeHp = _upgradeModel.GetValue(UpgradeType.Hp);
+        _upgradeArmor = _upgradeModel.GetValue(UpgradeType.Armor);
 
         SetHeroBonusData();
     }
@@ -146,6 +146,10 @@ public class HeroModel : MonoBehaviour
         Debug.Log($"Hp : {_curHp}");
     }
 
+    /// <summary>
+    /// 경험치 증가 함수
+    /// </summary>
+    /// <param name="exp"></param>
     public void IncreaseExp(int exp)
     {
         _curExp += exp;

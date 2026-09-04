@@ -128,14 +128,6 @@ public class GameModel : MonoBehaviour
         _gameData.HeroDataName = _heroData.HeroName;
     }
     /// <summary>
-    /// 업그레이드 레벨 증가
-    /// </summary>
-    /// <param name="value">업그레이드 레벨 종류</param>
-    public void IncreaseUpgradeLevel(int value)
-    {
-        _gameData.UpgradeLevel[value]++;
-    }
-    /// <summary>
     /// 최대 스테이지 +1 증가 함수
     /// </summary>
     public void IncreaseMaxStage()

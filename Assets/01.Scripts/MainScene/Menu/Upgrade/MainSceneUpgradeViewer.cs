@@ -34,60 +34,44 @@ public class MainSceneUpgradeViewer : MonoBehaviour
     [SerializeField] private GameObject _warningPanel;
     [SerializeField] private TMP_Text _warningText;
 
-    public event Action OnDamageUpgradeClicked;
-    public event Action OnHpUpgradeClicked;
-    public event Action OnArmorUpgradeClicked;
+    private Sequence _warningSequence;
+
+    public event Action<UpgradeType> OnUpgradeClicked;
 
     private void Awake()
     {
-        _damageUpgradeButton.onClick.AddListener(() => OnDamageUpgradeClicked?.Invoke());
-        _hpUpgradeButton.onClick.AddListener(() => OnHpUpgradeClicked?.Invoke());
-        _armorUpgradeButton.onClick.AddListener(() => OnArmorUpgradeClicked?.Invoke());
+        _damageUpgradeButton.onClick.AddListener(() => OnUpgradeClicked?.Invoke(UpgradeType.Damage));
+        _hpUpgradeButton.onClick.AddListener(() => OnUpgradeClicked?.Invoke(UpgradeType.Hp));
+        _armorUpgradeButton.onClick.AddListener(() => OnUpgradeClicked?.Invoke(UpgradeType.Armor));
     }
 
-    public void SetDamageButtonText(int level, int price)
+    private void OnDestroy()
     {
-        // 최대 레벨일 경우
-        if(price == -1)
-        {
-            _damageLevelText.text = _maxLevelText;
-            _damagePriceText.text = _nonePriceText;
-        }
-        // 아닐 경우
-        else
-        {
-            _damageLevelText.text = level.ToString();
-            _damagePriceText.text = price.ToString();
-        }
+        _warningSequence?.Kill();
+        _warningSequence = null;
     }
-    public void SetHpButtonText(int level, int price)
+
+    /// <summary>
+    /// type에 따른 level, price 설정 함수
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="level"></param>
+    /// <param name="price"></param>
+    public void SetButtonText(UpgradeType type, int level, int price)
     {
-        // 최대 레벨일 경우
-        if (price == -1)
+        switch (type)
         {
-            _hpLevelText.text = _maxLevelText;
-            _hpPriceText.text = _nonePriceText;
-        }
-        // 아닐 경우
-        else
-        {
-            _hpLevelText.text = level.ToString();
-            _hpPriceText.text = price.ToString();
-        }
-    }
-    public void SetArmorButtonText(int level, int price)
-    {
-        // 최대 레벨일 경우
-        if (price == -1)
-        {
-            _armorLevelText.text = _maxLevelText;
-            _armorPriceText.text = _nonePriceText;
-        }
-        // 아닐 경우
-        else
-        {
-            _armorLevelText.text = level.ToString();
-            _armorPriceText.text = price.ToString();
+            case UpgradeType.Damage:
+                SetText(_damageLevelText, _damagePriceText, level, price);
+                break;
+
+            case UpgradeType.Hp:
+                SetText(_hpLevelText, _hpPriceText, level, price);
+                break;
+
+            case UpgradeType.Armor:
+                SetText(_armorLevelText, _armorPriceText, level, price);
+                break;
         }
     }
 
@@ -96,73 +80,60 @@ public class MainSceneUpgradeViewer : MonoBehaviour
     /// </summary>
     public void PlayMaxLevelWarning()
     {
-        // 변할 색
-        Color originColor = _skyblueColor;
-
-        // 패널 활성화
-        _warningPanel.SetActive(true);
-
-        // 색 설정
-        _warningText.color = originColor;
-
-        // 문구 설정
-        _warningText.text = "최대 레벨입니다.";
-
-        // 시퀀스 생성
-        Sequence sequence = DOTween.Sequence();
-
-        // 0.5초간 알파값 0으로
-        sequence.Append(_warningText.DOFade(0.0f, 0.5f));
-
-        // 0.125초간 커졌다 작아졌다 4번
-        sequence.Join(_warningText.transform.DOScale(1.2f, 0.125f).SetLoops(4, LoopType.Yoyo));
-
-        // 실행 후
-        sequence.OnComplete(() =>
-        {
-            // 색 원래대로
-            _warningText.color = originColor;
-            // 스케일 원래대로
-            _warningText.transform.localScale = Vector3.one;
-            // 패널 비활성화
-            _warningPanel.SetActive(false);
-        });
+        PlayWarning("최대 레벨입니다.", _skyblueColor);
     }
     /// <summary>
     /// 골드가 부족할 시 실행할 함수
     /// </summary>
     public void PlayNotEnoughGoldWarning()
     {
-        // 변할 색
-        Color originColor = _yellowColor;
+        PlayWarning("골드가 부족합니다.", _yellowColor);
+    }
 
-        // 패널 활성화
+    /// <summary>
+    /// 경고 실행 함수
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="color"></param>
+    private void PlayWarning(string message, Color color)
+    {
+        // 이전 시퀀스를 종료(완료 콜백 X)
+        _warningSequence?.Kill();
+
+        // 이전 애니메이션의 상태 초기화
+        _warningText.color = color;
+        _warningText.transform.localScale = Vector3.one;
+        _warningText.text = message;
         _warningPanel.SetActive(true);
 
-        // 색 설정
-        _warningText.color = originColor;
+        _warningSequence = DOTween.Sequence();
 
-        // 문구 설정
-        _warningText.text = "골드가 부족합니다.";
+        // 1초간 알파값 0으로
+        _warningSequence.Append(_warningText.DOFade(0.0f, 1.0f));
 
-        // 시퀀스 생성
-        Sequence sequence = DOTween.Sequence();
+        // 0.25초간 커졌다 작아졌다 4번
+        _warningSequence.Join(_warningText.transform.DOScale(1.2f, 0.25f).SetLoops(4, LoopType.Yoyo));
 
-        // 0.5초간 알파값 0으로
-        sequence.Append(_warningText.DOFade(0.0f, 0.5f));
-
-        // 0.125초간 커졌다 작아졌다 4번
-        sequence.Join(_warningText.transform.DOScale(1.2f, 0.125f).SetLoops(4, LoopType.Yoyo));
-
-        // 실행 후
-        sequence.OnComplete(() =>
+        _warningSequence.OnComplete(() =>
         {
-            // 색 원래대로
-            _warningText.color = originColor;
-            // 스케일 원래대로
+            _warningText.color = color;
             _warningText.transform.localScale = Vector3.one;
-            // 패널 비활성화
             _warningPanel.SetActive(false);
+            _warningSequence = null;
         });
+    }
+    /// <summary>
+    /// level, price Text설정 함수
+    /// </summary>
+    /// <param name="levelText"></param>
+    /// <param name="priceText"></param>
+    /// <param name="level"></param>
+    /// <param name="price"></param>
+    private void SetText(TMP_Text levelText, TMP_Text priceText, int level, int price)
+    {
+        bool isMaxLevel = price == -1;
+
+        levelText.text = isMaxLevel ? _maxLevelText : level.ToString();
+        priceText.text = isMaxLevel ? _nonePriceText : price.ToString();
     }
 }
