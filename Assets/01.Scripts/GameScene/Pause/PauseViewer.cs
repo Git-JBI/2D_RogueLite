@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseViewer : ButtonBase
+public class PauseViewer : ButtonPressScale
 {
     [SerializeField] private Button _pauseButton;
 

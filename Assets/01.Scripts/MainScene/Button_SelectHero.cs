@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Button_SelectHero : ButtonBase
+public class Button_SelectHero : ButtonPressScale
 {
     private Image _buttonImage;
 

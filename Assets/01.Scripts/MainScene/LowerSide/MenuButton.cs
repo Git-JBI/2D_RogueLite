@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Events;
 
-public class MenuButton : ButtonBase
+public class MenuButton : ButtonPressScale
 {
     int _menuNumber;
 

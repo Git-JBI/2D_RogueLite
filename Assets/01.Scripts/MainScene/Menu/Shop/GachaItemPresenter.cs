@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class GachaItemPresenter : MonoBehaviour, IPointerClickHandler
+public class GachaItemPresenter : MonoBehaviour
 {
     private EquipmentItemDatabase _equipmentItemDatabase;
     private ItemViewer[] _viewers;
@@ -47,20 +46,5 @@ public class GachaItemPresenter : MonoBehaviour, IPointerClickHandler
 
             _viewers[i].Init(itemSprite, raritySprite);
         }
-    }
-
-    private void Close()
-    {
-        for(int i = 0; i < _viewers.Length; i++)
-        {
-            _viewers[i].gameObject.SetActive(false);
-        }
-
-        gameObject.SetActive(false);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Close();
     }
 }

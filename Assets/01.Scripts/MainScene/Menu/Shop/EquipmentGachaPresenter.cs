@@ -2,8 +2,22 @@
 using System.Linq;
 using UnityEngine;
 
-public class EquipmentGachaManager : MonoBehaviour
+public enum EquipmentGachaType
 {
+    Single = 1,
+    Ten = 10,
+    Fifty = 50,
+}
+
+public class EquipmentGachaPresenter : MonoBehaviour
+{
+    [SerializeField] private EquipmentGachaViewer _viewer;
+    private EquipmentModel _model;
+
+
+
+
+
     private List<SO_EquipmentItemData> _totalItemDataPool;
     private AchievementManager _achievementManager;
     private EquipmentModel _equipmentModel;
@@ -13,18 +27,20 @@ public class EquipmentGachaManager : MonoBehaviour
 
     private void Awake()
     {
+        _viewer.OnEquipmentGachaButtonClicked += HandleGacha;
+
+
+
         _achievementManager = GameManager.Instance.AchievementManager;
         _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
 
         _totalItemDataPool = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas.ToList();
     }
-    /*
-     * 각 종류별 뽑기에 대한 등급별 확률로 등급 결정
-       ->
-       설정 데이터 딕셔너리에서 뽑힌 등급에 해당하는 아이템 아이디 리스트
-       ->
-       그중에서 랜덤하게 하나
-     */
+
+    private void HandleGacha(EquipmentGachaType type)
+    {
+        _viewer.Gacha(type);
+    }
 
     /// <summary>
     /// 단일 장비 뽑기
