@@ -1,7 +1,7 @@
 {
     "HeroDataName": "00",
-    "Gold": 31406600,
-    "Emerald": 3230070,
+    "Gold": 31421000,
+    "Emerald": 3230040,
     "Energy": 50,
     "EnergyRechargeRemainingTime": 0,
     "UpgradeLevel": [
@@ -22,8 +22,8 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-09-04",
-    "LastWeeklyResetDate": "2026-08-31",
+    "LastDailyResetDate": "2026-09-07",
+    "LastWeeklyResetDate": "2026-09-07",
     "Achievements": [
         {
             "AchievementId": "Daily_EnterStage",
@@ -51,8 +51,8 @@
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 5,
-            "IsCompleted": true,
+            "Progress": 1,
+            "IsCompleted": false,
             "IsRewardClaimed": false
         }
     ],
