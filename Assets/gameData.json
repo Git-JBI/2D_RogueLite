@@ -22,7 +22,7 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-09-07",
+    "LastDailyResetDate": "2026-09-08",
     "LastWeeklyResetDate": "2026-09-07",
     "Achievements": [
         {
@@ -51,8 +51,8 @@
         },
         {
             "AchievementId": "Weekly_Login",
-            "Progress": 1,
-            "IsCompleted": false,
+            "Progress": 5,
+            "IsCompleted": true,
             "IsRewardClaimed": false
         }
     ],

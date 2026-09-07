@@ -21,7 +21,11 @@ public class BuyEmeraldPresenter : MonoBehaviour
 
     private void Start()
     {
-        _viewer.Init(_configData);
+        for(int i = 0; i < _configData.Rewards.Length; i++)
+        {
+            _viewer.SetRewardText(i, _configData.Rewards[i]);
+            _viewer.SetRequireText(i, _configData.Requires[i]);
+        }
     }
 
     private void OnEnable()

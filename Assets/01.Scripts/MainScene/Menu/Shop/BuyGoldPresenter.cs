@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
 public class BuyGoldPresenter : MonoBehaviour
 {
+    private int _baseGold;
+    private int _stageGold;
+
     private BuyViewerBase _viewer;
     private GameModel _gameModel;
     private SO_CurrencyPurchaseConfigData _configData;
@@ -11,11 +15,38 @@ public class BuyGoldPresenter : MonoBehaviour
         _viewer = GetComponent<BuyViewerBase>();
         _gameModel = GameManager.Instance.GameModel;
         _configData = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/MainScene/GoldPurchaseConfigData/GoldPurchaseConfigData") as SO_CurrencyPurchaseConfigData;
+
+        _baseGold = 6000;
+
+        Debug.Log(_gameModel.MaxStage - 1);
+        _stageGold = (_gameModel.MaxStage - 1) * 600;
     }
 
     private void Start()
     {
-        _viewer.Init(_configData);
+        int gold = _baseGold;
+
+        for (int i = 0; i < _configData.Rewards.Length; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    gold = (gold + _stageGold) * 2;
+                    _viewer.SetRewardText(i, gold);
+                    _viewer.SetRequireText(i, _configData.Requires[i]);
+                    break;
+                case 1:
+                    gold = (gold + _stageGold) * 8;
+                    _viewer.SetRewardText(i, gold);
+                    _viewer.SetRequireText(i, _configData.Requires[i]);
+                    break;
+                case 2:
+                    gold = (gold + _stageGold) * 24;
+                    _viewer.SetRewardText(i, gold);
+                    _viewer.SetRequireText(i, _configData.Requires[i]);
+                    break;
+            }
+        }
     }
 
     private void OnEnable()
@@ -39,19 +70,18 @@ public class BuyGoldPresenter : MonoBehaviour
         // 에메랄드 감소
         _gameModel.AddEmerald(-_configData.Requires[index]);
 
-        // 스테이지별 1시간당 얻는 골드양
-        int gold = 6000 + (_gameModel.MaxStage - 1) * 600;
+        int gold = _baseGold;
 
         switch(index)
         {
             case 0:
-                gold *= 2;
+                gold = (_baseGold + _stageGold) * 2;
                 break;
             case 1:
-                gold *= 8;
+                gold = (_baseGold + _stageGold) * 8;
                 break;
             case 2:
-                gold *= 24;
+                gold = (_baseGold + _stageGold) * 24;
                 break;
         }
 
