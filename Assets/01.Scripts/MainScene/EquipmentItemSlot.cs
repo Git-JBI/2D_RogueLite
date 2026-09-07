@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 {
+    private string _instanceId;
+
     /// <summary>
     /// 아이템 슬롯을 보여줄 뷰어
     /// </summary>
@@ -19,18 +21,18 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
     /// </summary>
     public event UnityAction<EquipmentItemData> OnItemSlotClicked;
 
-    public void Init(EquipmentItemData data)
+    public void Init(string instanceId, Sprite itemImage, Sprite rarityImage, int level, int rarityLevel)
     {
         if(!_itemViewer)
             _itemViewer = GetComponent<EquipmentItemViewer>();
 
         OnItemSlotClicked = null;
 
-        _itemData = data;
+        _instanceId = instanceId;
+
         if(_itemData != null)
         {
-            string desc = GameManager.Instance.EquipmentItemDatabase.GetEquipmentItemDesc(data.ItemID);
-            _itemViewer.Init(data, desc);
+            _itemViewer.Init(itemImage, rarityImage, level, rarityLevel);
         }
     }
 

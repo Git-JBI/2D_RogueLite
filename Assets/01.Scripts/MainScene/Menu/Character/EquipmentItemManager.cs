@@ -35,7 +35,7 @@ public class EquipmentItemManager : MonoBehaviour
             if (itemdata != null)
             {
                 _slots[i].gameObject.SetActive(true);
-                _slots[i].Init(itemdata);
+                //_slots[i].Init(itemdata);
                 _slots[i].OnItemSlotClicked += OpenPopup;
             }
             else

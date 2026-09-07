@@ -59,7 +59,7 @@ public class MergeAllResultManager : MonoBehaviour
             // 슬롯 활성화
             _slots[i].gameObject.SetActive(true);
             // 슬롯 초기화
-            _slots[i].Init(itemList[i]);
+            //_slots[i].Init(itemList[i]);
             // 슬롯 스케일 변경(1.2)
             _slots[i].gameObject.transform.localScale = Vector3.one * 1.2f;
             // 슬롯 스케일 원상복귀(1.0 / 0.2초 동안)

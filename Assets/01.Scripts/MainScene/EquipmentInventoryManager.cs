@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EquipmentInventoryManager : MonoBehaviour
 {
+    private EquipmentItemDatabase _itemBase;
+
     /// <summary>
     /// 장비 아이템 슬롯 프리펩
     /// </summary>
@@ -19,6 +21,8 @@ public class EquipmentInventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        _itemBase = GameManager.Instance.EquipmentItemDatabase;
+
         _popup.OnPopupClosed += Init;
     }
 
@@ -60,8 +64,13 @@ public class EquipmentInventoryManager : MonoBehaviour
                 slot = slotObject.GetComponent<EquipmentItemSlot>();
                 _slots.Add(slot);
             }
+            EquipmentItemData data = items[i];
+            string itemId = data.ItemID;
 
-            slot.Init(items[i]);
+            SO_EquipmentItemData _itemConfigData = _itemBase.GetEquipmentItemData(itemId);
+            Sprite raritySprite = _itemBase.GetRaritySprite(data.Rarity);
+
+            slot.Init(items[i].InstanceID, raritySprite, _itemBase.GetEquipmentItemSprite(itemId), data.ItemLevel, data.RarityLevel);
             slot.OnItemSlotClicked += OpenPopup;
         }
     }

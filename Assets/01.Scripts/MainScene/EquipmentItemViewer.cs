@@ -6,11 +6,12 @@ public class EquipmentItemViewer : ItemViewer
     [SerializeField] private TextMeshProUGUI _rarityLevelText;
     [SerializeField] private TextMeshProUGUI _itemLevelText;
 
-    public void Init(EquipmentItemData data, string desc)
+    public void Init(Sprite itemImage, Sprite rarityImage, int level, int rarityLevel)
     {
-        // base.Init(data, desc);
-        SetItemLevelText(data.ItemLevel.ToString());
-        SetRarityLevelText(data.RarityLevel);
+        base.Init(itemImage, rarityImage);
+
+        SetItemLevelText(level.ToString());
+        SetRarityLevelText(rarityLevel);
     }
 
     private void SetItemLevelText(string itemLevel)

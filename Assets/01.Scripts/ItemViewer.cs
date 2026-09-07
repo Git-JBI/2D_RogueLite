@@ -6,7 +6,7 @@ public class ItemViewer : MonoBehaviour
     [SerializeField] private Image _itemImage;
     [SerializeField] private Image _rarityImage;
 
-    public virtual void Init(Sprite itemImage, Sprite rarityImage)
+    public void Init(Sprite itemImage, Sprite rarityImage)
     {
         SetItemSprite(itemImage);
         SetRaritySprite(rarityImage);
