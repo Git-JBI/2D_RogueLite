@@ -24,24 +24,23 @@ public class BuyGoldPresenter : MonoBehaviour
 
     private void Start()
     {
-        int gold = _baseGold;
-
+        int gold;
         for (int i = 0; i < _configData.Rewards.Length; i++)
         {
             switch (i)
             {
                 case 0:
-                    gold = (gold + _stageGold) * 2;
+                    gold = (_baseGold + _stageGold) * 2;
                     _viewer.SetRewardText(i, gold);
                     _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
                 case 1:
-                    gold = (gold + _stageGold) * 8;
+                    gold = (_baseGold + _stageGold) * 8;
                     _viewer.SetRewardText(i, gold);
                     _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
                 case 2:
-                    gold = (gold + _stageGold) * 24;
+                    gold = (_baseGold + _stageGold) * 24;
                     _viewer.SetRewardText(i, gold);
                     _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
