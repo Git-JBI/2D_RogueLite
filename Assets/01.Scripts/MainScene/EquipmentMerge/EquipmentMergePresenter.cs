@@ -151,7 +151,7 @@ public class EquipmentMergePresenter : MonoBehaviour
             EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
 
             // 초기화
-            //slot.Init(item);
+            slot.Init(item);
 
             // 슬롯 클릭 시 이벤트 추가
             slot.OnItemSlotClicked += InitSelectedItemSlot;
@@ -169,7 +169,7 @@ public class EquipmentMergePresenter : MonoBehaviour
         _selectedSlot.gameObject.SetActive(true);
 
         // 선택된 슬롯 초기화
-        //_selectedSlot.Init(data);
+        _selectedSlot.Init(data);
 
         // 선택된 슬롯 이벤트 추가
         _selectedSlot.OnItemSlotClicked += EmptySelectedSlot;
@@ -225,7 +225,7 @@ public class EquipmentMergePresenter : MonoBehaviour
         // 업그레이드 예시 슬롯 활성화
         _upgradedSlot.gameObject.SetActive(true);
         // 업그레이드 예시 슬롯 초기화
-        //_upgradedSlot.Init(GetUpgradedEquipmentData(data));
+        _upgradedSlot.Init(GetUpgradedEquipmentData(data));
     }
     private void InitRequireItem(EquipmentItemData data)
     {
@@ -237,7 +237,7 @@ public class EquipmentMergePresenter : MonoBehaviour
                 // 슬롯 켜기
                 x.gameObject.SetActive(true);
                 // 선택한 아이템 옮기기
-                //x.Init(data);
+                x.Init(data);
                 // 선택한 아이템을 누르면 실행할 함수 이벤트 추가(누르면 선택된 재료 아이템 슬롯은 비워지며 재료 리스트에 추가가 되며 슬롯은 비활성화됨)
                 x.OnItemSlotClicked += EmptyRequireItem;
                 _requireCount++;
@@ -262,7 +262,7 @@ public class EquipmentMergePresenter : MonoBehaviour
         // 장비 재료 선택 리스트에 추가
         GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
         EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
-        //slot.Init(data);
+        slot.Init(data);
         slot.OnItemSlotClicked += InitRequireItem;
         _slots.Add(slot);
         _requireCount--;
@@ -318,7 +318,7 @@ public class EquipmentMergePresenter : MonoBehaviour
             GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
             EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
 
-            //slot.Init(x);
+            slot.Init(x);
 
             slot.OnItemSlotClicked += InitRequireItem;
 

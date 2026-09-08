@@ -1,20 +1,8 @@
 ﻿using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EquipmentItemDetailPopupViewer : MonoBehaviour
 {
-    //TODO 추후 텍스트로 나타내는것이 아님
-    /*
-    아이템 이름
-    아이템 타입
-    아이템 티어 
-    아이템 레어리티
-    아이템 레어리티 레벨
-    아이템 레벨
-    아이템 설명
-     */
     /// <summary>
     /// 세부 사항 내용 텍스트
     /// </summary>
@@ -36,7 +24,7 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     /// </summary>
     [SerializeField] private TextMeshProUGUI _scrollCostText;
     /// <summary>
-    /// 최대 레벨일 시 나타날 텍스트
+    /// 아이템 레벨이 최대 레벨일 시 나타날 텍스트
     /// </summary>
     [SerializeField] private TextMeshProUGUI _maxUpgradeText;
 

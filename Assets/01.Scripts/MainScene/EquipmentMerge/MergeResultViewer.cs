@@ -21,7 +21,7 @@ public class MergeResultViewer : MonoBehaviour
     public void Init(EquipmentItemData main, MergeRule upgradeData, EquipmentItemData one)
     {
         // 메인 재료 초기화
-        //_mainItemSlot.Init(main);
+        _mainItemSlot.Init(main);
 
         // 업그레이드 데이터
         _upgradeData = upgradeData;
@@ -33,7 +33,7 @@ public class MergeResultViewer : MonoBehaviour
         _requireSlotPos.Add(_oneRequireSlot.transform.position);
 
         // 재료 슬롯 초기화
-        //_oneRequireSlot.Init(one);
+        _oneRequireSlot.Init(one);
 
         // 코루틴 실행
         StartCoroutine(RequireOneRoutine());
@@ -42,7 +42,7 @@ public class MergeResultViewer : MonoBehaviour
     public void Init(EquipmentItemData main, MergeRule upgradeData, EquipmentItemData two1, EquipmentItemData two2)
     {
         // 메인 재료 초기화
-        //_mainItemSlot.Init(main);
+        _mainItemSlot.Init(main);
 
         // 업그레이드 데이터
         _upgradeData = upgradeData;
@@ -56,8 +56,8 @@ public class MergeResultViewer : MonoBehaviour
         _requireSlotPos.Add(_twoRequireSlot02.transform.position);
 
         // 재료 슬롯 초기화
-        //_twoRequireSlot01.Init(two1);
-        //_twoRequireSlot02.Init(two2);
+        _twoRequireSlot01.Init(two1);
+        _twoRequireSlot02.Init(two2);
 
         // 코루틴 실행
         StartCoroutine(RequireTwoRoutine());
@@ -87,7 +87,7 @@ public class MergeResultViewer : MonoBehaviour
         data.RarityLevel = _upgradeData.UpgradedRarityLevel;
 
         // 메인 슬롯 초기화
-        //_mainItemSlot.Init(data);
+        _mainItemSlot.Init(data);
 
         // 탭하여 닫기 텍스트 활성화
         _explainText.SetActive(true);
@@ -122,7 +122,7 @@ public class MergeResultViewer : MonoBehaviour
         data.RarityLevel = _upgradeData.UpgradedRarityLevel;
 
         // 메인 슬롯 초기화
-        //_mainItemSlot.Init(data);
+        _mainItemSlot.Init(data);
 
         // 탭하여 닫기 텍스트 활성화
         _explainText.SetActive(true);

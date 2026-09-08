@@ -35,11 +35,11 @@ public class EquipmentItemManager : MonoBehaviour
         for (int i = 0; i < _slots.Length; i++)
         {
             EquipmentItemData itemdata = equipmentModel.GetEquippedItem((EquipmentType)i);
-            string itemId = itemdata.ItemID;
+
             if (itemdata != null)
             {
                 _slots[i].gameObject.SetActive(true);
-                _slots[i].Init(itemdata.InstanceID, _database.GetEquipmentItemSprite(itemId),_database.GetRaritySprite(itemdata.Rarity),itemdata.ItemLevel, itemdata.RarityLevel);
+                _slots[i].Init(itemdata);
                 _slots[i].OnItemSlotClicked += OpenPopup;
             }
             else
