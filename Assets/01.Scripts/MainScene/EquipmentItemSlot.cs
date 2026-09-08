@@ -30,10 +30,7 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 
         _instanceId = instanceId;
 
-        if(_itemData != null)
-        {
-            _itemViewer.Init(itemImage, rarityImage, level, rarityLevel);
-        }
+        _itemViewer.Init(itemImage, rarityImage, level, rarityLevel);
     }
 
     /// <summary>

@@ -31,20 +31,18 @@ public class BuyGoldPresenter : MonoBehaviour
             {
                 case 0:
                     gold = (_baseGold + _stageGold) * 2;
-                    _viewer.SetRewardText(i, gold);
-                    _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
                 case 1:
                     gold = (_baseGold + _stageGold) * 8;
-                    _viewer.SetRewardText(i, gold);
-                    _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
                 case 2:
                     gold = (_baseGold + _stageGold) * 24;
-                    _viewer.SetRewardText(i, gold);
-                    _viewer.SetRequireText(i, _configData.Requires[i]);
                     break;
+                default:
+                    return;
             }
+            _viewer.SetRewardText(i, gold);
+            _viewer.SetRequireText(i, _configData.Requires[i]);
         }
     }
 
@@ -69,7 +67,7 @@ public class BuyGoldPresenter : MonoBehaviour
         // ¿¡¸Þ¶öµå °¨¼Ò
         _gameModel.AddEmerald(-_configData.Requires[index]);
 
-        int gold = _baseGold;
+        int gold;
 
         switch(index)
         {
@@ -82,6 +80,8 @@ public class BuyGoldPresenter : MonoBehaviour
             case 2:
                 gold = (_baseGold + _stageGold) * 24;
                 break;
+            default:
+                return;
         }
 
         // °ñµå Ãß°¡

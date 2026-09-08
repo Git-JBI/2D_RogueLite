@@ -5,6 +5,7 @@ public class EquipmentItemViewer : ItemViewer
 {
     [SerializeField] private TextMeshProUGUI _rarityLevelText;
     [SerializeField] private TextMeshProUGUI _itemLevelText;
+    [SerializeField] private TMP_Text _itemLevelShadowText;
 
     public void Init(Sprite itemImage, Sprite rarityImage, int level, int rarityLevel)
     {
@@ -17,6 +18,7 @@ public class EquipmentItemViewer : ItemViewer
     private void SetItemLevelText(string itemLevel)
     {
         _itemLevelText.text = $"Lv.{itemLevel}";
+        _itemLevelShadowText.text = $"Lv.{itemLevel}";
     }
 
     private void SetRarityLevelText(int rarityLevel)

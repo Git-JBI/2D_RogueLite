@@ -70,7 +70,7 @@ public class EquipmentInventoryManager : MonoBehaviour
             SO_EquipmentItemData _itemConfigData = _itemBase.GetEquipmentItemData(itemId);
             Sprite raritySprite = _itemBase.GetRaritySprite(data.Rarity);
 
-            slot.Init(items[i].InstanceID, raritySprite, _itemBase.GetEquipmentItemSprite(itemId), data.ItemLevel, data.RarityLevel);
+            slot.Init(items[i].InstanceID, _itemBase.GetEquipmentItemSprite(itemId), raritySprite, data.ItemLevel, data.RarityLevel);
             slot.OnItemSlotClicked += OpenPopup;
         }
     }
