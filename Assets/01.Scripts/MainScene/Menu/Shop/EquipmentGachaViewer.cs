@@ -17,23 +17,12 @@ public class EquipmentGachaViewer : MonoBehaviour
     private void Awake()
     {
         _equipmentGacha1xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Single));
-        _equipmentGacha1xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Ten));
-        _equipmentGacha1xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Fifty));
+        _equipmentGacha10xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Ten));
+        _equipmentGacha50xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Fifty));
     }
 
-    public void Gacha(EquipmentGachaType type)
-    {
-        switch(type)
-        {
-            case EquipmentGachaType.Single:
-                Debug.Log("한 번");
-                break;
-            case EquipmentGachaType.Ten:
-                Debug.Log("열 번");
-                break;
-            case EquipmentGachaType.Fifty:
-                Debug.Log("오십 번");
-                break;
-        }
-    }
+    // public void Gacha(EquipmentGachaType type)
+    // {
+    //     OnEquipmentGachaButtonClicked?.Invoke()
+    // }
 }

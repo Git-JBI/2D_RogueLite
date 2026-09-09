@@ -1,16 +1,29 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipmentItemDetailPopupViewer : MonoBehaviour
 {
+    [SerializeField] private Image _itemImage;
+    [SerializeField] private Image _rarityImage;
     /// <summary>
-    /// 세부 사항 내용 텍스트
+    /// 아이템 이름 텍스트
     /// </summary>
-    [SerializeField] private TextMeshProUGUI _descText;
+    [SerializeField] private TMP_Text _itemNameText;
+    /// <summary>
+    /// 아이템 설명 텍스트
+    /// </summary>
+    [SerializeField] private TMP_Text _descText;
     /// <summary>
     /// 아이템 레벨 텍스트
     /// </summary>
     [SerializeField] private TextMeshProUGUI _itemLevelText;
+
+    [SerializeField] private Image _atkImage;
+    [SerializeField] private Image _defImage;
+    [SerializeField] private TMP_Text _upgradeValueText;
+
+    [Header("----- 하단 -----")]
     /// <summary>
     /// 장비 장착/탈착 버튼 텍스트
     /// </summary>
@@ -30,14 +43,51 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
 
     public void Init(EquipmentItemData itemData, SO_EquipmentItemData itemConfigData, int requireGold, int requireScroll)
     {
-        _descText.text = $"Name : {itemConfigData.ItemName}\n" +
-            $"Type : {itemData.EquipmentType}\n" +
-            $"Rarity : {itemData.Rarity}\n" +
-            $"RarityLevel : {itemData.RarityLevel}\n" +
-            $"Desc : {itemConfigData.Desc}";
-
         SetGoldCostText(GameManager.Instance.GameModel.Gold, requireGold);
         SetScrollCostText(GameManager.Instance.GameModel.UpgradeScroll[(int)itemData.EquipmentType], requireScroll);
+    }
+
+    public void SetItemImage(Sprite sprite)
+    {
+        _itemImage.sprite = sprite;
+    }
+    public void SetRarityImage(Sprite sprite)
+    {
+        _rarityImage.sprite = sprite;
+    }
+    public void SetItemNameText(string text)
+    {
+        _itemNameText.text = text;
+    }
+    public void SetUpgradeValueText(string text)
+    {
+        _upgradeValueText.text = $"+{text}";
+    }
+    public void SetEquipmentType(EquipmentType type)
+    {
+        if(type == EquipmentType.Weapon || type == EquipmentType.Necklace || type == EquipmentType.Gloves)
+        {
+            _atkImage.gameObject.SetActive(true);
+            _defImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            _atkImage.gameObject.SetActive(false);
+            _defImage.gameObject.SetActive(true);
+        }
+    }
+    public void SetDescText(string text)
+    {
+        _descText.text = text;
+    }
+    public void SetItemLevelText(int level, int maxLevel)
+    {
+        _itemLevelText.text = $"레벨: {level} / {maxLevel}";
+    }
+
+    public void RefreshUpgradeValueText(string text)
+    {
+
     }
 
     public void SetEquipText()
@@ -87,8 +137,5 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
         }
     }
 
-    public void SetItemLevelText(int level, int maxLevel)
-    {
-        _itemLevelText.text = $"레벨: {level} / {maxLevel}";
-    }
+    
 }

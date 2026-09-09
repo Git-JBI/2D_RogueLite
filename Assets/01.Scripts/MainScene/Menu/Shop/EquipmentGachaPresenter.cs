@@ -15,9 +15,6 @@ public class EquipmentGachaPresenter : MonoBehaviour
     private EquipmentModel _model;
 
 
-
-
-
     private List<SO_EquipmentItemData> _totalItemDataPool;
     private AchievementManager _achievementManager;
     private EquipmentModel _equipmentModel;
@@ -29,8 +26,6 @@ public class EquipmentGachaPresenter : MonoBehaviour
     {
         _viewer.OnEquipmentGachaButtonClicked += HandleGacha;
 
-
-
         _achievementManager = GameManager.Instance.AchievementManager;
         _equipmentModel = GameManager.Instance.GameModel.EquipmentModel;
 
@@ -39,7 +34,15 @@ public class EquipmentGachaPresenter : MonoBehaviour
 
     private void HandleGacha(EquipmentGachaType type)
     {
-        _viewer.Gacha(type);
+        switch(type)
+        {
+            case EquipmentGachaType.Single:
+                GachaEquipmentItemOne();
+                break;
+            case EquipmentGachaType.Ten:
+                GachaEquipmentItemTen();
+                break;
+        }
     }
 
     /// <summary>
