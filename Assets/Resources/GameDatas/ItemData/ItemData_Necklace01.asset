@@ -12,34 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Necklace01
   m_EditorClassIdentifier: 
-  Id: eq_Necklace_01
-  ItemName: Necklace01
-  EquipmentType: 1
-  ItemTier: 0
-  IconSprite: {fileID: 0}
-  Desc: "01\uBAA9\uAC78\uC774"
-  RaritySettings:
-  - Rarity: 0
-    MaxLevel: 10
-    BaseStat: 10
-    StatPerLevel: 1
-  - Rarity: 1
-    MaxLevel: 20
-    BaseStat: 20
-    StatPerLevel: 2
-  - Rarity: 2
-    MaxLevel: 30
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 3
-    MaxLevel: 40
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 4
-    MaxLevel: 70
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 5
-    MaxLevel: 110
-    BaseStat: 0
-    StatPerLevel: 0
+  _id: eq_Necklace_01
+  _itemName: "\uBAA9\uAC78\uC774 01 \uC774\uB984"
+  _equipmentType: 1
+  _equipmentStatType: 0
+  _itemTier: 0
+  _iconSprite: {fileID: -3226962165561937611, guid: 0e2dd57de9f29804e840006cedbb05a7, type: 3}
+  _desc: "\uBAA9\uAC78\uC774 01 \uC124\uBA85"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 10
+    _statPerLevel: 1
+  - _rarity: 1
+    _baseStat: 20
+    _statPerLevel: 2
+  - _rarity: 2
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 3
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 4
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 5
+    _baseStat: 0
+    _statPerLevel: 0

@@ -346,7 +346,7 @@ public class EquipmentMergePresenter : MonoBehaviour
                 _mergeResultViewer.Init(_selectedSlot.ItemData, upgradeData, _requireItems[0].ItemData, _requireItems[1].ItemData);
                 break;
         }
-
+        //TODO 이 부분 문제인듯 - 메인 슬롯은 업그레이드 된 결과를 보여주는데 
         // 메인 슬롯 아이템에 업그레이드 결과 적용
         _selectedSlot.ItemData.Rarity = upgradeData.UpgradedRarity;
         _selectedSlot.ItemData.RarityLevel = upgradeData.UpgradedRarityLevel;

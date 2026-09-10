@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Belt03
   m_EditorClassIdentifier: 
-  Id: eq_Belt_03
-  ItemName: Belt03
-  EquipmentType: 4
-  EquipmentStatType: 1
-  ItemTier: 0
-  IconSprite: {fileID: 0}
-  Desc: "03\uBCA8\uD2B8"
-  RaritySettings:
-  - Rarity: 0
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 1
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 2
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 3
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 4
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 5
-    BaseStat: 0
-    StatPerLevel: 0
+  _id: eq_Belt_03
+  _itemName: "\uBCA8\uD2B8 03 \uC774\uB984"
+  _equipmentType: 4
+  _equipmentStatType: 1
+  _itemTier: 0
+  _iconSprite: {fileID: 1844000990173507969, guid: 603c1d4769fed95488ca3821d0c10d30, type: 3}
+  _desc: "\uBCA8\uD2B8 03 \uC124\uBA85"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 1
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 2
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 3
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 4
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 5
+    _baseStat: 0
+    _statPerLevel: 0

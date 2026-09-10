@@ -12,34 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Gloves03
   m_EditorClassIdentifier: 
-  Id: eq_Gloves_03
-  ItemName: Gloves03
-  EquipmentType: 2
-  ItemTier: 0
-  IconSprite: {fileID: 0}
-  Desc: "03\uC7A5\uAC11"
-  RaritySettings:
-  - Rarity: 0
-    MaxLevel: 10
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 1
-    MaxLevel: 20
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 2
-    MaxLevel: 30
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 3
-    MaxLevel: 40
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 4
-    MaxLevel: 70
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 5
-    MaxLevel: 110
-    BaseStat: 0
-    StatPerLevel: 0
+  _id: eq_Gloves_03
+  _itemName: "\uC7A5\uAC11 03 \uC774\uB984"
+  _equipmentType: 2
+  _equipmentStatType: 0
+  _itemTier: 0
+  _iconSprite: {fileID: 2451018631221633367, guid: 234fef28ab196554f83958b498221b6a, type: 3}
+  _desc: "\uC7A5\uAC11 03 \uC124\uBA85"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 1
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 2
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 3
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 4
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 5
+    _baseStat: 0
+    _statPerLevel: 0

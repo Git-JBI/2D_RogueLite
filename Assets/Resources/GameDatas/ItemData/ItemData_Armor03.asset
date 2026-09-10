@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
   m_Name: ItemData_Armor03
   m_EditorClassIdentifier: 
-  Id: eq_Armor_03
-  ItemName: Armor03
-  EquipmentType: 3
-  EquipmentStatType: 1
-  ItemTier: 0
-  IconSprite: {fileID: 0}
-  Desc: "03\uAC11\uC637"
-  RaritySettings:
-  - Rarity: 0
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 1
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 2
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 3
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 4
-    BaseStat: 0
-    StatPerLevel: 0
-  - Rarity: 5
-    BaseStat: 0
-    StatPerLevel: 0
+  _id: eq_Armor_03
+  _itemName: "\uAC11\uC637 03 \uC774\uB984"
+  _equipmentType: 3
+  _equipmentStatType: 1
+  _itemTier: 0
+  _iconSprite: {fileID: -4045114995007804087, guid: 644986b623796004d8b5237430589b04, type: 3}
+  _desc: "\uAC11\uC637 03 \uC124\uBA85"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 1
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 2
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 3
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 4
+    _baseStat: 0
+    _statPerLevel: 0
+  - _rarity: 5
+    _baseStat: 0
+    _statPerLevel: 0
