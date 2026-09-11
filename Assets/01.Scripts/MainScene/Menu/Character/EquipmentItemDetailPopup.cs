@@ -59,14 +59,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
 
         // 아이템 레어리티에 맞는 아이템 최대 레벨
         _maxLevel = _equipmentManager.GetEquipmentItemMaxLevel(_equipmentItemData);
-        int goldCost = _equipmentManager.GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
-        int scrollCost = _equipmentManager.GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
-
-        InitViewer();
-
         
-        _popupViewer.Init(_equipmentItemData, _equipmentConfigData, goldCost, scrollCost);
-        RefreshLevelUpView();
+        InitViewer();
     }
 
     public void SetEquipmentItem()
@@ -93,6 +87,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         int upgradeValue = statInfo.BaseStat + (statInfo.StatPerLevel * _equipmentItemData.ItemLevel);
         string itemNameText = _dataBase.GetEquipmentItemName(itemId);
         string descText = _dataBase.GetEquipmentItemDesc(itemId);
+        int goldCost = _equipmentManager.GetUpgradeGoldCost(_equipmentItemData.ItemLevel);
+        int scrollCost = _equipmentManager.GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
         _popupViewer.SetItemImage(itemSprite);
         _popupViewer.SetRarityImage(raritySprite);
@@ -101,6 +97,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         _popupViewer.SetUpgradeValueText(upgradeValue.ToString());
         _popupViewer.SetDescText(descText);
         _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+        _popupViewer.SetGoldCostText(_gameModel.Gold, goldCost);
+        _popupViewer.SetScrollCostText(_gameModel.UpgradeScroll[(int)_equipmentItemData.EquipmentType], scrollCost);
     }
 
     private void Equip()
@@ -176,9 +174,9 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         {
             _popupViewer.CheckMaxLevel(true);
             // 아이템 업그레이드 벨류 표시
-            _popupViewer.SetUpgradeValueText(upgradeValue.ToString());
+            _popupViewer.RefreshUpgradeValueText(upgradeValue.ToString());
             // 아이템 레벨 표시
-            _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+            _popupViewer.RefreshLevelText(_equipmentItemData.ItemLevel, _maxLevel);
             // 레벨업 버튼들 숨김
             _levelUpButton.gameObject.SetActive(false);
             _levelUpAllButton.gameObject.SetActive(false);
@@ -194,13 +192,13 @@ public class EquipmentItemDetailPopup : MonoBehaviour
             int scrollCost = _equipmentManager.GetUpgradeScrollCost(_equipmentItemData.ItemLevel);
 
             // 필요 골드 표시
-            _popupViewer.SetGoldCostText(gold, goldCost);
+            _popupViewer.RefreshGoldCostText(gold, goldCost);
             // 필요 스크롤 표시
-            _popupViewer.SetScrollCostText(scroll, scrollCost);
+            _popupViewer.RefreshScrollCostText(scroll, scrollCost);
             // 아이템 업그레이드 벨류 표시
-            _popupViewer.SetUpgradeValueText(upgradeValue.ToString());
+            _popupViewer.RefreshUpgradeValueText(upgradeValue.ToString());
             // 아이템 레벨 표시
-            _popupViewer.SetItemLevelText(_equipmentItemData.ItemLevel, _maxLevel);
+            _popupViewer.RefreshLevelText(_equipmentItemData.ItemLevel, _maxLevel);
         }
     }
 

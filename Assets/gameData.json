@@ -1,6 +1,6 @@
 {
     "HeroDataName": "00",
-    "Gold": 56132400,
+    "Gold": 56071400,
     "Emerald": 4711170,
     "Energy": 50,
     "EnergyRechargeRemainingTime": 0,
@@ -13,7 +13,7 @@
     "SelectStage": 1,
     "UpgradeScroll": [
         0,
-        941,
+        916,
         966,
         1,
         19,
@@ -22,7 +22,7 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-09-10",
+    "LastDailyResetDate": "2026-09-11",
     "LastWeeklyResetDate": "2026-09-07",
     "Achievements": [
         {
@@ -33,7 +33,7 @@
         },
         {
             "AchievementId": "Daily_EquipmentLevelUp",
-            "Progress": 0,
+            "Progress": 13,
             "IsCompleted": false,
             "IsRewardClaimed": false
         },
@@ -1167,7 +1167,7 @@
             "_equipmentType": 1,
             "_rarity": 3,
             "_rarityLevel": 0,
-            "_itemLevel": 1
+            "_itemLevel": 4
         },
         {
             "_instanceID": "eaaa0c5b-0813-4336-97d9-460c4235c672",
@@ -1447,7 +1447,7 @@
             "_equipmentType": 1,
             "_rarity": 3,
             "_rarityLevel": 0,
-            "_itemLevel": 1
+            "_itemLevel": 11
         },
         {
             "_instanceID": "d0656320-4478-4a80-b80b-37e9c935e1ed",

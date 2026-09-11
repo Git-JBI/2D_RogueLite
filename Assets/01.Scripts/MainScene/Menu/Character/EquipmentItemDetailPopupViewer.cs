@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,12 +42,6 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
     /// </summary>
     [SerializeField] private TextMeshProUGUI _maxUpgradeText;
 
-    public void Init(EquipmentItemData itemData, SO_EquipmentItemData itemConfigData, int requireGold, int requireScroll)
-    {
-        SetGoldCostText(GameManager.Instance.GameModel.Gold, requireGold);
-        SetScrollCostText(GameManager.Instance.GameModel.UpgradeScroll[(int)itemData.EquipmentType], requireScroll);
-    }
-
     public void SetItemImage(Sprite sprite)
     {
         _itemImage.sprite = sprite;
@@ -87,7 +82,35 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
 
     public void RefreshUpgradeValueText(string text)
     {
+        SetUpgradeValueText(text);
 
+        Sequence sec = DOTween.Sequence();
+        sec.Append(_upgradeValueText.transform.DOScale(1.2f, 0.1f));
+        sec.Append(_upgradeValueText.transform.DOScale(1.0f, 0.1f));
+    }
+    public void RefreshLevelText(int level, int maxLevel)
+    {
+        SetItemLevelText(level, maxLevel);
+
+        Sequence sec = DOTween.Sequence();
+        sec.Append(_itemLevelText.transform.DOScale(1.2f, 0.1f));
+        sec.Append(_itemLevelText.transform.DOScale(1.0f, 0.1f));
+    }
+    public void RefreshGoldCostText(int haveGold, int requireGold)
+    {
+        SetGoldCostText(haveGold, requireGold);
+
+        Sequence sec = DOTween.Sequence();
+        sec.Append(_goldCostText.transform.DOScale(1.2f, 0.1f));
+        sec.Append(_goldCostText.transform.DOScale(1.0f, 0.1f));
+    }
+    public void RefreshScrollCostText(int haveScroll, int requireScroll)
+    {
+        SetScrollCostText(haveScroll, requireScroll);
+
+        Sequence sec = DOTween.Sequence();
+        sec.Append(_scrollCostText.transform.DOScale(1.2f, 0.1f));
+        sec.Append(_scrollCostText.transform.DOScale(1.0f, 0.1f));
     }
 
     public void SetEquipText()
@@ -136,6 +159,4 @@ public class EquipmentItemDetailPopupViewer : MonoBehaviour
             _maxUpgradeText.gameObject.SetActive(value);
         }
     }
-
-    
 }
