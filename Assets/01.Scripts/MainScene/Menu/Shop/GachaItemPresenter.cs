@@ -7,25 +7,36 @@ using UnityEngine.UI;
 public class GachaItemPresenter : MonoBehaviour
 {
     private EquipmentItemDatabase _equipmentItemDatabase;
-    private ItemViewer[] _viewers;
+    private GachaItemViewer[] _viewers;
     private Button _button;
+
+    private bool _isSpecial;
 
     private void Awake()
     {
         _equipmentItemDatabase = GameManager.Instance.EquipmentItemDatabase;
 
         _button = GetComponent<Button>();
-        _viewers = GetComponentsInChildren<ItemViewer>();
+        _viewers = GetComponentsInChildren<GachaItemViewer>();
 
-        foreach (ItemViewer x in _viewers)
+        foreach (GachaItemViewer x in _viewers)
         {
             x.gameObject.SetActive(false);
         }
-        _button.onClick.AddListener(ClosePanel);
     }
 
     private void ClosePanel()
     {
+        if(_isSpecial)
+        {
+            _isSpecial = false;
+            foreach(GachaItemViewer viewer in _viewers)
+            {
+                viewer.TurnOffEffect();
+            }
+        }
+
+        _button.onClick.RemoveAllListeners();
         gameObject.SetActive(false);
     }
 
@@ -34,7 +45,7 @@ public class GachaItemPresenter : MonoBehaviour
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
-        foreach (ItemViewer x in _viewers)
+        foreach (GachaItemViewer x in _viewers)
         {
             x.gameObject.SetActive(false);
         }
@@ -44,10 +55,18 @@ public class GachaItemPresenter : MonoBehaviour
         Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(id);
         Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(rarity);
 
-        _viewers[0].Init(itemSprite, raritySprite);
+        _viewers[0].SetItemSprite(itemSprite);
+        _viewers[0].SetRaritySprite(raritySprite);
+        if (rarity == ItemRarity.Unique)
+        {
+            _isSpecial = true;
+            _viewers[0].GetSpecialItem();
+        }
 
         _viewers[0].gameObject.transform.localScale = Vector3.one * 1.2f;
         _viewers[0].gameObject.transform.DOScale(1, 0.2f);
+
+        _button.onClick.AddListener(ClosePanel);
     }
 
     public void ShowTen(List<EquipmentItemData> datas)
@@ -59,7 +78,7 @@ public class GachaItemPresenter : MonoBehaviour
 
     private IEnumerator ShowRoutine(List<EquipmentItemData> datas, int count)
     {
-        foreach (ItemViewer x in _viewers)
+        foreach (GachaItemViewer x in _viewers)
         {
             x.gameObject.SetActive(false);
         }
@@ -71,10 +90,18 @@ public class GachaItemPresenter : MonoBehaviour
             Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(datas[i].ItemID);
             Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(datas[i].Rarity);
 
-            _viewers[i].Init(itemSprite, raritySprite);
+            _viewers[i].SetItemSprite(itemSprite);
+            _viewers[i].SetRaritySprite(raritySprite);
+            if (datas[i].Rarity == ItemRarity.Unique)
+            {
+                _isSpecial = true;
+                _viewers[i].GetSpecialItem();
+            }
+
             _viewers[i].gameObject.transform.localScale = Vector3.one * 1.2f;
             _viewers[i].gameObject.transform.DOScale(1, 0.2f);
             yield return new WaitForSeconds(0.2f);
         }
+        _button.onClick.AddListener(ClosePanel);
     }
 }

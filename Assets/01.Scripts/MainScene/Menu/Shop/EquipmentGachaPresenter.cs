@@ -14,7 +14,6 @@ public class EquipmentGachaPresenter : MonoBehaviour
     [SerializeField] private EquipmentGachaViewer _viewer;
     private EquipmentModel _model;
 
-
     private List<SO_EquipmentItemData> _totalItemDataPool;
     private AchievementManager _achievementManager;
     private EquipmentModel _equipmentModel;

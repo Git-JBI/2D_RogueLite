@@ -18,7 +18,6 @@ public class BuyGoldPresenter : MonoBehaviour
 
         _baseGold = 6000;
 
-        Debug.Log(_gameModel.MaxStage - 1);
         _stageGold = (_gameModel.MaxStage - 1) * 600;
     }
 
