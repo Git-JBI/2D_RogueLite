@@ -7,7 +7,7 @@ public class GachaItemViewer : MonoBehaviour
     [SerializeField] private Image _itemImage;
     [SerializeField] private Image _rarityImage;
     [SerializeField] private Image _backgroundImage;
-    [SerializeField] private Image[] _spaklingImage;
+    [SerializeField] private Image[] _sparklingImage;
 
     [Header("----- 설정 -----")]
     [SerializeField] private float _minScale;
@@ -29,10 +29,9 @@ public class GachaItemViewer : MonoBehaviour
 
     public void GetSpecialItem()
     {
-        Debug.Log("유니크 이상!");
-
         _backgroundImage.gameObject.SetActive(true);
-        foreach(Image sparkles in _spaklingImage)
+
+        foreach(Image sparkles in _sparklingImage)
         {
             sparkles.gameObject.SetActive(true);
         }
@@ -56,7 +55,7 @@ public class GachaItemViewer : MonoBehaviour
 
         _backgroundImage.gameObject.SetActive(false);
 
-        foreach (Image sparkles in _spaklingImage)
+        foreach (Image sparkles in _sparklingImage)
         {
             sparkles.gameObject.SetActive(false);
         }
@@ -88,7 +87,7 @@ public class GachaItemViewer : MonoBehaviour
 
             float scale = Mathf.Lerp(_minScale, _maxScale, lerpValue);
 
-            foreach (Image sparkle in _spaklingImage)
+            foreach (Image sparkle in _sparklingImage)
             {
                 if (sparkle == null)
                     continue;

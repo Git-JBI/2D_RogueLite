@@ -20,9 +20,4 @@ public class EquipmentGachaViewer : MonoBehaviour
         _equipmentGacha10xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Ten));
         _equipmentGacha50xButton.onClick.AddListener(() => OnEquipmentGachaButtonClicked?.Invoke(EquipmentGachaType.Fifty));
     }
-
-    // public void Gacha(EquipmentGachaType type)
-    // {
-    //     OnEquipmentGachaButtonClicked?.Invoke()
-    // }
 }

@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 3928593005986539960}
   - component: {fileID: 1002657539062586766}
   m_Layer: 6
-  m_Name: ChaseMinion
+  m_Name: ChaseMinionBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,8 @@ public class GachaItemPresenter : MonoBehaviour
 {
     private EquipmentItemDatabase _equipmentItemDatabase;
     private GachaItemViewer[] _viewers;
-    private Button _button;
+    [SerializeField] private Button _backgroundButton;
+    [SerializeField] private TMP_Text _closeText;
 
     private bool _isSpecial;
 
@@ -16,7 +18,6 @@ public class GachaItemPresenter : MonoBehaviour
     {
         _equipmentItemDatabase = GameManager.Instance.EquipmentItemDatabase;
 
-        _button = GetComponent<Button>();
         _viewers = GetComponentsInChildren<GachaItemViewer>();
 
         foreach (GachaItemViewer x in _viewers)
@@ -35,8 +36,8 @@ public class GachaItemPresenter : MonoBehaviour
                 viewer.TurnOffEffect();
             }
         }
-
-        _button.onClick.RemoveAllListeners();
+        _closeText.gameObject.SetActive(false);
+        _backgroundButton.onClick.RemoveAllListeners();
         gameObject.SetActive(false);
     }
 
@@ -66,7 +67,8 @@ public class GachaItemPresenter : MonoBehaviour
         _viewers[0].gameObject.transform.localScale = Vector3.one * 1.2f;
         _viewers[0].gameObject.transform.DOScale(1, 0.2f);
 
-        _button.onClick.AddListener(ClosePanel);
+        _closeText.gameObject.SetActive(true);
+        _backgroundButton.onClick.AddListener(ClosePanel);
     }
 
     public void ShowTen(List<EquipmentItemData> datas)
@@ -102,6 +104,8 @@ public class GachaItemPresenter : MonoBehaviour
             _viewers[i].gameObject.transform.DOScale(1, 0.2f);
             yield return new WaitForSeconds(0.2f);
         }
-        _button.onClick.AddListener(ClosePanel);
+
+        _closeText.gameObject.SetActive(true);
+        _backgroundButton.onClick.AddListener(ClosePanel);
     }
 }
