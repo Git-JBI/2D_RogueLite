@@ -44,12 +44,12 @@ public class EnemySpawner : MonoBehaviour
         // 미니언 프리펩 설정 데이터 불러오기
         for(int i = 0; i < _minionPrefabs.Count; i++)
         {
-            _minionConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionPrefabs[i].name}ConfigData") as SO_EnemyData);
+            _minionConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Minion/{_minionPrefabs[i].name}_ConfigData") as SO_EnemyData);
         }
         // 보스 프리펩 설정 데이터 불러오기
         for(int i = 0; i < _bossPrefabs.Count; i++)
         {
-            _bossConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Boss/{_bossPrefabs[i].name}ConfigData") as SO_EnemyData);
+            _bossConfigDatas.Add(GameManager.Instance.ResourceManager.GetScriptable($"GameDatas/EnemyConfigData/Boss/{_bossPrefabs[i].name}_ConfigData") as SO_EnemyData);
         }
 
         _playerTransform = transform;
