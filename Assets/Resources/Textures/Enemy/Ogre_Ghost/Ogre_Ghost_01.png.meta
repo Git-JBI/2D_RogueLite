@@ -119,15 +119,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ogre_Ghost_01_0
+      name: Move_00
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 34
+        width: 26
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -141,15 +141,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ogre_Ghost_01_1
+      name: Move_01
       rect:
         serializedVersion: 2
-        x: 46
+        x: 47
         y: 0
-        width: 29
+        width: 26
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ogre_Ghost_01_2
+      name: Move_02
       rect:
         serializedVersion: 2
         x: 95
@@ -171,7 +171,7 @@ TextureImporter:
         width: 26
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ec3481f82ba31d74e9747a3183846126
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ogre_Ghost_01_0: 3742561636010880043
-      Ogre_Ghost_01_1: 3330491065428469179
-      Ogre_Ghost_01_2: 5283867978953926708
+      Move_00: 3742561636010880043
+      Move_01: 3330491065428469179
+      Move_02: 5283867978953926708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

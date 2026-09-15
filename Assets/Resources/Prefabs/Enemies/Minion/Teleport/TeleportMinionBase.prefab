@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8429285015909738879}
   - component: {fileID: 4265366384243917546}
   m_Layer: 6
-  m_Name: Sprite
+  m_Name: Renderer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

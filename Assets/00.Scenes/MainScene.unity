@@ -28435,10 +28435,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GachaItemViewer
       objectReference: {fileID: 0}
-    - target: {fileID: 2266721125948083366, guid: 6e1f6ff09d0cdba4b8bb60fd1d9eb38a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

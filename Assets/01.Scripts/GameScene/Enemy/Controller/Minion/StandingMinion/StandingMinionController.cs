@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class StandingMinionController : MinionController
 {
+    private Vector3 _currentPosition;
+
     protected override void Awake()
     {
         base.Awake();
 
         _normalState = new StandingMinionNormalState(this, 1.5f, 3.0f);
+
+        _currentPosition = transform.position;
     }
 
     public void ShootBullet()
@@ -28,6 +32,7 @@ public class StandingMinionController : MinionController
         if(distance >= 20.0f)
         {
             transform.position = RandomSpawnPosition();
+            _currentPosition = transform.position;
         }
     }
 }

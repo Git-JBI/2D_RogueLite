@@ -146,7 +146,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     public abstract void Remove();
 
     //TODO 계속 플레이어와 맞닿아 있는 경우 데미지 <= OnCollisionEnter2D, Stay2D 2종류 다 써야 할 듯 attackTimer 추가
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
