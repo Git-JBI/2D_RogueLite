@@ -17,11 +17,11 @@ public class StandingMinionController : MinionController
     {
         GameObject bullet;
 
-        bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Enemy", transform);
+        bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Poison", transform);
 
         EnemyBulletBase bulletBase = bullet.GetComponent<EnemyBulletBase>();
 
-        bulletBase.Init(transform.position, DirToTarget(), _model.Damage, 3, false);
+        bulletBase.Init(transform.position, DirToTarget(), _model.Damage, 4f, false);
     }
 
     public void CheckDistance()

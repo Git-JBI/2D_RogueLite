@@ -2,9 +2,11 @@
 
 public class EnemyBulletBase : MonoBehaviour
 {
+    [Header("----- 총알 지속 시간 -----")]
+    [SerializeField] private float _bulletLifeTime = 5f;
+
     private float _damage;
     private float _speed;
-    private float _timer;
 
     public void Init(Vector2 pos, Vector2 dir, float damage, float speed, bool haveParent)
     {
@@ -20,8 +22,8 @@ public class EnemyBulletBase : MonoBehaviour
         // 이동 속도 설정
         _speed = speed;
 
-        // 타이머 초기화
-        _timer = 0;
+        // 시간 초기화
+        _bulletLifeTime = 0;
 
         // 부모해제 여부 설정
         if (!haveParent)
@@ -32,9 +34,9 @@ public class EnemyBulletBase : MonoBehaviour
     {
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
 
-        _timer += Time.deltaTime;
+        _bulletLifeTime += Time.deltaTime;
 
-        if(_timer > 3)
+        if(_bulletLifeTime > 5)
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();
