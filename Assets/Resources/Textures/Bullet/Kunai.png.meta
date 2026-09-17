@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 9aceed28667aaff47ae0a54b776bf800
+guid: ee9f357ecc624b14cad490622a6d1acd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8493105480753186875
-    second: poison_projectile_5frames_0
+      213: 5105208712798359529
+    second: kunai-flight-5frames_0
   - first:
-      213: -4032406520219302726
-    second: poison_projectile_5frames_1
+      213: 1410482426968968647
+    second: kunai-flight-5frames_1
   - first:
-      213: 3260597315325506237
-    second: poison_projectile_5frames_2
+      213: -1623363470719036060
+    second: kunai-flight-5frames_2
   - first:
-      213: 1812223819395529048
-    second: poison_projectile_5frames_3
+      213: -6997387450411793483
+    second: kunai-flight-5frames_3
   - first:
-      213: -1721533173873314927
-    second: poison_projectile_5frames_4
+      213: 4427317743933642930
+    second: kunai-flight-5frames_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: poison_projectile_5frames_0
+      name: Kunai_00
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 14
-        height: 40
+        width: 30
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c778cb409d622a80800000000000000
-      internalID: -8493105480753186875
+      spriteID: 9ef4396964859d640800000000000000
+      internalID: 5105208712798359529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: poison_projectile_5frames_1
+      name: Kunai_01
       rect:
         serializedVersion: 2
-        x: 31
+        x: 35
         y: 0
-        width: 14
-        height: 40
+        width: 30
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab40c5c62a30a08c0800000000000000
-      internalID: -4032406520219302726
+      spriteID: 7cd8a655b4a039310800000000000000
+      internalID: 1410482426968968647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: poison_projectile_5frames_2
+      name: Kunai_02
       rect:
         serializedVersion: 2
-        x: 56
+        x: 70
         y: 0
-        width: 14
-        height: 40
+        width: 30
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db2b19f9bf7ff3d20800000000000000
-      internalID: 3260597315325506237
+      spriteID: 465527a3687a879e0800000000000000
+      internalID: -1623363470719036060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: poison_projectile_5frames_3
+      name: Kunai_03
       rect:
         serializedVersion: 2
-        x: 81
+        x: 105
         y: 0
-        width: 14
-        height: 40
+        width: 30
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 859729056ff462910800000000000000
-      internalID: 1812223819395529048
+      spriteID: 5b3cd66003944ee90800000000000000
+      internalID: -6997387450411793483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: poison_projectile_5frames_4
+      name: Kunai_04
       rect:
         serializedVersion: 2
-        x: 106
+        x: 140
         y: 0
-        width: 14
-        height: 40
+        width: 30
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 193fa3e03b2eb18e0800000000000000
-      internalID: -1721533173873314927
+      spriteID: 2b8d2faf70ef07d30800000000000000
+      internalID: 4427317743933642930
       vertices: []
       indices: 
       edges: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 91150f88e19a6934fa06ce3caca25683
+    spriteID: 9dd6cd8f95fbf6e48b8d4216fd904147
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      poison_projectile_5frames_0: -8493105480753186875
-      poison_projectile_5frames_1: -4032406520219302726
-      poison_projectile_5frames_2: 3260597315325506237
-      poison_projectile_5frames_3: 1812223819395529048
-      poison_projectile_5frames_4: -1721533173873314927
+      Kunai_00: 5105208712798359529
+      Kunai_01: 1410482426968968647
+      Kunai_02: -1623363470719036060
+      Kunai_03: -6997387450411793483
+      Kunai_04: 4427317743933642930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
