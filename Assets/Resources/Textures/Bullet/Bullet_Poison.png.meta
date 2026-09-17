@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PoisonBullet_00
+      name: Bullet_Poison_00
       rect:
         serializedVersion: 2
         x: 6
@@ -147,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoisonBullet_01
+      name: Bullet_Poison_01
       rect:
         serializedVersion: 2
         x: 31
@@ -169,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoisonBullet_02
+      name: Bullet_Poison_02
       rect:
         serializedVersion: 2
         x: 56
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoisonBullet_03
+      name: Bullet_Poison_03
       rect:
         serializedVersion: 2
         x: 81
@@ -213,7 +213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PoisonBullet_04
+      name: Bullet_Poison_04
       rect:
         serializedVersion: 2
         x: 106
@@ -248,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PoisonBullet_00: -8493105480753186875
-      PoisonBullet_01: -4032406520219302726
-      PoisonBullet_02: 3260597315325506237
-      PoisonBullet_03: 1812223819395529048
-      PoisonBullet_04: -1721533173873314927
+      Bullet_Poison_00: -8493105480753186875
+      Bullet_Poison_01: -4032406520219302726
+      Bullet_Poison_02: 3260597315325506237
+      Bullet_Poison_03: 1812223819395529048
+      Bullet_Poison_04: -1721533173873314927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
