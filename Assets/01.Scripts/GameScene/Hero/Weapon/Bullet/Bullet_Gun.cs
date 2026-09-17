@@ -22,8 +22,6 @@ public class Bullet_Gun : PlayerBulletBase
     {
         transform.Translate(Vector2.up * _moveSpeed * Time.fixedDeltaTime);
 
-        //TODO 거리 말고 지정한 시간이 지날 경우 총알 제거
-        // 거리 멀어지면 총알 제거
         if(Vector2.Distance(transform.position, _startPos) > 10)
         {
             PoolingObject poolOb = GetComponent<PoolingObject>();
@@ -34,16 +32,5 @@ public class Bullet_Gun : PlayerBulletBase
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            PoolingObject poolOb = GetComponent<PoolingObject>();
-            poolOb.ReturnToPool();
-        }
-        else if (collision.gameObject.CompareTag("Boss"))
-        {
-            PoolingObject poolOb = GetComponent<PoolingObject>();
-            poolOb.ReturnToPool();
-        }
     }
 }
