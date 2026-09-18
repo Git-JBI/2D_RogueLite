@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move_00
+      name: Knife_Skeleton_00_Move_00
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_01
+      name: Knife_Skeleton_00_Move_01
       rect:
         serializedVersion: 2
         x: 47
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_02
+      name: Knife_Skeleton_00_Move_02
       rect:
         serializedVersion: 2
         x: 96
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Move_00: -1789986471024855661
-      Move_01: -1716074724428362361
-      Move_02: 1191637519957601360
+      Knife_Skeleton_00_Move_00: -1789986471024855661
+      Knife_Skeleton_00_Move_01: -1716074724428362361
+      Knife_Skeleton_00_Move_02: 1191637519957601360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

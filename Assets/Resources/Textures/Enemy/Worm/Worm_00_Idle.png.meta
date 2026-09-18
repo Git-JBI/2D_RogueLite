@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_00
+      name: Worm_00_Idle_00
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_01
+      name: Worm_00_Idle_01
       rect:
         serializedVersion: 2
         x: 48
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_02
+      name: Worm_00_Idle_02
       rect:
         serializedVersion: 2
         x: 96
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle_00: -4329891148382978909
-      Idle_01: 7474365789515593643
-      Idle_02: 5457176197003706408
+      Worm_00_Idle_00: -4329891148382978909
+      Worm_00_Idle_01: 7474365789515593643
+      Worm_00_Idle_02: 5457176197003706408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

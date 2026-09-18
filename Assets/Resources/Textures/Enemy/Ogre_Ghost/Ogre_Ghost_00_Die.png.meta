@@ -137,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Die_00
+      name: Ogre_Ghost_00_Die_00
       rect:
         serializedVersion: 2
         x: 3
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_03
+      name: Ogre_Ghost_00_Die_03
       rect:
         serializedVersion: 2
         x: 99
@@ -181,7 +181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_01
+      name: Ogre_Ghost_00_Die_01
       rect:
         serializedVersion: 2
         x: 35
@@ -203,7 +203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_02
+      name: Ogre_Ghost_00_Die_02
       rect:
         serializedVersion: 2
         x: 67
@@ -225,7 +225,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_04
+      name: Ogre_Ghost_00_Die_04
       rect:
         serializedVersion: 2
         x: 131
@@ -260,15 +260,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Die_00: -4142622090913246702
-      Die_01: 8909381508692408770
-      Die_02: 8927637827810531172
-      Die_03: -2864116323521677450
-      Die_04: 1101481975564010024
       Ogre_Ghost_00_Death_5: 1336843712669062113
       Ogre_Ghost_00_Death_6: 8845441838585178021
       Ogre_Ghost_00_Death_7: -1110662655126433397
       Ogre_Ghost_00_Death_8: 3742281820553523843
+      Ogre_Ghost_00_Die_00: -4142622090913246702
+      Ogre_Ghost_00_Die_01: 8909381508692408770
+      Ogre_Ghost_00_Die_02: 8927637827810531172
+      Ogre_Ghost_00_Die_03: -2864116323521677450
+      Ogre_Ghost_00_Die_04: 1101481975564010024
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

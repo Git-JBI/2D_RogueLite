@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move_00
+      name: Scorpione_00_Move_00
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_01
+      name: Scorpione_00_Move_01
       rect:
         serializedVersion: 2
         x: 46
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_02
+      name: Scorpione_00_Move_02
       rect:
         serializedVersion: 2
         x: 94
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Move_00: 1866991414154855915
-      Move_01: -5258268060969898340
-      Move_02: 1603305837229192646
+      Scorpione_00_Move_00: 1866991414154855915
+      Scorpione_00_Move_01: -5258268060969898340
+      Scorpione_00_Move_02: 1603305837229192646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

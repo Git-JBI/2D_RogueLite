@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Die_00
+      name: Knife_Skeleton_00_Die_00
       rect:
         serializedVersion: 2
         x: 3
@@ -147,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_01
+      name: Knife_Skeleton_00_Die_01
       rect:
         serializedVersion: 2
         x: 26
@@ -169,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_02
+      name: Knife_Skeleton_00_Die_02
       rect:
         serializedVersion: 2
         x: 49
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_03
+      name: Knife_Skeleton_00_Die_03
       rect:
         serializedVersion: 2
         x: 72
@@ -213,7 +213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die_04
+      name: Knife_Skeleton_00_Die_04
       rect:
         serializedVersion: 2
         x: 95
@@ -248,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Die_00: -8630190735994179220
-      Die_01: 8708162302202853799
-      Die_02: 5982017008217390388
-      Die_03: 1901935656525462011
-      Die_04: -2150748998794984519
+      Knife_Skeleton_00_Die_00: -8630190735994179220
+      Knife_Skeleton_00_Die_01: 8708162302202853799
+      Knife_Skeleton_00_Die_02: 5982017008217390388
+      Knife_Skeleton_00_Die_03: 1901935656525462011
+      Knife_Skeleton_00_Die_04: -2150748998794984519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
