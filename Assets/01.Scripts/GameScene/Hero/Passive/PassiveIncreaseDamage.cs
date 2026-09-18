@@ -9,6 +9,6 @@ public class PassiveIncreaseDamage : PassiveBase
 
     protected override void CalculateStat()
     {
-        _model.PassiveDamagePercent = _passiveData.GetStatValue(_level - 1);
+        _model.DamageIncreasePercent += _passiveData.GetStatValue(_level - 1);
     }
 }

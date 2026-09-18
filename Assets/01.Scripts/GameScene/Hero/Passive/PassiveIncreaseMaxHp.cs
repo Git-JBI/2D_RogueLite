@@ -9,6 +9,6 @@ public class PassiveIncreaseMaxHp : PassiveBase
 
     protected override void CalculateStat()
     {
-        _model.PassiveMaxHpPercent = _passiveData.GetStatValue(_level - 1);
+        _model.MaxHpIncreasePercent = _passiveData.GetStatValue(_level - 1);
     }
 }

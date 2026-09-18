@@ -14,53 +14,63 @@ public class HeroModel : MonoBehaviour
     private float _damage;
     private float _moveSpeed;
     private float _armor;
+    private float _minionDamage;
+    private float _bossDamage;
+    private float _minionDamageIncreasePercent;
+    private float _bossDamageIncreasePercent;
 
     private float _upgradeDamage;
     private float _upgradeHp;
     private float _upgradeArmor;
 
-    private float _passiveDamagePercent;
-    private float _passiveMaxHpPercent;
-    private float _passiveMoveSpeedPercent;
+    private float _damageIncreasePercent;
+    private float _maxHpIncreasePercent;
+    private float _moveSpeedIncreasePercent;
 
-    public float MaxHp => (_maxHp + _upgradeHp) * (1 + _passiveMaxHpPercent / 100);
-    public float Damage => (_damage + _upgradeDamage) * (1 + _passiveDamagePercent / 100);
-    public float MoveSpeed => _moveSpeed * (1 + _passiveMoveSpeedPercent / 100);
+    public float MaxHp => (_maxHp + _upgradeHp) * (1 + _maxHpIncreasePercent / 100);
+    public float Damage => (_damage + _upgradeDamage) * (1 + _damageIncreasePercent / 100);
+    public float MoveSpeed => _moveSpeed * (1 + _moveSpeedIncreasePercent / 100);
     public float Armor => _armor + _upgradeArmor;
 
-    public float PassiveDamagePercent
+    public float DamageIncreasePercent
     {
-        get
-        {
-            return _passiveDamagePercent;
-        }
+        get => _damageIncreasePercent;
+        set => _damageIncreasePercent = value;
+    }
+    public float MoveSpeedIncreasePercent
+    {
+        get => _moveSpeedIncreasePercent;
+        set => _moveSpeedIncreasePercent = value;
+    }
+    public float MaxHpIncreasePercent
+    {
+        get => _maxHpIncreasePercent;
         set
         {
-            _passiveDamagePercent = value;
+            _maxHpIncreasePercent = value;
+            _curHp = _curHp + _curHp / 100 * _maxHpIncreasePercent;
         }
     }
-    public float PassiveMoveSpeedPercent
+
+    public float MinionDamage
     {
-        get
-        {
-            return _passiveMoveSpeedPercent;
-        }
-        set
-        {
-            _passiveMoveSpeedPercent = value;
-        }
+        get => _minionDamage;
+        set => _minionDamage = value;
     }
-    public float PassiveMaxHpPercent
+    public float BossDamage
     {
-        get
-        {
-            return _passiveMaxHpPercent;
-        }
-        set
-        {
-            _passiveMaxHpPercent = value;
-            _curHp = _curHp + _curHp / 100 * _passiveMaxHpPercent;
-        }
+        get => _bossDamage;
+        set => _bossDamage = value;
+    }
+    public float MinionDamageIncreasePercent
+    {
+        get => _minionDamageIncreasePercent;
+        set => _minionDamageIncreasePercent = value;
+    }
+    public float BossDamageIncreasePercent
+    {
+        get => _bossDamageIncreasePercent;
+        set => _bossDamageIncreasePercent = value;
     }
 
     public bool IsAlive => _curHp > 0;

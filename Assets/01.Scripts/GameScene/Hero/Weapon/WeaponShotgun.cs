@@ -69,7 +69,7 @@ public class WeaponShotgun : WeaponBase
                 //TODO 샷건쪽 총알 변경
                 bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Gun", transform);
 
-                Bullet_Gun bulletPrefab = bullet.GetComponent<Bullet_Gun>();
+                Bullet_Pistol bulletPrefab = bullet.GetComponent<Bullet_Pistol>();
 
                 bulletPrefab.Init(_heroModel, _damageMagnification, transform.position, randomBulletDir, _bulletSpeed);
             }

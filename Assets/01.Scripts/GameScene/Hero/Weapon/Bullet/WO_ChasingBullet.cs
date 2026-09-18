@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ChasingBullet : PlayerBulletBase
+public class WO_ChasingBullet : PlayerWeaponObjectBase
 {
     private float _bulletSpeed;
     private int _maxBounceCount;
@@ -24,7 +24,6 @@ public class ChasingBullet : PlayerBulletBase
 
     public void Init(HeroModel model, float damage, float bulletSpeed, int bounceCount, Vector2 pos)
     {
-        _model = model;
         _damageMagnification = damage;
         _bulletSpeed = bulletSpeed;
         _maxBounceCount = bounceCount;
@@ -110,7 +109,7 @@ public class ChasingBullet : PlayerBulletBase
     {
         base.OnTriggerEnter2D(collision);
         // 적 판단
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Minion"))
         {
             // 남은 횟수가 있을 시
             if(_curBounceCount > 0)
@@ -129,7 +128,7 @@ public class ChasingBullet : PlayerBulletBase
                     IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
 
                     // 데미지 * 데미지 배율 * 남은 튕김횟수 만큼 데미지
-                    iDamageable.TakeDamage(_model.Damage * _damageMagnification * _curBounceCount);
+                    // iDamageable.TakeDamage(_model.Damage * _damageMagnification * _curBounceCount);
 
                     // 풀로 되돌리기
                     PoolingObject poolOb = GetComponent<PoolingObject>();
@@ -153,7 +152,7 @@ public class ChasingBullet : PlayerBulletBase
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
 
             // (남은 튕김횟수 - 1) * 데미지 배율로 데미지를 주고 불릿 풀로 되돌려 보내기
-            iDamageable.TakeDamage(_model.Damage * _damageMagnification * (_curBounceCount - 1));
+            // iDamageable.TakeDamage(_model.Damage * _damageMagnification * (_curBounceCount - 1));
 
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();

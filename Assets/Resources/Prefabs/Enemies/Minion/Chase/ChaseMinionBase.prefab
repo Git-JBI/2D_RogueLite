@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1026813572079265872}
   m_Layer: 6
   m_Name: EnemySprite
-  m_TagString: Enemy
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 1002657539062586766}
   m_Layer: 6
   m_Name: ChaseMinionBase
-  m_TagString: Enemy
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

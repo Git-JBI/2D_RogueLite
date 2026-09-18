@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8696410438580901196}
   m_Layer: 6
   m_Name: StandMinionBase
-  m_TagString: Enemy
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4265366384243917546}
   m_Layer: 6
   m_Name: Renderer
-  m_TagString: Enemy
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

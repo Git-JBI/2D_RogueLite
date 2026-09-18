@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-public class Bullet_Gun : PlayerBulletBase
+public class Bullet_Pistol : PlayerWeaponObjectBase
 {
     private float _moveSpeed;
     private Vector2 _startPos;
 
     public void Init(HeroModel model, float damage, Vector2 pos, Vector2 dir, float movespeed)
     {
-        _model = model;
         _damageMagnification = damage;
         transform.position = pos;
         _startPos = pos;
@@ -27,10 +26,5 @@ public class Bullet_Gun : PlayerBulletBase
             PoolingObject poolOb = GetComponent<PoolingObject>();
             poolOb.ReturnToPool();
         }
-    }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
     }
 }

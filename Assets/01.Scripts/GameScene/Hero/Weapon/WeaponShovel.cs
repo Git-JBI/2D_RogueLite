@@ -4,7 +4,7 @@ using UnityEngine;
 public class WeaponShovel : WeaponBase
 {
     //TODO ResourceLoad로 변경
-    [SerializeField]private PlayerBulletBase _shovel;
+    [SerializeField]private PlayerWeaponObjectBase _shovel;
 
     /// <summary>
     /// 삽 갯수
@@ -31,7 +31,7 @@ public class WeaponShovel : WeaponBase
     private float _coolingTimer;
     private bool _isCooling;
 
-    private List<PlayerBulletBase> _shovels = new();
+    private List<PlayerWeaponObjectBase> _shovels = new();
 
     private void Update()
     {
@@ -89,7 +89,7 @@ public class WeaponShovel : WeaponBase
     /// </summary>
     private void EnableShovels()
     {
-        foreach(PlayerBulletBase x in _shovels)
+        foreach(PlayerWeaponObjectBase x in _shovels)
         {
             x.gameObject.SetActive(true);
         }
@@ -100,7 +100,7 @@ public class WeaponShovel : WeaponBase
     /// </summary>
     private void DisableShovels()
     {
-        foreach (PlayerBulletBase x in _shovels)
+        foreach (PlayerWeaponObjectBase x in _shovels)
         {
             x.gameObject.SetActive(false);
         }
@@ -115,7 +115,7 @@ public class WeaponShovel : WeaponBase
 
         for(int i = 0; i < _bulletCount; i++)
         {
-            PlayerBulletBase shovel = Instantiate(_shovel);
+            PlayerWeaponObjectBase shovel = Instantiate(_shovel);
 
             shovel.Init(_heroModel, _damageMagnification);
 
@@ -136,7 +136,7 @@ public class WeaponShovel : WeaponBase
     /// </summary>
     private void RemoveBullets()
     {
-        foreach(PlayerBulletBase bullet in _shovels)
+        foreach(PlayerWeaponObjectBase bullet in _shovels)
         {
             Destroy(bullet.gameObject);
         }

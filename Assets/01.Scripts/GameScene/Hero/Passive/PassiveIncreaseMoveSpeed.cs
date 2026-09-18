@@ -9,6 +9,6 @@ public class PassiveIncreaseMoveSpeed : PassiveBase
 
     protected override void CalculateStat()
     {
-        _model.PassiveMoveSpeedPercent = _passiveData.GetStatValue(_level - 1);
+        _model.MoveSpeedIncreasePercent = _passiveData.GetStatValue(_level - 1);
     }
 }

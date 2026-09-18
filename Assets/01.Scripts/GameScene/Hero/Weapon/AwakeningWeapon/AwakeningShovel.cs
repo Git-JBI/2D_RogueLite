@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class AwakeningShovel : AwakeningWeaponBase
 {
-    private PlayerBulletBase _shovel;
+    private PlayerWeaponObjectBase _shovel;
 
     private float _bulletCount;
     private float _rotSpeed;
@@ -22,7 +22,7 @@ public class AwakeningShovel : AwakeningWeaponBase
 
         _weaponType = _weaponData.WeaponType;
 
-        _shovel = Resources.Load<PlayerBulletBase>("Prefabs/Bullets/Bullet_Shovel");
+        _shovel = Resources.Load<PlayerWeaponObjectBase>("Prefabs/Bullets/Bullet_Shovel");
 
         _radius = 4;
 
@@ -43,7 +43,7 @@ public class AwakeningShovel : AwakeningWeaponBase
 
         for (int i = 0; i < _bulletCount; i++)
         {
-            PlayerBulletBase shovel = Instantiate(_shovel);
+            PlayerWeaponObjectBase shovel = Instantiate(_shovel);
 
             shovel.Init(_heroModel, _damageMagnification);
 

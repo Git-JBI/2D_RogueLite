@@ -43,7 +43,7 @@ public class AwakeningPistol : AwakeningWeaponBase
             bullet = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Bullets/Bullet_Chase", transform);
 
             // 추적하는 불릿 컴포넌트
-            ChasingBullet bulletPrefab = bullet.GetComponent<ChasingBullet>();
+            WO_ChasingBullet bulletPrefab = bullet.GetComponent<WO_ChasingBullet>();
 
             // 불릿 초기화
             bulletPrefab.Init(_heroModel, _damageMagnification, _bulletSpeed, (int)_bounceCount, transform.position);
