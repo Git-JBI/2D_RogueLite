@@ -14,42 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 3
   _weaponIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  _damageMagnification:
+  - 1
+  - 1.1
+  - 1.2
+  - 1.3
+  - 1.4
   _statDatas:
-  - _statType: 0
-    _value:
-    - 1.2
-    - 1.4
-    - 1.6
-    - 1.8
-    - 2
-  - _statType: 2
+  - _statType: 1
     _value:
     - 1
     - 2
     - 3
     - 4
     - 5
+  - _statType: 5
+    _value:
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+  - _statType: 2
+    _value:
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2
   - _statType: 6
     _value:
-    - 2
-    - 2.2
-    - 2.4
-    - 2.6
-    - 2.8
-  - _statType: 3
-    _value:
     - 3
-    - 2.75
-    - 2.5
-    - 2.25
-    - 2
-  - _statType: 7
-    _value:
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
+    - 3
+    - 3
+    - 3
+    - 3
   _desces:
   - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
     \uC18D\uB3C4 \uC99D\uAC00."
