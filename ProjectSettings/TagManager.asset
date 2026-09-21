@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Enemy
   - Magnatic
   - Hero
   - Boss
   - Background
   - EnemyNormalBullet
+  - Minion
   layers:
   - Default
   - TransparentFX
