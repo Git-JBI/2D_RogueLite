@@ -6,13 +6,15 @@ public class SO_WeaponData : ScriptableObject
 {
     [SerializeField] private WeaponType _weaponType;
     [SerializeField] private Sprite _weaponIcon;
+    [SerializeField] private float[] _damageMagnification;
     [SerializeField] private WeaponStatData[] _statDatas;
     [SerializeField] private string[] _desces;
 
     public WeaponType WeaponType => _weaponType;
     public Sprite WeaponIcon => _weaponIcon;
+    public float[] DamageMagnification => _damageMagnification;
     public string[] Descs => _desces;
-    public int MaxLevel => _desces.Length;
+    public int MaxLevel => 5;
 
     Dictionary<WeaponStatType, WeaponStatData> _statDataMap = new();
 

@@ -6,9 +6,10 @@ public enum WeaponType
     Rifle,
     Shotgun,
     Shovel,
+    Kunai,
 }
 
-public abstract class WeaponBase : MonoBehaviour, IUpgradable
+public abstract class WeaponControllerBase : MonoBehaviour, IUpgradable
 {
     //TODO 추후 불러오는방법 변경 SerializeField X
     [SerializeField] protected SO_WeaponData _weaponData;
@@ -45,7 +46,7 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
     /// </summary>
     public void AwakeningWeapon()
     {
-        //TODO 이 방법 말고 다른 방법생각
+        //TODO 이 방법 말고 다른 방법생각(_level을 99로 설정말고 bool을 넣을지 생각)
         _level = 99;
     }
     public void EnableWeapon()
@@ -59,6 +60,10 @@ public abstract class WeaponBase : MonoBehaviour, IUpgradable
 
     protected virtual void CalculateStats()
     {
-        _damageMagnification = _weaponData.GetStatValue(WeaponStatType.DamageMagnification, _level);
+        _damageMagnification = _weaponData.DamageMagnification[_level];
+    
+        CalculateOtherStats();
     }
+
+    protected abstract void CalculateOtherStats();
 }

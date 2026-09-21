@@ -5,9 +5,11 @@ using UnityEngine;
 public class SO_AwakeningWeaponConfigData : ScriptableObject
 {
     [SerializeField] private AwakeningWeaponType _weaponType;
+    [SerializeField] private float _damageMagnification;
     [SerializeField] private WeaponStatData[] _statDatas;
 
     public AwakeningWeaponType WeaponType => _weaponType;
+    public float DamageMagnification => _damageMagnification;
     public WeaponStatData[] StatDatas => _statDatas;
 
     Dictionary<WeaponStatType, WeaponStatData> _statDataMap = new();

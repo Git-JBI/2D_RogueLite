@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class WeaponShotgun : WeaponBase
+public class WeaponShotgun : WeaponControllerBase
 {
     private float _spreadAngle;
     private float _bulletCount;
@@ -93,5 +93,10 @@ public class WeaponShotgun : WeaponBase
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level);
         _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
+    }
+
+    protected override void CalculateOtherStats()
+    {
+        throw new System.NotImplementedException();
     }
 }

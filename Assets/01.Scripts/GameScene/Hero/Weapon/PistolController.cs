@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 한 발씩 적을 정조준해서 쏘는 권총 무기
 /// </summary>
-public class WeaponPistol : WeaponBase
+public class WeaponPistol : WeaponControllerBase
 {
     private float _bulletSpeed;
     private float _coolTime;
@@ -91,5 +91,10 @@ public class WeaponPistol : WeaponBase
 
         _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
+    }
+
+    protected override void CalculateOtherStats()
+    {
+        throw new System.NotImplementedException();
     }
 }

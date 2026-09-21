@@ -9,7 +9,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
     private UpgradeController _upgradeController;
-    private WeaponController _weaponController;
+    private HeroWeaponController _weaponController;
     private PassiveController _passiveController;
     private AbilityController _abilityController;
 
@@ -33,7 +33,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();
         _heroHud = GetComponentInChildren<HeroHud>();
-        _weaponController = GetComponentInChildren<WeaponController>();
+        _weaponController = GetComponentInChildren<HeroWeaponController>();
         _passiveController = GetComponentInChildren<PassiveController>();
         _abilityController = GetComponentInChildren<AbilityController>();
     }

@@ -88,9 +88,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -6151415664217256029, guid: c15c7d1fdabc6944a8158ff8c02d95cd, type: 3}
+    - target: {fileID: 5154633265194265173, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154633265194265173, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154633265194265173, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7345475044060265913, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
       propertyPath: m_Name
-      value: Chase_00
+      value: Chase_Zombie_00
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

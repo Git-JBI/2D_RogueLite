@@ -2,9 +2,9 @@
 using System.Linq;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class HeroWeaponController : MonoBehaviour
 {
-    private WeaponBase[] _weapons;
+    private WeaponControllerBase[] _weapons;
     private AwakeningWeaponBase[] _awakeningWeapons;
     private IReadOnlyList<IUpgradable> _upgradables;
 
@@ -12,21 +12,22 @@ public class WeaponController : MonoBehaviour
 
     private void Awake()
     {
-        _weapons = GetComponentsInChildren<WeaponBase>(true);
+        _weapons = GetComponentsInChildren<WeaponControllerBase>(true);
         _awakeningWeapons = GetComponentsInChildren<AwakeningWeaponBase>(true);
         _upgradables = GetComponentsInChildren<IUpgradable>(true);
     }
 
     private void Update()
     {
+        //TODO 나중에 제거
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            _weapons[1].Upgrade();
+            _weapons[4].Upgrade();
     }
 
     public void Init(HeroModel model)
     {
         // 일반 무기 초기화
-        foreach (WeaponBase weapon in _weapons)
+        foreach (WeaponControllerBase weapon in _weapons)
         {
             weapon.Init(model);
         }
@@ -52,7 +53,7 @@ public class WeaponController : MonoBehaviour
     /// <param name="awakeningWeaponType">각성 무기 타입</param>
     public void AwakeningWeapon(WeaponType weaponType, AwakeningWeaponType awakeningWeaponType)
     {
-        WeaponBase weapon = _weapons.First(x => x.WeaponType == weaponType);
+        WeaponControllerBase weapon = _weapons.First(x => x.WeaponType == weaponType);
         AwakeningWeaponBase aWeapon = _awakeningWeapons.First(x => x.WeaponType == awakeningWeaponType);
 
         // 기존 무기 각성

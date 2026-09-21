@@ -2,7 +2,6 @@
 
 public enum WeaponStatType
 {
-    DamageMagnification,        // 데미지 배율
     BulletSpeed,                // 총알 속도
     BulletCount,                // 한 번 쿨타임에 발사하는 총알 갯수
     Cooltime,                   // 공격 쿨타임
@@ -11,6 +10,7 @@ public enum WeaponStatType
     RotSpeed,                   // 회전 속도
     Duration,                   // 지속 시간
     BounceCount,                // 튕김 횟수
+    PierceCount,                // 관통 횟수
 }
 
 [System.Serializable]

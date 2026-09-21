@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32224257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32224258}
+  - component: {fileID: 32224259}
+  m_Layer: 0
+  m_Name: 04.Kunai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &32224258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32224257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1708204678}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32224259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32224257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c682ececf90d8b74b9960891ca010a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: 65b858d33fb58a243b4267c97d059ec6, type: 2}
 --- !u!1 &73708863
 GameObject:
   m_ObjectHideFlags: 0
@@ -22931,6 +22976,7 @@ Transform:
   - {fileID: 131162688}
   - {fileID: 418926401}
   - {fileID: 972682684}
+  - {fileID: 32224258}
   - {fileID: 453473000}
   - {fileID: 1616579844}
   m_Father: {fileID: 1654112609}
@@ -22944,7 +22990,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1708204677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a1c9a61afd15a46936a79bd219c081, type: 3}
+  m_Script: {fileID: 11500000, guid: 8971fdb8c6e284345b074a10c4f3f749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1792150205

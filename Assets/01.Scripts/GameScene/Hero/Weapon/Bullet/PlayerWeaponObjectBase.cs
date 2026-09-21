@@ -19,27 +19,19 @@ public class PlayerWeaponObjectBase : MonoBehaviour
         _damageMagnification = magnification;
     }
 
-    protected virtual void OnHitMinion(Collider2D collision)
+    protected virtual void OnHit(Collider2D collision, float damage)
     {
         IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
 
         if (idamageable == null)
             return;
 
-        idamageable.TakeDamage(_minionDamage * _damageMagnification);
+        damage *= _damageMagnification;
+
+        idamageable.TakeDamage(damage);
     }
 
-    protected virtual void OnHitBoss(Collider2D collision)
-    {
-        IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
-
-        if (idamageable == null)
-            return;
-
-        idamageable.TakeDamage(_bossDamage * _damageMagnification);
-    }
-
-    protected void ReturnToPool()
+    protected virtual void ReturnToPool()
     {
         PoolingObject poolOb = GetComponent<PoolingObject>();
         poolOb.ReturnToPool();
@@ -50,12 +42,12 @@ public class PlayerWeaponObjectBase : MonoBehaviour
         // 일반 적 탐지 시
         if (collision.CompareTag("Minion"))
         {
-            OnHitMinion(collision);
+            OnHit(collision, _minionDamage);
         }
         // 보스 탐지 시
         else if(collision.CompareTag("Boss"))
         {
-            OnHitBoss(collision);
+            OnHit(collision, _bossDamage);
         }
     }
 }

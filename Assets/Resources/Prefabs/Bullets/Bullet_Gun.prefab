@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6024562850130025276}
   - component: {fileID: 1343881394281347635}
-  - component: {fileID: 661683326113494360}
   - component: {fileID: 8676402610976497867}
   m_Layer: 0
   m_Name: Bullet_Gun
@@ -89,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &661683326113494360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2932816127296203319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd99487c1d330841a983dcd57bcc7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &8676402610976497867
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

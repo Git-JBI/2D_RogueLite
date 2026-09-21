@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AwakeningUpgradable : IAwakeningUpgradable
 {
-    private WeaponController _weaponController;
+    private HeroWeaponController _weaponController;
     private SO_AwakeningConfigData _configData;
 
-    public AwakeningUpgradable(WeaponController weaponController, SO_AwakeningConfigData configData)
+    public AwakeningUpgradable(HeroWeaponController weaponController, SO_AwakeningConfigData configData)
     {
         _weaponController = weaponController;
         _configData = configData;

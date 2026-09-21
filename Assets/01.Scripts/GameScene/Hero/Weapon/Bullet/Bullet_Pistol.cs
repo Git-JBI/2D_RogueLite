@@ -2,16 +2,16 @@
 
 public class Bullet_Pistol : PlayerWeaponObjectBase
 {
-    private float _moveSpeed;
+    private float _bulletSpeed;
     private Vector2 _startPos;
 
-    public void Init(HeroModel model, float damage, Vector2 pos, Vector2 dir, float movespeed)
+    public void Init(HeroModel model, float magnification, Vector2 pos, Vector2 dir, float bulletSpeed)
     {
-        _damageMagnification = damage;
+        base.Init(model, magnification);
         transform.position = pos;
         _startPos = pos;
         transform.up = dir;
-        _moveSpeed = movespeed;
+        _bulletSpeed = bulletSpeed;
 
         // 부모 설정 해제
         transform.SetParent(null);
@@ -19,12 +19,11 @@ public class Bullet_Pistol : PlayerWeaponObjectBase
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector2.up * _moveSpeed * Time.fixedDeltaTime);
+        transform.Translate(Vector2.up * _bulletSpeed * Time.fixedDeltaTime);
 
         if(Vector2.Distance(transform.position, _startPos) > 10)
         {
-            PoolingObject poolOb = GetComponent<PoolingObject>();
-            poolOb.ReturnToPool();
+            ReturnToPool();
         }
     }
 }

@@ -21,7 +21,7 @@ public class UpgradeController : MonoBehaviour
     /// </summary>
     private List<SO_AwakeningConfigData> _awakeningDatas = new();
 
-    private WeaponController _weaponController;
+    private HeroWeaponController _weaponController;
     private PassiveController _passiveController;
 
     private Dictionary<AwakeningWeaponType, IAwakeningUpgradable> _awakeningUpgradablesMap = new();
@@ -31,7 +31,7 @@ public class UpgradeController : MonoBehaviour
         _awakeningDatas = Resources.LoadAll<SO_AwakeningConfigData>("GameDatas/WeaponAwakeningData").ToList();
     }
 
-    public void Init(IUpgradeViewer viewer, WeaponController wc, PassiveController pc)
+    public void Init(IUpgradeViewer viewer, HeroWeaponController wc, PassiveController pc)
     {
         _iUpgradeViewer = viewer;
         _weaponController = wc;

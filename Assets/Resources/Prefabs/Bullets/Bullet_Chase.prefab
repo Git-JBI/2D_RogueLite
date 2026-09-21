@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6326844603014865950}
   - component: {fileID: 6212361423037453669}
-  - component: {fileID: 13771455423088028}
   - component: {fileID: 3977692344936736354}
   m_Layer: 0
   m_Name: Bullet_Chase
@@ -89,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &13771455423088028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359369808857381437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3dce3d2e968074f880b4b64b76eab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &3977692344936736354
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class AwakeningWeaponBase : MonoBehaviour
     {
         _heroModel = model;
 
-        _damageMagnification = _weaponData.GetStatValue(WeaponStatType.DamageMagnification);
+        _damageMagnification = _weaponData.DamageMagnification;
     }
 
     public virtual void EnableWeapon()

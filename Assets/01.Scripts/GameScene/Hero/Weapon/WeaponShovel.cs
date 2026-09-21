@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponShovel : WeaponBase
+public class WeaponShovel : WeaponControllerBase
 {
     //TODO ResourceLoad로 변경
     [SerializeField]private PlayerWeaponObjectBase _shovel;
@@ -144,10 +144,8 @@ public class WeaponShovel : WeaponBase
     }
 
     #region abstract
-    protected override void CalculateStats()
+    protected override void CalculateOtherStats()
     {
-        base.CalculateStats();
-
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level);
         _rotSpeed = _weaponData.GetStatValue(WeaponStatType.RotSpeed, _level);
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
