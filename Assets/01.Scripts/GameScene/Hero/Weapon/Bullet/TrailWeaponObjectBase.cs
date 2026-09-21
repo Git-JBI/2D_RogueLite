@@ -9,15 +9,8 @@ public class TrailWeaponObjectBase : PlayerWeaponObjectBase
         _trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    private void OnEnable()
-    {
-        Debug.Log("등장");
-        _trailRenderer.Clear();
-    }
-
     private void OnDisable()
     {
-        Debug.Log("사라짐");
         _trailRenderer.emitting = false;
         _trailRenderer.Clear();
     }
