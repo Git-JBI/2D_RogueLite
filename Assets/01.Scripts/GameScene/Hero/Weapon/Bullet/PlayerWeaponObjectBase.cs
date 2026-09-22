@@ -19,6 +19,16 @@ public class PlayerWeaponObjectBase : MonoBehaviour
         _damageMagnification = magnification;
     }
 
+    //TODO 크리티컬 확률 계산 따로 필요
+    private bool CheckCritical()
+    {
+        int chance = Random.Range(0, 2);
+        if (chance == 0)
+            return false;
+        else
+            return true;
+    }
+
     protected virtual void OnHit(Collider2D collision, float damage)
     {
         IDamageable idamageable = collision.gameObject.GetComponentInParent<IDamageable>();
@@ -28,7 +38,7 @@ public class PlayerWeaponObjectBase : MonoBehaviour
 
         damage *= _damageMagnification;
 
-        idamageable.TakeDamage(damage);
+        idamageable.TakeDamage(damage, CheckCritical());
     }
 
     protected virtual void ReturnToPool()

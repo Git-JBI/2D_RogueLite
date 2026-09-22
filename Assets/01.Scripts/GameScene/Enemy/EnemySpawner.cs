@@ -100,7 +100,6 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
 
-            //TODO 스폰하는 시간 0.5f -> 변수로 수정
             yield return new WaitForSeconds(_spawnDelay);
         }
     }

@@ -151,13 +151,23 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
         if (collision.gameObject.CompareTag("Player"))
         {
             IDamageable player = collision.gameObject.GetComponent<IDamageable>();
-            player.TakeDamage(_model.Damage);
+            player.TakeDamage(_model.Damage, false);
         }
     }
 
     #region Interface
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isCritical)
     {
+        GameObject floater = GameManager.Instance.PoolManager.GetFromPool("Prefabs/DamageFloater/DamageFloater", null);
+        DamageFloater damageFloater = floater.GetComponent<DamageFloater>();
+
+        damageFloater.transform.position = new Vector3(
+            _collider.bounds.min.x - 0.1f,
+            _collider.bounds.max.y + 0.2f,
+            transform.position.z);
+
+        damageFloater.InitDamageFloater((int)damage, isCritical);
+
         _model.TakeDamage(damage);
 
         if (_model.CurHp <= 0)

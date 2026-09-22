@@ -119,7 +119,7 @@ public class GameSceneManager : MonoBehaviour
 
             _isFirstBurstStarted = true;
             // 물량 공세 이벤트 발행
-            OnWaveStarted?.Invoke(3, 40, 3.0f);
+            OnWaveStarted?.Invoke(3, 20, 3.0f);
         }
         // 두번째 물량 공세 체크
         if(_gameSceneModel.StageTime >= _stageData.StageLimitTime / 3 * 2 && !_isSecondBurstStarted)

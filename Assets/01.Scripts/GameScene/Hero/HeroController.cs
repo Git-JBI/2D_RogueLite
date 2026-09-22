@@ -69,7 +69,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     }
 
     #region Interface
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isCritical)
     {
         _heromodel.TakeDamage(damage);
 
