@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2904862469648867218, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
+      propertyPath: m_Name
+      value: EnemyRenderer
+      objectReference: {fileID: 0}
     - target: {fileID: 4002577800468550194, guid: ca731a7aae5140749af011c0a6f8a0dd, type: 3}
       propertyPath: m_labelHash
       value: 1.171337e-16

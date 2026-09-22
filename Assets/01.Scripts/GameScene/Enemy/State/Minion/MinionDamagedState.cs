@@ -12,7 +12,7 @@ public class MinionDamagedState : IState
         _controller = controller;
 
         // 업데이트 진행 시간
-        _timer = time;
+        _updateTime = time;
     }
 
     public void OnStateEnter()
@@ -29,7 +29,7 @@ public class MinionDamagedState : IState
     {
         _timer += Time.deltaTime;
 
-        if (_timer > _updateTime)
+        if (_timer >= _updateTime)
             _controller.ChangeState(_controller.NormalState);
     }
 }

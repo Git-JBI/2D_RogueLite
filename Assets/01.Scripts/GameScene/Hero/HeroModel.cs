@@ -97,7 +97,7 @@ public class HeroModel : MonoBehaviour
         _level = 1;
         _maxHp = 10000;
         _curHp = _maxHp;
-        _damage = 10;
+        _damage = 1;
         _moveSpeed = 2;
         _maxExp = _expConfigData.GetMaxExp(_level);
         _curExp = 0;

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3daf111bee8fd0643872c85acb580f5b, type: 3}
   m_Name: Stand_Worm_01_ConfigData
   m_EditorClassIdentifier: 
-  _maxHp: 300
+  _maxHp: 200
   _damage: 50
   _moveSpeed: 0
