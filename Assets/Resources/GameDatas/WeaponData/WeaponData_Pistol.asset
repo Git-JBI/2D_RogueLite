@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
   m_Name: WeaponData_Pistol
   m_EditorClassIdentifier: 
-  _weaponName: 0
+  _weaponType: 0
   _weaponIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  _damageMagnification:
+  - 1
+  - 1.125
+  - 1.25
+  - 1.375
+  - 1.5
   _statDatas:
   - _statType: 0
     _value:
@@ -22,20 +28,13 @@ MonoBehaviour:
     - 1.6
     - 1.8
     - 2
-  - _statType: 1
+  - _statType: 2
     _value:
     - 2
     - 2.5
     - 3
     - 3.5
     - 4
-  - _statType: 3
-    _value:
-    - 2
-    - 1.9
-    - 1.8
-    - 1.7
-    - 1.6
   _desces:
   - "\uD53C\uD574\uB7C9 \uC99D\uAC00.\\n \uCD1D\uC54C \uAC2F\uC218 \uC99D\uAC00.\\n\uCD1D\uC54C
     \uC18D\uB3C4 \uC99D\uAC00."

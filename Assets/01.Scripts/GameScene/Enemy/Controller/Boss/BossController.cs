@@ -12,8 +12,11 @@ public abstract class BossController : EnemyControllerBase
         _deadState = new EnemyDeadState(this, 1.0f);
     }
 
-    public void Init(Transform target, SO_EnemyData data, int stage)
+    public void Init(Canvas canvas, Transform target, SO_EnemyData data, int stage)
     {
+        // 데미지 플로터 캔버스 설정
+        _damageFloaterCanvas = canvas;
+
         // 타겟 설정(플레이어)
         _target = target;
 

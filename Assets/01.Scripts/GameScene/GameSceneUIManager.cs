@@ -10,7 +10,7 @@ public class GameSceneUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private Image _expBar;
 
-    private UI_GameFinish _gameFinishUI;
+    private GameFinishViewer _gameFinishUI;
     private UI_Warning _warningUI;
     private UpgradeViewer _upgradeViewer;
 
@@ -21,7 +21,7 @@ public class GameSceneUIManager : MonoBehaviour
 
     private void Awake()
     {
-        _gameFinishUI = GetComponentInChildren<UI_GameFinish>(true);
+        _gameFinishUI = GetComponentInChildren<GameFinishViewer>(true);
         _warningUI = GetComponentInChildren<UI_Warning>(true);
         _upgradeViewer = GetComponentInChildren<UpgradeViewer>(true);
 

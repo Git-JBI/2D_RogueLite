@@ -8,6 +8,8 @@ using UnityEngine.Events;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("데미지 플로터 캔버스")]
+    [SerializeField]private Canvas _damageFloaterCanvas;
     [Header("# 적의 스폰 딜레이")]
     [SerializeField]private float _spawnDelay;
 
@@ -84,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
         BossController boss = Instantiate(_bossPrefabs[_bossPrefabs.Count - 1]);
 
         // 보스 초기화
-        boss.Init(_playerTransform, _bossConfigDatas[_bossConfigDatas.Count - 1], _stage);
+        boss.Init(_damageFloaterCanvas, _playerTransform, _bossConfigDatas[_bossConfigDatas.Count - 1], _stage);
 
         // 보스 사망 시 이벤트 처리해야할 함수 추가
         boss.OnBossDead += BossDead;
@@ -116,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
 
         MinionController enemyController = enemy.GetComponent<MinionController>();
 
-        enemyController.Init(_playerTransform, _minionConfigDatas[index], _stage, GetRandomExpType());
+        enemyController.Init(_damageFloaterCanvas, _playerTransform, _minionConfigDatas[index], _stage, GetRandomExpType());
         enemyController.OnMinionDead += MinionDead;
 
         _minions.Add(enemyController);

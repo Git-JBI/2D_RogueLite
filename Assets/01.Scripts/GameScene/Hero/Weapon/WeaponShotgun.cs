@@ -18,15 +18,6 @@ public class WeaponShotgun : WeaponControllerBase
 
     private Coroutine _shootRoutine;
 
-    public override void Init(HeroModel model)
-    {
-        base.Init(model);
-
-        _enemyMask = LayerMask.GetMask("Enemy");
-
-        _detectRadius = 5.0f;
-    }
-
     private Vector2 SetBulletDir()
     {
         List<Collider2D> enemies = new List<Collider2D>();

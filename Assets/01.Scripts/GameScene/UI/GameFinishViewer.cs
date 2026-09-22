@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class UI_GameFinish : MonoBehaviour
+public class GameFinishViewer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _titleText;
 

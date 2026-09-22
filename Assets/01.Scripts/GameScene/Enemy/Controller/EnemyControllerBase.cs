@@ -3,6 +3,8 @@
 [System.Serializable]
 public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 {
+    protected Canvas _damageFloaterCanvas;
+
     protected Transform _target;
     protected EnemyModel _model;
     protected EnemySpriteController _spriteController;
@@ -158,7 +160,7 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     #region Interface
     public void TakeDamage(float damage, bool isCritical)
     {
-        GameObject floater = GameManager.Instance.PoolManager.GetFromPool("Prefabs/DamageFloater/DamageFloater", null);
+        GameObject floater = GameManager.Instance.PoolManager.GetFromPool("Prefabs/DamageFloater/DamageFloater", _damageFloaterCanvas.transform);
         DamageFloater damageFloater = floater.GetComponent<DamageFloater>();
 
         damageFloater.transform.position = new Vector3(

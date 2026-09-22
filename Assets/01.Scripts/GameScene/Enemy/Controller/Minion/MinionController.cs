@@ -27,8 +27,11 @@ public abstract class MinionController : EnemyControllerBase
     /// <param name="data">적 설정 데이터</param>
     /// <param name="stage">스테이지</param>
     /// <param name="expType">EXP아이템을 결정해줄 타입</param>
-    public void Init(Transform target, SO_EnemyData data, int stage, int expType)
+    public void Init(Canvas canvas, Transform target, SO_EnemyData data, int stage, int expType)
     {
+        // 데미지 플로터 캔버스 설정
+        _damageFloaterCanvas = canvas;
+
         // 타겟 설정
         _target = target;
 
