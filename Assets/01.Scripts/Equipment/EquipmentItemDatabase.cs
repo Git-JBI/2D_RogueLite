@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class EquipmentItemDatabase : MonoBehaviour
@@ -9,14 +10,24 @@ public class EquipmentItemDatabase : MonoBehaviour
     /// </summary>
     private SO_RaritySprite _raritySprite;
     /// <summary>
+    /// 아이템 타입에 따른 스프라이트 데이터
+    /// </summary>
+    private SO_ItemTypeSpriteData _itemTypeSpriteData;
+    /// <summary>
     /// 장비 아이템 리스트
     /// </summary>
     private List<SO_EquipmentItemData> _equipmentItems;
 
     /// <summary>
-    /// 레어리티 스프라이트 딕셔너리
+    /// 사각형 레어리티 스프라이트 딕셔너리
     /// </summary>
-    private Dictionary<ItemRarity, Sprite> _raritySpriteMap = new();
+    private Dictionary<ItemRarity, Sprite> _squareRaritySpriteMap = new();
+    /// <summary>
+    /// 원형 레어리티 스프라이트 딕셔너리
+    /// </summary>
+    private Dictionary<ItemRarity, Sprite> _circleRaritySpriteMap = new();
+    private Dictionary<ItemRarity, Sprite> _diamondRaritySpriteMap = new();
+    private Dictionary<EquipmentType, Sprite> _itemTypeSpriteMap = new();
     /// <summary>
     /// 장비 아이템 딕셔너리
     /// </summary>
@@ -28,12 +39,25 @@ public class EquipmentItemDatabase : MonoBehaviour
     {
         // 레어리티 스프라이트 데이터 불러오기
         _raritySprite = Resources.Load<SO_RaritySprite>("GameDatas/RaritySpriteData/RaritySpriteData");
+        // 아이템 타입 스프라이트 데이터 불러오기
+        _itemTypeSpriteData = Resources.Load<SO_ItemTypeSpriteData>("GameDatas/ItemTypeSpriteData/ItemTypeSpriteData");
 
         // 레어리티 스프라이트 딕셔너리에 레어리티 스프라이트 데이터 추가
-        for(int i = 0; i < _raritySprite.Sprites.Length; i++)
+        for(int i = 0; i < _raritySprite.SquareSprites.Length; i++)
         {
             ItemRarity rarity = (ItemRarity)i;
-            _raritySpriteMap.Add(rarity, _raritySprite.Sprites[i]);
+
+            _squareRaritySpriteMap.Add(rarity, _raritySprite.SquareSprites[i]);
+            _circleRaritySpriteMap.Add(rarity, _raritySprite.CircleSprites[i]);
+            _diamondRaritySpriteMap.Add(rarity, _raritySprite.DiamondSprites[i]);
+        }
+
+        // 아이템 타입 스프라이트 딕셔너리에 데이터 추가
+        for(int i = 0; i < 6; i++)
+        {
+            EquipmentType type = (EquipmentType)i;
+
+            _itemTypeSpriteMap.Add(type, _itemTypeSpriteData.ItemTypeSprites[i]);
         }
 
         // 장비 아이템데이터 Resources.LoadAll로 전부 불러오기
@@ -63,12 +87,36 @@ public class EquipmentItemDatabase : MonoBehaviour
         return null;
     }
 
-    public Sprite GetRaritySprite(ItemRarity rarity)
+    public Sprite GetSquareRaritySprite(ItemRarity rarity)
     {
-        if (_raritySpriteMap.TryGetValue(rarity, out Sprite sprite))
+        if (_squareRaritySpriteMap.TryGetValue(rarity, out Sprite sprite))
             return sprite;
 
         Debug.LogWarning($"{rarity}의 스프라이트가 없습니다.");
+        return null;
+    }
+    public Sprite GetCircleRaritySprite(ItemRarity rarity)
+    {
+        if (_circleRaritySpriteMap.TryGetValue(rarity, out Sprite sprite))
+            return sprite;
+
+        Debug.LogWarning($"{rarity}의 스프라이트가 없습니다.");
+        return null;
+    }
+    public Sprite GetDiamondRaritySprite(ItemRarity rarity)
+    {
+        if (_diamondRaritySpriteMap.TryGetValue(rarity, out Sprite sprite))
+            return sprite;
+
+        Debug.LogWarning($"{rarity}의 스프라이트가 없습니다.");
+        return null;
+    }
+    public Sprite GetItemTypeSprite(EquipmentType type)
+    {
+        if (_itemTypeSpriteMap.TryGetValue(type, out Sprite sprite))
+            return sprite;
+
+        Debug.LogWarning($"{type}의 스프라이트가 없습니다.");
         return null;
     }
 
@@ -92,13 +140,17 @@ public class EquipmentItemDatabase : MonoBehaviour
         return itemData.ItemName;
     }
 
-    public Sprite GetEquipmentItemSprite(string itemId)
+    public Sprite GetEquipmentItemSprite(string itemId, ItemRarity rarity)
     {
         SO_EquipmentItemData itemData = GetEquipmentItemData(itemId);
 
         if (itemData == null)
             return null;
 
-        return itemData.IconSprite;
+        // Unique 등급 이상이라면
+        if ((int)rarity >= 3)
+            return itemData.IconSprites[1];
+        else
+            return itemData.IconSprites[0];
     }
 }

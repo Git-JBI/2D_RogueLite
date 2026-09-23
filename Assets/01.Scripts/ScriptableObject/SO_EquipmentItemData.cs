@@ -71,7 +71,7 @@ public class SO_EquipmentItemData : ScriptableObject
     [FormerlySerializedAs("ItemTier")]
     [SerializeField] private ItemTier _itemTier;
     [FormerlySerializedAs("IconSprite")]
-    [SerializeField] private Sprite _iconSprite;
+    [SerializeField] private Sprite[] _iconSprites;
     [FormerlySerializedAs("Desc")]
     [SerializeField] private string _desc;
     [FormerlySerializedAs("RaritySettings")]
@@ -82,7 +82,7 @@ public class SO_EquipmentItemData : ScriptableObject
     public EquipmentType EquipmentType => _equipmentType;
     public EquipmentStatType EquipmentStatType => _equipmentStatType;
     public ItemTier ItemTier => _itemTier;
-    public Sprite IconSprite => _iconSprite;
+    public Sprite[] IconSprites => _iconSprites;
     public string Desc => _desc;
     public IReadOnlyList<RarityStatInfo> RaritySettings => _raritySettings;
 }

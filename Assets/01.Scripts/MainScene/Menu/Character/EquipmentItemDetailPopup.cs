@@ -82,8 +82,8 @@ public class EquipmentItemDetailPopup : MonoBehaviour
         RarityStatInfo statInfo = _equipmentConfigData.RaritySettings[(int)_equipmentItemData.Rarity];
 
         EquipmentType type  = _equipmentItemData.EquipmentType;
-        Sprite itemSprite = _equipmentConfigData.IconSprite;
-        Sprite raritySprite = _dataBase.GetRaritySprite(_equipmentItemData.Rarity);
+        Sprite itemSprite = _dataBase.GetEquipmentItemSprite(_equipmentItemData.ItemID, _equipmentItemData.Rarity);
+        Sprite raritySprite = _dataBase.GetSquareRaritySprite(_equipmentItemData.Rarity);
         int upgradeValue = statInfo.BaseStat + (statInfo.StatPerLevel * _equipmentItemData.ItemLevel);
         string itemNameText = _dataBase.GetEquipmentItemName(itemId);
         string descText = _dataBase.GetEquipmentItemDesc(itemId);

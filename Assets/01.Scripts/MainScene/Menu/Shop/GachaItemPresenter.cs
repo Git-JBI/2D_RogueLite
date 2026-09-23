@@ -53,8 +53,8 @@ public class GachaItemPresenter : MonoBehaviour
 
         _viewers[0].gameObject.SetActive(true);
 
-        Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(id);
-        Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(rarity);
+        Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(id, rarity);
+        Sprite raritySprite = _equipmentItemDatabase.GetSquareRaritySprite(rarity);
 
         _viewers[0].SetItemSprite(itemSprite);
         _viewers[0].SetRaritySprite(raritySprite);
@@ -89,8 +89,8 @@ public class GachaItemPresenter : MonoBehaviour
         {
             _viewers[i].gameObject.SetActive(true);
 
-            Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(datas[i].ItemID);
-            Sprite raritySprite = _equipmentItemDatabase.GetRaritySprite(datas[i].Rarity);
+            Sprite itemSprite = _equipmentItemDatabase.GetEquipmentItemSprite(datas[i].ItemID, datas[i].Rarity);
+            Sprite raritySprite = _equipmentItemDatabase.GetSquareRaritySprite(datas[i].Rarity);
 
             _viewers[i].SetItemSprite(itemSprite);
             _viewers[i].SetRaritySprite(raritySprite);

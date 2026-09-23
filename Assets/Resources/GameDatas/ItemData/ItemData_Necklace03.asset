@@ -17,7 +17,9 @@ MonoBehaviour:
   _equipmentType: 1
   _equipmentStatType: 0
   _itemTier: 0
-  _iconSprite: {fileID: -3479614046317452222, guid: bfa7d0f7d4db0604a84d4f6d57e11bca, type: 3}
+  _iconSprites:
+  - {fileID: 21300000, guid: 005787a693ee8a94d9c8e67ab0e1bd96, type: 3}
+  - {fileID: 21300000, guid: 920eb1a49fd48ec4a871b698e6c8ce73, type: 3}
   _desc: "\uBAA9\uAC78\uC774 03 \uC124\uBA85"
   _raritySettings:
   - _rarity: 0

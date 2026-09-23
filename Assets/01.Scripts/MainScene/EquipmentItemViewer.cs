@@ -5,23 +5,42 @@ using UnityEngine.UI;
 public class EquipmentItemViewer : MonoBehaviour
 {
     [SerializeField] private Image _itemImage;
-    [SerializeField] private Image _rarityImage;
+    [SerializeField] private Image _squareRarityImage;
+    [SerializeField] private Image _circleRarityImage;
+    [SerializeField] private Image _itemTypeImage;
+    [SerializeField] private Image _diamondRarityImage;
     [SerializeField] private TextMeshProUGUI _rarityLevelText;
     [SerializeField] private TextMeshProUGUI _itemLevelText;
     [SerializeField] private TMP_Text _itemLevelShadowText;
 
-    public void Init(Sprite itemSprite, Sprite raritySprite, int level, int rarityLevel)
+    public void Init(Sprite itemSprite, Sprite itemTypeSprite, Sprite squareRaritySprite, Sprite circleRaritySprite, Sprite diamondRaritySprite, int level, int rarityLevel)
     {
         SetItemSprite(itemSprite);
-        SetRaritySprite(raritySprite);
+        SetItemTypeSprite(itemTypeSprite);
+        SetRaritySprite(squareRaritySprite, circleRaritySprite);
         SetItemLevelText(level.ToString());
-        SetRarityLevelText(rarityLevel);
+        SetRarityLevel(diamondRaritySprite, rarityLevel);
     }
-    public void SetRaritySprite(Sprite sprite)
+    private void SetRaritySprite(Sprite squareSprite, Sprite circleSprite)
     {
-        _rarityImage.sprite = sprite;
+        _squareRarityImage.sprite = squareSprite;
+        _circleRarityImage.sprite = circleSprite;
     }
-    public void SetItemSprite(Sprite sprite)
+    private void SetRarityLevel(Sprite diamondSprite, int rarityLevel)
+    {
+        bool isVisible = rarityLevel >= 1;
+
+        _diamondRarityImage.sprite = diamondSprite;
+        _rarityLevelText.text = isVisible ? rarityLevel.ToString() : "";
+
+        _diamondRarityImage.gameObject.SetActive(isVisible);
+        _rarityLevelText.gameObject.SetActive(isVisible);
+    }
+    private void SetItemTypeSprite(Sprite sprite)
+    {
+        _itemTypeImage.sprite = sprite;
+    }
+    private void SetItemSprite(Sprite sprite)
     {
         _itemImage.sprite = sprite;
     }
@@ -29,12 +48,5 @@ public class EquipmentItemViewer : MonoBehaviour
     {
         _itemLevelText.text = $"Lv.{itemLevel}";
         _itemLevelShadowText.text = $"Lv.{itemLevel}";
-    }
-    private void SetRarityLevelText(int rarityLevel)
-    {
-        if (rarityLevel == 0)
-            _rarityLevelText.text = "";
-        else
-            _rarityLevelText.text = rarityLevel.ToString();
     }
 }

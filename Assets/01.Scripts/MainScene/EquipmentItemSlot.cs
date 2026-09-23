@@ -30,7 +30,13 @@ public class EquipmentItemSlot : MonoBehaviour, IPointerClickHandler
 
         EquipmentItemDatabase database = GameManager.Instance.EquipmentItemDatabase;
 
-        _itemViewer.Init(database.GetEquipmentItemSprite(data.ItemID), database.GetRaritySprite(data.Rarity), data.ItemLevel, data.RarityLevel);
+        _itemViewer.Init(database.GetEquipmentItemSprite(data.ItemID, data.Rarity),
+            database.GetItemTypeSprite(data.EquipmentType),
+            database.GetSquareRaritySprite(data.Rarity),
+            database.GetCircleRaritySprite(data.Rarity),
+            database.GetDiamondRaritySprite(data.Rarity),
+            data.ItemLevel,
+            data.RarityLevel);
     }
 
     /// <summary>

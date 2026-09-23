@@ -68,7 +68,7 @@ public class EquipmentInventoryManager : MonoBehaviour
             string itemId = data.ItemID;
 
             SO_EquipmentItemData _itemConfigData = _itemBase.GetEquipmentItemData(itemId);
-            Sprite raritySprite = _itemBase.GetRaritySprite(data.Rarity);
+            Sprite raritySprite = _itemBase.GetSquareRaritySprite(data.Rarity);
 
             slot.Init(items[i]);
             slot.OnItemSlotClicked += OpenPopup;

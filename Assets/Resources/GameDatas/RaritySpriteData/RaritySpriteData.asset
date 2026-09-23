@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30f6c8c540fba14c8463dc8cba65749, type: 3}
   m_Name: RaritySpriteData
   m_EditorClassIdentifier: 
-  _sprites:
+  _squareSprites:
   - {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
   - {fileID: 21300000, guid: e6eea4f7cbb9f46f79c0fe06180fa5b3, type: 3}
   - {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
   - {fileID: 21300000, guid: 10d23572713d041c596abf5c00be11dc, type: 3}
   - {fileID: 21300000, guid: 84063999b9e1741d099c1d8f7bbc0f7a, type: 3}
   - {fileID: 21300000, guid: c7ade68a31f1d4e12a57617409b6ee8a, type: 3}
+  _circleSprites:
+  - {fileID: 21300000, guid: 42d1e10ce69c67c4b921bc225733c0a7, type: 3}
+  - {fileID: 21300000, guid: 04b95e804250ef84a82a3d21eee6f609, type: 3}
+  - {fileID: 21300000, guid: dda104aaf71d87b4db558d62685da6e4, type: 3}
+  - {fileID: 21300000, guid: d51e3d75afbf9ae408da6daa2d56b94d, type: 3}
+  - {fileID: 21300000, guid: fe63a4f1151340544889f1a078e71006, type: 3}
+  - {fileID: 21300000, guid: f7b19d1ada8c43045915502180b8927f, type: 3}
+  _diamondSprites:
+  - {fileID: 21300000, guid: 30df9ecb373fc164c9c9691289ba11ad, type: 3}
+  - {fileID: 21300000, guid: 8ae6fdbfabf8c6148a40355e31d07087, type: 3}
+  - {fileID: 21300000, guid: ea32ec8a207464148ab2844cf9e23886, type: 3}
+  - {fileID: 21300000, guid: 569c8feffc98f154d8179ec08f659ae7, type: 3}
+  - {fileID: 21300000, guid: 9ed4b490cbaf67948a8be27f26ee5b45, type: 3}
+  - {fileID: 21300000, guid: c88d75b7597df2b4c87f99bb5a543a10, type: 3}
