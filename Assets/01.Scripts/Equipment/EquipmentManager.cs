@@ -10,7 +10,10 @@ public class EquipmentManager : MonoBehaviour
     private GameModel _gameModel;
     private EquipmentModel _equipmentModel;
 
-    private SO_EquipmentUpgredeTable _upgradeTable;
+    /// <summary>
+    /// 장비업그레이드 테이블
+    /// </summary>
+    private SO_EquipmentItemLevelUpCostConfigData _levelupConfigData;
     private Dictionary<int, LevelUpCost> _upgradeTableMap = new();
 
     /// <summary>
@@ -72,9 +75,9 @@ public class EquipmentManager : MonoBehaviour
 
     private void Awake()
     {
-        _upgradeTable = Resources.Load<SO_EquipmentUpgredeTable>("GameDatas/EquipmentUpgradeData/EquipmentUpgradeData");
+        _levelupConfigData = Resources.Load<SO_EquipmentItemLevelUpCostConfigData>("GameDatas/EquipmentItemLevelUpCostConfigData/EquipmentItemLevelUpCostConfigData");
 
-        foreach(LevelUpCost level in _upgradeTable.CostList)
+        foreach(LevelUpCost level in _levelupConfigData.CostList)
         {
             _upgradeTableMap.Add(level.Level, level);
         }
@@ -157,9 +160,9 @@ public class EquipmentManager : MonoBehaviour
             ItemRarity.Common => 10,
             ItemRarity.UnCommon => 20,
             ItemRarity.Rare => 30,
-            ItemRarity.Unique => 40,
-            ItemRarity.Epic => 70,
-            ItemRarity.Legendary => 110,
+            ItemRarity.Unique => 50,
+            ItemRarity.Epic => 80,
+            ItemRarity.Legendary => 120,
             ItemRarity.Special => 200,
             _ => 10
         };

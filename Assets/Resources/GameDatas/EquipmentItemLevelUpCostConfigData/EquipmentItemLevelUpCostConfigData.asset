@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d91e301dbeb06e34aa4dbecd4d2f0d81, type: 3}
-  m_Name: EquipmentUpgradeData
+  m_Name: EquipmentItemLevelUpCostConfigData
   m_EditorClassIdentifier: 
   _costList:
   - Level: 1

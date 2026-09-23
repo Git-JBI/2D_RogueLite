@@ -750,7 +750,7 @@
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
             "_rarity": 4,
-            "_rarityLevel": 2,
+            "_rarityLevel": 3,
             "_itemLevel": 46
         },
         {
@@ -5046,7 +5046,7 @@
             "_itemID": "eq_Necklace_02",
             "_equipmentType": 1,
             "_rarity": 4,
-            "_rarityLevel": 0,
+            "_rarityLevel": 1,
             "_itemLevel": 1
         },
         {

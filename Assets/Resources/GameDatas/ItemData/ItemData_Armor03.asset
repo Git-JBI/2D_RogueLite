@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ItemData_Armor03
   m_EditorClassIdentifier: 
   _id: eq_Armor_03
-  _itemName: "\uAC11\uC637 03 \uC774\uB984"
+  _itemName: "\uAC00\uC8FD \uAC11\uC637"
   _equipmentType: 3
   _equipmentStatType: 1
   _itemTier: 0
   _iconSprites:
   - {fileID: 21300000, guid: 129141f5518c2a9448b9dae009937897, type: 3}
   - {fileID: 21300000, guid: aa74f3e73a6867246b7ced0cee2e8ab7, type: 3}
-  _desc: "\uAC11\uC637 03 \uC124\uBA85"
+  _desc: "\uAC00\uC8FD \uAC11\uC637 \uC124\uBA85"
   _raritySettings:
   - _rarity: 0
     _baseStat: 0

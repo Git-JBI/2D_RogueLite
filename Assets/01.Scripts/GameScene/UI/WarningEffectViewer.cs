@@ -3,32 +3,39 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Warning : MonoBehaviour
+public enum SpawnWarningType
+{
+    Wave,
+    Boss,
+}
+
+public class WarningEffectViewer : MonoBehaviour
 {
     [SerializeField] private Image _warningImage;
-    [SerializeField] private TextMeshProUGUI _warningText;
+    [SerializeField] private TMP_Text _warningText;
 
-    public void BeforeBurstSpawn()
+    public void ShowWarning(SpawnWarningType type)
     {
-        // 활성화
+        // 텍스트 설정
+        switch (type)
+        {
+            case SpawnWarningType.Wave:
+                _warningText.text = "적들이 몰려옵니다!";
+                break;
+
+            case SpawnWarningType.Boss:
+                _warningText.text = "보스가 등장합니다!";
+                break;
+
+            default:
+                Debug.LogWarning($"지원하지 않는 경고 타입: {type}");
+                return;
+        }
+
+        // 경고 오브젝트 활성화
         gameObject.SetActive(true);
 
-        // 텍스트 설정
-        _warningText.text = "적이 몰려옵니다!";
-
-        OpenPanel();
-
-        // 이미지 크기 애니메이션 실행
-        PlayWarningAnimation();
-    }
-    public void BeforeBossSpawn()
-    {
-        // 활성화
-        gameObject.SetActive(true);
-
-        // 텍스트 설정
-        _warningText.text = "보스가 등장합니다.";
-
+        // 패널 열기
         OpenPanel();
 
         // 이미지 크기 애니메이션 실행

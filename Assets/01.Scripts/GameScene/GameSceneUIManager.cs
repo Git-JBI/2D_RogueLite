@@ -11,22 +11,16 @@ public class GameSceneUIManager : MonoBehaviour
     [SerializeField] private Image _expBar;
 
     private GameFinishViewer _gameFinishUI;
-    private UI_Warning _warningUI;
+    private WarningEffectViewer _warningEffectViewer;
     private UpgradeViewer _upgradeViewer;
 
     public IUpgradeViewer IupgradeViewer => _upgradeViewer;
 
-    public event UnityAction BeforeWaveSpawn;
-    public event UnityAction BeforeBossSpawn;
-
     private void Awake()
     {
         _gameFinishUI = GetComponentInChildren<GameFinishViewer>(true);
-        _warningUI = GetComponentInChildren<UI_Warning>(true);
+        _warningEffectViewer = GetComponentInChildren<WarningEffectViewer>(true);
         _upgradeViewer = GetComponentInChildren<UpgradeViewer>(true);
-
-        BeforeWaveSpawn += _warningUI.BeforeBurstSpawn;
-        BeforeBossSpawn += _warningUI.BeforeBossSpawn;
     }
 
     /// <summary>
@@ -65,11 +59,11 @@ public class GameSceneUIManager : MonoBehaviour
 
     public void OnBeforeWaveSpawn()
     {
-        BeforeWaveSpawn?.Invoke();
+        _warningEffectViewer.ShowWarning(SpawnWarningType.Wave);
     }
     public void OnBeforeBossSpawn()
     {
-        BeforeBossSpawn?.Invoke();
+        _warningEffectViewer.ShowWarning(SpawnWarningType.Boss);
     }
     public void Fail()
     {

@@ -9,8 +9,8 @@ public class LevelUpCost
     public int ScrollCost;
 }
 
-[CreateAssetMenu(menuName = "GameDatas/EquipmentUpgradeData", fileName = "EquipmentUpgradeData")]
-public class SO_EquipmentUpgredeTable : ScriptableObject
+[CreateAssetMenu(menuName = "GameDatas/EquipmentItemLevelUpCostConfigData", fileName = "EquipmentItemLevelUpCostConfigData")]
+public class SO_EquipmentItemLevelUpCostConfigData : ScriptableObject
 {
     [SerializeField] private List<LevelUpCost> _costList;
 
