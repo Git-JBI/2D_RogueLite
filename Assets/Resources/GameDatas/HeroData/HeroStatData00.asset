@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e187fd2a55585545b8de31488a5fb8f, type: 3}
   m_Name: HeroStatData00
   m_EditorClassIdentifier: 
-  _heroName: 00
-  _heroSprite: {fileID: 978012912, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  _heroId: 
+  _heroName: Ninja
+  _heroSprite: {fileID: 61506194941554554, guid: a28d2f550c9861e429f1b851fee1716e, type: 3}
   _statData:
     _statType: 0
     _value: 0
-  _desc: "\uAE30\uBCF8 \uCE90\uB9AD\uD130\uC785\uB2C8\uB2E4."
+  _desc: "\uB2CC\uC790\uC785\uB2C8\uB2E4."

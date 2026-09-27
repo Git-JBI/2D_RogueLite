@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 73708864}
   - component: {fileID: 73708865}
   m_Layer: 0
-  m_Name: HeroShadow
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19707,7 +19707,7 @@ GameObject:
   - component: {fileID: 1458210370}
   - component: {fileID: 1458210369}
   m_Layer: 0
-  m_Name: HeroSprite
+  m_Name: HeroRenderer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19723,8 +19723,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1654112609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19763,7 +19763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 5bb340476f449634fb94dc84e5928ddc, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 77d4d957fbebaba4095517c66878fada, type: 3}
 --- !u!114 &1458210371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19777,9 +19777,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 0.009161512
-  m_labelHash: 1.3419644e-21
+  m_labelHash: 3.5232633e-28
   m_SpriteKey: 0
-  m_SpriteHash: 647854601
+  m_SpriteHash: 730390658
 --- !u!212 &1458210372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19823,13 +19823,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 978012912, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 61506194941554554, guid: a28d2f550c9861e429f1b851fee1716e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

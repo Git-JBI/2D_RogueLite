@@ -40,7 +40,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
 
     public void Init(GameSceneModel model ,IUpgradeViewer upgradeViewer)
     {
-        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero{GameManager.Instance.GameModel.HeroData.HeroName}");
+        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero_{GameManager.Instance.GameModel.HeroData.HeroName}");
 
         _spriteController.Init(libraryAsset);
         _weaponController.Init(_heromodel);

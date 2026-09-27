@@ -808,6 +808,7 @@ MonoBehaviour:
     Gold: 0
     Emerald: 0
     Energy: 0
+    EnergyRechargeRemainingTime: 0
     UpgradeLevel: 000000000000000000000000
     MaxStage: 0
     SelectStage: 0
