@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.U2D.Animation;
 
 public class HeroController : MonoBehaviour, IDamageable, IItem
 {
@@ -40,9 +39,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
 
     public void Init(GameSceneModel model ,IUpgradeViewer upgradeViewer)
     {
-        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero_{GameManager.Instance.GameModel.HeroData.HeroName}");
-
-        _spriteController.Init(libraryAsset);
+        _spriteController.Init();
         _weaponController.Init(_heromodel);
         _passiveController.Init(_heromodel);
         _upgradeController.Init(upgradeViewer, _weaponController, _passiveController);

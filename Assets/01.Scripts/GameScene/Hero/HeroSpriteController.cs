@@ -1,10 +1,9 @@
-﻿using UnityEngine.U2D.Animation;
+﻿using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class HeroSpriteController : SpriteControllerBase
 {
     private SpriteLibrary _spriteLibrary;
-
-    private SpriteLibraryAsset _heroSpriteLibraryAsset;
 
     protected override void Awake()
     {
@@ -13,12 +12,11 @@ public class HeroSpriteController : SpriteControllerBase
         _spriteLibrary = GetComponent<SpriteLibrary>();
     }
 
-    //TODO 여기서 불러오도록 설정
-    public void Init(SpriteLibraryAsset asset)
+    public void Init()
     {
-        _heroSpriteLibraryAsset = asset;
+        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero_{GameManager.Instance.GameModel.HeroData.HeroName}");
 
-        SetHeroSpriteLibraryAsset();
+        SetHeroSpriteLibraryAsset(libraryAsset);
     }
 
     public void MoveStart()
@@ -32,8 +30,8 @@ public class HeroSpriteController : SpriteControllerBase
         _animator.SetBool("IsMove", false);
     }
 
-    private void SetHeroSpriteLibraryAsset()
+    private void SetHeroSpriteLibraryAsset(SpriteLibraryAsset asset)
     {
-        _spriteLibrary.spriteLibraryAsset = _heroSpriteLibraryAsset;
+        _spriteLibrary.spriteLibraryAsset = asset;
     }
 }
