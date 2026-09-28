@@ -10,7 +10,7 @@ public class AwakeningPistol : AwakeningWeaponBase
     private float _bulletSpeed;
     private float _bounceCount;
 
-    public override void Init(HeroModel model)
+    public override void Init(InGameHeroModel model)
     {
         base.Init(model);
 

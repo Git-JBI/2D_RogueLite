@@ -1,10 +1,22 @@
 using UnityEngine;
 
 /// <summary>
-/// »ð
+/// Ç¥Ã¢
 /// </summary>
-public class WO_Shovel : PlayerWeaponObjectBase
+public class WO_ThrowingStar : PlayerWeaponObjectBase
 {
+    private float _rotSpeed;
+
+    public void Awake()
+    {
+        _rotSpeed = 7.5f;
+    }
+
+    public void Update()
+    {
+        transform.Rotate(0, 0, _rotSpeed);
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);

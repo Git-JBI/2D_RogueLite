@@ -11,13 +11,13 @@ public class AwakeningWeaponBase : MonoBehaviour
     [SerializeField] protected SO_AwakeningWeaponConfigData _weaponData;
 
     protected AwakeningWeaponType _weaponType;
-    protected HeroModel _heroModel;
+    protected InGameHeroModel _heroModel;
 
     protected float _damageMagnification;
 
     public AwakeningWeaponType WeaponType => _weaponType;
 
-    public virtual void Init(HeroModel model)
+    public virtual void Init(InGameHeroModel model)
     {
         _heroModel = model;
 

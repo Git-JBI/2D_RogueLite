@@ -1,21 +1,21 @@
 ﻿using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HeroSelectViewer : MonoBehaviour
 {
-    [SerializeField] private Image _heroImage;
+    [SerializeField] private Animator _heroAnimator;
     [SerializeField] private TextMeshProUGUI _heroDesc;
 
-    public void Init(Sprite sprite, string desc)
+    public void Init(AnimatorController animController, string desc)
     {
-        SetHeroImage(sprite);
+        SetHeroAnimController(animController);
         SetHereDescText(desc);
     }
 
-    public void SetHeroImage(Sprite heroSprite)
+    public void SetHeroAnimController(AnimatorController animController)
     {
-        _heroImage.sprite = heroSprite;
+        _heroAnimator.runtimeAnimatorController = animController;
     }
 
     public void SetHereDescText(string desc)

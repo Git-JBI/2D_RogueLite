@@ -76,16 +76,9 @@ public class WeaponPistol : WeaponControllerBase
         Gizmos.DrawWireSphere(transform.position, _detectRadius);
     }
 
-    protected override void CalculateStats()
-    {
-        base.CalculateStats();
-
-        _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
-        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
-    }
-
     protected override void CalculateOtherStats()
     {
-        throw new System.NotImplementedException();
+        _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
+        _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
     }
 }

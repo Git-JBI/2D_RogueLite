@@ -19763,7 +19763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 77d4d957fbebaba4095517c66878fada, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 70b84126338fe424cac07398be999e80, type: 3}
 --- !u!114 &1458210371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19824,7 +19824,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 61506194941554554, guid: a28d2f550c9861e429f1b851fee1716e, type: 3}
+  m_Sprite: {fileID: 4354231566380549168, guid: c68077f1d48ede445af0c11f7d38722c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19870,7 +19870,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 1.1111112}
+  m_Size: {x: 4, y: 5}
   m_Direction: 0
 --- !u!114 &1458210374
 MonoBehaviour:
@@ -23685,7 +23685,7 @@ GameObject:
   - component: {fileID: 2050316250}
   - component: {fileID: 2050316251}
   m_Layer: 0
-  m_Name: 00.Shovel
+  m_Name: 00.ThrowingStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23719,7 +23719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponData: {fileID: 11400000, guid: e4d3daaf25283a14791b82003834a329, type: 2}
-  _shovel: {fileID: -5337818559325585494, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
+  _throwingStar: {fileID: -5337818559325585494, guid: 71e9c6b3adc0f6d47b3d2c24935d3749, type: 3}
 --- !u!1 &2057066748
 GameObject:
   m_ObjectHideFlags: 0

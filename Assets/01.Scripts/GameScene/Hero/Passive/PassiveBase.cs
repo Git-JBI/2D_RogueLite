@@ -10,7 +10,7 @@ public enum PassiveType
 public abstract class PassiveBase : MonoBehaviour, IUpgradable
 {
     protected SO_PassiveData _passiveData;
-    protected HeroModel _model;
+    protected InGameHeroModel _model;
 
     protected int _level;
 
@@ -21,7 +21,7 @@ public abstract class PassiveBase : MonoBehaviour, IUpgradable
     public string Desc => _passiveData.Desces[_level];
     public bool IsPermanentAbility => true;
 
-    public void Init(HeroModel model)
+    public void Init(InGameHeroModel model)
     {
         _model = model;
     }

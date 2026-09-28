@@ -22,7 +22,7 @@ public class WO_ChasingBullet : PlayerWeaponObjectBase
         }
     }
 
-    public void Init(HeroModel model, float damage, float bulletSpeed, int bounceCount, Vector2 pos)
+    public void Init(InGameHeroModel model, float damage, float bulletSpeed, int bounceCount, Vector2 pos)
     {
         _damageMagnification = damage;
         _bulletSpeed = bulletSpeed;

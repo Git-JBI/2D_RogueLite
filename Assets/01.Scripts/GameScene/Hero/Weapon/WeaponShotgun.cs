@@ -76,18 +76,11 @@ public class WeaponShotgun : WeaponControllerBase
             _shootRoutine = StartCoroutine(ShootBullets());
     }
 
-    protected override void CalculateStats()
+    protected override void CalculateOtherStats()
     {
-        base.CalculateStats();
-
         _spreadAngle = _weaponData.GetStatValue(WeaponStatType.SpreadAngle, _level);
         _bulletCount = _weaponData.GetStatValue(WeaponStatType.BulletCount, _level);
         _bulletSpeed = _weaponData.GetStatValue(WeaponStatType.BulletSpeed, _level);
         _coolTime = _weaponData.GetStatValue(WeaponStatType.Cooltime, _level);
-    }
-
-    protected override void CalculateOtherStats()
-    {
-        throw new System.NotImplementedException();
     }
 }

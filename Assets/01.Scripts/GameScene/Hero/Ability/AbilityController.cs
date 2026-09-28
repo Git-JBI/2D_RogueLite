@@ -11,7 +11,7 @@ public class AbilityController : MonoBehaviour
         _abilityHeal = GetComponentInChildren<AbilityHeal>();
     }
 
-    public void Init(GameSceneModel gameSceneModel, HeroModel heroModel)
+    public void Init(GameSceneModel gameSceneModel, InGameHeroModel heroModel)
     {
         _abilityGold.Init(gameSceneModel);
         _abilityHeal.Init(heroModel);

@@ -5,7 +5,7 @@ public class Bullet_Pistol : PlayerWeaponObjectBase
     private float _bulletSpeed;
     private Vector2 _startPos;
 
-    public void Init(HeroModel model, float magnification, Vector2 pos, Vector2 dir, float bulletSpeed)
+    public void Init(InGameHeroModel model, float magnification, Vector2 pos, Vector2 dir, float bulletSpeed)
     {
         base.Init(model, magnification);
         transform.position = pos;

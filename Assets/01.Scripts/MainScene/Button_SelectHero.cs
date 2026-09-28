@@ -1,32 +1,33 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Button_SelectHero : ButtonPressScale
 {
-    private Image _buttonImage;
+    [SerializeField] private AnimatorController[] _controller;
+    private Button _heroButton;
+    private Animator _animator;
 
-    private HeroData _heroData;
-
-    public event UnityAction<Sprite> OnSpriteChange;
-    public event UnityAction<string> OnTextChange;
+    private SO_HeroConfigData _heroData;
 
     private void Awake()
     {
-        _buttonImage = GetComponent<Image>();
+        _heroButton = GetComponent<Button>();
+        _animator = GetComponent<Animator>();
     }
 
-    public void Init(HeroData heroData)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            _animator.runtimeAnimatorController = _controller[0];
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            _animator.runtimeAnimatorController = _controller[1];
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            _animator.runtimeAnimatorController = _controller[2];
+    }
+
+    public void Init(SO_HeroConfigData heroData)
     {
         _heroData = heroData;
-
-        _buttonImage.sprite = _heroData.HeroSprite;
-    }
-
-    private void ClickButton()
-    {
-        GameManager.Instance.GameModel.SelectHero(_heroData);
-        OnSpriteChange?.Invoke(_heroData.HeroSprite);
-        OnTextChange?.Invoke(_heroData.Desc);
     }
 }

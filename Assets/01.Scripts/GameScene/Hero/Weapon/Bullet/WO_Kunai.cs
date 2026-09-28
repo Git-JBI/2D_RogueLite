@@ -14,7 +14,7 @@ public class WO_Kunai : TrailWeaponObjectBase
             ReturnToPool();
     }
 
-    public void Init(HeroModel model, float magnification, Vector2 startPos, Vector2 dir, float pierceCount, float bulletSpeed)
+    public void Init(InGameHeroModel model, float magnification, Vector2 startPos, Vector2 dir, float pierceCount, float bulletSpeed)
     {
         base.Init(model, magnification);
         transform.position = startPos;

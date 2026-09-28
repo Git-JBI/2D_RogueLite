@@ -24,7 +24,7 @@ public class HeroWeaponController : MonoBehaviour
             _weapons[4].Upgrade();
     }
 
-    public void Init(HeroModel model)
+    public void Init(InGameHeroModel model)
     {
         // 일반 무기 초기화
         foreach (WeaponControllerBase weapon in _weapons)

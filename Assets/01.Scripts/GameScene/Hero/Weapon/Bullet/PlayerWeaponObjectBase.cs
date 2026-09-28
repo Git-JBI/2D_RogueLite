@@ -9,7 +9,7 @@ public class PlayerWeaponObjectBase : MonoBehaviour
 
     protected float _damageMagnification;
 
-    public void Init(HeroModel model, float magnification)
+    public void Init(InGameHeroModel model, float magnification)
     {
         _minionDamage =
             (model.Damage + model.MinionDamage) * (1f + model.DamageIncreasePercent * PercentToMultiplier) * (1f + model.MinionDamageIncreasePercent * PercentToMultiplier);

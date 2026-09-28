@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 1
   _weaponIcon: {fileID: 563336626, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  _damageMagnification:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   _statDatas:
   - _statType: 0
     _value:

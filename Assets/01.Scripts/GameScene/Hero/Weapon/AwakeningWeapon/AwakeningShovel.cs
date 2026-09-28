@@ -16,7 +16,7 @@ public class AwakeningShovel : AwakeningWeaponBase
         transform.Rotate(0, 0, _rotSpeed);
     }
 
-    public override void Init(HeroModel model)
+    public override void Init(InGameHeroModel model)
     {
         base.Init(model);
 

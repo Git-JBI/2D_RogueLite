@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StageBackgroundMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 8f719f20bf3c61648b7e32950b253904, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2c24f0f084074a36b70c59bdc4b73c80, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -18,25 +18,12 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
+  disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -54,37 +41,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CircleHardness: 0.271
-    - _CircleRadius: 0
-    - _DotSize: 1
-    - _DotTiling: 24
-    - _DotTransitionWidth: 0.819
-    - _EnableExternalAlpha: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ZWrite: 0
+    - _ColorMask: 15
+    - _DotColumns: 30
+    - _DotDiameter: 1
+    - _DotOpacity: 1
+    - _HeightOverWidth: 2
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     m_Colors:
-    - _BackgroundColor: {r: 1, g: 0.47999996, b: 0.03, a: 1}
-    - _BottomColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CircleCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _CircleColor: {r: 1, g: 0.8137255, b: 0, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DotColor: {r: 1, g: 0.6179619, b: 0.19999999, a: 1}
-    - _DotTiling: {r: 24, g: 48, b: 0, a: 0}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TopColor: {r: 1, g: 0, b: 0.5059128, a: 1}
+    - _BaseColor: {r: 1, g: 0.55, b: 0, a: 1}
+    - _BottomDotColor: {r: 1, g: 0.75418985, b: 0, a: 1}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _TopDotColor: {r: 1, g: 0.45881805, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6179996276839873779
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10

@@ -15,7 +15,7 @@ public class PassiveController : MonoBehaviour
         _upgradables = GetComponentsInChildren<IUpgradable>();
     }
 
-    public void Init(HeroModel model)
+    public void Init(InGameHeroModel model)
     {
         foreach (PassiveBase x in _passives)
         {

@@ -12,7 +12,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Library: []
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Idle_00
+      m_Hash: 299847735
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 158128056705396212, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Idle_01
+      m_Hash: 651714721
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1277252226963874588, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Idle_02
+      m_Hash: 1070674203
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6133074410022274475, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: Die
+    m_Hash: 20298039
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Die_00
+      m_Hash: 598643718
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5561475083889049877, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Die_01
+      m_Hash: 346662032
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 4108509156289638540, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Die_02
+      m_Hash: 228652330
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6684071512094140310, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Die_03
+      m_Hash: 984073660
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 7722456037240331651, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 4
+  - m_Name: Move
+    m_Hash: 252483654
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Move_00
+      m_Hash: 621218756
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -5346983845043457247, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Move_01
+      m_Hash: 302005074
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -4265451773785413538, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Move_02
+      m_Hash: 185166568
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6515202275966557367, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Move_03
+      m_Hash: 1007573630
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -5438643361759966133, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    - m_Name: Move_04
+      m_Hash: 577425373
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 3065738158663268790, guid: 5be33fbea65a95143be2aec73baaf97f, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: f37b50632776c4e4e8038c11ce537dbf
-  m_ModificationHash: 639261349377142773
+  m_ModificationHash: 639261835226092453
   m_Version: 1

@@ -13,7 +13,7 @@ public abstract class WeaponControllerBase : MonoBehaviour, IUpgradable
 {
     //TODO 추후 불러오는방법 변경 SerializeField X
     [SerializeField] protected SO_WeaponData _weaponData;
-    protected HeroModel _heroModel;
+    protected InGameHeroModel _heroModel;
 
     protected int _level;
     protected float _damageMagnification;
@@ -25,7 +25,7 @@ public abstract class WeaponControllerBase : MonoBehaviour, IUpgradable
     public string Desc => _weaponData.Descs[_level];
     public bool IsPermanentAbility => true;
 
-    public virtual void Init(HeroModel model)
+    public virtual void Init(InGameHeroModel model)
     {
         _level = 0;
         _heroModel = model;
@@ -58,7 +58,7 @@ public abstract class WeaponControllerBase : MonoBehaviour, IUpgradable
         gameObject.SetActive(false);
     }
 
-    protected virtual void CalculateStats()
+    protected void CalculateStats()
     {
         _damageMagnification = _weaponData.DamageMagnification[_level];
     

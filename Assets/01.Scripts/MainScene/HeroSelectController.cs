@@ -2,7 +2,7 @@
 
 public class HeroSelectController : MonoBehaviour
 {
-    [SerializeField] private HeroData[] _heroDatas;
+    [SerializeField] private SO_HeroConfigData[] _heroDatas;
     [SerializeField] private Button_SelectHero _heroButton;
 
     [SerializeField] private HeroSelectViewer _viewer;
@@ -13,12 +13,12 @@ public class HeroSelectController : MonoBehaviour
         {
             Button_SelectHero button = Instantiate(_heroButton, transform);
             button.Init(_heroDatas[i]);
-            button.OnSpriteChange += _viewer.SetHeroImage;
-            button.OnTextChange += _viewer.SetHereDescText;
+            // button.OnSpriteChange += _viewer.SetHeroImage;
+            // button.OnTextChange += _viewer.SetHereDescText;
         }
 
-        HeroData herodata = GameManager.Instance.GameModel.HeroData;
-
-        _viewer.Init(herodata.HeroSprite, herodata.Desc);
+        // SO_HeroConfigData herodata = GameManager.Instance.GameModel.HeroData;
+        // 
+        // _viewer.Init(herodata.HeroUIAnimController, herodata.Desc);
     }
 }

@@ -22,8 +22,8 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-09-27",
-    "LastWeeklyResetDate": "2026-09-21",
+    "LastDailyResetDate": "2026-09-28",
+    "LastWeeklyResetDate": "2026-09-28",
     "Achievements": [
         {
             "AchievementId": "Daily_EnterStage",
@@ -39,8 +39,8 @@
         },
         {
             "AchievementId": "Daily_KillCount",
-            "Progress": 0,
-            "IsCompleted": false,
+            "Progress": 100,
+            "IsCompleted": true,
             "IsRewardClaimed": false
         },
         {

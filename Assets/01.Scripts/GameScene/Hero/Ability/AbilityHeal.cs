@@ -3,7 +3,7 @@
 public class AbilityHeal : MonoBehaviour, IUpgradable
 {
     [SerializeField] private Sprite _healSprite;
-    private HeroModel _model;
+    private InGameHeroModel _model;
 
     public Sprite IconSprite => _healSprite;
     public int Level => 0;
@@ -11,7 +11,7 @@ public class AbilityHeal : MonoBehaviour, IUpgradable
     public string Desc => "체력을 25% 회복";
     public bool IsPermanentAbility => false;
 
-    public void Init(HeroModel model)
+    public void Init(InGameHeroModel model)
     {
         _model = model;
     }

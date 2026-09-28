@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponShovel : WeaponControllerBase
+public class WeaponThrowingStar : WeaponControllerBase
 {
     //TODO ResourceLoad로 변경
-    [SerializeField]private PlayerWeaponObjectBase _shovel;
+    [SerializeField]private PlayerWeaponObjectBase _throwingStar;
 
     /// <summary>
     /// 삽 갯수
@@ -31,7 +31,7 @@ public class WeaponShovel : WeaponControllerBase
     private float _coolingTimer;
     private bool _isCooling;
 
-    private List<PlayerWeaponObjectBase> _shovels = new();
+    private List<PlayerWeaponObjectBase> _throwingStars = new();
 
     private void Update()
     {
@@ -48,14 +48,14 @@ public class WeaponShovel : WeaponControllerBase
         // 지속시간 이상이 되었을 시
         if(_timer >= _duration)
         {
-            DisableShovels();
+            DisableStars();
             _isCooling = true;
             _timer = 0;
         }
         // 쿨타임이 끝났을 시
         if(_coolingTimer >= _coolTime)
         {
-            EnableShovels();
+            EnableStars();
             _isCooling = false;
             _coolingTimer = 0;
         }
@@ -66,7 +66,7 @@ public class WeaponShovel : WeaponControllerBase
             _coolingTimer += Time.deltaTime;
     }
 
-    public override void Init(HeroModel model)
+    public override void Init(InGameHeroModel model)
     {
         base.Init(model);
         _radius = 3;
@@ -87,27 +87,27 @@ public class WeaponShovel : WeaponControllerBase
     /// <summary>
     /// 삽 켜기
     /// </summary>
-    private void EnableShovels()
+    private void EnableStars()
     {
-        foreach(PlayerWeaponObjectBase x in _shovels)
+        foreach(PlayerWeaponObjectBase x in _throwingStars)
         {
             x.gameObject.SetActive(true);
         }
     }
 
     /// <summary>
-    /// 삽 끄기
+    /// 표창 끄기
     /// </summary>
-    private void DisableShovels()
+    private void DisableStars()
     {
-        foreach (PlayerWeaponObjectBase x in _shovels)
+        foreach (PlayerWeaponObjectBase x in _throwingStars)
         {
             x.gameObject.SetActive(false);
         }
     }
 
     /// <summary>
-    /// 삽 소환
+    /// 표창 소환
     /// </summary>
     private void SpawnBullets()
     {
@@ -115,19 +115,19 @@ public class WeaponShovel : WeaponControllerBase
 
         for(int i = 0; i < _bulletCount; i++)
         {
-            PlayerWeaponObjectBase shovel = Instantiate(_shovel);
+            PlayerWeaponObjectBase throwigStar = Instantiate(_throwingStar);
 
-            shovel.Init(_heroModel, _damageMagnification);
+            throwigStar.Init(_heroModel, _damageMagnification);
 
             Vector2 dir = new Vector2(Mathf.Cos(i * angle * Mathf.Deg2Rad), Mathf.Sin(i * angle * Mathf.Deg2Rad));
 
-            shovel.transform.up = dir;
+            throwigStar.transform.up = dir;
 
-            shovel.transform.SetParent(transform, false);
+            throwigStar.transform.SetParent(transform, false);
 
-            shovel.transform.localPosition = dir * _radius;
+            throwigStar.transform.localPosition = dir * _radius;
 
-            _shovels.Add(shovel);
+            _throwingStars.Add(throwigStar);
         }
     }
 
@@ -136,11 +136,11 @@ public class WeaponShovel : WeaponControllerBase
     /// </summary>
     private void RemoveBullets()
     {
-        foreach(PlayerWeaponObjectBase bullet in _shovels)
+        foreach(PlayerWeaponObjectBase bullet in _throwingStars)
         {
             Destroy(bullet.gameObject);
         }
-        _shovels.Clear();
+        _throwingStars.Clear();
     }
 
     #region abstract

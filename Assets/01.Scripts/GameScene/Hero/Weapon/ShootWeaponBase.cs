@@ -20,7 +20,7 @@ public abstract class ShootWeaponBase : WeaponControllerBase
 
     protected Coroutine _shootRoutine;
 
-    public override void Init(HeroModel model)
+    public override void Init(InGameHeroModel model)
     {
         base.Init(model);
 

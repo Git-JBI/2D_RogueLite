@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class HeroController : MonoBehaviour, IDamageable, IItem
 {
-    private HeroModel _heromodel;
+    private InGameHeroModel _heromodel;
     private HeroMovement _movement;
     private HeroSpriteController _spriteController;
     private HeroHud _heroHud;
@@ -27,7 +27,7 @@ public class HeroController : MonoBehaviour, IDamageable, IItem
     private void Awake()
     {
         _movement = GetComponent<HeroMovement>();
-        _heromodel = GetComponent<HeroModel>();
+        _heromodel = GetComponent<InGameHeroModel>();
         _upgradeController = GetComponent<UpgradeController>();
 
         _spriteController = GetComponentInChildren<HeroSpriteController>();

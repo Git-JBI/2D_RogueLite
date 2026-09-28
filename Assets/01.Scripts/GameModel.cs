@@ -13,18 +13,7 @@ public class GameModel : MonoBehaviour
     private AchievementModel _achievementModel;
     private UpgradeModel _upgradeModel;
     private EnergyModel _energyModel;
-
-    private HeroData _heroData;
-
-    public HeroData HeroData
-    {
-        get { return _heroData; }
-        set
-        {
-            _heroData = value;
-            _gameData.HeroDataName = value.HeroName;
-        }
-    }
+    private HeroModel _heroModel;
 
     public int Gold => _gameData.Gold;
     public int Emerald => _gameData.Emerald;
@@ -37,6 +26,7 @@ public class GameModel : MonoBehaviour
     public AchievementModel AchievementModel => _achievementModel;
     public UpgradeModel UpgradeModel => _upgradeModel;
     public EnergyModel EnergyModel => _energyModel;
+    public HeroModel HeroModel => _heroModel;
 
     public event UnityAction<int> OnGoldChanged;
     public event UnityAction<int> OnEmeraldChanged;
@@ -50,6 +40,7 @@ public class GameModel : MonoBehaviour
         _achievementModel = new AchievementModel(_gameData, this);
         _upgradeModel = new UpgradeModel(_gameData, this);
         _energyModel = new EnergyModel(_gameData, this);
+        _heroModel = new HeroModel(_gameData, this);
 
         InitModel();
     }
@@ -117,15 +108,6 @@ public class GameModel : MonoBehaviour
     public void SetSelectStage(int value)
     {
         _gameData.SelectStage = value;
-    }
-    /// <summary>
-    /// 영웅 선택
-    /// </summary>
-    /// <param name="value"></param>
-    public void SelectHero(HeroData value)
-    {
-        _heroData = value;
-        _gameData.HeroDataName = _heroData.HeroName;
     }
     /// <summary>
     /// 최대 스테이지 +1 증가 함수
@@ -196,13 +178,9 @@ public class GameModel : MonoBehaviour
     private void InitModel()
     {
         // 플레이어 캐릭터 설정이 안되어 있을 시
-        if (_gameData.HeroDataName == null)
+        if (_gameData.HeroId == null)
         {
-            _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData00");
-        }
-        else
-        {
-            _heroData = Resources.Load<HeroData>($"GameDatas/HeroData/HeroStatData{_gameData.HeroDataName}");
+            _gameData.HeroId = "00";
         }
         // 최대 스테이지 설정값이 없을 경우
         if(MaxStage == 0)

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class HeroModel : MonoBehaviour
+public class InGameHeroModel : MonoBehaviour
 {
     private UpgradeModel _upgradeModel;
     private SO_ExpConfigData _expConfigData;
@@ -114,18 +114,18 @@ public class HeroModel : MonoBehaviour
     /// </summary>
     private void SetHeroBonusData()
     {
-        switch(GameManager.Instance.GameModel.HeroData.StatData.StatType)
+        switch(GameManager.Instance.GameModel.HeroModel.GetHeroStatType())
         {
             case HeroStatType.None:
                 break;
             case HeroStatType.Damage:
-                _damage += GameManager.Instance.GameModel.HeroData.GetStatValue();
+                _damage += GameManager.Instance.GameModel.HeroModel.GetValue();
                 break;
             case HeroStatType.MoveSpeed:
-                _moveSpeed += GameManager.Instance.GameModel.HeroData.GetStatValue();
+                _moveSpeed += GameManager.Instance.GameModel.HeroModel.GetValue();
                 break;
             case HeroStatType.MaxHp:
-                _maxHp += GameManager.Instance.GameModel.HeroData.GetStatValue();
+                _maxHp += GameManager.Instance.GameModel.HeroModel.GetValue();
                 break;
         }
     }

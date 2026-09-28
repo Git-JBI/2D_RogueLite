@@ -3,7 +3,7 @@
 [System.Serializable]
 public class GameData
 {
-    public string HeroDataName;
+    public string HeroId;
     public int Gold;
     public int Emerald;
     public int Energy;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
-  m_Name: WeaponData_Shovel
+  m_Name: WeaponData_ThrowingStar
   m_EditorClassIdentifier: 
   _weaponType: 3
   _weaponIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
@@ -30,11 +30,11 @@ MonoBehaviour:
     - 5
   - _statType: 5
     _value:
-    - 1
-    - 1.5
     - 2
     - 2.5
     - 3
+    - 3.5
+    - 4
   - _statType: 2
     _value:
     - 1.2
