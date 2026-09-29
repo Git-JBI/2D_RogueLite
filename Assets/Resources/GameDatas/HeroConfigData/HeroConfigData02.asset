@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e187fd2a55585545b8de31488a5fb8f, type: 3}
-  m_Name: HeroStatData02
+  m_Name: HeroConfigData02
   m_EditorClassIdentifier: 
-  _heroName: 02
-  _heroSprite: {fileID: -1442216141, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
+  _heroId: 02
+  _heroName: 2
+  _heroUIAnimController: {fileID: 9100000, guid: a4f6d4305623740419be3e4a2e905fb9, type: 2}
   _statData:
-    _statType: 2
-    _value: 1
-  _desc: "\uC774\uB3D9 \uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    _statType: 1
+    _value: 5
+  _desc: "\uC2A4\uCF08\uB808\uD1A4\uC785\uB2C8\uB2E4.\\n\uB370\uBBF8\uC9C0\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4."

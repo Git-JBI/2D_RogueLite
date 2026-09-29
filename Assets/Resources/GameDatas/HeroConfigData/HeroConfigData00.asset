@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e187fd2a55585545b8de31488a5fb8f, type: 3}
-  m_Name: HeroStatData00
+  m_Name: HeroConfigData00
   m_EditorClassIdentifier: 
-  _heroId: 
-  _heroName: Ninja
-  _heroSprite: {fileID: 61506194941554554, guid: a28d2f550c9861e429f1b851fee1716e, type: 3}
+  _heroId: 00
+  _heroName: 0
+  _heroUIAnimController: {fileID: 9100000, guid: 5942cc8736ed70242b9289f699282660, type: 2}
   _statData:
-    _statType: 0
-    _value: 0
-  _desc: "\uB2CC\uC790\uC785\uB2C8\uB2E4."
+    _statType: 2
+    _value: 2
+  _desc: "\uB2CC\uC790\uC785\uB2C8\uB2E4.\\n\uC774\uB3D9 \uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."

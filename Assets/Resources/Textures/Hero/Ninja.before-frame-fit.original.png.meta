@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 733fdf45fd56e2c4083e38941b37d27e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4463673582840578193
+    second: Ninja.before-frame-fit.original_0
+  - first:
+      213: 4013226148178702621
+    second: Ninja.before-frame-fit.original_1
+  - first:
+      213: 5352607503162444306
+    second: Ninja.before-frame-fit.original_2
+  - first:
+      213: 3279237970441553642
+    second: Ninja.before-frame-fit.original_3
+  - first:
+      213: 5980236945468845466
+    second: Ninja.before-frame-fit.original_4
+  - first:
+      213: 4140052922897675072
+    second: Ninja.before-frame-fit.original_5
+  - first:
+      213: -8867589526991219925
+    second: Ninja.before-frame-fit.original_6
+  - first:
+      213: 3251051181264885557
+    second: Ninja.before-frame-fit.original_7
+  - first:
+      213: 5593557979650517217
+    second: Ninja.before-frame-fit.original_8
+  - first:
+      213: 1665636483620685107
+    second: Ninja.before-frame-fit.original_9
+  - first:
+      213: 6338220131533067869
+    second: Ninja.before-frame-fit.original_10
+  - first:
+      213: -6422289871978218204
+    second: Ninja.before-frame-fit.original_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 257
+        width: 91
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ffd75a688dd02c0800000000000000
+      internalID: -4463673582840578193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 257
+        width: 91
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1130853be7d1b730800000000000000
+      internalID: 4013226148178702621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 128
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a86103a28484a40800000000000000
+      internalID: 5352607503162444306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_3
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 248
+        width: 92
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6442a5f81328d20800000000000000
+      internalID: 3279237970441553642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_4
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 231
+        width: 117
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d665731d11ef250800000000000000
+      internalID: 5980236945468845466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_5
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 129
+        width: 112
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04332acc23c647930800000000000000
+      internalID: 4140052922897675072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 127
+        width: 110
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23d6b5ce4effe480800000000000000
+      internalID: -8867589526991219925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_7
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 129
+        width: 92
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53758e513dd0e1d20800000000000000
+      internalID: 3251051181264885557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 11
+        width: 87
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8ee97b85f40ad40800000000000000
+      internalID: 5593557979650517217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 12
+        width: 85
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33544239e878d1710800000000000000
+      internalID: 1665636483620685107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_10
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 12
+        width: 102
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d561248d0a1e5f750800000000000000
+      internalID: 6338220131533067869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ninja.before-frame-fit.original_11
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 11
+        width: 116
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d362063617fd6a0800000000000000
+      internalID: -6422289871978218204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ninja.before-frame-fit.original_0: -4463673582840578193
+      Ninja.before-frame-fit.original_1: 4013226148178702621
+      Ninja.before-frame-fit.original_10: 6338220131533067869
+      Ninja.before-frame-fit.original_11: -6422289871978218204
+      Ninja.before-frame-fit.original_2: 5352607503162444306
+      Ninja.before-frame-fit.original_3: 3279237970441553642
+      Ninja.before-frame-fit.original_4: 5980236945468845466
+      Ninja.before-frame-fit.original_5: 4140052922897675072
+      Ninja.before-frame-fit.original_6: -8867589526991219925
+      Ninja.before-frame-fit.original_7: 3251051181264885557
+      Ninja.before-frame-fit.original_8: 5593557979650517217
+      Ninja.before-frame-fit.original_9: 1665636483620685107
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

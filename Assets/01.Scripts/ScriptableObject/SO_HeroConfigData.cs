@@ -3,6 +3,7 @@ using UnityEngine;
 
 public enum HeroName
 {
+    None,
     Ninja,
     HolyKnight,
     Skeleton,

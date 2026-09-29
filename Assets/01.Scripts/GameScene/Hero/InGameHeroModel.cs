@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class InGameHeroModel : MonoBehaviour
 {
     private UpgradeModel _upgradeModel;
+    private HeroModel _heroModel;
     private SO_ExpConfigData _expConfigData;
 
     private int _level;
@@ -91,6 +92,7 @@ public class InGameHeroModel : MonoBehaviour
     private void Awake()
     {
         _upgradeModel = GameManager.Instance.GameModel.UpgradeModel;
+        _heroModel = GameManager.Instance.GameModel.HeroModel;
         _expConfigData = GameManager.Instance.ResourceManager.GetScriptable("GameDatas/HeroConfigData/ExpConfigData/ExpConfigData") as SO_ExpConfigData;
 
         // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화 >>>>> 필요없는 변수들이 있는 것 같음 기본값을 GameModel에서 설정 후 기본 값 설정 후 인게임 업그레이드 데이터를 적용하는 방식
@@ -114,18 +116,18 @@ public class InGameHeroModel : MonoBehaviour
     /// </summary>
     private void SetHeroBonusData()
     {
-        switch(GameManager.Instance.GameModel.HeroModel.GetHeroStatType())
+        switch(_heroModel.GetHeroStatType())
         {
             case HeroStatType.None:
                 break;
             case HeroStatType.Damage:
-                _damage += GameManager.Instance.GameModel.HeroModel.GetValue();
+                _damage += _heroModel.GetValue();
                 break;
             case HeroStatType.MoveSpeed:
-                _moveSpeed += GameManager.Instance.GameModel.HeroModel.GetValue();
+                _moveSpeed += _heroModel.GetValue();
                 break;
             case HeroStatType.MaxHp:
-                _maxHp += GameManager.Instance.GameModel.HeroModel.GetValue();
+                _maxHp += _heroModel.GetValue();
                 break;
         }
     }
@@ -152,8 +154,6 @@ public class InGameHeroModel : MonoBehaviour
 
         // _curHp는 0미만이 될 수 없음
         _curHp = Mathf.Max(_curHp - damage, 0);
-
-        Debug.Log($"Hp : {_curHp}");
     }
 
     /// <summary>

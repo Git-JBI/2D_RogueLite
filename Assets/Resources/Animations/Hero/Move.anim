@@ -68,7 +68,34 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.33333334
-        value: 9.077272e-34
+        value: 2.4759146e-29
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.4
+        value: 1.6633418e-18
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.46666667
+        value: 0.000120235585
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.53333336
+        value: 2.4759146e-29
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -106,7 +133,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.53333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -173,7 +200,34 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.33333334
-        value: 9.077272e-34
+        value: 2.4759146e-29
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.4
+        value: 1.6633418e-18
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.46666667
+        value: 0.000120235585
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.53333336
+        value: 2.4759146e-29
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
