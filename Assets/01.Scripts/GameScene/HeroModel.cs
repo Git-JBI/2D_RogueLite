@@ -30,10 +30,17 @@ public class HeroModel
         _gameData.HeroId = heroId;
         _gameModel.SaveGameData();
     }
-
-    public HeroName GetHeroName()
+    public int GetHeroCount()
     {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+        return _heroConfigDatas.Length;
+    }
+    public string GetHeroId()
+    {
+        return _gameData.HeroId;
+    }
+    public HeroName GetHeroName(string heroId)
+    {
+        if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
             return data.HeroName;
 
         return HeroName.None;
@@ -49,6 +56,13 @@ public class HeroModel
     {
         if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
             return data.HeroUIAnimController;
+
+        return null;
+    }
+    public Sprite GetHeroPortraitSprite(string heroId)
+    {
+        if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
+            return data.HeroPortraitSprite;
 
         return null;
     }

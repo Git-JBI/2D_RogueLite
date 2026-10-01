@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: HeroConfigData01
   m_EditorClassIdentifier: 
   _heroId: 01
-  _heroName: 1
+  _heroName: 2
   _heroUIAnimController: {fileID: 9100000, guid: adb094f9c53c7ac41b04d2bd247537b4, type: 2}
+  _heroPortraitSprite: {fileID: 21300000, guid: 3ca5f30f92571894c90f8e6893651636, type: 3}
   _statData:
     _statType: 3
     _value: 100

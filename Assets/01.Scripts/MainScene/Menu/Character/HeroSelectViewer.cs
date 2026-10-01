@@ -19,7 +19,7 @@ public class HeroSelectViewer : MonoBehaviour
             OnButtonClicked?.Invoke();
             _heroDetailGameObject.SetActive(true);
             _heroDetailGameObject.transform.localScale = Vector3.zero;
-            _heroDetailGameObject.transform.DOScale(Vector3.one, 0.2f);
+            _heroDetailGameObject.transform.DOScale(Vector3.one, 0.1f);
         });
     }
 

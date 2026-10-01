@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 54d4f74c973c79a4aa33ce8bcceed868
+guid: f9cc7b8014f3da449b84f72d7047a69a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7770092450675000858
-    second: Skeleton.before-body-match.original_0
+      213: 4866624008279785904
+    second: HolyKnight.before-ninja-move.original_0
   - first:
-      213: 7153221226233746941
-    second: Skeleton.before-body-match.original_1
+      213: 5223111688397363347
+    second: HolyKnight.before-ninja-move.original_1
   - first:
-      213: 4657478077800610929
-    second: Skeleton.before-body-match.original_2
+      213: -1231456042320077496
+    second: HolyKnight.before-ninja-move.original_2
   - first:
-      213: 9058970843430664972
-    second: Skeleton.before-body-match.original_3
+      213: -8945828947619374423
+    second: HolyKnight.before-ninja-move.original_3
   - first:
-      213: 1806909842551493850
-    second: Skeleton.before-body-match.original_4
+      213: 8686436189810630772
+    second: HolyKnight.before-ninja-move.original_4
   - first:
-      213: -639061259735954199
-    second: Skeleton.before-body-match.original_5
+      213: -1689222581494771577
+    second: HolyKnight.before-ninja-move.original_5
   - first:
-      213: -7269577911363748991
-    second: Skeleton.before-body-match.original_6
+      213: 7774517955957053080
+    second: HolyKnight.before-ninja-move.original_6
   - first:
-      213: -2850668482547701363
-    second: Skeleton.before-body-match.original_7
+      213: 2037893427710313117
+    second: HolyKnight.before-ninja-move.original_7
   - first:
-      213: -6901480890776112818
-    second: Skeleton.before-body-match.original_8
+      213: 548167537479221224
+    second: HolyKnight.before-ninja-move.original_8
   - first:
-      213: 1617542905287028204
-    second: Skeleton.before-body-match.original_9
+      213: -4675546824513432354
+    second: HolyKnight.before-ninja-move.original_9
   - first:
-      213: 8055098821611955657
-    second: Skeleton.before-body-match.original_10
+      213: 7162398533587091391
+    second: HolyKnight.before-ninja-move.original_10
   - first:
-      213: 7316246556078358335
-    second: Skeleton.before-body-match.original_11
+      213: 5798648678566479964
+    second: HolyKnight.before-ninja-move.original_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -146,11 +146,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_0
+      name: HolyKnight.before-ninja-move.original_0
       rect:
         serializedVersion: 2
         x: 24
-        y: 257
+        y: 258
         width: 80
         height: 108
       alignment: 0
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e9729575161b2490800000000000000
-      internalID: -7770092450675000858
+      spriteID: 0b187e440c8b98340800000000000000
+      internalID: 4866624008279785904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_1
+      name: HolyKnight.before-ninja-move.original_1
       rect:
         serializedVersion: 2
-        x: 152
-        y: 257
-        width: 80
-        height: 108
+        x: 153
+        y: 258
+        width: 79
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df5527d4ec8554360800000000000000
-      internalID: 7153221226233746941
+      spriteID: 3989d1948683c7840800000000000000
+      internalID: 5223111688397363347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_2
+      name: HolyKnight.before-ninja-move.original_2
       rect:
         serializedVersion: 2
         x: 280
-        y: 257
+        y: 258
         width: 80
-        height: 108
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,129 +205,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 17c7978a2afa2a040800000000000000
-      internalID: 4657478077800610929
+      spriteID: 84dd009014df8eee0800000000000000
+      internalID: -1231456042320077496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_3
+      name: HolyKnight.before-ninja-move.original_3
       rect:
         serializedVersion: 2
-        x: 411
-        y: 259
-        width: 74
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0b3e415cfde7bd70800000000000000
-      internalID: 9058970843430664972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton.before-body-match.original_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 131
-        width: 65
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad4507aadee631910800000000000000
-      internalID: 1806909842551493850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton.before-body-match.original_5
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 131
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ec89bf8b299127f0800000000000000
-      internalID: -639061259735954199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton.before-body-match.original_6
-      rect:
-        serializedVersion: 2
-        x: 285
-        y: 131
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18b332ec7654d1b90800000000000000
-      internalID: -7269577911363748991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton.before-body-match.original_7
-      rect:
-        serializedVersion: 2
-        x: 413
-        y: 131
-        width: 70
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d89a75d5e146078d0800000000000000
-      internalID: -2850668482547701363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton.before-body-match.original_8
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 12
-        width: 94
+        x: 406
+        y: 258
+        width: 84
         height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -337,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e41b42902b30930a0800000000000000
-      internalID: -6901480890776112818
+      spriteID: 9aa9dbb18f70ad380800000000000000
+      internalID: -8945828947619374423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_9
+      name: HolyKnight.before-ninja-move.original_4
       rect:
         serializedVersion: 2
-        x: 142
-        y: 12
-        width: 100
-        height: 97
+        x: 24
+        y: 130
+        width: 81
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ced2696c3baa27610800000000000000
-      internalID: 1617542905287028204
+      spriteID: 470a2c121bb6c8870800000000000000
+      internalID: 8686436189810630772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_10
+      name: HolyKnight.before-ninja-move.original_5
       rect:
         serializedVersion: 2
-        x: 261
-        y: 12
-        width: 118
-        height: 84
+        x: 152
+        y: 130
+        width: 80
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c529d453b579cf60800000000000000
-      internalID: 8055098821611955657
+      spriteID: 7809f63130dae88e0800000000000000
+      internalID: -1689222581494771577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton.before-body-match.original_11
+      name: HolyKnight.before-ninja-move.original_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 12
-        width: 128
-        height: 58
+        x: 281
+        y: 130
+        width: 79
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,8 +293,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3fb938ca77888560800000000000000
-      internalID: 7316246556078358335
+      spriteID: 89657b8c3e2a4eb60800000000000000
+      internalID: 7774517955957053080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyKnight.before-ninja-move.original_7
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 130
+        width: 79
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92c6c8764d084c10800000000000000
+      internalID: 2037893427710313117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyKnight.before-ninja-move.original_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 12
+        width: 93
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef79d4987b7b9700800000000000000
+      internalID: 548167537479221224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyKnight.before-ninja-move.original_9
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 12
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4db2a6fee1d1fb0800000000000000
+      internalID: -4675546824513432354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyKnight.before-ninja-move.original_10
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 12
+        width: 106
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbfbc3ea483f56360800000000000000
+      internalID: 7162398533587091391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyKnight.before-ninja-move.original_11
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 12
+        width: 116
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c584e372040f87050800000000000000
+      internalID: 5798648678566479964
       vertices: []
       indices: 
       edges: []
@@ -423,18 +423,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skeleton.before-body-match.original_0: -7770092450675000858
-      Skeleton.before-body-match.original_1: 7153221226233746941
-      Skeleton.before-body-match.original_10: 8055098821611955657
-      Skeleton.before-body-match.original_11: 7316246556078358335
-      Skeleton.before-body-match.original_2: 4657478077800610929
-      Skeleton.before-body-match.original_3: 9058970843430664972
-      Skeleton.before-body-match.original_4: 1806909842551493850
-      Skeleton.before-body-match.original_5: -639061259735954199
-      Skeleton.before-body-match.original_6: -7269577911363748991
-      Skeleton.before-body-match.original_7: -2850668482547701363
-      Skeleton.before-body-match.original_8: -6901480890776112818
-      Skeleton.before-body-match.original_9: 1617542905287028204
+      HolyKnight.before-ninja-move.original_0: 4866624008279785904
+      HolyKnight.before-ninja-move.original_1: 5223111688397363347
+      HolyKnight.before-ninja-move.original_10: 7162398533587091391
+      HolyKnight.before-ninja-move.original_11: 5798648678566479964
+      HolyKnight.before-ninja-move.original_2: -1231456042320077496
+      HolyKnight.before-ninja-move.original_3: -8945828947619374423
+      HolyKnight.before-ninja-move.original_4: 8686436189810630772
+      HolyKnight.before-ninja-move.original_5: -1689222581494771577
+      HolyKnight.before-ninja-move.original_6: 7774517955957053080
+      HolyKnight.before-ninja-move.original_7: 2037893427710313117
+      HolyKnight.before-ninja-move.original_8: 548167537479221224
+      HolyKnight.before-ninja-move.original_9: -4675546824513432354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
