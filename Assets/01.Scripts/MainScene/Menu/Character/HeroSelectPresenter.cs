@@ -11,7 +11,10 @@ public class HeroSelectPresenter : MonoBehaviour
     {
         _heroModel = GameManager.Instance.GameModel.HeroModel;
 
-        _viewer.SetAnimController(_heroModel.GetHeroUIAnimController());
+        if (!_heroModel.TryGetHeroConfigData(_heroModel.GetHeroId(), out SO_HeroConfigData data))
+            return;
+
+        _viewer.SetAnimController(data.HeroUIAnimController);
 
         _heroDetailPresenter.OnDetailClosed += _viewer.SetAnimController;
     }

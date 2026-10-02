@@ -16,7 +16,10 @@ public class HeroSpriteController : SpriteControllerBase
     {
         HeroModel heroModel = GameManager.Instance.GameModel.HeroModel;
 
-        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero_{heroModel.GetHeroNameToString()}");
+        if (!heroModel.TryGetHeroConfigData(heroModel.GetHeroId(), out SO_HeroConfigData data))
+            return;
+
+        SpriteLibraryAsset libraryAsset = Resources.Load<SpriteLibraryAsset>($"SpriteLibrary/Hero/Hero_{data.HeroName.ToString()}");
 
         SetHeroSpriteLibraryAsset(libraryAsset);
     }

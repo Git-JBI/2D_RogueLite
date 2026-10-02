@@ -116,18 +116,21 @@ public class InGameHeroModel : MonoBehaviour
     /// </summary>
     private void SetHeroBonusData()
     {
-        switch(_heroModel.GetHeroStatType())
+        if (!_heroModel.TryGetHeroConfigData(_heroModel.GetHeroId(), out SO_HeroConfigData data))
+            return;
+
+        switch(data.GetHeroStatType())
         {
             case HeroStatType.None:
                 break;
             case HeroStatType.Damage:
-                _damage += _heroModel.GetValue();
+                _damage += data.GetStatValue();
                 break;
             case HeroStatType.MoveSpeed:
-                _moveSpeed += _heroModel.GetValue();
+                _moveSpeed += data.GetStatValue();
                 break;
             case HeroStatType.MaxHp:
-                _maxHp += _heroModel.GetValue();
+                _maxHp += data.GetStatValue();
                 break;
         }
     }

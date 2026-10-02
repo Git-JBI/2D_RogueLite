@@ -33,7 +33,10 @@ public class HeroDetailPresenter : MonoBehaviour
 
             HeroSlotPresenter slot = Instantiate(_slot, _slotTransform);
 
-            slot.Init(slotHeroId, isSelected, _heroModel.GetHeroPortraitSprite(slotHeroId));
+            if (!_heroModel.TryGetHeroConfigData(slotHeroId, out SO_HeroConfigData data))
+                return;
+
+            slot.Init(slotHeroId, isSelected, data.HeroPortraitSprite);
             slot.OnSlotClicked += HandleSlotClicked;
             _slots.Add(slot);
 
@@ -47,14 +50,17 @@ public class HeroDetailPresenter : MonoBehaviour
 
     private void Init()
     {
+        if (!_heroModel.TryGetHeroConfigData(_heroModel.GetHeroId(), out SO_HeroConfigData data))
+            return;
+
         // HeroUIAnimController 설정
-        _viewer.SetAnimController(_heroModel.GetHeroUIAnimController());
+        _viewer.SetAnimController(data.HeroUIAnimController);
 
         // HeroName 설정
-        _viewer.SetHeroNameText(_heroModel.GetHeroNameToString());
+        _viewer.SetHeroNameText(data.HeroName.ToString());
 
         // HeroDesc 설정
-        _viewer.SetHeroDescText(_heroModel.GetDesc());
+        _viewer.SetHeroDescText(data.Desc);
     }
     private void HandleSlotClicked(string heroId)
     {
@@ -102,6 +108,9 @@ public class HeroDetailPresenter : MonoBehaviour
     }
     private void CloseDetailPanel()
     {
-        OnDetailClosed?.Invoke(_heroModel.GetHeroUIAnimController());
+        if (!_heroModel.TryGetHeroConfigData(_model.SelectedSlotId, out SO_HeroConfigData data))
+            return;
+
+        OnDetailClosed?.Invoke(data.HeroUIAnimController);
     }
 }

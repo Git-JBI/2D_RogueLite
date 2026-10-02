@@ -43,53 +43,53 @@ public class HeroModel
         return _heroConfigDataMap.TryGetValue(heroId, out data);
     }
 
-    public HeroName GetHeroName(string heroId)
-    {
-        if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
-            return data.HeroName;
-
-        return HeroName.None;
-    }
-    public string GetHeroNameToString()
-    {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
-            return data.HeroName.ToString();
-
-        return "";
-    }
-    public AnimatorController GetHeroUIAnimController()
-    {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
-            return data.HeroUIAnimController;
-
-        return null;
-    }
-    public Sprite GetHeroPortraitSprite(string heroId)
-    {
-        if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
-            return data.HeroPortraitSprite;
-
-        return null;
-    }
-    public HeroStatType GetHeroStatType()
-    {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
-            return data.GetHeroStatType();
-
-        return HeroStatType.None;
-    }
-    public float GetValue()
-    {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
-            return data.GetStatValue();
-
-        return 0;
-    }
-    public string GetDesc()
-    {
-        if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
-            return data.Desc;
-
-        return "";
-    }
+    // public HeroName GetHeroName(string heroId)
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
+    //         return data.HeroName;
+    // 
+    //     return HeroName.None;
+    // }
+    // public string GetHeroNameToString()
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+    //         return data.HeroName.ToString();
+    // 
+    //     return "";
+    // }
+    // public AnimatorController GetHeroUIAnimController()
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+    //         return data.HeroUIAnimController;
+    // 
+    //     return null;
+    // }
+    // public Sprite GetHeroPortraitSprite(string heroId)
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))
+    //         return data.HeroPortraitSprite;
+    // 
+    //     return null;
+    // }
+    // public HeroStatType GetHeroStatType()
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+    //         return data.GetHeroStatType();
+    // 
+    //     return HeroStatType.None;
+    // }
+    // public float GetValue()
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+    //         return data.GetStatValue();
+    // 
+    //     return 0;
+    // }
+    // public string GetDesc()
+    // {
+    //     if (_heroConfigDataMap.TryGetValue(_gameData.HeroId, out SO_HeroConfigData data))
+    //         return data.Desc;
+    // 
+    //     return "";
+    // }
 }
