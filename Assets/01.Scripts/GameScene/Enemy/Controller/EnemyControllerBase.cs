@@ -3,6 +3,8 @@
 [System.Serializable]
 public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 {
+    private AppConfigModel _appConfigModel;
+
     protected Canvas _damageFloaterCanvas;
 
     protected Transform _target;
@@ -21,6 +23,8 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
 
     protected virtual void Awake()
     {
+        _appConfigModel = GameManager.Instance.GameModel.AppConfigModel;
+
         _spriteController = GetComponentInChildren<EnemySpriteController>();
         _rigidbody = GetComponentInChildren<Rigidbody2D>();
         _collider = GetComponentInChildren<Collider2D>();
@@ -160,15 +164,19 @@ public abstract class EnemyControllerBase : MonoBehaviour, IDamageable
     #region Interface
     public void TakeDamage(float damage, bool isCritical)
     {
-        GameObject floater = GameManager.Instance.PoolManager.GetFromPool("Prefabs/DamageFloater/DamageFloater", _damageFloaterCanvas.transform);
-        DamageFloater damageFloater = floater.GetComponent<DamageFloater>();
+        if(_appConfigModel.GetDamageFloaterEnable())
+        {
+            GameObject floater = GameManager.Instance.PoolManager.GetFromPool("Prefabs/DamageFloater/DamageFloater", _damageFloaterCanvas.transform);
 
-        damageFloater.transform.position = new Vector3(
-            _collider.bounds.min.x - 0.1f,
-            _collider.bounds.max.y + 0.2f,
-            transform.position.z);
+            DamageFloater damageFloater = floater.GetComponent<DamageFloater>();
 
-        damageFloater.InitDamageFloater((int)damage, isCritical);
+            damageFloater.transform.position = new Vector3(
+                _collider.bounds.min.x - 0.1f,
+                _collider.bounds.max.y + 0.2f,
+                transform.position.z);
+
+            damageFloater.InitDamageFloater((int)damage, isCritical);
+        }
 
         _model.TakeDamage(damage);
 

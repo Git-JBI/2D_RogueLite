@@ -23,6 +23,8 @@ public class GameData
     public string LastDailyResetDate;
     public string LastWeeklyResetDate;
 
+    public AppConfig AppConfigData = new();
+
     public List<AchievementProgressData> Achievements = new();
 
     public List<EquipmentItemData> EquipmentItems = new();
