@@ -21,11 +21,9 @@ public class HeroSlotPresenter : MonoBehaviour
         _model = new(heroId);
 
         // 설정되있는 히어로인지 설정
-        _model.SetIsSelected(check);
         _viewer.SetActiveSelectedObject(check);
 
         // 선택되있는 히어로인지 설정
-        _model.SetIsChoosed(check);
         _viewer.SetActiveChooseImage(check);
 
         // 히어로 이미지 설정
@@ -34,12 +32,10 @@ public class HeroSlotPresenter : MonoBehaviour
 
     public void SetChoosed(bool value)
     {
-        _model.SetIsChoosed(value);
         _viewer.SetActiveChooseImage(value);
     }
     public void SetSelected(bool value)
     {
-        _model.SetIsSelected(value);
         _viewer.SetActiveSelectedObject(value);
     }
 
