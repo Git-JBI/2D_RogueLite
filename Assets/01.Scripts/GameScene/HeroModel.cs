@@ -25,7 +25,7 @@ public class HeroModel
         }
     }
 
-    public void SetHero(string heroId)
+    public void ChangeHero(string heroId)
     {
         _gameData.HeroId = heroId;
         _gameModel.SaveGameData();
@@ -38,6 +38,11 @@ public class HeroModel
     {
         return _gameData.HeroId;
     }
+    public bool TryGetHeroConfigData(string heroId, out SO_HeroConfigData data)
+    {
+        return _heroConfigDataMap.TryGetValue(heroId, out data);
+    }
+
     public HeroName GetHeroName(string heroId)
     {
         if (_heroConfigDataMap.TryGetValue(heroId, out SO_HeroConfigData data))

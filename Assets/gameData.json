@@ -1,7 +1,7 @@
 {
     "HeroId": "02",
     "Gold": 56071400,
-    "Emerald": 4726770,
+    "Emerald": 4733770,
     "Energy": 50,
     "EnergyRechargeRemainingTime": 0,
     "UpgradeLevel": [
@@ -22,7 +22,7 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-10-01",
+    "LastDailyResetDate": "2026-10-02",
     "LastWeeklyResetDate": "2026-09-28",
     "Achievements": [
         {

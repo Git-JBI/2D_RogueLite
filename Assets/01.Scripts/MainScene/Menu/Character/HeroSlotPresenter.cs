@@ -1,9 +1,19 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HeroSlotPresenter : MonoBehaviour
 {
     [SerializeField] private HeroSlotViewer _viewer;
     private HeroSlotModel _model;
+
+    public string HeroId => _model.HeroId;
+
+    public event UnityAction<string> OnSlotClicked;
+
+    public void Awake()
+    {
+        _viewer.OnButtonClicked += HandleClick;
+    }
 
     public void Init(string heroId, bool check, Sprite heroPortraitSprite)
     {
@@ -22,12 +32,19 @@ public class HeroSlotPresenter : MonoBehaviour
         _viewer.SetHeroImage(heroPortraitSprite);
     }
 
-    public bool GetIsSelected()
+    public void SetChoosed(bool value)
     {
-        return _model.IsSelected;
+        _model.SetIsChoosed(value);
+        _viewer.SetActiveChooseImage(value);
     }
-    public bool GetIsChoosed()
+    public void SetSelected(bool value)
     {
-        return _model.IsChoosed;
+        _model.SetIsSelected(value);
+        _viewer.SetActiveSelectedObject(value);
+    }
+
+    private void HandleClick()
+    {
+        OnSlotClicked?.Invoke(_model.HeroId);
     }
 }

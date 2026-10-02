@@ -10008,6 +10008,7 @@ MonoBehaviour:
   _heroNameText: {fileID: 2074532184}
   _heroDescText: {fileID: 1801963321}
   _backButton: {fileID: 1790053329}
+  _selectButton: {fileID: 1510962057}
 --- !u!114 &721334010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20826,7 +20827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510962056
 RectTransform:
   m_ObjectHideFlags: 0
