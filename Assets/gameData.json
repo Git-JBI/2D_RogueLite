@@ -1,7 +1,7 @@
 {
     "HeroId": "01",
     "Gold": 56119400,
-    "Emerald": 4743870,
+    "Emerald": 4743970,
     "Energy": 50,
     "EnergyRechargeRemainingTime": 0,
     "UpgradeLevel": [
@@ -22,11 +22,11 @@
     "DailyAchievementScore": 0,
     "WeeklyAchievementScore": 0,
     "LastLoginTime": "-8584140564272377747",
-    "LastDailyResetDate": "2026-10-02",
-    "LastWeeklyResetDate": "2026-09-28",
+    "LastDailyResetDate": "2026-10-06",
+    "LastWeeklyResetDate": "2026-10-05",
     "AppConfigData": {
-        "IsBgmEnabled": false,
-        "IsSfxEnabled": false,
+        "IsBgmEnabled": true,
+        "IsSfxEnabled": true,
         "IsDamageFloaterEnabled": false
     },
     "Achievements": [
@@ -44,15 +44,15 @@
         },
         {
             "AchievementId": "Daily_KillCount",
-            "Progress": 100,
-            "IsCompleted": true,
+            "Progress": 0,
+            "IsCompleted": false,
             "IsRewardClaimed": false
         },
         {
             "AchievementId": "Daily_LogIn",
             "Progress": 1,
             "IsCompleted": true,
-            "IsRewardClaimed": false
+            "IsRewardClaimed": true
         },
         {
             "AchievementId": "Weekly_Login",
@@ -203,7 +203,7 @@
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
             "_rarity": 4,
-            "_rarityLevel": 0,
+            "_rarityLevel": 2,
             "_itemLevel": 25
         },
         {
@@ -291,7 +291,7 @@
             "_itemID": "eq_weapon_03",
             "_equipmentType": 0,
             "_rarity": 5,
-            "_rarityLevel": 0,
+            "_rarityLevel": 1,
             "_itemLevel": 1
         },
         {
@@ -618,8 +618,8 @@
             "_instanceID": "850c6a13-45b2-43d2-a3ea-e5920497f75d",
             "_itemID": "eq_weapon_01",
             "_equipmentType": 0,
-            "_rarity": 4,
-            "_rarityLevel": 2,
+            "_rarity": 5,
+            "_rarityLevel": 1,
             "_itemLevel": 1
         },
         {

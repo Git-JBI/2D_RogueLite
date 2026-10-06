@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ItemData_Gloves03
   m_EditorClassIdentifier: 
   _id: eq_Gloves_03
-  _itemName: "\uC7A5\uAC11 03 \uC774\uB984"
+  _itemName: "\uAC00\uC8FD \uC7A5\uAC11"
   _equipmentType: 2
   _equipmentStatType: 0
   _itemTier: 0
   _iconSprites:
   - {fileID: 21300000, guid: e1f9ff1657fe7704ca61e416dce8fc8d, type: 3}
   - {fileID: 21300000, guid: 209b5e6f1e091034487893b255e551e5, type: 3}
-  _desc: "\uC7A5\uAC11 03 \uC124\uBA85"
+  _desc: "\uAC00\uC8FD \uC7A5\uAC11 \uC124\uBA85"
   _raritySettings:
   - _rarity: 0
     _baseStat: 0

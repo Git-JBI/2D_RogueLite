@@ -7,6 +7,7 @@ public class PausePresenter : MonoBehaviour
 
     private void Start()
     {
-        _viewer.OnButtonClicked += _gameSceneManager.Pause;
+        _viewer.OnPauseButtonClicked += _gameSceneManager.Pause;
+        _viewer.OnPauseResumeButtonClicked += _gameSceneManager.Resume;
     }
 }

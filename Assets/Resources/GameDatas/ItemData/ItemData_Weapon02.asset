@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ItemData_Weapon02
   m_EditorClassIdentifier: 
   _id: eq_weapon_02
-  _itemName: "02 \uBB34\uAE30 \uC774\uB984"
+  _itemName: "\uB9AC\uBCFC\uBC84"
   _equipmentType: 0
   _equipmentStatType: 0
   _itemTier: 0
   _iconSprites:
   - {fileID: 21300000, guid: e11b582e61ebd044eacfeda5d2ce8fd7, type: 3}
   - {fileID: 21300000, guid: 7052e3a1e5e15f842a429248297800a2, type: 3}
-  _desc: "02 \uBB34\uAE30 \uC124\uBA85"
+  _desc: "\uB9AC\uBCFC\uBC84 \uC124\uBA85"
   _raritySettings:
   - _rarity: 0
     _baseStat: 5

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: ItemData_Boots01
   m_EditorClassIdentifier: 
   _id: eq_Boots_01
-  _itemName: "\uC2E0\uBC1C 01 \uC774\uB984"
+  _itemName: "\uAD70\uC6A9 \uC2E0\uBC1C"
   _equipmentType: 5
   _equipmentStatType: 1
   _itemTier: 0
   _iconSprites:
   - {fileID: 21300000, guid: 56478188967df0248a10dd485ec31a29, type: 3}
   - {fileID: 21300000, guid: 06548852577beea4eab42cf0fbf31374, type: 3}
-  _desc: "\uC2E0\uBC1C 01 \uC124\uBA85"
+  _desc: "\uAD70\uC6A9 \uC2E0\uBC1C \uC124\uBA85"
   _raritySettings:
   - _rarity: 0
     _baseStat: 0
