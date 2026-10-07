@@ -8,6 +8,8 @@ public class GameSceneUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _countDeadEnemiesText;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _timeText;
+    [SerializeField] private Button _pauseButton;
+    [SerializeField] private GameObject _pausePanel;
     [SerializeField] private Image _expBar;
 
     private GameFinishViewer _gameFinishUI;
@@ -16,11 +18,15 @@ public class GameSceneUIManager : MonoBehaviour
 
     public IUpgradeViewer IupgradeViewer => _upgradeViewer;
 
+    public event UnityAction OnPauseButtonClicked;
+
     private void Awake()
     {
         _gameFinishUI = GetComponentInChildren<GameFinishViewer>(true);
         _warningEffectViewer = GetComponentInChildren<WarningEffectViewer>(true);
         _upgradeViewer = GetComponentInChildren<UpgradeViewer>(true);
+
+        _pauseButton.onClick.AddListener(PauseButtonClick);
     }
 
     /// <summary>
@@ -55,6 +61,11 @@ public class GameSceneUIManager : MonoBehaviour
     {
         //TODO 부드러운 경험치 바 채워짐으로 변경
         _expBar.fillAmount = curExp / maxExp;
+    }
+    public void PauseButtonClick()
+    {
+        OnPauseButtonClicked?.Invoke();
+        _pausePanel.SetActive(true);
     }
 
     public void OnBeforeWaveSpawn()

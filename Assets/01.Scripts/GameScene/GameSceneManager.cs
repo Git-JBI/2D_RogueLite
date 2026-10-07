@@ -57,6 +57,8 @@ public class GameSceneManager : MonoBehaviour
         _heroController.OnChangeExp += _uiManager.SetExpBar;
         _heroController.OnDead += PlayerDead;
 
+        _uiManager.OnPauseButtonClicked += Pause;
+
         _gameSceneModel.OnIncreaseEnemyDeadCount += _uiManager.SetDeadCount;
     }
 
@@ -84,6 +86,15 @@ public class GameSceneManager : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1.0f;
+    }
+
+    /// <summary>
+    /// timeScale 1로 설정 후 메인 씬으로 이동
+    /// </summary>
+    public void LoadMainScene()
+    {
+        Time.timeScale = 1.0f;
+        GameManager.Instance.LoadSceneManager.LoadMainScene();
     }
 
     /// <summary>

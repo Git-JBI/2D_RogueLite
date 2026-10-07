@@ -9,9 +9,9 @@ public class PauseViewer : ButtonPressScale
     [SerializeField] private GameObject _homePanel;
 
     [Header("----- ¹öÆ° -----")]
-    [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _homeButton;
-    [SerializeField] private Button _pauseResumeButton;
+    [SerializeField] private Button _finishButton;
+    [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _homeResumeButton;
 
     [Header("----- Toggle -----")]
@@ -24,36 +24,68 @@ public class PauseViewer : ButtonPressScale
     [SerializeField] private ToggleViewer _sfxToggleViewer;
     [SerializeField] private ToggleViewer _damageFloaterToggleViewer;
 
-    public event UnityAction OnPauseButtonClicked;
-    public event UnityAction OnPauseResumeButtonClicked;
-    public event UnityAction OnBgmToggleClicked;
-    public event UnityAction OnSfxToggleClicked;
-    public event UnityAction OnDamageFloaterToggleClicked;
+    public event UnityAction OnResumeButtonClicked;
+    public event UnityAction OnHomeResumeButtonClicked;
+    public event UnityAction OnFinishButtonClicked;
+
+    public event UnityAction<bool> OnBgmToggleClicked;
+    public event UnityAction<bool> OnSfxToggleClicked;
+    public event UnityAction<bool> OnDamageFloaterToggleClicked;
 
     private void Awake()
     {
-        _pauseButton.onClick.AddListener(PauseButtonClick);
         _homeButton.onClick.AddListener(HomeButtonClick);
-        _pauseResumeButton.onClick.AddListener(PauseResumeButtonClick);
+        _resumeButton.onClick.AddListener(PauseResumeButtonClick);
+        _homeResumeButton.onClick.AddListener(HomeResumeButtonClick);
+        _finishButton.onClick.AddListener(FinishButtonClick);
 
         _bgmToggle.onValueChanged.AddListener(BgmToggleClick);
+        _sfxToggle.onValueChanged.AddListener(SfxToggleClick);
+        _damageFloaterToggle.onValueChanged.AddListener(DamageFloaterToggleClick);
     }
     
-    private void PauseButtonClick()
+    public void Init(AppConfigModel model)
     {
-        OnPauseButtonClicked?.Invoke();
-        _pausePanel.SetActive(true);
+        _bgmToggle.isOn = model.GetBgmEnable();
+        _sfxToggle.isOn = model.GetSfxEnable();
+        _damageFloaterToggle.isOn = model.GetDamageFloaterEnable();
+
+        _bgmToggleViewer.Init(model.GetBgmEnable());
+        _sfxToggleViewer.Init(model.GetSfxEnable());
+        _damageFloaterToggleViewer.Init(model.GetDamageFloaterEnable());
     }
+
     private void HomeButtonClick()
     {
         _homePanel.SetActive(true);
     }
     private void PauseResumeButtonClick()
     {
+        OnResumeButtonClicked?.Invoke();
         _pausePanel.SetActive(false);
+    }
+    private void HomeResumeButtonClick()
+    {
+        OnHomeResumeButtonClicked?.Invoke();
+        _homePanel.SetActive(false);
+    }
+    private void FinishButtonClick()
+    {
+        OnFinishButtonClicked?.Invoke();
     }
     private void BgmToggleClick(bool value)
     {
-
+        OnBgmToggleClicked?.Invoke(value);
+        _bgmToggleViewer.SetImage(value);
+    }
+    private void SfxToggleClick(bool value)
+    {
+        OnSfxToggleClicked?.Invoke(value);
+        _sfxToggleViewer.SetImage(value);
+    }
+    private void DamageFloaterToggleClick(bool value)
+    {
+        OnDamageFloaterToggleClicked?.Invoke(value);
+        _damageFloaterToggleViewer.SetImage(value);
     }
 }

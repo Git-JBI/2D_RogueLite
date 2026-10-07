@@ -13,7 +13,7 @@ public class ToggleViewer : MonoBehaviour
         SetImage(value);
     }
 
-    private void SetImage(bool value)
+    public void SetImage(bool value)
     {
         if (value)
             _image.sprite = _sprites[0];
