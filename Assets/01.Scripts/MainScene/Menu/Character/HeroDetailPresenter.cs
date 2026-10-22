@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class HeroDetailPresenter : MonoBehaviour
@@ -14,7 +13,7 @@ public class HeroDetailPresenter : MonoBehaviour
 
     private List<HeroSlotPresenter> _slots = new();
 
-    public event Action<AnimatorController> OnDetailClosed;
+    public event Action<RuntimeAnimatorController> OnDetailClosed;
 
     public void Awake()
     {

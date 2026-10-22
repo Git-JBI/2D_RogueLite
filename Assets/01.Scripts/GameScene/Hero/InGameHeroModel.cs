@@ -97,9 +97,9 @@ public class InGameHeroModel : MonoBehaviour
 
         // TODO 추후 싱글톤 사용한 플레이어 스텟에서 값 초기화 >>>>> 필요없는 변수들이 있는 것 같음 기본값을 GameModel에서 설정 후 기본 값 설정 후 인게임 업그레이드 데이터를 적용하는 방식
         _level = 1;
-        _maxHp = 10000;
+        _maxHp = 100;
         _curHp = _maxHp;
-        _damage = 1;
+        _damage = 100;
         _moveSpeed = 2;
         _maxExp = _expConfigData.GetMaxExp(_level);
         _curExp = 0;

@@ -1,5 +1,4 @@
 using DG.Tweening;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -23,7 +22,7 @@ public class HeroSelectViewer : MonoBehaviour
         });
     }
 
-    public void SetAnimController(AnimatorController animController)
+    public void SetAnimController(RuntimeAnimatorController animController)
     {
         _animator.runtimeAnimatorController = animController;
     }

@@ -1,10 +1,9 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Button_SelectHero : ButtonPressScale
 {
-    [SerializeField] private AnimatorController[] _controller;
+    [SerializeField] private RuntimeAnimatorController[] _controller;
     private Button _heroButton;
     private Animator _animator;
 

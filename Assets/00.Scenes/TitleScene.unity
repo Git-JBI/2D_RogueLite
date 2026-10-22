@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameData:
-    HeroDataName: 
+    HeroId: 
     Gold: 0
     Emerald: 0
     Energy: 0
@@ -818,6 +818,10 @@ MonoBehaviour:
     LastLoginTime: 
     LastDailyResetDate: 
     LastWeeklyResetDate: 
+    AppConfigData:
+      IsBgmEnabled: 0
+      IsSfxEnabled: 0
+      IsDamageFloaterEnabled: 0
     Achievements: []
     EquipmentItems: []
     EquippedItems: []
