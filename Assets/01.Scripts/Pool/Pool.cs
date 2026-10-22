@@ -79,9 +79,16 @@ public class Pool
     /// <param name="go"></param>
     public void Push(GameObject go)
     {
+        // 대여 목록에서 먼저 제거하여 중복 반환과 비활성화 중 재진입을 방지
+        if (!_outPoolOb.Remove(go))
+            return;
+
+        // 이미 파괴된 객체는 대여 목록에서만 정리
+        if (go == null)
+            return;
+
         go.transform.SetParent(_parent);
         go.SetActive(false);
-        _outPoolOb.Remove(go);
         _pool.Push(go);
     }
 
@@ -90,6 +97,11 @@ public class Pool
     /// </summary>
     public void AllReturnPool()
     {
-
+        // Push가 대여 목록을 변경하므로 복사본을 순회
+        var borrowedObjects = new List<GameObject>(_outPoolOb);
+        foreach (var go in borrowedObjects)
+        {
+            Push(go);
+        }
     }
 }
