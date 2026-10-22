@@ -10,6 +10,14 @@ Unity 기반 2D 생존형 로그라이트 게임이다. 로비에서 영웅 선�
 - **전투 세션:** `GameSceneModel`과 `InGameHeroModel`이 시간, 처치 수, 세션 골드, 체력, 경험치와 전투 능력치를 관리한다.
 - **콘텐츠 정의:** `ScriptableObject`가 영웅·적·무기·스테이지·장비·강화 비용 등의 설정을 제공한다.
 
+### 1.1 인게임 이미지
+
+#### 1.1.1 메인(로비)화면
+
+| Shop | Character | Stage | Upgrade |
+| :---: | :---: | :---: | :---: |
+| <img src="Images/Shop.png" alt="상점 화면" width="200"> | <img src="Images/Character.png" alt="캐릭터 화면" width="200"> | <img src="Images/Stage.png" alt="스테이지 화면" width="200"> | <img src="Images/Upgrade.png" alt="강화 화면" width="200"> |
+
 ## 2. 개발 환경과 의존성
 
 | 항목 | 사용 버젼 |
