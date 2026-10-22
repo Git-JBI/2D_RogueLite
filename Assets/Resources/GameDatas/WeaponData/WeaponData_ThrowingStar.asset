@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
+  m_Name: WeaponData_ThrowingStar
+  m_EditorClassIdentifier: 
+  _weaponType: 3
+  _weaponIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  _damageMagnification:
+  - 1
+  - 1.1
+  - 1.2
+  - 1.3
+  - 1.4
+  _statDatas:
+  - _statType: 1
+    _value:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  - _statType: 5
+    _value:
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+  - _statType: 2
+    _value:
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2
+  - _statType: 6
+    _value:
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+  _desces:
+  - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
+    \uC18D\uB3C4 \uC99D\uAC00."
+  - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
+    \uC18D\uB3C4 \uC99D\uAC00."
+  - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
+    \uC18D\uB3C4 \uC99D\uAC00."
+  - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
+    \uC18D\uB3C4 \uC99D\uAC00."
+  - "\uB370\uBBF8\uC9C0 \uC99D\uAC00.\\n\uC0BD \uAC2F\uC218 \uC99D\uAC00.\\n\uD68C\uC804
+    \uC18D\uB3C4 \uC99D\uAC00."

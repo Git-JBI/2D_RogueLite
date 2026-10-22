@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce10aae5e6c39d742bdb68ec50bfa605, type: 3}
+  m_Name: ItemData_Weapon02
+  m_EditorClassIdentifier: 
+  _id: eq_weapon_02
+  _itemName: "\uB9AC\uBCFC\uBC84"
+  _equipmentType: 0
+  _equipmentStatType: 0
+  _itemTier: 0
+  _iconSprites:
+  - {fileID: 21300000, guid: e11b582e61ebd044eacfeda5d2ce8fd7, type: 3}
+  - {fileID: 21300000, guid: 7052e3a1e5e15f842a429248297800a2, type: 3}
+  _desc: "\uB9AC\uBCFC\uBC84 \uC124\uBA85"
+  _raritySettings:
+  - _rarity: 0
+    _baseStat: 5
+    _statPerLevel: 2
+  - _rarity: 1
+    _baseStat: 10
+    _statPerLevel: 4
+  - _rarity: 2
+    _baseStat: 15
+    _statPerLevel: 6
+  - _rarity: 3
+    _baseStat: 20
+    _statPerLevel: 8
+  - _rarity: 4
+    _baseStat: 25
+    _statPerLevel: 10
+  - _rarity: 5
+    _baseStat: 30
+    _statPerLevel: 12

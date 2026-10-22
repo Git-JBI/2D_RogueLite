@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Idle_00
+      m_Hash: 299847735
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -4329891148382978909, guid: 8039687ce22faf8448b715dddd2c9cfe, type: 3}
+    - m_Name: Idle_01
+      m_Hash: 651714721
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 7474365789515593643, guid: 8039687ce22faf8448b715dddd2c9cfe, type: 3}
+    - m_Name: Idle_02
+      m_Hash: 1070674203
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5457176197003706408, guid: 8039687ce22faf8448b715dddd2c9cfe, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: Damaged
+    m_Hash: 326473335
+    m_CategoryList: []
+    m_OverrideEntries: []
+    m_FromMain: 1
+    m_EntryOverrideCount: 0
+  - m_Name: Dead
+    m_Hash: 219670042
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Die_00
+      m_Hash: 598643718
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1955715248879644087, guid: 593621045dcdbde4a979e956f78e75f6, type: 3}
+    - m_Name: Die_01
+      m_Hash: 346662032
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -4147098770540275969, guid: 593621045dcdbde4a979e956f78e75f6, type: 3}
+    - m_Name: Die_02
+      m_Hash: 228652330
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 7797336923300772023, guid: 593621045dcdbde4a979e956f78e75f6, type: 3}
+    - m_Name: Die_03
+      m_Hash: 984073660
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2044532449502378752, guid: 593621045dcdbde4a979e956f78e75f6, type: 3}
+    - m_Name: Die_04
+      m_Hash: 616779807
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 6674109751019552105, guid: 593621045dcdbde4a979e956f78e75f6, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  m_PrimaryLibraryGUID: d544cc47f9cae6942814836ac00303ca
+  m_ModificationHash: 639250755134271754
+  m_Version: 1

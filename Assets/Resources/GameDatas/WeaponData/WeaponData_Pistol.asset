@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b217b9fb84cbd3c448028234d4c2633c, type: 3}
+  m_Name: WeaponData_Pistol
+  m_EditorClassIdentifier: 
+  _weaponType: 0
+  _weaponIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  _damageMagnification:
+  - 1
+  - 1.125
+  - 1.25
+  - 1.375
+  - 1.5
+  _statDatas:
+  - _statType: 0
+    _value:
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2
+  - _statType: 2
+    _value:
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+  _desces:
+  - "\uD53C\uD574\uB7C9 \uC99D\uAC00.\\n \uCD1D\uC54C \uAC2F\uC218 \uC99D\uAC00.\\n\uCD1D\uC54C
+    \uC18D\uB3C4 \uC99D\uAC00."
+  - 1
+  - 2
+  - 3
+  - 4

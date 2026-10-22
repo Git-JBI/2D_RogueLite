@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afddd59b1e13ea46b9cab4d702aae00, type: 3}
+  m_Name: ExpConfigData
+  m_EditorClassIdentifier: 
+  _maxExp:
+  - 100
+  - 150
+  - 200
+  - 250
+  - 300
+  - 350
+  - 400
+  - 450
+  - 500
+  - 550
+  - 650
+  - 750
+  - 850
+  - 950
+  - 1050
+  - 1150
+  - 1250
+  - 1350
+  - 1450
+  - 1550
+  - 1700
+  - 1850
+  - 2000
+  - 2150
+  - 2300
+  - 2450
+  - 2600
+  - 2750
+  - 2900
+  - 3050
+  - 3250
+  - 3450
+  - 3650
+  - 3850
+  - 4050
+  - 4250
+  - 4450
+  - 4650
+  - 4850
+  - 5050
+  - 5300
+  - 5550
+  - 5800
+  - 6050
+  - 6300
+  - 6550
+  - 6800
+  - 7050
+  - 7300
+  - 7550

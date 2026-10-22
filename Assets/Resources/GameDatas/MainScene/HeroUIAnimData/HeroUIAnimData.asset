@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7040e584afd333f468de2abedfa3607d, type: 3}
+  m_Name: HeroUIAnimData
+  m_EditorClassIdentifier: 
+  _animControllers:
+  - {fileID: 9100000, guid: adb094f9c53c7ac41b04d2bd247537b4, type: 2}
+  - {fileID: 9100000, guid: 5942cc8736ed70242b9289f699282660, type: 2}
+  - {fileID: 9100000, guid: a4f6d4305623740419be3e4a2e905fb9, type: 2}

@@ -1,0 +1,512 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EquipmentMergePresenter : MonoBehaviour
+{
+    /* Common + Commom + Common = UnCommon (동일 아이템ID)
+    // UnCommon + UnCommon + UnCommon = Rare (동일 아이템ID)
+    // Rare + Rare + Rare = Unique (동일 아이템ID)
+    // Unique + Unique = Unique+1 (동일 아이템 타입)
+    // Unique+1 + Unique + Unique = Unique+2 (동일 아이템 타입)
+    // Unique+2 + Unique+2 = Epic (동일 아이템ID, 동일 등급, 동일 레어리티 레벨)
+    // Epic + Epic = Epic+1 (동일 아이템 타입)
+    // Epic+1 + Epic = Epic+2 (동일 아이템 타입)
+    // Epic+2 + Epic = Epic+3 (동일 아이템 타입)
+    // Epic+3 + Epic + Epic = Legendary (동일 아이템ID, 동일 등급, 레어리티 레벨 0)
+    // Legendary + Legendary = Legendary+1 (동일 아이템 타입)
+    // Legendary+1 + Legendary = Legendary+2 (동일 아이템 타입)
+    // Legendary+2 + Legendary = Legendary+3 (동일 아이템 타입)
+    // Legendary+3 + Legendary = Legendary+4 (동일 아이템 타입)*/
+    [Header("# 선택된 아이템 슬롯")]
+    [SerializeField] private EquipmentItemSlot _selectedSlot;
+
+    [Header("# 업그레이드 결과 아이템 슬롯")]
+    [SerializeField] private EquipmentItemSlot _upgradedSlot;
+
+    [Header("# 장비 아이템을 생성할 부모 Transform")]
+    [SerializeField] private Transform _content;
+
+    [Header("# 재료가 한 개 필요할 시 쓰는 GameObject")]
+    [SerializeField] private GameObject _requireOne;
+
+    [Header("# 재료가 두 개 필요할 시 쓰는 GameObject")]
+    [SerializeField] private GameObject _requireTwo;
+
+    [Header("# 합성 버튼")]
+    [SerializeField] private Button _mergeButton;
+
+    [Header("# 레어이하 모든 아이템 합성 버튼")]
+    [SerializeField] private Button _mergeAllButton;
+
+    private MergeResultViewer _mergeResultViewer;
+    private MergeAllResultManager _mergeAllResult;
+
+    private EquipmentInventoryManager _inventoryManager;
+    private EquipmentModel _model;
+    private int _requireCount;
+    private List<EquipmentItemSlot> _requireItems = new();
+
+    /// <summary>
+    /// 장비 합성 규칙 설정 데이터
+    /// </summary>
+    private SO_MergeRuleData _mergeRule;
+
+    /// <summary>
+    /// 가지고 있는 장비 아이템 리스트
+    /// </summary>
+    private IReadOnlyList<EquipmentItemData> _items;
+    
+    /// <summary>
+    /// 아이템 슬롯 리스트
+    /// </summary>
+    private List<EquipmentItemSlot> _slots = new();
+
+    private void Awake()
+    {
+        _inventoryManager = FindAnyObjectByType<EquipmentInventoryManager>();
+
+        _mergeResultViewer = GetComponentInChildren<MergeResultViewer>(true);
+        _mergeAllResult = GetComponentInChildren<MergeAllResultManager>(true);
+
+        _model = GameManager.Instance.GameModel.EquipmentModel;
+        _requireCount = 0;
+
+        _mergeRule = Resources.Load<SO_MergeRuleData>("GameDatas/MergeRuleData/MergeRuleData");
+
+        _mergeButton.onClick.AddListener(Merge);
+
+        // 일괄 합성 버튼에 이벤트 추가
+        _mergeAllButton.onClick.AddListener(MergeLowRarities);
+    }
+
+    private void OnEnable()
+    {
+        // 장비 리스트 기본 정렬
+        SortCanMergeSlots();
+
+        // 슬롯 생성
+        CreateAllSlots(_items);
+
+        // 레어 이하 합성 가능한지 여부
+        if (CheckCanMergeUnderRare())
+            _mergeAllButton.gameObject.SetActive(true);
+        else
+            _mergeAllButton.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        if (_selectedSlot.gameObject.activeSelf)
+            _selectedSlot.gameObject.SetActive(false);
+
+        if (_upgradedSlot.gameObject.activeSelf)
+            _upgradedSlot.gameObject.SetActive(false);
+
+        foreach(EquipmentItemSlot x in _requireItems)
+        {
+            if(x.gameObject.activeSelf)
+                x.gameObject.SetActive(false);
+        }
+
+        if (_requireOne.activeSelf)
+            _requireOne.gameObject.SetActive(false);
+        
+        if (_requireTwo.activeSelf)
+            _requireTwo.gameObject.SetActive(false);
+        
+        if(_mergeButton.gameObject.activeSelf)
+            _mergeButton.gameObject.SetActive(false);
+
+        _requireCount = 0;
+
+        _inventoryManager.Init();
+    }
+
+    /// <summary>
+    /// 보유중인 합성 가능한 모든 장비 아이템 정렬 함수
+    /// </summary>
+    private void SortCanMergeSlots()
+    {
+        _items = GameManager.Instance.GameModel.EquipmentModel.EquipmentItems;
+        
+        _items = _items.
+            Where(i => !(i.Rarity == ItemRarity.Legendary && i.RarityLevel == 4)).
+            OrderByDescending(i => i.Rarity).
+            ThenBy(i => i.EquipmentType).
+            ThenByDescending(i => i.RarityLevel).
+            ThenBy(i => i.ItemID).
+            ToList();
+    }
+    private void CreateAllSlots(IReadOnlyList<EquipmentItemData> items)
+    {
+        if (_slots.Count != 0)
+            DestroySlots();
+
+        foreach (EquipmentItemData item in items)
+        {
+            // 머지 아이템 슬롯 생성
+            GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+            EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
+
+            // 초기화
+            slot.Init(item);
+
+            // 슬롯 클릭 시 이벤트 추가
+            slot.OnItemSlotClicked += InitSelectedItemSlot;
+            slot.OnItemSlotClicked += InitUpgradedItemSlot;
+            slot.OnItemSlotClicked += SortRequireSlots;
+            slot.OnItemSlotClicked += InitSelectedRequireItemSlot;
+
+            // 리스트에 추가
+            _slots.Add(slot);
+        }
+    }
+    private void InitSelectedItemSlot(EquipmentItemData data)
+    {
+        // 선택된 슬롯 활성화
+        _selectedSlot.gameObject.SetActive(true);
+
+        // 선택된 슬롯 초기화
+        _selectedSlot.Init(data);
+
+        // 선택된 슬롯 이벤트 추가
+        _selectedSlot.OnItemSlotClicked += EmptySelectedSlot;
+    }
+    private void EmptySelectedSlot(EquipmentItemData data)
+    {
+        // 합성 아이템 목록 갱신
+        Refresh();
+
+        // 선택된 아이템 슬롯 비활성화
+        _selectedSlot.gameObject.SetActive(false);
+
+        // 업그레이드 예시 아이템 슬롯 비활성화
+        _upgradedSlot.gameObject.SetActive(false);
+
+        // 업그레이드 재료 슬롯 비활성화 및 초기화
+        switch(_requireCount)
+        {
+            case 1:
+                foreach(EquipmentItemSlot x in _requireItems)
+                {
+                    if(x.gameObject.activeSelf)
+                    {
+                        x.gameObject.SetActive(false);
+                    }
+                }
+                _requireOne.gameObject.SetActive(false);
+                break;
+            case 2:
+                foreach (EquipmentItemSlot x in _requireItems)
+                {
+                    if (x.gameObject.activeSelf)
+                    {
+                        x.gameObject.SetActive(false);
+                    }
+                }
+                _requireTwo.gameObject.SetActive(false);
+                break;
+        }
+
+        // 합성 버튼이 켜져 있는 경우 끄기
+        if(_mergeButton.gameObject.activeSelf)
+            _mergeButton.gameObject.SetActive(false);
+
+        // 업그레이드에 필요 재료 수 초기화
+        _requireCount = 0;
+
+        // 업그레이드에 필요 재료 리스트 초기화
+        _requireItems.Clear();
+    }
+    private void InitUpgradedItemSlot(EquipmentItemData data)
+    {
+        // 업그레이드 예시 슬롯 활성화
+        _upgradedSlot.gameObject.SetActive(true);
+        // 업그레이드 예시 슬롯 초기화
+        _upgradedSlot.Init(GetUpgradedEquipmentData(data));
+    }
+    private void InitRequireItem(EquipmentItemData data)
+    {
+        Debug.Log(data.ItemID);
+        foreach(EquipmentItemSlot x in _requireItems)
+        {
+            if(!x.gameObject.activeSelf)
+            {
+                // 슬롯 켜기
+                x.gameObject.SetActive(true);
+                // 선택한 아이템 옮기기
+                x.Init(data);
+                // 선택한 아이템을 누르면 실행할 함수 이벤트 추가(누르면 선택된 재료 아이템 슬롯은 비워지며 재료 리스트에 추가가 되며 슬롯은 비활성화됨)
+                x.OnItemSlotClicked += EmptyRequireItem;
+                _requireCount++;
+
+                EquipmentItemSlot selectedSlot = _slots.Find(item => item.ItemData.InstanceID == data.InstanceID);
+                // 선택한 아이템 슬롯 리스트에서 버리기
+                _slots.Remove(selectedSlot);
+                // 선택한 아이템 슬롯 제거
+                Destroy(selectedSlot.gameObject);
+                
+                // 요구 재료를 충족했을 경우
+                if(_requireCount == GetRequireCount(_selectedSlot.ItemData))
+                    if(!_mergeButton.gameObject.activeSelf)
+                        _mergeButton.gameObject.SetActive(true);
+
+                return;
+            }
+        }
+    }
+    private void EmptyRequireItem(EquipmentItemData data)
+    {
+        // 장비 재료 선택 리스트에 추가
+        GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+        EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
+        slot.Init(data);
+        slot.OnItemSlotClicked += InitRequireItem;
+        _slots.Add(slot);
+        _requireCount--;
+
+        if(_mergeButton.gameObject.activeSelf)
+            _mergeButton.gameObject.SetActive(false);
+
+        EquipmentItemSlot selectedSlot = _requireItems.Find(x => x.ItemData.InstanceID == data.InstanceID);
+        selectedSlot.gameObject.SetActive(false);
+    }
+    private void InitSelectedRequireItemSlot(EquipmentItemData data)
+    {
+        switch (GetRequireCount(data))
+        {
+            case 1:
+                _requireOne.gameObject.SetActive(true);
+                _requireItems = _requireOne.gameObject.GetComponentsInChildren<EquipmentItemSlot>(true).ToList();
+                break;
+            case 2:
+                _requireTwo.gameObject.SetActive(true);
+                _requireItems = _requireTwo.gameObject.GetComponentsInChildren<EquipmentItemSlot>(true).ToList();
+                break;
+        }
+    }
+    private void SortRequireSlots(EquipmentItemData data)
+    {
+        List<EquipmentItemData> items = new();
+        MergeRule rule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
+
+        // 선택된 업그레이드 될 아이템이 Unique+2일 경우 동일 레어리티 & 동일 아이템 & 동일 레어리티 레벨
+        if (data.Rarity == ItemRarity.Unique && data.RarityLevel == 2)
+            items = _items.Where(i => i.Rarity == data.Rarity && i.ItemID == data.ItemID && i.RarityLevel == data.RarityLevel).ToList();
+        // 업그레이드 후 레어리티가 같을 경우 재료는 동일 레어리티 & 동일 아이템 타입 & 레어리티 레벨 0
+        else if(data.Rarity == rule.UpgradedRarity)
+            items = _items.Where(i => i.Rarity == data.Rarity && i.EquipmentType == data.EquipmentType && i.RarityLevel == 0).ToList();
+        // 업그레이드 후 레어리티가 다를 경우 재료는 동일 레어리티 & 동일 아이템 ID
+        else
+            items = _items.Where(i => i.Rarity == data.Rarity && i.ItemID == data.ItemID).ToList();
+
+        // 선택한 아이템은 목록에서 제거
+        items.Remove(data);
+
+        // 슬롯 생성
+        CreateRequireSlots(items);
+    }
+    private void CreateRequireSlots(List<EquipmentItemData> datas)
+    {
+        if (_slots.Count != 0)
+            DestroySlots();
+
+        foreach (EquipmentItemData x in datas)
+        {
+            GameObject go = GameManager.Instance.PoolManager.GetFromPool("Prefabs/Slots/ItemSlot", _content);
+            EquipmentItemSlot slot = go.GetComponent<EquipmentItemSlot>();
+
+            slot.Init(x);
+
+            slot.OnItemSlotClicked += InitRequireItem;
+
+            _slots.Add(slot);
+        }
+    }
+
+    /// <summary>
+    /// 장비 합성
+    /// </summary>
+    private void Merge()
+    {
+        _mergeResultViewer.gameObject.SetActive(true);
+
+        // 메인 슬롯의 업그레이드 결과 불러오기
+        MergeRule upgradeData = _mergeRule.GetMergeRule(_selectedSlot.ItemData.Rarity, _selectedSlot.ItemData.RarityLevel);
+
+        // 필요 재료에 따른 결과 창 분기
+        switch (_requireItems.Count)
+        {
+            case 1:
+                _mergeResultViewer.Init(_selectedSlot.ItemData, upgradeData, _requireItems[0].ItemData);
+                break;
+            case 2:
+                _mergeResultViewer.Init(_selectedSlot.ItemData, upgradeData, _requireItems[0].ItemData, _requireItems[1].ItemData);
+                break;
+        }
+        //TODO 이 부분 문제인듯 - 메인 슬롯은 업그레이드 된 결과를 보여주는데 
+        // 메인 슬롯 아이템에 업그레이드 결과 적용
+        _selectedSlot.ItemData.Rarity = upgradeData.UpgradedRarity;
+        _selectedSlot.ItemData.RarityLevel = upgradeData.UpgradedRarityLevel;
+
+        foreach (EquipmentItemSlot x in _requireItems)
+        {
+            //TODO 추후 업그레이드 재료로 쓰이는 장비가 레벨업이 되어있는 경우 사용한 재화들 리턴
+            _model.RemoveEquipmentList(x.ItemData);
+        }
+
+        _model.SaveData();
+        OnDisable();
+        OnEnable();
+    }
+
+    /// <summary>
+    /// 레어등급 이하 아이템들 일괄 합성 기능
+    /// </summary>
+    private void MergeLowRarities()
+    {
+        // 합성한 아이템들을 담아둘 List
+        List<EquipmentItemData> itemList = new();
+
+        // 기본 티어 장비 설정 데이터
+        var defaultEquipmentConfigs = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas
+            .Where(i => i.ItemTier == ItemTier.Default);
+
+        // 등급별로 순회 (0: Common, 1: UnCommon, 2: Rare)
+        for (int x = 0; x < 3; x++)
+        {
+            ItemRarity currentRarity = (ItemRarity)x;
+
+            // 현재 검사 중인 등급의 아이템만 필터링한 리스트
+            var checkDatas = _items.Where(i => i.Rarity == currentRarity).ToList();
+
+            foreach (SO_EquipmentItemData config in defaultEquipmentConfigs)
+            {
+                // 동일 ID를 가진 장비들만 모은 리스트 생성
+                var sameIdItems = checkDatas.Where(i => i.ItemID == config.Id).ToList();
+
+                // 3개 이상일 때만 합성
+                if (sameIdItems.Count >= 3)
+                {
+                    int mergeCount = sameIdItems.Count / 3;
+
+                    for (int i = 0; i < mergeCount; i++)
+                    {
+                        int baseIndex = i * 3;
+
+                        EquipmentItemData baseItem = sameIdItems[baseIndex];
+                        EquipmentItemData material1 = sameIdItems[baseIndex + 1];
+                        EquipmentItemData material2 = sameIdItems[baseIndex + 2];
+
+                        // 1. 베이스 아이템 등급 상승
+                        baseItem.Rarity += 1;
+
+                        // 2. 원본 모델 리스트에서 재료 아이템 삭제
+                        _model.RemoveEquipmentList(material1);
+                        _model.RemoveEquipmentList(material2);
+
+                        // 3. 합성한 아이템 리스트에 추가
+                        itemList.Add(baseItem);
+
+                        // 4. 합성한 아이템 리스트에 포함되어있는 경우 제거
+                        if (itemList.Contains(material1))
+                            itemList.Remove(material1);
+                        if (itemList.Contains(material2))
+                            itemList.Remove(material2);
+                    }
+                }
+            }
+        }
+        // 저장
+        _model.SaveData();
+
+        // 합성 결과 활성화
+        _mergeAllResult.gameObject.SetActive(true);
+
+        // 합성 결과 초기화
+        _mergeAllResult.ShowResult(itemList);
+        
+        // 목록 리프레시
+        Refresh();
+    }
+
+    /// <summary>
+    /// 레어등급 이하 아이템중에서 합성 가능한 아이템이 있는지 체크하는 함수
+    /// </summary>
+    /// <returns></returns>
+    private bool CheckCanMergeUnderRare()
+    {
+        // 아이템데이터 리스트
+        IReadOnlyList<SO_EquipmentItemData> equipmentItemDatas = GameManager.Instance.EquipmentItemDatabase.EquipmentItemDatas;
+        // ItemTier가 Default만 
+        equipmentItemDatas = equipmentItemDatas.Where(i => i.ItemTier == ItemTier.Default).ToList();
+
+        // itemId, Rarity에 따른 개수
+        foreach(SO_EquipmentItemData data in equipmentItemDatas)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                int count = GetEquipmentCount(data.Id, (ItemRarity)i);
+                if (count >= 3)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private void Refresh()
+    {
+        SortCanMergeSlots();
+
+        CreateAllSlots(_items);
+
+        // 레어 이하 합성 가능한지 여부
+        if (CheckCanMergeUnderRare())
+            _mergeAllButton.gameObject.SetActive(true);
+        else
+            _mergeAllButton.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// 레어리티와 아이템 종류가 같은 아이템의 갯수를 가져오는 함수
+    /// </summary>
+    /// <param name="itemId"></param>
+    /// <param name="rarity"></param>
+    /// <returns></returns>
+    private int GetEquipmentCount(string itemId, ItemRarity rarity)
+    {
+        return _items.Count(i => i.ItemID == itemId && i.Rarity == rarity);
+    }
+
+    /// <summary>
+    /// 업그레이드된 장비 데이터를 가져오는 함수
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
+    private EquipmentItemData GetUpgradedEquipmentData(EquipmentItemData data)
+    {
+        MergeRule mergeRule = _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel);
+        data.Rarity = mergeRule.UpgradedRarity;
+        data.RarityLevel = mergeRule.UpgradedRarityLevel;
+        return data;
+    }
+
+    private int GetRequireCount(EquipmentItemData data)
+    {
+        return _mergeRule.GetMergeRule(data.Rarity, data.RarityLevel).RequireCount;
+    }
+
+    private void DestroySlots()
+    {
+        foreach(EquipmentItemSlot slot in _slots)
+        {
+            PoolingObject poolOb = slot.GetComponent<PoolingObject>();
+            poolOb.ReturnToPool();
+        }
+
+        // 슬롯 리스트 비우기
+        _slots.Clear();
+    }
+}
