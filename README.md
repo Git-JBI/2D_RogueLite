@@ -170,6 +170,27 @@ flowchart LR
 
 낮은 등급은 동일 ID 3개를 사용해 다음 등급으로 올린다. 상위 등급은 동일 부위 재료를 통한 단계 상승과 동일 ID를 통한 등급 상승을 조합한다. 일괄 합성은 Default 티어의 Common·UnCommon·Rare를 순차 처리한다.
 
+**핵심 코드 — 합성 규칙 적용과 재료 소비**
+
+`Assets/01.Scripts/MainScene/EquipmentMerge/EquipmentMergePresenter.cs`의 `Merge()`에서 결과 UI 처리를 제외한 발췌다. 선택 장비의 등급·단계로 규칙을 조회하고, 결과를 적용한 뒤 재료 장비를 제거하고 저장한다.
+
+```csharp
+MergeRule upgradeData = _mergeRule.GetMergeRule(
+    _selectedSlot.ItemData.Rarity,
+    _selectedSlot.ItemData.RarityLevel);
+
+// 결과 UI 초기화 부분 생략
+_selectedSlot.ItemData.Rarity = upgradeData.UpgradedRarity;
+_selectedSlot.ItemData.RarityLevel = upgradeData.UpgradedRarityLevel;
+
+foreach (EquipmentItemSlot x in _requireItems)
+{
+    _model.RemoveEquipmentList(x.ItemData);
+}
+
+_model.SaveData();
+```
+
 #### 2.3.4 상점과 영구 강화
 
 ```mermaid
@@ -229,12 +250,67 @@ flowchart LR
 
 에너지는 최대값 50, 충전 단위 600초로 구현되어 있다. 오프라인 시간은 `DateTime.Now`와 바이너리 문자열로 저장한 `LastLoginTime`의 차이로 계산한다. 온라인 충전은 `WaitForSecondsRealtime(1)`을 사용하여 전투 일시정지와 독립적으로 진행한다. 현재 스테이지 입장 조건과 소비량은 모두 0으로 설정되어 있다.
 
+**핵심 코드 — 조건별 업적 진행과 완료 판정**
+
+`Assets/01.Scripts/Achievement/AchievementManager.cs`의 `Report()`는 같은 조건의 업적에 진행량을 더하고, 목표에 도달하면 완료 상태로 저장한다.
+
+```csharp
+public void Report(AchievementConditionType conditionType, int amount = 1)
+{
+    foreach (var achievement in _achievementConfigDatas)
+    {
+        if (achievement.ConditionType != conditionType)
+            continue;
+
+        AchievementProgressData progress =
+            _achievementModel.GetAchievementData(achievement.AchievementId);
+
+        if (progress.IsRewardClaimed)
+            continue;
+
+        progress.Progress += amount;
+        if (progress.Progress >= achievement.TargetValue)
+        {
+            progress.Progress = achievement.TargetValue;
+            progress.IsCompleted = true;
+        }
+    }
+
+    _achievementModel.SaveData();
+}
+```
+
+**핵심 코드 — 일시정지와 독립적인 에너지 충전**
+
+`Assets/01.Scripts/Energy/EnergyManager.cs`의 `UpdateRemainTime()`이다. 실제 시간 기준으로 남은 시간을 갱신하고, 충전 구간을 지나면 에너지를 추가하며 UI에 변경을 알린다.
+
+```csharp
+private IEnumerator UpdateRemainTime()
+{
+    while (!_energyModel.IsEnergyFull)
+    {
+        _energyModel.AddEnergyRechargeRemainingTime(-1);
+        SaveLastLoginTime();
+        OnTimeChanged?.Invoke(_energyModel.EnergyRechargeRemainingTime);
+
+        if (_remainEnergy > (_energyModel.EnergyRechargeRemainingTime / 600) + 1)
+        {
+            _energyModel.AddEnergy();
+            _remainEnergy = _energyModel.RemainChargeEnergy;
+            OnEnergyChanged?.Invoke(_energyModel.Energy, _energyModel.MaxEnergy);
+        }
+
+        yield return new WaitForSecondsRealtime(1.0f);
+    }
+}
+```
+
 ### 2.4 전투 시스템
 
 #### 2.4.1 전투 진행
 
 ```mermaid
-flowchart TD
+flowchart LR
     Start["스테이지 데이터 로드 · 전투 초기화"] --> Minions["일반 적 생성 · 시간 누적"]
     Minions --> Wave1["제한 시간 1/3 · 20마리씩 3회"]
     Wave1 --> Wave2["제한 시간 2/3 · 40마리씩 3회"]
@@ -283,7 +359,7 @@ Armor    = 기본 방어력 + 영구 방어력 강화
 #### 2.4.3 경험치와 성장 선택
 
 ```mermaid
-flowchart TD
+flowchart LR
     Dead["미니언 제거"] --> Drop["시간 구간별 확률로 경험치 아이템 생성"]
     Drop --> Pickup["아이템 획득 · 경험치 증가"]
     Pickup --> Level{"필요 경험치 도달?"}
@@ -362,6 +438,38 @@ stateDiagram-v2
 
 미니언은 플레이어 반경 10의 임의 방향에 풀에서 생성되고, 죽음 상태 이후 경험치 생성과 풀 반환을 수행한다. 보스는 `Instantiate`로 생성한다.
 
+**핵심 코드 — 상태의 진입·갱신·이탈 분리**
+
+`Assets/01.Scripts/GameScene/Interface/IState.cs`는 적 상태의 공통 계약이다.
+
+```csharp
+public interface IState
+{
+    void OnStateEnter();
+    void OnStateUpdate();
+    void OnStateExit();
+}
+```
+
+`Assets/01.Scripts/GameScene/Enemy/Controller/EnemyControllerBase.cs`에서 현재 상태를 매 프레임 갱신하고, 상태 변경 시 이전 상태의 종료와 새 상태의 진입을 순서대로 실행한다. 사망 상태에서는 추가 전환을 막는다.
+
+```csharp
+private void Update()
+{
+    _curState?.OnStateUpdate();
+}
+
+public void ChangeState(IState state)
+{
+    if (_curState == _deadState)
+        return;
+
+    _curState?.OnStateExit();
+    _curState = state;
+    _curState.OnStateEnter();
+}
+```
+
 ### 2.5 리소스와 오브젝트 풀
 
 리소스 캐시와 객체 대여·반환 흐름:
@@ -399,3 +507,43 @@ flowchart TD
 `LoadSceneManager`는 메인 씬과 전투 씬을 불러오기 전에 `PoolManager.AllReturnPool()`을 호출한다. `PoolManager`가 모든 경로별 풀을 순회하면 각 `Pool.AllReturnPool()`은 대여 집합 `_outPoolOb`를 `List<GameObject>`로 복사한 뒤 각 객체를 `Push()`로 반환한다. 복사본을 순회하므로 반환 과정에서 원본 집합이 변경되어도 순회 오류가 발생하지 않는다.
 
 `Push()`는 대여 집합에서 객체를 먼저 제거하며, 제거에 실패하면 반환을 중단해 중복 반환과 비활성화 중 재진입을 방지한다. 이미 파괴된 객체는 대여 목록에서만 제거하고, 유효한 객체는 부모 복원 → 비활성화 → 반환 스택 저장 순서로 처리한다. 객체 내부의 체력·타이머 등 재사용 상태 초기화는 기존처럼 각 호출부의 `Init()`에서 수행해야 한다.
+
+**핵심 코드 — 객체 대여·반환과 씬 전환 시 일괄 회수**
+
+`Assets/01.Scripts/Pool/Pool.cs`의 핵심 메서드다. 대여 집합으로 사용 중인 객체를 추적하고, 일괄 반환 시에는 복사본을 순회한다.
+
+```csharp
+public GameObject Pop(Transform parent)
+{
+    if (_pool.Count == 0)
+        CreateObject();
+
+    GameObject go = _pool.Pop();
+    _outPoolOb.Add(go);
+    go.transform.SetParent(parent);
+    go.SetActive(true);
+    return go;
+}
+
+public void Push(GameObject go)
+{
+    if (!_outPoolOb.Remove(go))
+        return;
+
+    if (go == null)
+        return;
+
+    go.transform.SetParent(_parent);
+    go.SetActive(false);
+    _pool.Push(go);
+}
+
+public void AllReturnPool()
+{
+    var borrowedObjects = new List<GameObject>(_outPoolOb);
+    foreach (var go in borrowedObjects)
+    {
+        Push(go);
+    }
+}
+```
