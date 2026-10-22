@@ -18,6 +18,12 @@ Unity 기반 2D 생존형 로그라이트 게임이다. 로비에서 영웅 선�
 | :---: | :---: | :---: | :---: |
 | <img src="Images/Shop.png" alt="상점 화면" width="200"> | <img src="Images/Character.png" alt="캐릭터 화면" width="200"> | <img src="Images/Stage.png" alt="스테이지 화면" width="200"> | <img src="Images/Upgrade.png" alt="강화 화면" width="200"> |
 
+#### 1.1.2 인게임 화면
+
+| Ingame | Ingame_SelectAbility | Ingame_Warning | Victory |
+| :---: | :---: | :---: | :---: |
+| <img src="Images/Ingame.png" alt="전투 화면" width="200"> | <img src="Images/Ingame_SelectAbility.png" alt="능력 선택 화면" width="200"> | <img src="Images/Ingame_Warning.png" alt="경고 화면" width="200"> | <img src="Images/Victory.png" alt="승리 화면" width="200"> |
+
 ## 2. 개발 환경과 의존성
 
 | 항목 | 사용 버젼 |
