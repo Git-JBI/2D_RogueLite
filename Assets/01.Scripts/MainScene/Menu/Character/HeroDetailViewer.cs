@@ -1,6 +1,5 @@
 using DG.Tweening;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -29,7 +28,7 @@ public class HeroDetailViewer : MonoBehaviour
     /// AnimController 설정 함수
     /// </summary>
     /// <param name="animController"></param>
-    public void SetAnimController(AnimatorController animController)
+    public void SetAnimController(RuntimeAnimatorController animController)
     {
         _animator.runtimeAnimatorController = animController;
     }
