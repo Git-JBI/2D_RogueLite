@@ -124,7 +124,9 @@ flowchart LR
 
 `HeroModel`은 `GameDatas/HeroConfigData`에서 영웅 설정을 로드하고 ID 딕셔너리를 만든다. 현재 영웅 설정 에셋은 `00`, `01`, `02`의 3개다. 영웅 변경은 ID를 저장하며 전투 초기화 시 해당 설정의 공격력·이동속도·최대 체력 보너스가 적용된다.
 
-#### 2.3.2 장비
+#### 2.3.2 장비 관리와 합성
+
+장비 데이터와 장착·강화 흐름:
 
 ```mermaid
 flowchart LR
@@ -153,7 +155,7 @@ flowchart LR
 
 `ItemLevelUp()`는 1회 강화, `ItemLevelUpPossible()`은 가능한 만큼 실제로 강화하는 함수다.
 
-#### 2.3.3 장비 합성
+장비 합성 흐름:
 
 ```mermaid
 flowchart LR
@@ -191,7 +193,7 @@ foreach (EquipmentItemSlot x in _requireItems)
 _model.SaveData();
 ```
 
-#### 2.3.4 상점과 영구 강화
+#### 2.3.3 상점과 영구 강화
 
 ```mermaid
 flowchart TD
@@ -215,7 +217,7 @@ flowchart TD
 
 `UpgradeModel`은 공격력·체력·방어력의 영구 강화를 관리한다. `UpgradeData`의 `Price`·`Value` 배열을 참조하고, 최대 레벨과 골드 부족을 검사한 뒤 차감·레벨 증가·저장을 수행한다. 강화 결과는 전투 모델이 초기화 시 읽는다.
 
-#### 2.3.5 업적과 에너지
+#### 2.3.4 업적과 에너지
 
 업적 진행과 보상 흐름:
 
