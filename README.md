@@ -1,5 +1,19 @@
 # 2D_RogueLite 기술문서
 
+## 인게임 이미지
+
+### 메인(로비)화면
+
+| 상점 | 캐릭터 | 스테이지 | 업그레이드 |
+| :---: | :---: | :---: | :---: |
+| <img src="Images/Shop.png" alt="상점 화면" width="200"> | <img src="Images/Character.png" alt="캐릭터 화면" width="200"> | <img src="Images/Stage.png" alt="스테이지 화면" width="200"> | <img src="Images/Upgrade.png" alt="강화 화면" width="200"> |
+
+### 인게임 화면
+
+| 인게임 | 능력 선택 | 경고 | 목표 도달 |
+| :---: | :---: | :---: | :---: |
+| <img src="Images/Ingame.png" alt="전투 화면" width="200"> | <img src="Images/Ingame_SelectAbility.png" alt="능력 선택 화면" width="200"> | <img src="Images/Ingame_Warning.png" alt="경고 화면" width="200"> | <img src="Images/Victory.png" alt="승리 화면" width="200"> |
+
 ## 1. 프로젝트 개요
 
 Unity 기반 2D 생존형 로그라이트 게임이다. 로비에서 영웅 선택, 장비 관리, 합성, 영구 능력치 강화를 수행하고 전투 씬에서 조이스틱 이동과 자동 공격으로 적을 처치한다. 경험치로 레벨을 올리며 무기·패시브를 선택하고, 제한 시간 이후 등장하는 보스를 처치하면 스테이지를 클리어한다.
@@ -9,20 +23,6 @@ Unity 기반 2D 생존형 로그라이트 게임이다. 로비에서 영웅 선�
 - **영구 진행:** `GameData`와 도메인 모델이 재화, 장비, 영웅 선택, 업적, 에너지, 설정을 관리한다.
 - **전투 세션:** `GameSceneModel`과 `InGameHeroModel`이 시간, 처치 수, 세션 골드, 체력, 경험치와 전투 능력치를 관리한다.
 - **콘텐츠 정의:** `ScriptableObject`가 영웅·적·무기·스테이지·장비·강화 비용 등의 설정을 제공한다.
-
-### 1.1 인게임 이미지
-
-#### 1.1.1 메인(로비)화면
-
-| Shop | Character | Stage | Upgrade |
-| :---: | :---: | :---: | :---: |
-| <img src="Images/Shop.png" alt="상점 화면" width="200"> | <img src="Images/Character.png" alt="캐릭터 화면" width="200"> | <img src="Images/Stage.png" alt="스테이지 화면" width="200"> | <img src="Images/Upgrade.png" alt="강화 화면" width="200"> |
-
-#### 1.1.2 인게임 화면
-
-| Ingame | Ingame_SelectAbility | Ingame_Warning | Victory |
-| :---: | :---: | :---: | :---: |
-| <img src="Images/Ingame.png" alt="전투 화면" width="200"> | <img src="Images/Ingame_SelectAbility.png" alt="능력 선택 화면" width="200"> | <img src="Images/Ingame_Warning.png" alt="경고 화면" width="200"> | <img src="Images/Victory.png" alt="승리 화면" width="200"> |
 
 ## 2. 개발 환경과 의존성
 
