@@ -549,8 +549,6 @@ public void AllReturnPool()
 
 ## 3. 사용 에셋
 
-버전은 2026-10-23에 확인한 Unity Asset Store 페이지의 최신 버전 기준입니다.
-
 | 에셋 이름 | 버전 |
 | --- | --- |
 | [GUI Bundle - 10 Styles](https://assetstore.unity.com/packages/2d/gui/gui-bundle-10-styles-268635) | 2.0.2 |
