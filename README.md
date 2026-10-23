@@ -16,7 +16,7 @@
 
 ## 1. 프로젝트 개요
 
-Unity 기반 2D 생존형 로그라이트 게임입니다. 로비에서 영웅 선택, 장비 관리, 합성, 영구 능력치 강화를 수행하고 전투 씬에서 조이스틱 이동과 자동 공격으로 적을 처치합니다. 경험치로 레벨을 올리며 무기·패시브를 선택하고, 제한 시간 이후 등장하는 보스를 처치하면 스테이지를 클리어합니다.
+Unity 기반 2D 생존형 로그라이트 게임입니다. 로비에서 영웅 선택, 장비 관리, 합성, 영구 능력치 강화를 수행하고 전투 씬에서 조이스틱 이동과 자동 공격으로 적을 처치합니다. 경험치로 레벨을 올리며 무기·패시브를 선택하고 제한 시간 이후 등장하는 보스를 처치하면 스테이지를 클리어합니다.
 
 전체 구조는 다음 세 축으로 구성됩니다.
 
@@ -98,7 +98,7 @@ flowchart LR
 ```
 
 - 에디터: `Application.dataPath/gameData.json` → 프로젝트의 `Assets/gameData.json`
-- 플레이어: `Application.persistentDataPath/gameData.json`
+- 그 외 플랫폼: `Application.persistentDataPath/gameData.json`
 - 직렬화: `JsonUtility.ToJson(..., true)` / `JsonUtility.FromJson<GameData>()`
 - 파일 처리: 동기식 `File.ReadAllText` / `File.WriteAllText`
 
@@ -120,9 +120,9 @@ flowchart LR
     Save --> Battle["전투 초기화 시 영웅 보너스 적용"]
 ```
 
-`MenuNumber`는 Shop, Character, Stage, Upgrade 순서입니다. `MenuPresenter`는 DOTween으로 메뉴 위치를 이동하고 캐릭터 메뉴 진입 시 인벤토리를 초기화합니다.
+`MenuNumber`는 Shop, Character, Stage, Upgrade 순서입니다. 각 메뉴는 Model, View, Presenter를 분리하여 데이터와 UI를 분리해 유지 보수와 확장성을 추구하였으며 DOTween으로 메뉴 위치를 이동하고 캐릭터 메뉴 진입 시 인벤토리를 초기화합니다.
 
-`HeroModel`은 `GameDatas/HeroConfigData`에서 영웅 설정을 로드하고 ID 딕셔너리를 만듭니다. 현재 영웅 설정 에셋은 `00`, `01`, `02`의 3개입니다. 영웅 변경은 ID를 저장하며 전투 초기화 시 해당 설정의 공격력·이동속도·최대 체력 보너스가 적용됩니다.
+`HeroModel`은 `GameDatas/HeroConfigData`에서 영웅 설정을 로드하고 ID 딕셔너리를 만듭니다. ScriptableObject를 사용하여 게임 데이터를 용이하게 관리하고 영웅 변경은 ID를 저장하며 전투 초기화 시 해당 영웅 설정의 보너스 능력치가 적용됩니다.
 
 #### 2.3.2 장비 관리와 합성
 
@@ -147,11 +147,12 @@ flowchart LR
 - `SO_EquipmentItemData`: 공통 정의. ID, 부위, 티어, 아이콘, 등급별 기본 능력치와 레벨당 증가량.
 - `EquipmentItemData`: 보유 개체. `InstanceID`, `ItemID`, 부위, 등급, 등급 내 단계, 아이템 레벨.
 
-현재 `GameDatas/ItemData`에는 6부위 × 3개의 정의 에셋이 있습니다. `EquipmentItemDatabase`는 ID 조회와 부위·등급 스프라이트 조회를 제공합니다. 장착과 해제는 인벤토리 목록과 장착 목록 사이에서 개체를 이동하는 방식입니다.
+`EquipmentItemDatabase`는 장비 ID 조회와 부위·등급 스프라이트 조회를 제공합니다.
+장착과 해제는 인벤토리 목록과 장착 목록 사이에서 개체를 이동하는 방식입니다.
 
-장비 보너스 계산식은 `BaseStat + StatPerLevel × ItemLevel`이며 공격력과 체력을 별도로 합산합니다. 장비 관리와 전투 능력치 반영은 현재 분리되어 있습니다.
+장비 보너스 계산식은 `BaseStat + StatPerLevel × ItemLevel`이며 공격력과 체력을 별도로 합산합니다. 장비 관리와 전투 능력치 반영은 분리되어 있습니다.
 
-장비 강화는 골드와 부위별 스크롤을 사용합니다. 비용은 `SO_EquipmentItemLevelUpCostConfigData`의 레벨별 테이블을 참조합니다. 등급별 기본 최대 레벨은 Common 10, UnCommon 20, Rare 30, Unique 50, Epic 80, Legendary 120, Special 200이며, 등급 내 단계마다 10이 추가됩니다.
+장비 강화는 골드와 부위별 스크롤을 사용합니다. 비용은 `SO_EquipmentItemLevelUpCostConfigData`의 레벨별 테이블을 참조합니다. 등급별 기본 최대 레벨은 Common 10, UnCommon 20, Rare 30, Unique 50, Epic 80, Legendary 120, Special 200이며, 등급 내 단계마다 10레벨이 추가됩니다.
 
 `ItemLevelUp()`는 1회 강화, `ItemLevelUpPossible()`은 가능한 만큼 실제로 강화하는 함수입니다.
 
@@ -168,13 +169,13 @@ flowchart LR
     Remove --> Save["저장 · 결과 표시 · 목록 갱신"]
 ```
 
-`EquipmentMergePresenter`가 후보 필터링, 재료 선택, 결과 표시, 모델 변경을 담당합니다. `SO_MergeRuleData`는 입력 등급·단계에 따른 재료 수와 출력 등급·단계를 제공합니다. 일부 재료 일치 조건은 Presenter에 직접 구현되어 있어 규칙 에셋만 바꿔 모든 합성 동작을 변경할 수는 없습니다.
+`EquipmentMergePresenter`가 합성 후보 필터링, 재료 선택, 결과 표시, 모델 값 변경을 담당합니다. `SO_MergeRuleData`는 선택한 장비의 등급·단계에 따른 재료 수와 결과 등급·단계를 제공합니다.
 
-낮은 등급은 동일 ID 3개를 사용해 다음 등급으로 올립니다. 상위 등급은 동일 부위 재료를 통한 단계 상승과 동일 ID를 통한 등급 상승을 조합합니다. 일괄 합성은 Default 티어의 Common·UnCommon·Rare를 순차 처리합니다.
+Rare이하 등급은 동일 ID 3개를 사용해 다음 등급으로 올립니다. Rare이상 등급은 동일 부위 재료를 통한 단계 상승과 동일 ID를 통해 등급을 상승합니다. 일괄 합성은 Common·UnCommon·Rare등급을 순차 처리합니다.
 
 **핵심 코드 — 합성 규칙 적용과 재료 소비**
 
-`Assets/01.Scripts/MainScene/EquipmentMerge/EquipmentMergePresenter.cs`의 `Merge()`에서 결과 UI 처리를 제외한 발췌입니다. 선택 장비의 등급·단계로 규칙을 조회하고, 결과를 적용한 뒤 재료 장비를 제거하고 저장합니다.
+`EquipmentMergePresenter.cs`의 `Merge()`에서 결과 UI 처리를 제외한 부분입니다. 선택한 장비의 등급·단계로 규칙을 조회하고, 결과를 적용한 뒤 재료로 쓰인 장비를 제거하고 저장합니다.
 
 ```csharp
 MergeRule upgradeData = _mergeRule.GetMergeRule(
@@ -211,11 +212,11 @@ flowchart TD
     Validate -->|아니오| Reject["강화 불가"]
 ```
 
-장비 뽑기는 1회·10회를 처리합니다. 등급 가중치는 Common 70, UnCommon 20, Rare 8, Unique 2입니다.
+장비 뽑기는 1회·10회를 처리합니다. 등급 가중치는 Common 70, UnCommon 20, Rare 8, Unique 2입니다. 총 100.
 
-골드 구매는 에메랄드 차감 후 골드를 지급합니다. 지급량은 `(6000 + (MaxStage - 1) × 600) × 배수`이고 배수는 2·8·24입니다.
+골드 구매는 에메랄드 차감 후 골드를 지급합니다. 지급량은 `(6000 + (MaxStage - 1) × 600) × 배수`이고 배수는 2·8·24입니다. 3개의 버튼.
 
-`UpgradeModel`은 공격력·체력·방어력의 영구 강화를 관리합니다. `UpgradeData`의 `Price`·`Value` 배열을 참조하고, 최대 레벨과 골드 부족을 검사한 뒤 차감·레벨 증가·저장을 수행합니다. 강화 결과는 전투 모델이 초기화 시 읽습니다.
+`UpgradeModel`은 공격력·체력·방어력의 영구 강화를 관리합니다. `UpgradeData`의 `Price`·`Value` 배열을 참조하고 각 업그레이드 최대 레벨과 업그레이드 시 골드 부족을 검사한 뒤 문제가 없다면 골드 차감·레벨 증가·저장을 수행합니다. 강화 결과는 전투 시 모델이 초기화해 적용합니다.
 
 #### 2.3.4 업적과 에너지
 
@@ -254,7 +255,7 @@ flowchart LR
 
 **핵심 코드 — 조건별 업적 진행과 완료 판정**
 
-`Assets/01.Scripts/Achievement/AchievementManager.cs`의 `Report()`는 같은 조건의 업적에 진행량을 더하고, 목표에 도달하면 완료 상태로 저장합니다.
+`AchievementManager.cs`의 `Report()`는 같은 조건의 업적에 진행량을 더하고, 목표에 도달하면 완료 상태로 저장합니다.
 
 ```csharp
 public void Report(AchievementConditionType conditionType, int amount = 1)
@@ -284,7 +285,7 @@ public void Report(AchievementConditionType conditionType, int amount = 1)
 
 **핵심 코드 — 일시정지와 독립적인 에너지 충전**
 
-`Assets/01.Scripts/Energy/EnergyManager.cs`의 `UpdateRemainTime()`입니다. 실제 시간 기준으로 남은 시간을 갱신하고, 충전 구간을 지나면 에너지를 추가하며 UI에 변경을 알립니다.
+`EnergyManager.cs`의 `UpdateRemainTime()`입니다. 실제 시간 기준으로 완충까지의 남은 시간을 갱신하고, 충전 구간을 지나면 에너지를 추가하며 UI에 변경을 알립니다.
 
 ```csharp
 private IEnumerator UpdateRemainTime()
@@ -324,14 +325,14 @@ flowchart LR
     Fight -->|플레이어 사망| Fail
 ```
 
-`GameSceneManager`는 선택 스테이지의 `StageData{번호}`를 읽고 영웅·스포너·조이스틱·UI 이벤트를 연결합니다.
+`GameSceneManager`는 선택 스테이지의 `StageData{번호}`를 읽고 영웅·적스포너·조이스틱·UI 이벤트를 연결합니다.
 
-1. 일반 적이 스포너의 직렬화된 간격마다 생성됩니다.
+1. 일반 적이 스포너의 정해진 간격마다 생성됩니다.
 2. 제한 시간의 1/3에서 20마리씩 3회, 2/3에서 40마리씩 3회 추가 생성합니다. 각 웨이브 간격은 3초입니다.
 3. 제한 시간이 지나면 일반 생성 코루틴을 멈추고 기존 미니언을 죽음 상태로 전환한 후 보스 목록의 마지막 보스를 생성합니다.
 4. 보스 등장 이후 스테이지 시간 누적을 멈춥니다.
-5. 보스 처치 시 세션 골드를 영구 골드로 옮기고 처치 업적을 보고하며 게임을 멈추고 클리어 UI를 표시합니다.
-6. 현재 최대 스테이지를 클리어했다면 최대 스테이지와 선택 스테이지를 다음 번호로 갱신합니다.
+5. 보스 처치 시 스테이지 골드를 영구 골드로 옮기고 처치 업적을 보고하며 게임을 멈추고 클리어 UI를 표시합니다.
+6. 현재 최대 스테이지를 클리어했다면 최대 스테이지와 선택 스테이지를 다음 스테이지로 갱신합니다.
 
 #### 2.4.2 플레이어 이동과 능력치
 
@@ -349,7 +350,7 @@ flowchart LR
     Model --> Stats["최대 체력 · 공격력 · 방어력 계산"]
 ```
 
-`Joystick`은 포인터 이벤트로 방향을 계산하고 `HeroController`를 통해 `HeroMovement`의 `Rigidbody2D.linearVelocity`를 설정합니다. 입력 방향을 정규화하므로 드래그 거리로 이동 속도를 조절하는 구조는 아닙니다. 포인터를 놓으면 속도 0을 전달합니다.
+`Joystick`은 포인터 이벤트로 이동 방향을 계산하고 `HeroController`를 통해 `HeroMovement`의 `Rigidbody2D.linearVelocity`를 설정합니다. 입력 방향을 정규화해서 전달하므로 조이스틱 드래그 거리로 이동 속도를 조절하는 구조는 아닙니다. 포인터를 놓으면 속도 0을 전달합니다.
 
 ```text
 MaxHp    = (기본 최대 체력 + 영구 체력 강화) × (1 + 체력 증가율 / 100)
@@ -378,9 +379,9 @@ flowchart LR
     Resume --> Continue
 ```
 
-필요 경험치는 `SO_ExpConfigData`의 배열에서 읽고 50레벨 이후에는 마지막 값을 사용합니다. `CheckExp()`는 호출당 한 번만 레벨을 올립니다.
+필요 경험치는 `SO_ExpConfigData`의 설정 데이터 배열에서 읽고 50레벨 이후에는 마지막 값을 사용합니다. `CheckExp()`는 호출당 한 번만 레벨을 올립니다.
 
-`UpgradeController`는 레벨업 시 `Time.timeScale = 0`으로 정지하고 선택지를 구성합니다. 기본 무기 5레벨과 요구 패시브 1레벨 이상이면 각성 후보를 우선 넣고, 나머지는 5레벨 미만의 성장 항목을 섞어 최대 3개를 채웁니다. 성장 후보가 없으면 골드·회복 같은 일회성 보상으로 대체합니다. 선택 후 시간을 1로 되돌립니다.
+`UpgradeController`는 레벨업 시 `Time.timeScale = 0`으로 정지하고 능력 선택지를 구성합니다. 기본 무기 5레벨과 요구 패시브 1레벨 이상이면 각성 선택 후보를 우선 넣고 나머지는 5레벨 미만의 성장 항목을 섞어 최대 3개의 슬롯을 채웁니다. 성장 후보가 없으면 골드·회복 같은 일회성 보상으로 대체합니다. 선택 후 시간을 `Time.timeScale = 1`로 되돌립니다.
 
 #### 2.4.4 무기·패시브·각성
 
@@ -429,7 +430,7 @@ stateDiagram-v2
 
 `EnemyControllerBase`는 `IState`의 진입·갱신·이탈 호출로 행동을 전환합니다. 추적형, 돌진형, 고정형 미니언과 순간이동 보스가 구현되어 있으며 정상·피격·사망·공격·이동 상태를 조합합니다.
 
-`EnemyModel`의 최대 체력과 공격력은 다음 배율을 적용한 뒤 정수로 반올림합니다. 이동속도는 설정값을 그대로 사용합니다.
+`EnemyModel`의 최대 체력과 공격력은 스테이지별로 증가된 배율을 적용한 뒤 정수로 반올림합니다. 이동속도는 설정값을 그대로 사용합니다.
 
 ```text
 스테이지 s는 최소 1
@@ -438,11 +439,11 @@ stateDiagram-v2
                × (1 + floor(s / 100) × 0.1)
 ```
 
-미니언은 플레이어 반경 10의 임의 방향에 풀에서 생성되고, 죽음 상태 이후 경험치 생성과 풀 반환을 수행합니다. 보스는 `Instantiate`로 생성합니다.
+미니언은 설정해둔 플레이어 반경 내의 임의 위치에 풀링 오브젝트로 생성되고, 죽음 상태 이후 경험치 생성과 풀 반환을 수행합니다. 보스는 `Instantiate`로 생성합니다.
 
 **핵심 코드 — 상태의 진입·갱신·이탈 분리**
 
-`Assets/01.Scripts/GameScene/Interface/IState.cs`는 적 상태의 공통 계약입니다.
+`IState.cs`는 적 상태의 공통 계약입니다.
 
 ```csharp
 public interface IState
@@ -453,7 +454,7 @@ public interface IState
 }
 ```
 
-`Assets/01.Scripts/GameScene/Enemy/Controller/EnemyControllerBase.cs`에서 현재 상태를 매 프레임 갱신하고, 상태 변경 시 이전 상태의 종료와 새 상태의 진입을 순서대로 실행합니다. 사망 상태에서는 추가 전환을 막습니다.
+`EnemyControllerBase.cs`에서 현재 상태를 매 프레임 갱신하고, 상태 변경 시 이전 상태의 종료와 새 상태의 진입을 순서대로 실행합니다. 사망 상태에서는 다른 상태 전환을 막습니다.
 
 ```csharp
 private void Update()
@@ -508,7 +509,7 @@ flowchart TD
 
 **핵심 코드 — 객체 대여·반환과 씬 전환 시 일괄 회수**
 
-`Assets/01.Scripts/Pool/Pool.cs`의 핵심 메서드입니다. 대여 집합으로 사용 중인 객체를 추적하고, 일괄 반환 시에는 복사본을 순회합니다.
+`Pool.cs`의 핵심 메서드입니다. 대여 집합으로 사용 중인 객체를 추적하고, 일괄 반환 시에는 복사본을 순회하여 반환합니다.
 
 ```csharp
 public GameObject Pop(Transform parent)
